@@ -94,13 +94,15 @@ export const Navbar: React.FC = () => {
             : "bg-white/90 backdrop-blur-sm border-slate-200/80"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 md:px-8 h-20 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-4 md:px-8 h-20 flex justify-between items-center gap-6">
           
           {/* Brand Logo */}
-          <Logo size="md" />
+          <div className="flex-shrink-0 mr-4 lg:mr-8">
+            <Logo size="md" />
+          </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center gap-6 text-sm font-semibold">
+          <nav className="hidden xl:flex items-center gap-7 text-sm font-semibold">
             <Link
               href="/"
               className={`transition-colors py-2 ${

@@ -21,19 +21,19 @@ export const Logo: React.FC<LogoProps> = ({
 
   const sizeClasses = {
     sm: "h-9 sm:h-10 w-auto",
-    md: "h-12 sm:h-14 md:h-16 w-auto",
-    lg: "h-14 sm:h-16 md:h-18 w-auto",
+    md: "h-11 sm:h-13 md:h-14 w-auto",
+    lg: "h-13 sm:h-15 md:h-16 w-auto",
     xl: "h-16 sm:h-20 w-auto",
   };
 
+  const logoSrc = isLight ? "/logo-light.png" : "/logo-full.png";
+
   const logoImage = (
     <div
-      className={`inline-flex items-center group select-none transition-transform duration-200 group-hover:scale-[1.02] ${
-        isLight ? "bg-white p-2 sm:p-2.5 rounded-2xl shadow-sm border border-white/20" : ""
-      } ${className}`}
+      className={`inline-flex items-center group select-none transition-transform duration-200 group-hover:scale-[1.02] ${className}`}
     >
       <Image
-        src="/logo-full.png"
+        src={logoSrc}
         alt={`${BRAND_CONFIG.name} - ${BRAND_CONFIG.tagline}`}
         width={540}
         height={144}
