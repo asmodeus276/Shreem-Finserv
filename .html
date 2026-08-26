@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Shreem Finserv - Financial Growth Partner</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@600;700&amp;display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary-fixed-dim": "#b7c4ff",
+                        "on-surface": "#191c1e",
+                        "surface-container-highest": "#e0e3e5",
+                        "surface-container-high": "#e6e8ea",
+                        "on-secondary": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-tertiary-fixed-variant": "#7f2a0c",
+                        "background": "#f7f9fb",
+                        "on-tertiary-container": "#f4815c",
+                        "tertiary": "#460f00",
+                        "primary": "#001a62",
+                        "on-primary-fixed-variant": "#223e9c",
+                        "secondary-fixed-dim": "#ffb3ad",
+                        "surface": "#FFFFFF",
+                        "surface-tint": "#3e57b5",
+                        "on-tertiary": "#ffffff",
+                        "text-muted": "#64748B",
+                        "on-primary-container": "#839cff",
+                        "on-primary": "#ffffff",
+                        "secondary": "#bb0119",
+                        "inverse-on-surface": "#eff1f3",
+                        "primary-container": "#0b2e8d",
+                        "on-primary-fixed": "#001552",
+                        "surface-container": "#eceef0",
+                        "on-surface-variant": "#444652",
+                        "on-secondary-container": "#fffbff",
+                        "on-secondary-fixed": "#410003",
+                        "primary-fixed": "#dde1ff",
+                        "on-secondary-fixed-variant": "#930011",
+                        "outline-variant": "#c5c5d4",
+                        "text-main": "#0F172A",
+                        "tertiary-fixed": "#ffdbd0",
+                        "on-background": "#191c1e",
+                        "success": "#10B981",
+                        "surface-dim": "#d8dadc",
+                        "outline": "#757683",
+                        "on-error": "#ffffff",
+                        "surface-variant": "#e0e3e5",
+                        "inverse-primary": "#b7c4ff",
+                        "tertiary-container": "#6b1c00",
+                        "tertiary-fixed-dim": "#ffb59e",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "secondary-container": "#e0292e",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#3a0b00",
+                        "inverse-surface": "#2d3133",
+                        "surface-bright": "#f7f9fb",
+                        "secondary-fixed": "#ffdad6",
+                        "surface-container-lowest": "#ffffff",
+                        "border-subtle": "#E2E8F0"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "container-max": "1280px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Inter"],
+                        "label-md": ["Inter"],
+                        "label-sm": ["Inter"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "headline-lg-mobile": ["28px", { "lineHeight": "36px", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "label-md": ["14px", { "lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600" }],
+                        "label-sm": ["12px", { "lineHeight": "16px", "fontWeight": "500" }],
+                        "display-lg": ["48px", { "lineHeight": "60px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .glass-panel {
+                @apply bg-surface/90 backdrop-blur-md border border-border-subtle shadow-sm;
+            }
+            .interactive-shadow {
+                @apply shadow-[0_8px_30px_rgba(11,46,141,0.08)] hover:shadow-[0_12px_40px_rgba(11,46,141,0.12)] transition-shadow duration-300;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary">
+    <!-- TopAppBar -->
+    <header
+        class="fixed top-0 w-full z-50 border-b border-border-subtle dark:border-outline-variant bg-surface/90 backdrop-blur-md shadow-sm">
+        <!-- Quick Contact Bar -->
+        <div class="bg-primary-container text-on-primary py-2 px-margin-mobile md:px-margin-desktop">
+            <div class="max-w-container-max mx-auto flex justify-between items-center text-label-sm font-label-sm">
+                <div class="flex items-center gap-4">
+                    <span class="flex items-center gap-1"><span
+                            class="material-symbols-outlined text-[16px]">call</span> +91 9355445828</span>
+                    <span class="hidden md:flex items-center gap-1"><span
+                            class="material-symbols-outlined text-[16px]">mail</span> Contact@shreemfinserv.com</span>
+                </div>
+                <div class="flex items-center gap-1 text-primary-fixed-dim">
+                    <span class="material-symbols-outlined text-[16px]">lock</span> 100% Secure
+                </div>
+            </div>
+        </div>
+        <!-- Main Nav -->
+        <div
+            class="flex justify-between items-center max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop h-20">
+            <div
+                class="flex items-center gap-3 font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                <img alt="Shreem Finserv Logo" class="h-[56px] w-auto object-contain"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyVj04fdriYMaTMK4Cq_Cl00KklZd05ApLyB46OeAR-gu5svVpmd_mkzvGHcRTY2EPSgJBco4Ox-mRkV8PlrrFz95fZKkQ2godjgKpv3i8-O13AtpQCn458OpNnOoeIX2On61TC-xK8qF7D94BTDmCms92fe2utkBf5gTnbC2sk7A876sOfXS7GJvG7DJxBs2-YeynWFXMdpCuJJsg5FMXzZWMwUM3rDqLDf8cHEKA1xhE4YqZV7cjRDpxDqwjje0n4BA">
+                <span class="hidden md:block">Shreem Finserv</span>
+            </div>
+            <nav class="hidden lg:flex items-center gap-6">
+                <a class="font-label-md text-label-md text-primary border-b-2 border-primary font-semibold py-7"
+                    href="#">Personal Loans</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200"
+                    href="#">Business Loans</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200"
+                    href="#">LAP</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200"
+                    href="#">Working Capital</a>
+                <a class="font-label-md text-label-md text-on-surface-variant hover:text-primary transition-colors duration-200"
+                    href="#">Machinery</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <button
+                    class="hidden md:flex items-center justify-center font-label-md text-label-md text-primary border border-primary px-6 py-2.5 rounded hover:bg-surface-container-low transition-colors">
+                    Track Application
+                </button>
+                <button
+                    class="flex items-center justify-center font-label-md text-label-md bg-secondary text-on-primary px-6 py-2.5 rounded hover:bg-secondary-container transition-colors shadow-sm">
+                    Apply Now
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="pt-[120px]">
+        <!-- Hero Section -->
+        <section
+            class="relative max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop py-12 md:py-20 lg:py-24">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-gutter items-center">
+                <!-- Left: Value Prop -->
+                <div class="space-y-8 z-10">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-container/10 text-primary font-label-sm text-label-sm border border-primary/20">
+                        <span class="material-symbols-outlined text-[16px] text-secondary">flash_on</span>
+                        Fast-Track Approvals
+                    </div>
+                    <h1 class="font-display-lg text-display-lg text-text-main">
+                        Instant Loan Disbursal with <span class="text-primary block mt-2">Minimal Paperwork</span>
+                    </h1>
+                    <p class="font-body-lg text-body-lg text-text-muted max-w-xl">
+                        Your trusted financial growth partner. We provide bespoke lending solutions designed to fuel
+                        your personal and business aspirations with total transparency and data security.
+                    </p>
+                    <div class="flex flex-wrap gap-6 pt-4">
+                        <div class="flex items-center gap-2 text-text-main font-label-md text-label-md">
+                            <div
+                                class="w-8 h-8 rounded-full bg-success/20 flex items-center justify-center text-success">
+                                <span class="material-symbols-outlined text-[20px]">verified_user</span>
+                            </div>
+                            DPDP 2026 Compliant
+                        </div>
+                        <div class="flex items-center gap-2 text-text-main font-label-md text-label-md">
+                            <div
+                                class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined text-[20px]">shield</span>
+                            </div>
+                            100% Secure
+                        </div>
+                        <div class="flex items-center gap-2 text-text-main font-label-md text-label-md">
+                            <div
+                                class="w-8 h-8 rounded-full bg-surface-container-high flex items-center justify-center text-on-surface">
+                                <span class="material-symbols-outlined text-[20px]">money_off</span>
+                            </div>
+                            Zero Upfront Fees
+                        </div>
+                    </div>
+                </div>
+                <!-- Right: Lead Form -->
+                <div class="z-10 w-full max-w-md lg:ml-auto">
+                    <div class="bg-surface rounded-xl border border-border-subtle p-8 interactive-shadow">
+                        <h2 class="font-headline-md text-headline-md text-text-main mb-2">Check Eligibility in 60s</h2>
+                        <p class="font-body-md text-body-md text-text-muted mb-6">No impact on your credit score.</p>
+                        <form class="space-y-5">
+                            <div>
+                                <label class="block font-label-md text-label-md text-on-surface-variant mb-1.5">Full
+                                    Name</label>
+                                <input
+                                    class="w-full bg-surface-container-lowest border border-border-subtle rounded-lg px-4 py-3 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                                    placeholder="As per PAN card" type="text">
+                            </div>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label
+                                        class="block font-label-md text-label-md text-on-surface-variant mb-1.5">Mobile</label>
+                                    <div class="relative">
+                                        <span
+                                            class="absolute left-4 top-3 text-text-muted font-body-md text-body-md">+91</span>
+                                        <input
+                                            class="w-full bg-surface-container-lowest border border-border-subtle rounded-lg pl-12 pr-4 py-3 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                                            placeholder="00000 00000" type="tel">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label
+                                        class="block font-label-md text-label-md text-on-surface-variant mb-1.5">City</label>
+                                    <input
+                                        class="w-full bg-surface-container-lowest border border-border-subtle rounded-lg px-4 py-3 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                                        placeholder="e.g. Mumbai" type="text">
+                                </div>
+                            </div>
+                            <div>
+                                <label class="block font-label-md text-label-md text-on-surface-variant mb-1.5">Loan
+                                    Category</label>
+                                <select
+                                    class="w-full bg-surface-container-lowest border border-border-subtle rounded-lg px-4 py-3 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors appearance-none">
+                                    <option disabled="" selected="" value="">Select Category</option>
+                                    <option>Personal Loan</option>
+                                    <option>Business Loan</option>
+                                    <option>Loan Against Property</option>
+                                    <option>Working Capital</option>
+                                </select>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1.5">
+                                    <label class="block font-label-md text-label-md text-on-surface-variant">Required
+                                        Amount</label>
+                                    <span class="font-label-md text-label-md text-primary" id="amountDisplay">₹
+                                        50,00,000</span>
+                                </div>
+                                <input
+                                    class="w-full h-2 bg-surface-container-high rounded-lg appearance-none cursor-pointer accent-primary"
+                                    max="50000000" min="10000" type="range" value="5000000">
+                                <div class="flex justify-between mt-1 text-xs text-text-muted">
+                                    <span class="">10k</span>
+                                    <span class="">5Cr</span>
+                                </div>
+                            </div>
+                            <label class="flex items-start gap-3 mt-4 group cursor-pointer">
+                                <input class="mt-1 w-4 h-4 rounded border-border-subtle text-primary focus:ring-primary"
+                                    type="checkbox">
+                                <span
+                                    class="font-label-sm text-label-sm text-text-muted group-hover:text-text-main transition-colors">I
+                                    agree to the <a class="text-primary underline" href="#">Terms</a> and consent to
+                                    data processing under DPDP 2026.</span>
+                            </label>
+                            <button
+                                class="w-full bg-secondary hover:bg-secondary-container text-on-primary font-label-md text-label-md py-3.5 rounded-lg transition-colors flex justify-center items-center gap-2 shadow-sm mt-2"
+                                type="button">
+                                Submit Application <span
+                                    class="material-symbols-outlined text-[20px]">arrow_forward</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- Atmospheric abstract shape -->
+            <div
+                class="absolute top-0 right-0 -z-10 w-[800px] h-[800px] bg-gradient-to-br from-primary-fixed-dim/20 to-transparent rounded-full blur-3xl opacity-50 transform translate-x-1/3 -translate-y-1/4">
+            </div>
+        </section>
+        <!-- Tracking Widget Section -->
+        <section class="bg-surface-container-low py-16">
+            <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+                <div
+                    class="bg-surface rounded-xl border border-border-subtle p-8 md:p-12 shadow-sm max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-12">
+                    <div class="flex-1 space-y-4 text-center md:text-left">
+                        <h3 class="font-headline-lg text-headline-lg text-text-main">Track Your Loan Application</h3>
+                        <p class="font-body-md text-body-md text-text-muted">Enter your unique tracking ID to view
+                            real-time status updates securely.</p>
+                        <div class="flex max-w-md mx-auto md:mx-0 mt-6 relative">
+                            <span
+                                class="absolute left-4 top-3.5 material-symbols-outlined text-text-muted text-[20px]">search</span>
+                            <input
+                                class="w-full bg-surface-container-lowest border border-border-subtle rounded-l-lg pl-12 pr-4 py-3 font-body-md text-body-md focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
+                                placeholder="CC-XXXXXXXX" type="text" value="CC-78945612">
+                            <button
+                                class="bg-primary hover:bg-primary-container text-on-primary px-6 font-label-md text-label-md rounded-r-lg transition-colors">Track</button>
+                        </div>
+                    </div>
+                    <div
+                        class="w-full md:w-auto bg-surface-container-lowest border border-border-subtle rounded-lg p-6 min-w-[300px]">
+                        <div class="flex items-center gap-4 mb-4 pb-4 border-b border-border-subtle">
+                            <div
+                                class="w-12 h-12 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
+                                <span class="material-symbols-outlined">person</span>
+                            </div>
+                            <div>
+                                <p class="font-label-sm text-label-sm text-text-muted uppercase tracking-wider">
+                                    Applicant</p>
+                                <p class="font-headline-md text-headline-md text-text-main">R**** S*****</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-center">
+                                <span class="font-label-md text-label-md text-text-muted">Application ID</span>
+                                <span class="font-body-md text-body-md text-text-main font-mono">CC-7894...</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <span class="font-label-md text-label-md text-text-muted">Status</span>
+                                <span
+                                    class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-tertiary-fixed text-on-tertiary-fixed font-label-sm text-label-sm">
+                                    <span class="w-2 h-2 rounded-full bg-tertiary"></span> Under Review
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Specialized Services Grid -->
+        <section class="py-20 md:py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-display-lg text-display-lg text-text-main mb-4">Specialized Financial Solutions</h2>
+                <p class="font-body-lg text-body-lg text-text-muted">Tailored lending products designed to meet the
+                    unique demands of your profession and enterprise.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div
+                    class="bg-surface border border-border-subtle rounded-xl p-6 md:p-8 hover:border-primary/30 interactive-shadow group flex flex-col h-full">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                        <span class="material-symbols-outlined">medical_services</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-text-main mb-3">Personal Loans for Doctors</h3>
+                    <p class="font-body-md text-body-md text-text-muted mb-6 flex-grow">Unsecured lending with
+                        preferential rates designed specifically for medical professionals.</p>
+                    <a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary group-hover:text-primary-container transition-colors mt-auto"
+                        href="#">
+                        Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Card 2 -->
+                <div
+                    class="bg-surface border border-border-subtle rounded-xl p-6 md:p-8 hover:border-primary/30 interactive-shadow group flex flex-col h-full">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                        <span class="material-symbols-outlined">storefront</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-text-main mb-3">MSME Working Capital</h3>
+                    <p class="font-body-md text-body-md text-text-muted mb-6 flex-grow">Flexible credit lines to manage
+                        cash flow and operational expenses smoothly.</p>
+                    <a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary group-hover:text-primary-container transition-colors mt-auto"
+                        href="#">
+                        Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Card 3 -->
+                <div
+                    class="bg-surface border border-border-subtle rounded-xl p-6 md:p-8 hover:border-primary/30 interactive-shadow group flex flex-col h-full">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                        <span class="material-symbols-outlined">real_estate_agent</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-text-main mb-3">Loan Against Property</h3>
+                    <p class="font-body-md text-body-md text-text-muted mb-6 flex-grow">Unlock the value of your
+                        residential or commercial real estate for large-ticket needs.</p>
+                    <a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary group-hover:text-primary-container transition-colors mt-auto"
+                        href="#">
+                        Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Card 4 -->
+                <div
+                    class="bg-surface border border-border-subtle rounded-xl p-6 md:p-8 hover:border-primary/30 interactive-shadow group flex flex-col h-full">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                        <span class="material-symbols-outlined">precision_manufacturing</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-text-main mb-3">Machinery &amp; Equipment</h3>
+                    <p class="font-body-md text-body-md text-text-muted mb-6 flex-grow">Upgrade your operational
+                        capacity with dedicated equipment financing options.</p>
+                    <a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary group-hover:text-primary-container transition-colors mt-auto"
+                        href="#">
+                        Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Card 5 -->
+                <div
+                    class="bg-surface border border-border-subtle rounded-xl p-6 md:p-8 hover:border-primary/30 interactive-shadow group flex flex-col h-full">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                        <span class="material-symbols-outlined">bolt</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-text-main mb-3">Urgent Cash Advance</h3>
+                    <p class="font-body-md text-body-md text-text-muted mb-6 flex-grow">Short-term liquidity solutions
+                        for immediate, unforeseen financial requirements.</p>
+                    <a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary group-hover:text-primary-container transition-colors mt-auto"
+                        href="#">
+                        Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Card 6 -->
+                <div
+                    class="bg-surface border border-border-subtle rounded-xl p-6 md:p-8 hover:border-primary/30 interactive-shadow group flex flex-col h-full">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary mb-6 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+                        <span class="material-symbols-outlined">diversity_3</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md text-text-main mb-3">Loans for Women Entrepreneurs</h3>
+                    <p class="font-body-md text-body-md text-text-muted mb-6 flex-grow">Empowering female founders with
+                        specialized credit facilities and lower rates.</p>
+                    <a class="inline-flex items-center gap-2 font-label-md text-label-md text-primary group-hover:text-primary-container transition-colors mt-auto"
+                        href="#">
+                        Learn More <span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer from JSON -->
+    <footer class="bg-primary dark:bg-on-background w-full py-12 px-margin-desktop mt-12">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter max-w-container-max mx-auto">
+            <div class="md:col-span-1 space-y-4">
+                <div class="flex items-center gap-2"><img alt="Shreem Finserv Logo"
+                        class="h-[56px] w-auto object-contain"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuA4QYuqaQa3Nea6NlUZLEQ_w34uIQejehbJeu9fGsWydI1kGMbuRlWrgA2rz3x_oCbZHYzIdrGrV4zvNSqKSYamgaX0cuD2XDZ0iwenl13U6JoIqAz8numXfVaBgDphUcwrz37pe_oz-4Slhp1HfsghaiJYKsOJd4PsUQrbZ05EwQu8LG448CTdGkzkfr6C2w8pC3_WXlonNuhO06_o7nZXIPBXEAxPrNN6P-XaMGOJn8M9Jsgb5EkseLlr8xyWBfe4ixk">
+                    <span class="font-headline-md text-headline-md font-bold text-on-primary">Shreem Finserv</span>
+                </div>
+                <p class="font-body-md text-body-md text-on-primary/80 max-w-xs">
+                    Office No. 537, Cloud 9 Tower, Vaishali (GZB), UP 201010
+                </p>
+                <div class="pt-2">
+                    <div
+                        class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-on-primary/10 border border-on-primary/20 text-on-primary font-label-sm text-label-sm">
+                        <span class="material-symbols-outlined text-[16px]">verified_user</span> DPDP 2026 Compliant
+                    </div>
+                </div>
+            </div>
+            <div class="md:col-span-2 flex flex-col justify-center">
+                <nav class="flex flex-wrap gap-x-8 gap-y-4">
+                    <a class="font-label-sm text-label-sm text-on-primary/80 hover:text-on-primary hover:underline decoration-secondary transition-all opacity-90 hover:opacity-100"
+                        href="#">Privacy Policy</a>
+                    <a class="font-label-sm text-label-sm text-on-primary/80 hover:text-on-primary hover:underline decoration-secondary transition-all opacity-90 hover:opacity-100"
+                        href="#">Terms of Service</a>
+                    <a class="font-label-sm text-label-sm text-on-primary/80 hover:text-on-primary hover:underline decoration-secondary transition-all opacity-90 hover:opacity-100"
+                        href="#">Compliance</a>
+                    <a class="font-label-sm text-label-sm text-on-primary/80 hover:text-on-primary hover:underline decoration-secondary transition-all opacity-90 hover:opacity-100"
+                        href="#">Contact Support</a>
+                    <a class="font-label-sm text-label-sm text-on-primary/80 hover:text-on-primary hover:underline decoration-secondary transition-all opacity-90 hover:opacity-100"
+                        href="#">Financial Disclosure</a>
+                </nav>
+            </div>
+            <div class="md:col-span-1 flex flex-col justify-end text-right">
+                <p class="font-label-sm text-label-sm text-on-primary/60">
+                    © 2024 Shreem Finserv. All rights reserved. DPDP 2026 Compliant.
+                </p>
+                <p class="font-label-sm text-label-sm text-on-primary/50 mt-2 text-xs">
+                    RBI Disclaimer: Loans are subject to credit appraisal and RBI guidelines.
+                </p>
+            </div>
+        </div>
+    </footer>
+    <script>
+        // Simple slider value display
+        const slider = document.querySelector('input[type="range"]');
+        const display = document.getElementById('amountDisplay');
+
+        if (slider && display) {
+            slider.addEventListener('input', function () {
+                const val = parseInt(this.value);
+                const formatter = new Intl.NumberFormat('en-IN', {
+                    style: 'currency',
+                    currency: 'INR',
+                    maximumFractionDigits: 0
+                });
+                display.textContent = formatter.format(val);
+            });
+        }
+    </script>
+
+
+</body>
+
+</html>
