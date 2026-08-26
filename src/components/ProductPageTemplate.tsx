@@ -194,7 +194,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
               minAmount={minSliderAmount}
               maxAmount={maxSliderAmount}
               title={`Apply for ${categoryName}`}
-              subtitle="Get matched across 50+ co-lending banks in under 60 seconds."
+              subtitle="Get matched across 50+ co-lending banks with zero upfront charges."
             />
           </div>
 

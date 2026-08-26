@@ -82,7 +82,7 @@ export default function HomePage() {
             {/* Right Lead Form */}
             <div className="lg:col-span-5">
               <LeadForm
-                title="Check Eligibility in 60s"
+                title="Check Loan Eligibility & Rates"
                 subtitle="Instant evaluation with zero impact on credit score."
               />
             </div>
@@ -159,7 +159,7 @@ export default function HomePage() {
                 1
               </div>
               <h4 className="font-bold text-slate-900 text-base mb-1">Apply Online</h4>
-              <p className="text-xs text-slate-600">Submit basic loan requirements in under 60 seconds.</p>
+              <p className="text-xs text-slate-600">Submit basic loan requirements with simple digital verification.</p>
             </div>
 
             <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center">
@@ -218,7 +218,7 @@ export default function HomePage() {
             href="#lead-application-form"
             className="bg-white hover:bg-slate-100 text-[#001A62] font-black px-8 py-4 rounded-xl shadow-lg transition-all text-sm flex items-center gap-2 flex-shrink-0"
           >
-            <span>Apply in 60 Seconds</span>
+            <span>Apply Online Now</span>
             <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
           </a>
         </div>
