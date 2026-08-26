@@ -7,10 +7,10 @@ export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#001A62] text-white pt-16 pb-12 border-t border-blue-900">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 pb-12 border-b border-blue-900/60">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-blue-900/60">
           
-          {/* Brand Info & Address */}
-          <div className="space-y-4">
+          {/* 1. Brand Info & Address */}
+          <div className="lg:col-span-2 space-y-4">
             <Logo variant="light" size="lg" />
             <p className="text-sm text-blue-200/90 leading-relaxed max-w-sm pt-2">
               {BRAND_CONFIG.address}
@@ -34,6 +34,46 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
+            {/* Social Media Links */}
+            <div className="pt-2 flex items-center gap-2.5">
+              <a
+                href="https://linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0B2E8D] text-white flex items-center justify-center transition-colors text-xs font-bold"
+              >
+                in
+              </a>
+              <a
+                href="https://twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Twitter / X"
+                className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0B2E8D] text-white flex items-center justify-center transition-colors text-xs font-bold"
+              >
+                𝕏
+              </a>
+              <a
+                href="https://instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0B2E8D] text-white flex items-center justify-center transition-colors text-xs font-bold"
+              >
+                ig
+              </a>
+              <a
+                href="https://facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0B2E8D] text-white flex items-center justify-center transition-colors text-xs font-bold"
+              >
+                fb
+              </a>
+            </div>
+
             <div className="pt-2">
               <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-white/10 border border-white/20 text-xs font-semibold text-white">
                 <span className="material-symbols-outlined text-[16px] text-emerald-400">verified_user</span>
@@ -42,19 +82,19 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Quick Loan Products */}
+          {/* 2. Quick Loan Products */}
           <div>
-            <h3 className="text-base font-bold uppercase tracking-wider text-[#B7C4FF] mb-4">
+            <h3 className="text-sm font-bold uppercase tracking-wider text-[#B7C4FF] mb-4">
               Lending Solutions
             </h3>
-            <ul className="space-y-2.5 text-sm text-blue-100/80 font-medium">
+            <ul className="space-y-2.5 text-xs sm:text-sm text-blue-100/80 font-medium">
               {BRAND_CONFIG.products.map((p) => (
                 <li key={p.id}>
                   <Link
                     href={p.slug}
                     className="hover:text-white transition-colors flex items-center gap-1.5 group"
                   >
-                    <span className="material-symbols-outlined text-[16px] text-blue-400 group-hover:translate-x-0.5 transition-transform">
+                    <span className="material-symbols-outlined text-[14px] text-blue-400 group-hover:translate-x-0.5 transition-transform">
                       chevron_right
                     </span>
                     <span>{p.title}</span>
@@ -64,50 +104,58 @@ export const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* Compliance & Trust */}
+          {/* 3. Company & Knowledge */}
           <div>
-            <h3 className="text-base font-bold uppercase tracking-wider text-[#B7C4FF] mb-4">
-              Trust & Security
+            <h3 className="text-sm font-bold uppercase tracking-wider text-[#B7C4FF] mb-4">
+              Company &amp; Hub
             </h3>
-            <ul className="space-y-2.5 text-sm text-blue-100/80">
-              <li className="flex items-start gap-2">
-                <span className="material-symbols-outlined text-[18px] text-emerald-400 flex-shrink-0">shield_lock</span>
-                <span>256-Bit SSL Bank Grade Encryption</span>
+            <ul className="space-y-2.5 text-xs sm:text-sm text-blue-100/80 font-medium">
+              <li>
+                <Link href="/about" className="hover:text-white transition-colors">About Us</Link>
               </li>
-              <li className="flex items-start gap-2">
-                <span className="material-symbols-outlined text-[18px] text-emerald-400 flex-shrink-0">task_alt</span>
-                <span>Direct Authorized Lending Partners</span>
+              <li>
+                <Link href="/blog" className="hover:text-white transition-colors flex items-center gap-1">
+                  <span>Financial Guides</span>
+                  <span className="text-[10px] bg-emerald-500 text-white px-1.5 py-0.2 rounded font-bold">New</span>
+                </Link>
               </li>
-              <li className="flex items-start gap-2">
-                <span className="material-symbols-outlined text-[18px] text-emerald-400 flex-shrink-0">money_off</span>
-                <span>Zero Upfront or Hidden Charges</span>
+              <li>
+                <Link href="/careers" className="hover:text-white transition-colors flex items-center gap-1">
+                  <span>Careers</span>
+                  <span className="text-[10px] bg-amber-400 text-slate-900 px-1.5 py-0.2 rounded font-bold">Hiring</span>
+                </Link>
               </li>
-              <li className="flex items-start gap-2">
-                <span className="material-symbols-outlined text-[18px] text-emerald-400 flex-shrink-0">gavel</span>
-                <span>Strict Compliance with RBI Lending Directives</span>
+              <li>
+                <Link href="/media" className="hover:text-white transition-colors">Press &amp; Media</Link>
+              </li>
+              <li>
+                <Link href="/contact" className="hover:text-white transition-colors">Contact &amp; Map</Link>
+              </li>
+              <li>
+                <Link href="/partner" className="hover:text-white transition-colors">DSA Partner Portal</Link>
               </li>
             </ul>
           </div>
 
-          {/* Legal Links & Quick Actions */}
+          {/* 4. Financial Tools & Legal */}
           <div>
-            <h3 className="text-base font-bold uppercase tracking-wider text-[#B7C4FF] mb-4">
-              Legal & Support
+            <h3 className="text-sm font-bold uppercase tracking-wider text-[#B7C4FF] mb-4">
+              Tools &amp; Compliance
             </h3>
-            <div className="flex flex-col space-y-2.5 text-sm text-blue-100/80">
-              <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <div className="flex flex-col space-y-2.5 text-xs sm:text-sm text-blue-100/80">
+              <Link href="/calculator" className="hover:text-white transition-colors">Smart EMI Calculator</Link>
+              <Link href="/credit-score" className="hover:text-white transition-colors">Free Credit Score Check</Link>
+              <Link href="/track-application" className="hover:text-white transition-colors">Live Loan Tracker</Link>
+              <Link href="/privacy-policy" className="hover:text-white transition-colors pt-2 border-t border-blue-900/60">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
-              <Link href="/compliance" className="hover:text-white transition-colors">Compliance & Grievance</Link>
-              <Link href="/financial-disclosure" className="hover:text-white transition-colors">Financial Disclosures</Link>
-              <Link href="/faq" className="hover:text-white transition-colors">Frequently Asked Questions</Link>
+              <Link href="/compliance" className="hover:text-white transition-colors">RBI Fair Practice</Link>
             </div>
-            <div className="mt-6 pt-4 border-t border-blue-900">
-              <p className="text-xs text-blue-300">Need Immediate Help?</p>
+            <div className="mt-4 pt-4 border-t border-blue-900/80">
               <a
                 href={`tel:${BRAND_CONFIG.phone.replace(/\s+/g, "")}`}
-                className="inline-block mt-1 text-sm font-bold text-white bg-[#BB0119] hover:bg-[#E0292E] px-4 py-2 rounded-lg transition-colors"
+                className="inline-block text-xs font-bold text-white bg-[#BB0119] hover:bg-[#E0292E] px-3.5 py-2 rounded-lg transition-colors shadow"
               >
-                Call Advisory Helpline
+                Call Helpline Now
               </a>
             </div>
           </div>

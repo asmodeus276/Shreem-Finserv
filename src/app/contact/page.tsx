@@ -28,7 +28,7 @@ export default function ContactPage() {
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
           
-          {/* Left Column: Office Details */}
+          {/* Left Column: Office Details + Interactive Map */}
           <div className="lg:col-span-6 space-y-6">
             
             {/* Direct Phone Card */}
@@ -79,6 +79,36 @@ export default function ContactPage() {
                   <span className="material-symbols-outlined text-[16px]">verified_user</span>
                   <span>DPDP 2026 Secured Facility</span>
                 </div>
+              </div>
+            </div>
+
+            {/* Google Maps Location Embed */}
+            <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm overflow-hidden space-y-2">
+              <div className="flex items-center justify-between px-2 pt-1 text-xs font-bold text-slate-700">
+                <span className="flex items-center gap-1">
+                  <span className="material-symbols-outlined text-[#0B2E8D] text-[18px]">map</span>
+                  Headquarters Map Location (Vaishali, Ghaziabad)
+                </span>
+                <a
+                  href="https://maps.google.com/?q=Cloud+9+Tower+Vaishali+Ghaziabad"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#0B2E8D] hover:underline text-[11px]"
+                >
+                  Open in Google Maps ↗
+                </a>
+              </div>
+              <div className="w-full h-60 rounded-xl overflow-hidden bg-slate-100">
+                <iframe
+                  title="Shreem Finserv Office Location Map"
+                  src="https://maps.google.com/maps?q=Cloud%209%20Tower,%20Vaishali,%20Ghaziabad,%20Uttar%20Pradesh%20201010&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen={false}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
 

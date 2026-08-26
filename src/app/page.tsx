@@ -9,6 +9,7 @@ import { CreditScoreWidget } from "@/components/CreditScoreWidget";
 import { AwardsShowcase } from "@/components/AwardsShowcase";
 import { PartnerSection } from "@/components/PartnerSection";
 import { Testimonials } from "@/components/Testimonials";
+import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 export default function HomePage() {
   return (
@@ -58,15 +59,21 @@ export default function HomePage() {
               {/* Key Proof Metrics */}
               <div className="grid grid-cols-3 gap-6 pt-4 border-t border-slate-200 max-w-lg">
                 <div>
-                  <div className="text-2xl sm:text-3xl font-black text-slate-900">₹500Cr+</div>
+                  <div className="text-2xl sm:text-3xl font-black text-slate-900">
+                    <AnimatedCounter end={500} prefix="₹" suffix="Cr+" />
+                  </div>
                   <div className="text-xs text-slate-500 font-medium mt-0.5">Disbursed</div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-black text-slate-900">15,000+</div>
+                  <div className="text-2xl sm:text-3xl font-black text-slate-900">
+                    <AnimatedCounter end={15000} suffix="+" />
+                  </div>
                   <div className="text-xs text-slate-500 font-medium mt-0.5">Borrowers Served</div>
                 </div>
                 <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#BB0119]">2 Hours</div>
+                  <div className="text-2xl sm:text-3xl font-black text-[#BB0119]">
+                    <AnimatedCounter end={2} suffix=" Hours" />
+                  </div>
                   <div className="text-xs text-slate-500 font-medium mt-0.5">Fast-Track KYC</div>
                 </div>
               </div>

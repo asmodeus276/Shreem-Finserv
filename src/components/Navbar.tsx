@@ -236,6 +236,15 @@ export const Navbar: React.FC = () => {
             </Link>
 
             <Link
+              href="/blog"
+              className={`transition-colors py-2 ${
+                pathname.startsWith("/blog") ? "text-[#001A62] border-b-2 border-[#001A62] font-bold" : "text-slate-600 hover:text-[#001A62]"
+              }`}
+            >
+              Knowledge Hub
+            </Link>
+
+            <Link
               href="/partner"
               className={`transition-colors py-2 ${
                 pathname === "/partner" ? "text-[#001A62] border-b-2 border-[#001A62]" : "text-slate-600 hover:text-[#001A62]"
@@ -307,11 +316,27 @@ export const Navbar: React.FC = () => {
             </Link>
 
             <Link
+              href="/blog"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-3 py-2 rounded-lg hover:bg-slate-50 text-[#0B2E8D]"
+            >
+              Knowledge Hub &amp; Guides
+            </Link>
+
+            <Link
               href="/partner"
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-2 rounded-lg hover:bg-slate-50 text-amber-700"
             >
               Become a Partner (Earn ₹1L/mo)
+            </Link>
+
+            <Link
+              href="/careers"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-3 py-2 rounded-lg hover:bg-slate-50 text-slate-700"
+            >
+              Careers &amp; Openings
             </Link>
 
             <div className="text-xs uppercase tracking-wider text-slate-400 font-bold px-3 pt-2">

@@ -4,6 +4,10 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { MobileStickyBar } from "@/components/MobileStickyBar";
+import { WhatsAppButton } from "@/components/WhatsAppButton";
+import { BackToTop } from "@/components/BackToTop";
+import { CookieConsent } from "@/components/CookieConsent";
+import { JsonLd } from "@/components/JsonLd";
 import { BRAND_CONFIG } from "@/config/brand";
 
 const inter = Inter({
@@ -26,6 +30,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://shreemfinserv.com"),
   title: {
     template: `%s | ${BRAND_CONFIG.name}`,
     default: `${BRAND_CONFIG.name} - ${BRAND_CONFIG.tagline}`,
@@ -41,11 +46,33 @@ export const metadata: Metadata = {
     "Urgent cash advance",
     "Loans for women entrepreneurs",
     "Fast loan disbursal India",
+    "DSA partner program India",
   ],
   authors: [{ name: BRAND_CONFIG.name }],
+  manifest: "/manifest.json",
   icons: {
     icon: "/logo-mark.png",
     apple: "/logo-mark.png",
+  },
+  openGraph: {
+    title: `${BRAND_CONFIG.name} - ${BRAND_CONFIG.tagline}`,
+    description:
+      "Instant loan disbursal across 50+ Scheduled Banks & Premier NBFCs with zero upfront fees and minimal paperwork.",
+    url: "https://shreemfinserv.com",
+    siteName: BRAND_CONFIG.name,
+    locale: "en_IN",
+    type: "website",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
   },
 };
 
@@ -63,10 +90,14 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen flex flex-col font-sans bg-[#F7F9FB] text-slate-900 antialiased selection:bg-[#0B2E8D] selection:text-white pb-14 md:pb-0">
+        <JsonLd type="LocalBusiness" />
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />
         <MobileStickyBar />
+        <WhatsAppButton />
+        <BackToTop />
+        <CookieConsent />
       </body>
     </html>
   );
