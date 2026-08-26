@@ -1,0 +1,30 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    // Explicitly deny all client-side read and write operations on leads
+    // Leads must only be created and processed through verified Cloud Functions (submitLead)
+    match /leads/{leadId} {
+      allow read, write: if false;
+    }
+    
+    // Explicitly deny all client-side read and write operations on rate limits
+    // Rate limits are managed server-side by backend security and App Check layers
+    match /rate_limits/{docId} {
+      allow read, write: if false;
+    }
+    
+    // Application tracking public lookup view (read-only by application ID if exposed via collection)
+    // Direct client writes are forbidden
+    match /application_status/{appId} {
+      allow read: if false; // All tracking handled via secure cloud function 'trackApplication'
+      allow write: if false;
+    }
+
+    // Default lockdown for all other collections
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}
