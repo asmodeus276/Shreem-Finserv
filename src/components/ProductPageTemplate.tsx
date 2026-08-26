@@ -156,14 +156,14 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
               <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block mb-2">
                 Authorized Sanctioning Co-Lenders:
               </span>
-              <div className="flex flex-wrap gap-2 items-center">
+              <div className="flex flex-wrap gap-2.5 items-center">
                 {BANK_PARTNERS_DATA.slice(0, 7).map((bank) => (
                   <div
                     key={bank.id}
-                    className="inline-flex items-center gap-1.5 md:gap-2 bg-white border border-slate-200/90 rounded-xl px-2.5 py-1.5 md:px-3 md:py-1.5 shadow-sm text-xs font-bold text-slate-800"
+                    className="inline-flex items-center gap-2 bg-white border border-slate-200/90 rounded-xl px-3 py-2 shadow-sm text-xs font-bold text-slate-800"
                   >
-                    <div className="w-4 h-4 md:w-5 md:h-5 flex-shrink-0">{bank.svgIcon}</div>
-                    <span className="text-[11px] md:text-xs">{bank.shortName}</span>
+                    <div className="w-7 h-7 flex-shrink-0 rounded-md overflow-hidden">{bank.svgIcon}</div>
+                    <span className="text-[11px] md:text-xs whitespace-nowrap">{bank.shortName}</span>
                   </div>
                 ))}
               </div>
