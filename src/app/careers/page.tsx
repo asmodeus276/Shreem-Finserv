@@ -80,6 +80,7 @@ const OPENINGS: JobOpening[] = [
 export default function CareersPage() {
   const [selectedJob, setSelectedJob] = useState<JobOpening | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -90,9 +91,23 @@ export default function CareersPage() {
     notes: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const res = await fetch("/api/apply-job", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+      if (res.ok) {
+        setSubmitted(true);
+      }
+    } catch (err) {
+      console.error("[Career Apply Error]:", err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -366,9 +381,14 @@ export default function CareersPage() {
 
               <button
                 type="submit"
-                className="w-full bg-[#001A62] hover:bg-[#BB0119] text-white font-black py-3.5 px-6 rounded-xl shadow-md transition-colors text-xs sm:text-sm"
+                disabled={loading}
+                className="w-full bg-[#001A62] hover:bg-[#BB0119] text-white font-black py-3.5 px-6 rounded-xl shadow-md transition-colors text-xs sm:text-sm flex items-center justify-center gap-2"
               >
-                Submit Candidate Profile
+                {loading ? (
+                  <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                ) : (
+                  <span>Submit Candidate Profile</span>
+                )}
               </button>
 
               <p className="text-[11px] text-slate-400 text-center">
