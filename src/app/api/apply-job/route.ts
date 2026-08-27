@@ -1,5 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
+import { saveCareerToFirestore } from "@/lib/firestore-rest";
 import { sendCareerNotificationEmail } from "@/lib/email";
+
+function generateJobAppId(): string {
+  const random6Digits = Math.floor(100000 + Math.random() * 900000);
+  return `JOB-${random6Digits}`;
+}
 
 export async function POST(req: NextRequest) {
   try {
@@ -20,9 +26,11 @@ export async function POST(req: NextRequest) {
       );
     }
 
+    const applicationId = generateJobAppId();
     const nowIso = new Date().toISOString();
 
-    const careerData = {
+    const careerRecord = {
+      applicationId,
       name,
       email,
       phone,
@@ -30,17 +38,24 @@ export async function POST(req: NextRequest) {
       experience,
       linkedin,
       notes,
+      status: "Under Review",
       submittedAt: nowIso,
     };
 
-    // Send email alert to client (Contact@shreemfinserv.com)
-    sendCareerNotificationEmail(careerData).catch((err) =>
+    // 1. Save to `careers` collection in Firestore
+    saveCareerToFirestore(careerRecord).catch((err) =>
+      console.warn("[Career Async Save Warning]:", err)
+    );
+
+    // 2. Send email alert to client (Contact@shreemfinserv.com)
+    sendCareerNotificationEmail(careerRecord).catch((err) =>
       console.error("[Career Email Async Error]:", err)
     );
 
     return NextResponse.json(
       {
         success: true,
+        applicationId,
         message: "Candidate profile submitted successfully. Our HR team will reach out shortly.",
       },
       { status: 200 }

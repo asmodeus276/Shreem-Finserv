@@ -1,6 +1,6 @@
 /**
  * Lightweight serverless Firestore REST helper
- * Requires zero service-account credentials / ADC — works out of the box with standard Web API Key.
+ * Handles leads, partners, and careers collections directly via Firestore REST.
  */
 
 const FIREBASE_API_KEY =
@@ -24,21 +24,52 @@ export interface FirestoreLeadRecord {
   updatedAt: string;
 }
 
+export interface FirestorePartnerRecord {
+  partnerId: string;
+  name: string;
+  mobile: string;
+  city: string;
+  profession: string;
+  status: string;
+  submittedAt: string;
+  updatedAt: string;
+}
+
+export interface FirestoreCareerRecord {
+  applicationId: string;
+  name: string;
+  email: string;
+  phone: string;
+  role: string;
+  experience?: string;
+  linkedin?: string;
+  notes?: string;
+  status: string;
+  submittedAt: string;
+}
+
+function objectToFirestoreFields(obj: Record<string, any>) {
+  const fields: Record<string, { stringValue?: string; doubleValue?: number; booleanValue?: boolean }> = {};
+  for (const [key, val] of Object.entries(obj)) {
+    if (val === undefined || val === null) continue;
+    if (typeof val === "string") {
+      fields[key] = { stringValue: val };
+    } else if (typeof val === "number") {
+      fields[key] = { doubleValue: val };
+    } else if (typeof val === "boolean") {
+      fields[key] = { booleanValue: val };
+    }
+  }
+  return fields;
+}
+
+/**
+ * 1. Save Lead into `leads` collection
+ */
 export async function saveLeadToFirestore(lead: FirestoreLeadRecord): Promise<boolean> {
   try {
     const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/leads/${lead.applicationId}?key=${FIREBASE_API_KEY}`;
-
-    const fields: Record<string, { stringValue?: string; doubleValue?: number; booleanValue?: boolean }> = {};
-
-    for (const [key, val] of Object.entries(lead)) {
-      if (typeof val === "string") {
-        fields[key] = { stringValue: val };
-      } else if (typeof val === "number") {
-        fields[key] = { doubleValue: val };
-      } else if (typeof val === "boolean") {
-        fields[key] = { booleanValue: val };
-      }
-    }
+    const fields = objectToFirestoreFields(lead);
 
     const res = await fetch(url, {
       method: "PATCH",
@@ -46,19 +77,16 @@ export async function saveLeadToFirestore(lead: FirestoreLeadRecord): Promise<bo
       body: JSON.stringify({ fields }),
     });
 
-    if (!res.ok) {
-      const errText = await res.text();
-      console.warn("[Firestore REST Save Warning]:", errText);
-      return false;
-    }
-
-    return true;
+    return res.ok;
   } catch (err) {
-    console.warn("[Firestore REST Exception]:", err);
+    console.warn("[Firestore REST Lead Save Warning]:", err);
     return false;
   }
 }
 
+/**
+ * 2. Get Lead from `leads` collection for tracking
+ */
 export async function getLeadFromFirestore(applicationId: string): Promise<FirestoreLeadRecord | null> {
   try {
     const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/leads/${applicationId}?key=${FIREBASE_API_KEY}`;
@@ -87,5 +115,47 @@ export async function getLeadFromFirestore(applicationId: string): Promise<Fires
   } catch (err) {
     console.warn("[Firestore REST Query Exception]:", err);
     return null;
+  }
+}
+
+/**
+ * 3. Save Partner into `partners` collection
+ */
+export async function savePartnerToFirestore(partner: FirestorePartnerRecord): Promise<boolean> {
+  try {
+    const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/partners/${partner.partnerId}?key=${FIREBASE_API_KEY}`;
+    const fields = objectToFirestoreFields(partner);
+
+    const res = await fetch(url, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ fields }),
+    });
+
+    return res.ok;
+  } catch (err) {
+    console.warn("[Firestore REST Partner Save Warning]:", err);
+    return false;
+  }
+}
+
+/**
+ * 4. Save Career Application into `careers` collection
+ */
+export async function saveCareerToFirestore(career: FirestoreCareerRecord): Promise<boolean> {
+  try {
+    const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/careers/${career.applicationId}?key=${FIREBASE_API_KEY}`;
+    const fields = objectToFirestoreFields(career);
+
+    const res = await fetch(url, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ fields }),
+    });
+
+    return res.ok;
+  } catch (err) {
+    console.warn("[Firestore REST Career Save Warning]:", err);
+    return false;
   }
 }

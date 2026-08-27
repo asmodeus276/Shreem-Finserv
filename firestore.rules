@@ -12,6 +12,18 @@ service cloud.firestore {
       allow get: if true;
       allow list, update, delete: if false;
     }
+
+    // Secure channel partners collection (DSA / CA / Consultants)
+    match /partners/{partnerId} {
+      allow create: if request.resource.data.mobile is string;
+      allow get, list, update, delete: if false;
+    }
+
+    // Secure careers / job applications collection
+    match /careers/{careerId} {
+      allow create: if request.resource.data.phone is string;
+      allow get, list, update, delete: if false;
+    }
     
     // Explicitly deny all client-side read and write operations on rate limits
     // Rate limits are managed server-side by backend security and App Check layers

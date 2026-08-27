@@ -18,19 +18,21 @@ export const PartnerSection: React.FC = () => {
 
     setLoading(true);
     try {
-      await submitLead({
-        fullName: name.trim(),
-        mobile,
-        city: city.trim() || "India",
-        loanCategory: `Partner Onboarding (${experience})`,
-        amount: 0,
-        consent: true,
-        marketingConsent: false,
-        sourcePage: typeof window !== "undefined" ? window.location.pathname : "/partner",
+      const res = await fetch("/api/submit-partner", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name.trim(),
+          mobile,
+          city: city.trim() || "India",
+          profession: experience,
+        }),
       });
-      setSubmitted(true);
+      if (res.ok) {
+        setSubmitted(true);
+      }
     } catch (err) {
-      console.error(err);
+      console.error("[Partner Submit Error]:", err);
     } finally {
       setLoading(false);
     }
