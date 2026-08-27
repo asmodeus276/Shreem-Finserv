@@ -1,6 +1,5 @@
 import { initializeApp, getApps, getApp, FirebaseApp } from "firebase/app";
 import { initializeAppCheck, ReCaptchaEnterpriseProvider, AppCheck } from "firebase/app-check";
-import { getFunctions, httpsCallable, Functions } from "firebase/functions";
 import { getAnalytics, isSupported, Analytics } from "firebase/analytics";
 
 const firebaseConfig = {
@@ -51,9 +50,6 @@ if (typeof window !== "undefined") {
   }
 }
 
-// Initialize Cloud Functions pointing to asia-south1
-export const functions: Functions = getFunctions(app, "asia-south1");
-
 export interface SubmitLeadParams {
   fullName: string;
   mobile: string;
@@ -91,18 +87,31 @@ export interface TrackApplicationResult {
 }
 
 /**
- * Submit lead details to Firebase Cloud Function `submitLead` (asia-south1)
+ * Submit lead details to Next.js API endpoint /api/submit-lead
+ * (Saves to Firestore & sends Nodemailer email notification)
  */
 export async function submitLead(payload: SubmitLeadParams): Promise<SubmitLeadResult> {
   try {
-    const submitLeadFn = httpsCallable<SubmitLeadParams, SubmitLeadResult>(functions, "submitLead");
-    const result = await submitLeadFn(payload);
-    return result.data;
+    const res = await fetch("/api/submit-lead", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok || !data.success) {
+      throw new Error(data.error || "Failed to submit application.");
+    }
+
+    return data as SubmitLeadResult;
   } catch (error: unknown) {
     console.error("[submitLead Error]:", error);
-    
-    // Graceful fallback for local development / unconfigured cloud project
-    if (process.env.NODE_ENV !== "production" || !process.env.NEXT_PUBLIC_FIREBASE_API_KEY) {
+
+    // Graceful fallback for local development if server API is unreachable
+    if (process.env.NODE_ENV !== "production") {
       const mockId = `CC-${Math.floor(10000000 + Math.random() * 90000000)}`;
       console.info(`[Dev Fallback] Generated Application ID: ${mockId} for page: ${payload.sourcePage}`);
       return {
@@ -112,27 +121,38 @@ export async function submitLead(payload: SubmitLeadParams): Promise<SubmitLeadR
         timestamp: new Date().toISOString(),
       };
     }
-    
+
     throw error;
   }
 }
 
 /**
- * Track an existing loan application status via `trackApplication` (asia-south1)
+ * Track an existing loan application status via /api/track-application
  */
 export async function trackApplication(payload: TrackApplicationParams): Promise<TrackApplicationResult> {
   try {
-    const trackFn = httpsCallable<TrackApplicationParams, TrackApplicationResult>(functions, "trackApplication");
-    const result = await trackFn(payload);
-    return result.data;
+    const res = await fetch("/api/track-application", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    const data = await res.json();
+
+    if (!res.ok || !data.success) {
+      throw new Error(data.error || "Application not found.");
+    }
+
+    return data as TrackApplicationResult;
   } catch (error: unknown) {
     console.error("[trackApplication Error]:", error);
 
-    // Dev/staging fallback only — NEVER return fake data in production
-    if (process.env.NODE_ENV !== "production" || !process.env.NEXT_PUBLIC_FIREBASE_API_KEY) {
+    // Dev fallback only
+    if (process.env.NODE_ENV !== "production") {
       if (payload.applicationId) {
         const cleanId = payload.applicationId.trim().toUpperCase();
-        console.info(`[Dev Fallback] Returning mock tracking result for: ${cleanId}`);
         return {
           applicationId: cleanId,
           applicantName: "R**** S*****",
@@ -141,7 +161,7 @@ export async function trackApplication(payload: TrackApplicationParams): Promise
           amount: 2500000,
           submittedAt: "2026-08-20T10:30:00Z",
           updatedAt: new Date().toISOString(),
-          remarks: "Documents received. Credit appraisal in progress by underwriting team. (Dev Mode)",
+          remarks: "Documents received. Underwriting appraisal in progress. (Dev Mode)",
         };
       }
     }
