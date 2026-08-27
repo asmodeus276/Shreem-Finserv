@@ -1,9 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
-import { app } from "@/lib/firebase";
+import { adminDb } from "@/lib/firebase-admin";
 import { sendLeadNotificationEmail } from "@/lib/email";
-
-const db = getFirestore(app);
 
 function maskName(name: string): string {
   if (!name) return "A********";
@@ -89,12 +86,11 @@ export async function POST(req: NextRequest) {
       updatedAt: nowIso,
     };
 
-    // 4. Save to Firestore
+    // 4. Save to Firestore (via Admin SDK)
     try {
-      await setDoc(doc(db, "leads", applicationId), leadRecord);
+      await adminDb.collection("leads").doc(applicationId).set(leadRecord);
     } catch (dbError) {
-      console.error("[Firestore Error]: Failed to save lead record:", dbError);
-      // Even if Firestore fails, continue to dispatch email alert
+      console.warn("[Firestore Admin Warning]:", dbError);
     }
 
     // 5. Send Nodemailer Email Notification (Gmail SMTP)
