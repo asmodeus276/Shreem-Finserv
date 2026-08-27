@@ -100,11 +100,11 @@ export const CreditScoreWidget: React.FC = () => {
 
               {/* Monthly Income Slider */}
               <div className="space-y-2">
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-2">
                   <label className="text-[11px] font-bold uppercase tracking-wider text-slate-600">
                     Monthly Net Income
                   </label>
-                  <span className="text-sm font-black text-[#0B2E8D]">
+                  <span className="text-sm font-black text-[#0B2E8D] whitespace-nowrap flex-shrink-0">
                     {formatCurrency(monthlyIncome)}
                   </span>
                 </div>
@@ -126,11 +126,11 @@ export const CreditScoreWidget: React.FC = () => {
 
               {/* Existing EMI Slider */}
               <div className="space-y-2">
-                <div className="flex justify-between items-center">
+                <div className="flex justify-between items-center gap-2">
                   <label className="text-[11px] font-bold uppercase tracking-wider text-slate-600">
                     Existing Monthly EMIs
                   </label>
-                  <span className="text-sm font-black text-red-600">
+                  <span className="text-sm font-black text-red-600 whitespace-nowrap flex-shrink-0">
                     {formatCurrency(existingEmi)}
                   </span>
                 </div>

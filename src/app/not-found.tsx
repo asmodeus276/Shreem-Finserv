@@ -4,7 +4,7 @@ import { BRAND_CONFIG } from "@/config/brand";
 
 export default function NotFound() {
   return (
-    <div className="min-h-[80vh] flex items-center justify-center pt-24 pb-16 px-4 md:px-8">
+    <div className="min-h-[80vh] flex items-center justify-center pt-28 sm:pt-32 md:pt-36 pb-16 px-4 md:px-8">
       <div className="max-w-2xl mx-auto text-center space-y-6">
         
         {/* Animated Badge */}

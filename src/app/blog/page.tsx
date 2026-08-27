@@ -32,7 +32,7 @@ export default function BlogListingPage() {
   const featuredPost = BLOG_POSTS[0];
 
   return (
-    <div className="pt-24 md:pt-28 pb-16">
+    <div className="pt-28 sm:pt-32 md:pt-36 pb-16">
       
       {/* Hero Section */}
       <section className="bg-gradient-to-b from-blue-50/70 via-white to-slate-50 py-12 md:py-16 border-b border-slate-200">

@@ -136,15 +136,15 @@ export const Testimonials: React.FC = () => {
               </div>
 
               {/* Author Strip */}
-              <div className="p-6 pt-0 border-t border-slate-200/80 flex items-center gap-3 mt-2">
-                <div className="w-10 h-10 rounded-full bg-[#001A62] text-white flex items-center justify-center font-bold text-xs pt-3">
+              <div className="p-6 pt-4 border-t border-slate-200/80 flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-[#001A62] text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
                   {rev.avatarInitials}
                 </div>
-                <div className="pt-3">
-                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
+                <div className="min-w-0">
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight truncate">
                     {rev.name}
                   </h4>
-                  <p className="text-[11px] text-slate-500">{rev.role}</p>
+                  <p className="text-[11px] text-slate-500 truncate">{rev.role}</p>
                 </div>
               </div>
             </div>

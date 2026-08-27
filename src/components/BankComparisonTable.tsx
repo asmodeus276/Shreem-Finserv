@@ -70,15 +70,15 @@ export const BankComparisonTable: React.FC<BankComparisonTableProps> = ({
               key={bank.id}
               className="bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-sm space-y-3"
             >
-              <div className="flex items-center justify-between">
-                <div className="flex items-center gap-2.5">
+              <div className="flex items-center justify-between gap-3">
+                <div className="flex items-center gap-2.5 min-w-0">
                   <div className="w-8 h-8 flex-shrink-0 rounded-lg overflow-hidden">{bank.svgIcon}</div>
-                  <div>
-                    <div className="font-bold text-slate-900 text-sm">{bank.name}</div>
-                    <span className="text-[10px] font-semibold text-slate-400">{bank.category} Partner</span>
+                  <div className="min-w-0">
+                    <div className="font-bold text-slate-900 text-sm truncate">{bank.name}</div>
+                    <span className="text-[10px] font-semibold text-slate-400 block">{bank.category} Partner</span>
                   </div>
                 </div>
-                <span className="font-bold text-emerald-700 bg-emerald-100/80 px-2.5 py-1 rounded-lg text-xs">
+                <span className="font-bold text-emerald-700 bg-emerald-100/80 px-2.5 py-1 rounded-lg text-xs whitespace-nowrap flex-shrink-0">
                   {bank.interestRate}
                 </span>
               </div>

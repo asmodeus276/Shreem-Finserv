@@ -13,68 +13,68 @@ import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 export default function HomePage() {
   return (
-    <div className="pt-24 md:pt-28">
+    <div className="pt-28 sm:pt-32 md:pt-36">
       
       {/* 1. Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 via-white to-[#F7F9FB] py-12 md:py-20">
+      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 via-white to-[#F7F9FB] py-8 sm:py-12 md:py-16">
         <div className="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-gradient-to-br from-[#B7C4FF]/30 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none transform translate-x-1/3 -translate-y-1/4"></div>
         <div className="absolute bottom-0 left-0 -z-10 w-[500px] h-[500px] bg-gradient-to-tr from-blue-200/20 to-transparent rounded-full blur-3xl opacity-40 pointer-events-none"></div>
 
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
             
             {/* Left Value Proposition */}
-            <div className="lg:col-span-7 space-y-8">
+            <div className="lg:col-span-7 space-y-6 md:space-y-8">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B2E8D]/10 text-[#0B2E8D] text-xs font-bold border border-[#0B2E8D]/20">
                 <span className="material-symbols-outlined text-[16px] text-[#BB0119]">flash_on</span>
                 Fast-Track Disbursals Across 50+ Banks & NBFCs
               </div>
 
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.1]">
+              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
                 Instant Loan Disbursal with{" "}
-                <span className="text-[#0B2E8D] block mt-2">Minimal Paperwork</span>
+                <span className="text-[#0B2E8D] block mt-1.5 sm:mt-2">Minimal Paperwork</span>
               </h1>
 
-              <p className="text-base sm:text-lg text-slate-600 max-w-xl leading-relaxed">
+              <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-xl leading-relaxed">
                 {BRAND_CONFIG.tagline}. We deliver tailored lending solutions designed to fuel
                 your personal aspirations, clinic upgrades, and enterprise scaling with total transparency.
               </p>
 
               {/* Trust Badges Bar */}
-              <div className="flex flex-wrap gap-3 pt-1">
-                <div className="flex items-center gap-2 bg-white/90 border border-slate-200 rounded-xl px-3.5 py-2 shadow-sm text-xs font-bold text-slate-800">
+              <div className="flex flex-wrap gap-2.5 sm:gap-3 pt-1">
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/90 border border-slate-200 rounded-xl px-3 py-2 shadow-xs text-xs font-bold text-slate-800">
                   <span className="material-symbols-outlined text-emerald-600 text-[18px]">verified_user</span>
                   <span>{BRAND_CONFIG.compliance.dpdp}</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/90 border border-slate-200 rounded-xl px-3.5 py-2 shadow-sm text-xs font-bold text-slate-800">
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/90 border border-slate-200 rounded-xl px-3 py-2 shadow-xs text-xs font-bold text-slate-800">
                   <span className="material-symbols-outlined text-[#0B2E8D] text-[18px]">shield</span>
                   <span>{BRAND_CONFIG.compliance.security}</span>
                 </div>
-                <div className="flex items-center gap-2 bg-white/90 border border-slate-200 rounded-xl px-3.5 py-2 shadow-sm text-xs font-bold text-slate-800">
+                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/90 border border-slate-200 rounded-xl px-3 py-2 shadow-xs text-xs font-bold text-slate-800">
                   <span className="material-symbols-outlined text-slate-700 text-[18px]">money_off</span>
                   <span>{BRAND_CONFIG.compliance.upfrontFee}</span>
                 </div>
               </div>
 
               {/* Key Proof Metrics */}
-              <div className="grid grid-cols-3 gap-6 pt-4 border-t border-slate-200 max-w-lg">
-                <div>
-                  <div className="text-2xl sm:text-3xl font-black text-slate-900">
+              <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-4 border-t border-slate-200 max-w-lg">
+                <div className="min-w-0">
+                  <div className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-tight">
                     <AnimatedCounter end={500} prefix="₹" suffix="Cr+" />
                   </div>
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">Disbursed</div>
+                  <div className="text-[11px] sm:text-xs text-slate-500 font-medium mt-0.5 whitespace-nowrap">Disbursed</div>
                 </div>
-                <div>
-                  <div className="text-2xl sm:text-3xl font-black text-slate-900">
+                <div className="min-w-0">
+                  <div className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight leading-tight">
                     <AnimatedCounter end={15000} suffix="+" />
                   </div>
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">Borrowers Served</div>
+                  <div className="text-[11px] sm:text-xs text-slate-500 font-medium mt-0.5 whitespace-nowrap">Borrowers</div>
                 </div>
-                <div>
-                  <div className="text-2xl sm:text-3xl font-black text-[#BB0119]">
-                    <AnimatedCounter end={2} suffix=" Hours" />
+                <div className="min-w-0">
+                  <div className="text-xl sm:text-2xl lg:text-3xl font-black text-[#BB0119] tracking-tight leading-tight">
+                    <AnimatedCounter end={2} suffix=" Hrs" />
                   </div>
-                  <div className="text-xs text-slate-500 font-medium mt-0.5">Fast-Track KYC</div>
+                  <div className="text-[11px] sm:text-xs text-slate-500 font-medium mt-0.5 whitespace-nowrap">Fast KYC</div>
                 </div>
               </div>
             </div>

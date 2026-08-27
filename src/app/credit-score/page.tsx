@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function CreditScorePage() {
   return (
-    <div className="pt-24 pb-16">
+    <div className="pt-28 sm:pt-32 md:pt-36 pb-16">
       <CreditScoreWidget />
 
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-16">

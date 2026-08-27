@@ -99,7 +99,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
   };
 
   return (
-    <div className="pt-24 md:pt-28 pb-16">
+    <div className="pt-28 sm:pt-32 md:pt-36 pb-16">
       
       {/* Breadcrumbs Navigation */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-2 md:py-3 overflow-x-auto whitespace-nowrap">

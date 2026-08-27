@@ -52,7 +52,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
   const relatedPosts = BLOG_POSTS.filter((p) => p.slug !== post.slug).slice(0, 2);
 
   return (
-    <div className="pt-24 md:pt-28 pb-16">
+    <div className="pt-28 sm:pt-32 md:pt-36 pb-16">
       
       {/* Breadcrumb Bar */}
       <div className="max-w-7xl mx-auto px-4 md:px-8 py-3 overflow-x-auto whitespace-nowrap">

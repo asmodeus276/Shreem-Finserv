@@ -284,11 +284,11 @@ export const LeadForm: React.FC<LeadFormProps> = ({
 
         {/* Amount Slider */}
         <div className="pt-2">
-          <div className="flex justify-between items-center mb-1.5">
+          <div className="flex justify-between items-center gap-2 mb-1.5">
             <label className="text-xs font-bold uppercase tracking-wider text-slate-700">
               Required Loan Amount
             </label>
-            <span className="text-base font-bold text-[#0B2E8D]">
+            <span className="text-base font-bold text-[#0B2E8D] whitespace-nowrap flex-shrink-0">
               {formatCurrency(amount)}
             </span>
           </div>

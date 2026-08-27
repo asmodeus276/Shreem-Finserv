@@ -24,11 +24,11 @@ export const PartnerMarquee: React.FC = () => {
               <div className="w-9 h-9 flex-shrink-0 rounded-lg overflow-hidden">
                 {p.svgIcon}
               </div>
-              <div className="flex flex-col text-left">
-                <span className="text-xs font-bold text-slate-800 group-hover:text-[#0B2E8D] transition-colors leading-tight">
+              <div className="flex flex-col text-left justify-center">
+                <span className="text-xs font-bold text-slate-800 group-hover:text-[#0B2E8D] transition-colors leading-tight whitespace-nowrap">
                   {p.name}
                 </span>
-                <span className="text-[10px] text-slate-400 font-semibold">
+                <span className="text-[10px] text-slate-400 font-semibold mt-0.5 whitespace-nowrap">
                   {p.interestRate}
                 </span>
               </div>

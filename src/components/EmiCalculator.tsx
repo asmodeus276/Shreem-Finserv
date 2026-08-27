@@ -74,11 +74,11 @@ export const EmiCalculator: React.FC<EmiCalculatorProps> = ({
           
           {/* Loan Amount Slider */}
           <div className="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200/80 space-y-2.5 sm:space-y-3">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center gap-2">
               <label className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600">
                 Loan Amount
               </label>
-              <span className="text-base sm:text-lg font-black text-[#0B2E8D]">
+              <span className="text-base sm:text-lg font-black text-[#0B2E8D] whitespace-nowrap flex-shrink-0">
                 {formatCurrency(amount)}
               </span>
             </div>
@@ -100,11 +100,11 @@ export const EmiCalculator: React.FC<EmiCalculatorProps> = ({
 
           {/* Interest Rate Slider */}
           <div className="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200/80 space-y-2.5 sm:space-y-3">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center gap-2">
               <label className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600">
                 Interest Rate (p.a.)
               </label>
-              <span className="text-base sm:text-lg font-black text-emerald-600">
+              <span className="text-base sm:text-lg font-black text-emerald-600 whitespace-nowrap flex-shrink-0">
                 {rate.toFixed(2)}%
               </span>
             </div>
@@ -126,11 +126,11 @@ export const EmiCalculator: React.FC<EmiCalculatorProps> = ({
 
           {/* Tenure Slider */}
           <div className="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200/80 space-y-2.5 sm:space-y-3">
-            <div className="flex justify-between items-center">
+            <div className="flex justify-between items-center gap-2">
               <label className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-slate-600">
                 Loan Tenure
               </label>
-              <span className="text-base sm:text-lg font-black text-slate-900">
+              <span className="text-base sm:text-lg font-black text-slate-900 whitespace-nowrap flex-shrink-0">
                 {tenureYears} Yrs <span className="text-xs font-semibold text-slate-400">({totalMonths} Mos)</span>
               </span>
             </div>
