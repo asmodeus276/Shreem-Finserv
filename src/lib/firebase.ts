@@ -1,14 +1,16 @@
 import { initializeApp, getApps, getApp, FirebaseApp } from "firebase/app";
 import { initializeAppCheck, ReCaptchaEnterpriseProvider, AppCheck } from "firebase/app-check";
 import { getFunctions, httpsCallable, Functions } from "firebase/functions";
+import { getAnalytics, isSupported, Analytics } from "firebase/analytics";
 
 const firebaseConfig = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyDummyKeyForDevPlaceholder1234567",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY || "AIzaSyBSyCiuZVAowBZiORewIVe0ISiyYFftoi4",
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN || "shreem-finserv.firebaseapp.com",
   projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID || "shreem-finserv",
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "shreem-finserv.appspot.com",
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "123456789012",
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:123456789012:web:abcdef1234567890",
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET || "shreem-finserv.firebasestorage.app",
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID || "238167175765",
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID || "1:238167175765:web:154eb13dfa176d8f819adc",
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID || "G-9K15RL2GKQ",
 };
 
 // Initialize Firebase App singleton
@@ -17,6 +19,20 @@ if (!getApps().length) {
   app = initializeApp(firebaseConfig);
 } else {
   app = getApp();
+}
+
+// Initialize Analytics on client side (if supported in current browser environment)
+let analytics: Analytics | undefined;
+if (typeof window !== "undefined") {
+  isSupported().then((supported) => {
+    if (supported) {
+      try {
+        analytics = getAnalytics(app);
+      } catch (err) {
+        console.warn("[Firebase Analytics] Init warning:", err);
+      }
+    }
+  });
 }
 
 // Initialize App Check (reCAPTCHA Enterprise) on client side
@@ -134,4 +150,4 @@ export async function trackApplication(payload: TrackApplicationParams): Promise
   }
 }
 
-export { app, appCheck };
+export { app, appCheck, analytics };
