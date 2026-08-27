@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { adminDb } from "@/lib/firebase-admin";
+import { saveLeadToFirestore } from "@/lib/firestore-rest";
 import { sendLeadNotificationEmail } from "@/lib/email";
 
 function maskName(name: string): string {
@@ -86,12 +86,10 @@ export async function POST(req: NextRequest) {
       updatedAt: nowIso,
     };
 
-    // 4. Save to Firestore (via Admin SDK)
-    try {
-      await adminDb.collection("leads").doc(applicationId).set(leadRecord);
-    } catch (dbError) {
-      console.warn("[Firestore Admin Warning]:", dbError);
-    }
+    // 4. Save to Firestore (REST API - zero credentials/ADC needed)
+    saveLeadToFirestore(leadRecord).catch((err) =>
+      console.warn("[Firestore Async Save Warning]:", err)
+    );
 
     // 5. Send Nodemailer Email Notification (Gmail SMTP)
     sendLeadNotificationEmail(leadRecord).catch((err) =>

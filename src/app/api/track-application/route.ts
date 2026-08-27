@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { adminDb } from "@/lib/firebase-admin";
+import { getLeadFromFirestore } from "@/lib/firestore-rest";
 
 function maskName(name: string): string {
   if (!name) return "A********";
@@ -25,11 +25,9 @@ export async function POST(req: NextRequest) {
     }
 
     try {
-      const docRef = adminDb.collection("leads").doc(applicationId);
-      const docSnap = await docRef.get();
+      const data = await getLeadFromFirestore(applicationId);
 
-      if (docSnap.exists) {
-        const data = docSnap.data()!;
+      if (data) {
         return NextResponse.json(
           {
             success: true,
@@ -48,7 +46,7 @@ export async function POST(req: NextRequest) {
         );
       }
     } catch (dbError) {
-      console.warn("[Firestore Admin Tracking Warning]:", dbError);
+      console.warn("[Firestore Tracking Warning]:", dbError);
     }
 
     // In dev mode only: fallback

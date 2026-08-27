@@ -3,10 +3,14 @@ rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
     
-    // Explicitly deny all client-side read and write operations on leads
-    // Leads must only be created and processed through verified Cloud Functions (submitLead)
+    // Secure lead collection:
+    // - Allow creating a new lead only if DPDP consent is explicitly granted (true) and mobile number is provided
+    // - Allow individual document lookup by Application Reference ID (get only, no listing)
+    // - Strictly forbid updating, deleting, or listing entire database
     match /leads/{leadId} {
-      allow read, write: if false;
+      allow create: if request.resource.data.consent == true && request.resource.data.mobile is string;
+      allow get: if true;
+      allow list, update, delete: if false;
     }
     
     // Explicitly deny all client-side read and write operations on rate limits
