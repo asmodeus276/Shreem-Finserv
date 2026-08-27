@@ -59,15 +59,15 @@ export const Testimonials: React.FC = () => {
         
         {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200 mb-2">
-            <span className="material-symbols-outlined text-[16px]">reviews</span>
-            Real Stories, Verified Disbursals
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#0B2E8D] text-xs font-bold border border-blue-200 mb-2">
+            <span className="material-symbols-outlined text-[16px]">cases</span>
+            Representative Client Scenarios
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">
-            Trusted by 15,000+ Borrowers &amp; MSMEs
+            How Our Clients Typically Benefit
           </h2>
           <p className="text-slate-500 text-sm sm:text-base mt-2">
-            Read verified case studies of how bespoke financing from Shreem Finserv transformed businesses, clinics, and personal liquidity.
+            Illustrative scenarios showing how structured financing solutions from Shreem Finserv help businesses, medical professionals, and property owners optimize liquidity.
           </p>
         </div>
 
@@ -141,9 +141,8 @@ export const Testimonials: React.FC = () => {
                   {rev.avatarInitials}
                 </div>
                 <div className="pt-3">
-                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight flex items-center gap-1">
-                    <span>{rev.name}</span>
-                    <span className="material-symbols-outlined text-emerald-600 text-[15px]">verified</span>
+                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight">
+                    {rev.name}
                   </h4>
                   <p className="text-[11px] text-slate-500">{rev.role}</p>
                 </div>
@@ -170,8 +169,8 @@ export const Testimonials: React.FC = () => {
               </button>
 
               <div className="flex items-center gap-2 text-xs font-bold text-[#0B2E8D] uppercase">
-                <span className="material-symbols-outlined text-[18px]">verified</span>
-                Verified Case Study
+                <span className="material-symbols-outlined text-[18px]">cases</span>
+                Illustrative Client Scenario
               </div>
 
               <h3 className="text-xl font-bold text-slate-900">
@@ -201,6 +200,12 @@ export const Testimonials: React.FC = () => {
             </div>
           </div>
         )}
+
+        <div className="text-center mt-10">
+          <p className="text-[11px] text-slate-400 max-w-xl mx-auto">
+            *Note: Profiles and outcomes presented are illustrative representations of typical client funding structures and underwriting benchmarks across partner institutions.
+          </p>
+        </div>
 
       </div>
     </section>

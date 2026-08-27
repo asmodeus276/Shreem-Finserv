@@ -17,6 +17,13 @@ export const BRAND_CONFIG = {
     upfrontFee: "Zero Upfront Fees",
     rbiDisclaimer: "RBI Disclaimer: Loans are subject to credit appraisal, eligibility criteria and RBI guidelines.",
   },
+  social: {
+    linkedin: "",
+    twitter: "",
+    instagram: "",
+    facebook: "",
+    whatsapp: "https://wa.me/919355445828",
+  },
   routes: {
     home: "/",
     doctorLoan: "/personal-loan/for-doctors",

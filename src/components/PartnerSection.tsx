@@ -25,6 +25,7 @@ export const PartnerSection: React.FC = () => {
         loanCategory: `Partner Onboarding (${experience})`,
         amount: 0,
         consent: true,
+        marketingConsent: false,
         sourcePage: typeof window !== "undefined" ? window.location.pathname : "/partner",
       });
       setSubmitted(true);

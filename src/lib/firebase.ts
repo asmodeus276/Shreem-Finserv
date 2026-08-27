@@ -45,6 +45,7 @@ export interface SubmitLeadParams {
   loanCategory: string;
   amount: number;
   consent: boolean;
+  marketingConsent: boolean;
   sourcePage: string;
   email?: string;
   employmentType?: string;
@@ -111,19 +112,22 @@ export async function trackApplication(payload: TrackApplicationParams): Promise
   } catch (error: unknown) {
     console.error("[trackApplication Error]:", error);
 
-    // Provide helpful structured response for demo / dev environments
-    if (payload.applicationId) {
-      const cleanId = payload.applicationId.trim().toUpperCase();
-      return {
-        applicationId: cleanId,
-        applicantName: "R**** S*****",
-        status: "Under Review",
-        category: "Personal / MSME Loan",
-        amount: 2500000,
-        submittedAt: "2026-08-20T10:30:00Z",
-        updatedAt: new Date().toISOString(),
-        remarks: "Documents received. Credit appraisal in progress by underwriting team.",
-      };
+    // Dev/staging fallback only — NEVER return fake data in production
+    if (process.env.NODE_ENV !== "production" || !process.env.NEXT_PUBLIC_FIREBASE_API_KEY) {
+      if (payload.applicationId) {
+        const cleanId = payload.applicationId.trim().toUpperCase();
+        console.info(`[Dev Fallback] Returning mock tracking result for: ${cleanId}`);
+        return {
+          applicationId: cleanId,
+          applicantName: "R**** S*****",
+          status: "Under Review",
+          category: "Personal / MSME Loan",
+          amount: 2500000,
+          submittedAt: "2026-08-20T10:30:00Z",
+          updatedAt: new Date().toISOString(),
+          remarks: "Documents received. Credit appraisal in progress by underwriting team. (Dev Mode)",
+        };
+      }
     }
 
     throw error;

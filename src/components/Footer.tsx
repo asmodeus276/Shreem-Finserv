@@ -34,44 +34,64 @@ export const Footer: React.FC = () => {
               </div>
             </div>
 
-            {/* Social Media Links */}
+            {/* Social Media Links & Direct WhatsApp */}
             <div className="pt-2 flex items-center gap-2.5">
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="LinkedIn"
-                className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0B2E8D] text-white flex items-center justify-center transition-colors text-xs font-bold"
-              >
-                in
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Twitter / X"
-                className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0B2E8D] text-white flex items-center justify-center transition-colors text-xs font-bold"
-              >
-                𝕏
-              </a>
-              <a
-                href="https://instagram.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0B2E8D] text-white flex items-center justify-center transition-colors text-xs font-bold"
-              >
-                ig
-              </a>
-              <a
-                href="https://facebook.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook"
-                className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0B2E8D] text-white flex items-center justify-center transition-colors text-xs font-bold"
-              >
-                fb
-              </a>
+              {BRAND_CONFIG.social.linkedin && (
+                <a
+                  href={BRAND_CONFIG.social.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0B2E8D] text-white flex items-center justify-center transition-colors text-xs font-bold"
+                >
+                  in
+                </a>
+              )}
+              {BRAND_CONFIG.social.twitter && (
+                <a
+                  href={BRAND_CONFIG.social.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Twitter / X"
+                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0B2E8D] text-white flex items-center justify-center transition-colors text-xs font-bold"
+                >
+                  𝕏
+                </a>
+              )}
+              {BRAND_CONFIG.social.instagram && (
+                <a
+                  href={BRAND_CONFIG.social.instagram}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0B2E8D] text-white flex items-center justify-center transition-colors text-xs font-bold"
+                >
+                  ig
+                </a>
+              )}
+              {BRAND_CONFIG.social.facebook && (
+                <a
+                  href={BRAND_CONFIG.social.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                  className="w-8 h-8 rounded-lg bg-white/10 hover:bg-[#0B2E8D] text-white flex items-center justify-center transition-colors text-xs font-bold"
+                >
+                  fb
+                </a>
+              )}
+              {BRAND_CONFIG.social.whatsapp && (
+                <a
+                  href={BRAND_CONFIG.social.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="WhatsApp Support"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600/80 hover:bg-emerald-600 text-white text-xs font-semibold transition-colors"
+                >
+                  <span className="material-symbols-outlined text-[15px]">chat</span>
+                  <span>WhatsApp</span>
+                </a>
+              )}
             </div>
 
             <div className="pt-2">

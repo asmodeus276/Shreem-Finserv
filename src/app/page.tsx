@@ -134,7 +134,7 @@ export default function HomePage() {
         <EmiCalculator />
       </section>
 
-      {/* 6. Free Credit Score Check Magnet */}
+      {/* 6. Instant Loan Eligibility Estimator */}
       <CreditScoreWidget />
 
       {/* 7. Institutional Awards & Bank Partner Proof */}

@@ -4,18 +4,9 @@ import React, { useState } from "react";
 import { trackApplication, TrackApplicationResult } from "@/lib/firebase";
 
 export const ApplicationTracker: React.FC = () => {
-  const [appIdInput, setAppIdInput] = useState("CC-78945612");
+  const [appIdInput, setAppIdInput] = useState("");
   const [loading, setLoading] = useState(false);
-  const [result, setResult] = useState<TrackApplicationResult | null>({
-    applicationId: "CC-78945612",
-    applicantName: "R**** S*****",
-    status: "Under Review",
-    category: "Personal Loan for Doctors",
-    amount: 2500000,
-    submittedAt: "2026-08-22T09:30:00Z",
-    updatedAt: "2026-08-26T12:00:00Z",
-    remarks: "Initial documents verified. Final credit underwriting in progress.",
-  });
+  const [result, setResult] = useState<TrackApplicationResult | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const handleTrack = async (e: React.FormEvent) => {

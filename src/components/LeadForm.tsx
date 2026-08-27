@@ -31,7 +31,8 @@ export const LeadForm: React.FC<LeadFormProps> = ({
   const [city, setCity] = useState("");
   const [loanCategory, setLoanCategory] = useState(defaultCategory || "Personal Loan");
   const [amount, setAmount] = useState(defaultAmount);
-  const [consent, setConsent] = useState(true);
+  const [consent, setConsent] = useState(false);
+  const [marketingConsent, setMarketingConsent] = useState(false);
 
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -95,6 +96,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
         loanCategory,
         amount,
         consent,
+        marketingConsent,
         sourcePage,
       });
 
@@ -120,6 +122,8 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     setMobile("");
     setCity("");
     setAmount(defaultAmount);
+    setConsent(false);
+    setMarketingConsent(false);
     setErrorMessage(null);
   };
 
@@ -303,19 +307,36 @@ export const LeadForm: React.FC<LeadFormProps> = ({
           </div>
         </div>
 
-        {/* DPDP Consent */}
-        <label className="flex items-start gap-2.5 pt-2 cursor-pointer group">
-          <input
-            type="checkbox"
-            checked={consent}
-            onChange={(e) => setConsent(e.target.checked)}
-            className="mt-0.5 w-4 h-4 text-[#0B2E8D] rounded border-slate-300 focus:ring-[#0B2E8D]"
-          />
-          <span className="text-xs text-slate-500 leading-snug group-hover:text-slate-700 transition-colors">
-            I agree to the Terms & Conditions and consent to secure data processing in accordance with{" "}
-            <span className="font-semibold text-slate-700">DPDP 2026</span> guidelines.
-          </span>
-        </label>
+        {/* DPDP Consent — Mandatory: Data Sharing with Lenders */}
+        <div className="space-y-3 pt-2">
+          <label className="flex items-start gap-2.5 cursor-pointer group">
+            <input
+              type="checkbox"
+              checked={consent}
+              onChange={(e) => setConsent(e.target.checked)}
+              className="mt-0.5 w-4 h-4 text-[#0B2E8D] rounded border-slate-300 focus:ring-[#0B2E8D]"
+            />
+            <span className="text-xs text-slate-500 leading-snug group-hover:text-slate-700 transition-colors">
+              <span className="text-red-500">*</span>{" "}
+              I consent to Shreem Finserv sharing my personal data with its lending partners for the purpose of processing this loan application, in accordance with the{" "}
+              <span className="font-semibold text-slate-700">Digital Personal Data Protection Act, 2023</span> and{" "}
+              <a href="/privacy" className="underline text-[#0B2E8D] hover:text-[#001A62]">Privacy Policy</a>.
+            </span>
+          </label>
+
+          {/* Optional: Marketing Communications */}
+          <label className="flex items-start gap-2.5 cursor-pointer group">
+            <input
+              type="checkbox"
+              checked={marketingConsent}
+              onChange={(e) => setMarketingConsent(e.target.checked)}
+              className="mt-0.5 w-4 h-4 text-[#0B2E8D] rounded border-slate-300 focus:ring-[#0B2E8D]"
+            />
+            <span className="text-xs text-slate-500 leading-snug group-hover:text-slate-700 transition-colors">
+              I agree to receive promotional offers and updates from Shreem Finserv via SMS, WhatsApp, and email. (Optional — you can opt out anytime.)
+            </span>
+          </label>
+        </div>
 
         {/* Submit Button */}
         <button

@@ -3,9 +3,9 @@ import { CreditScoreWidget } from "@/components/CreditScoreWidget";
 import { PartnerMarquee } from "@/components/PartnerMarquee";
 
 export const metadata: Metadata = {
-  title: "Check Free Credit Score & Report - Zero Impact on CIBIL",
+  title: "Loan Eligibility Estimator & Credit Health Guide - Shreem Finserv",
   description:
-    "Check your official credit score online for free. $0 fee, instant credit evaluation, and matched pre-approved loan offers.",
+    "Estimate your maximum loan borrowing capacity with our free FOIR calculator and understand how credit score brackets impact your loan approvals.",
 };
 
 export default function CreditScorePage() {
