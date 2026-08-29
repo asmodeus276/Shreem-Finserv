@@ -137,7 +137,7 @@ export const Navbar: React.FC = () => {
 
               {/* Mega Menu Dropdown Panel */}
               {megaMenuOpen && (
-                <div className="absolute top-full -left-20 w-[640px] bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 z-50 grid grid-cols-2 gap-4 animate-in fade-in-50 slide-in-from-top-2">
+                <div className="absolute top-full -left-20 w-[660px] bg-white rounded-2xl shadow-2xl border border-slate-200 p-6 z-50 grid grid-cols-2 gap-4 animate-fade-in-up">
                   <div className="space-y-2">
                     <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400 block px-2">
                       Personal & Professional
@@ -145,33 +145,39 @@ export const Navbar: React.FC = () => {
                     <Link
                       href="/personal-loan/for-doctors"
                       onClick={() => setMegaMenuOpen(false)}
-                      className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#001A62] transition-colors"
+                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-blue-50/80 text-slate-700 hover:text-[#001A62] transition-all group/item"
                     >
-                      <span className="material-symbols-outlined text-[#0B2E8D] text-2xl mt-0.5">medical_services</span>
+                      <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-[#0B2E8D] group-hover/item:bg-[#0B2E8D] group-hover/item:text-white transition-colors flex-shrink-0 mt-0.5">
+                        <span className="material-symbols-outlined text-[22px]">medical_services</span>
+                      </div>
                       <div>
-                        <div className="font-bold text-sm">Personal Loans for Doctors</div>
+                        <div className="font-bold text-sm text-slate-900 group-hover/item:text-[#0B2E8D]">Personal Loans for Doctors</div>
                         <div className="text-xs text-slate-500">Up to ₹50L | Starting 9.99% p.a.</div>
                       </div>
                     </Link>
                     <Link
                       href="/personal-loan/urgent-cash"
                       onClick={() => setMegaMenuOpen(false)}
-                      className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#001A62] transition-colors"
+                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-red-50/80 text-slate-700 hover:text-[#BB0119] transition-all group/item"
                     >
-                      <span className="material-symbols-outlined text-[#BB0119] text-2xl mt-0.5">bolt</span>
+                      <div className="w-10 h-10 rounded-xl bg-red-50 flex items-center justify-center text-[#BB0119] group-hover/item:bg-[#BB0119] group-hover/item:text-white transition-colors flex-shrink-0 mt-0.5">
+                        <span className="material-symbols-outlined text-[22px]">bolt</span>
+                      </div>
                       <div>
-                        <div className="font-bold text-sm">Urgent Cash Advance</div>
+                        <div className="font-bold text-sm text-slate-900 group-hover/item:text-[#BB0119]">Urgent Cash Advance</div>
                         <div className="text-xs text-slate-500">Fast 2-hour emergency disbursal</div>
                       </div>
                     </Link>
                     <Link
                       href="/business-loan/for-women"
                       onClick={() => setMegaMenuOpen(false)}
-                      className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#001A62] transition-colors"
+                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-purple-50/80 text-slate-700 hover:text-purple-700 transition-all group/item"
                     >
-                      <span className="material-symbols-outlined text-purple-600 text-2xl mt-0.5">diversity_3</span>
+                      <div className="w-10 h-10 rounded-xl bg-purple-50 flex items-center justify-center text-purple-600 group-hover/item:bg-purple-600 group-hover/item:text-white transition-colors flex-shrink-0 mt-0.5">
+                        <span className="material-symbols-outlined text-[22px]">diversity_3</span>
+                      </div>
                       <div>
-                        <div className="font-bold text-sm">Loans for Women Founders</div>
+                        <div className="font-bold text-sm text-slate-900 group-hover/item:text-purple-700">Loans for Women Founders</div>
                         <div className="text-xs text-slate-500">0.5% Special Interest Subsidy</div>
                       </div>
                     </Link>
@@ -184,33 +190,39 @@ export const Navbar: React.FC = () => {
                     <Link
                       href="/business-loan/msme-working-capital"
                       onClick={() => setMegaMenuOpen(false)}
-                      className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#001A62] transition-colors"
+                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-emerald-50/80 text-slate-700 hover:text-emerald-700 transition-all group/item"
                     >
-                      <span className="material-symbols-outlined text-emerald-600 text-2xl mt-0.5">storefront</span>
+                      <div className="w-10 h-10 rounded-xl bg-emerald-50 flex items-center justify-center text-emerald-600 group-hover/item:bg-emerald-600 group-hover/item:text-white transition-colors flex-shrink-0 mt-0.5">
+                        <span className="material-symbols-outlined text-[22px]">storefront</span>
+                      </div>
                       <div>
-                        <div className="font-bold text-sm">MSME Working Capital</div>
+                        <div className="font-bold text-sm text-slate-900 group-hover/item:text-emerald-700">MSME Working Capital</div>
                         <div className="text-xs text-slate-500">Up to ₹2 Crore credit lines</div>
                       </div>
                     </Link>
                     <Link
                       href="/loan-against-property"
                       onClick={() => setMegaMenuOpen(false)}
-                      className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#001A62] transition-colors"
+                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-amber-50/80 text-slate-700 hover:text-amber-700 transition-all group/item"
                     >
-                      <span className="material-symbols-outlined text-amber-600 text-2xl mt-0.5">real_estate_agent</span>
+                      <div className="w-10 h-10 rounded-xl bg-amber-50 flex items-center justify-center text-amber-600 group-hover/item:bg-amber-600 group-hover/item:text-white transition-colors flex-shrink-0 mt-0.5">
+                        <span className="material-symbols-outlined text-[22px]">real_estate_agent</span>
+                      </div>
                       <div>
-                        <div className="font-bold text-sm">Loan Against Property</div>
+                        <div className="font-bold text-sm text-slate-900 group-hover/item:text-amber-700">Loan Against Property</div>
                         <div className="text-xs text-slate-500">Up to ₹15 Crore | 15 Yrs Tenure</div>
                       </div>
                     </Link>
                     <Link
                       href="/machinery-loan"
                       onClick={() => setMegaMenuOpen(false)}
-                      className="flex items-start gap-3 p-2.5 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#001A62] transition-colors"
+                      className="flex items-start gap-3 p-3 rounded-xl hover:bg-blue-50/80 text-slate-700 hover:text-[#0B2E8D] transition-all group/item"
                     >
-                      <span className="material-symbols-outlined text-[#0B2E8D] text-2xl mt-0.5">precision_manufacturing</span>
+                      <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-[#0B2E8D] group-hover/item:bg-[#0B2E8D] group-hover/item:text-white transition-colors flex-shrink-0 mt-0.5">
+                        <span className="material-symbols-outlined text-[22px]">precision_manufacturing</span>
+                      </div>
                       <div>
-                        <div className="font-bold text-sm">Machinery & Equipment</div>
+                        <div className="font-bold text-sm text-slate-900 group-hover/item:text-[#0B2E8D]">Machinery & Equipment</div>
                         <div className="text-xs text-slate-500">90% invoice financing</div>
                       </div>
                     </Link>

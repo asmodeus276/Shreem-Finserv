@@ -141,57 +141,64 @@ export default function HomePage() {
       <AwardsShowcase />
 
       {/* 8. 5-Step Process Timeline */}
-      <section className="py-20 bg-white border-t border-slate-200">
+      <section className="py-20 bg-white border-t border-slate-200 relative overflow-hidden">
+        {/* Subtle Ambient Orbs */}
+        <div className="absolute top-1/2 left-0 -translate-y-1/2 w-72 h-72 bg-blue-100/40 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+        <div className="absolute top-1/2 right-0 -translate-y-1/2 w-72 h-72 bg-red-100/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>
+
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0B2E8D]">Seamless 5-Step Journey</span>
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-1">
+          <div className="text-center max-w-2xl mx-auto mb-16">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-[#0B2E8D] text-xs font-bold border border-blue-200 mb-2">
+              <span className="material-symbols-outlined text-[16px]">route</span>
+              Seamless 5-Step Journey
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mt-1">
               How Your Loan Gets Sanctioned
             </h2>
-            <p className="text-slate-500 text-sm mt-2">
-              From online evaluation to account credit with complete digital transparency.
+            <p className="text-slate-500 text-sm mt-2 max-w-lg mx-auto">
+              From online evaluation to account credit with complete digital transparency and dedicated relationship management.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center">
-              <div className="w-12 h-12 rounded-full bg-[#0B2E8D] text-white font-black flex items-center justify-center mx-auto mb-4 shadow">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 relative">
+            <div className="bg-slate-50/80 p-6 rounded-2xl border border-slate-200 text-center hover:bg-white hover:border-[#0B2E8D]/30 interactive-shadow transition-all group">
+              <div className="w-12 h-12 rounded-2xl bg-[#0B2E8D] text-white font-black text-lg flex items-center justify-center mx-auto mb-4 shadow-md group-hover:scale-110 transition-transform">
                 1
               </div>
-              <h4 className="font-bold text-slate-900 text-base mb-1">Apply Online</h4>
-              <p className="text-xs text-slate-600">Submit basic loan requirements with simple digital verification.</p>
+              <h4 className="font-bold text-slate-900 text-base mb-1.5 group-hover:text-[#0B2E8D] transition-colors">Apply Online</h4>
+              <p className="text-xs text-slate-500 leading-relaxed">Submit basic loan requirements with instant digital pre-evaluation.</p>
             </div>
 
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center">
-              <div className="w-12 h-12 rounded-full bg-[#0B2E8D] text-white font-black flex items-center justify-center mx-auto mb-4 shadow">
+            <div className="bg-slate-50/80 p-6 rounded-2xl border border-slate-200 text-center hover:bg-white hover:border-[#0B2E8D]/30 interactive-shadow transition-all group">
+              <div className="w-12 h-12 rounded-2xl bg-[#0B2E8D] text-white font-black text-lg flex items-center justify-center mx-auto mb-4 shadow-md group-hover:scale-110 transition-transform">
                 2
               </div>
-              <h4 className="font-bold text-slate-900 text-base mb-1">Upload KYC</h4>
-              <p className="text-xs text-slate-600">Secure digital document submission via encrypted channel.</p>
+              <h4 className="font-bold text-slate-900 text-base mb-1.5 group-hover:text-[#0B2E8D] transition-colors">Upload KYC</h4>
+              <p className="text-xs text-slate-500 leading-relaxed">Secure digital document submission via encrypted DPDP-compliant channel.</p>
             </div>
 
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center">
-              <div className="w-12 h-12 rounded-full bg-[#0B2E8D] text-white font-black flex items-center justify-center mx-auto mb-4 shadow">
+            <div className="bg-slate-50/80 p-6 rounded-2xl border border-slate-200 text-center hover:bg-white hover:border-[#0B2E8D]/30 interactive-shadow transition-all group">
+              <div className="w-12 h-12 rounded-2xl bg-[#0B2E8D] text-white font-black text-lg flex items-center justify-center mx-auto mb-4 shadow-md group-hover:scale-110 transition-transform">
                 3
               </div>
-              <h4 className="font-bold text-slate-900 text-base mb-1">Bank Match</h4>
-              <p className="text-xs text-slate-600">Our engine matches you with lowest-rate bank partners.</p>
+              <h4 className="font-bold text-slate-900 text-base mb-1.5 group-hover:text-[#0B2E8D] transition-colors">Bank Match</h4>
+              <p className="text-xs text-slate-500 leading-relaxed">Our algorithmic engine matches you with the lowest-rate bank partners.</p>
             </div>
 
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center">
-              <div className="w-12 h-12 rounded-full bg-[#0B2E8D] text-white font-black flex items-center justify-center mx-auto mb-4 shadow">
+            <div className="bg-slate-50/80 p-6 rounded-2xl border border-slate-200 text-center hover:bg-white hover:border-[#0B2E8D]/30 interactive-shadow transition-all group">
+              <div className="w-12 h-12 rounded-2xl bg-[#0B2E8D] text-white font-black text-lg flex items-center justify-center mx-auto mb-4 shadow-md group-hover:scale-110 transition-transform">
                 4
               </div>
-              <h4 className="font-bold text-slate-900 text-base mb-1">Quick Sanction</h4>
-              <p className="text-xs text-slate-600">Receive in-principle formal loan sanction letter.</p>
+              <h4 className="font-bold text-slate-900 text-base mb-1.5 group-hover:text-[#0B2E8D] transition-colors">Quick Sanction</h4>
+              <p className="text-xs text-slate-500 leading-relaxed">Receive in-principle formal loan sanction letter in under 24 hours.</p>
             </div>
 
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-200 text-center">
-              <div className="w-12 h-12 rounded-full bg-[#BB0119] text-white font-black flex items-center justify-center mx-auto mb-4 shadow">
+            <div className="bg-slate-50/80 p-6 rounded-2xl border border-slate-200 text-center hover:bg-white hover:border-[#BB0119]/30 interactive-shadow transition-all group">
+              <div className="w-12 h-12 rounded-2xl bg-[#BB0119] text-white font-black text-lg flex items-center justify-center mx-auto mb-4 shadow-md group-hover:scale-110 transition-transform">
                 5
               </div>
-              <h4 className="font-bold text-slate-900 text-base mb-1">Direct Disbursal</h4>
-              <p className="text-xs text-slate-600">Funds credited directly to your registered bank account.</p>
+              <h4 className="font-bold text-slate-900 text-base mb-1.5 group-hover:text-[#BB0119] transition-colors">Direct Disbursal</h4>
+              <p className="text-xs text-slate-500 leading-relaxed">Funds credited directly to your registered account with zero hidden fees.</p>
             </div>
           </div>
         </div>
@@ -205,18 +212,25 @@ export default function HomePage() {
 
       {/* 11. Final Call-To-Action Banner */}
       <section className="py-16 max-w-7xl mx-auto px-4 md:px-8">
-        <div className="bg-[#BB0119] text-white rounded-3xl p-8 md:p-14 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="space-y-2 text-center md:text-left">
-            <h3 className="text-2xl sm:text-3xl md:text-4xl font-black">
+        <div className="relative overflow-hidden bg-gradient-to-r from-[#8B0010] via-[#BB0119] to-[#001A62] text-white rounded-3xl p-8 md:p-14 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10">
+          {/* Shimmer Overlay */}
+          <div className="absolute inset-0 shimmer-bg opacity-20 pointer-events-none"></div>
+
+          <div className="space-y-3 text-center md:text-left relative z-10">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 text-white text-xs font-bold border border-white/20 backdrop-blur-sm">
+              <span className="material-symbols-outlined text-[16px] text-amber-300">bolt</span>
+              Fast-Track Financial Advisory
+            </div>
+            <h3 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight leading-tight">
               Ready to Accelerate Your Financial Growth?
             </h3>
-            <p className="text-white/90 text-sm max-w-xl">
-              Connect with our senior credit managers or call our priority hotline directly at {BRAND_CONFIG.phoneDisplay}.
+            <p className="text-white/90 text-sm sm:text-base max-w-xl leading-relaxed">
+              Connect with our senior credit underwriting desk or call our priority hotline directly at <strong className="text-white">{BRAND_CONFIG.phoneDisplay}</strong>.
             </p>
           </div>
           <a
             href="#lead-application-form"
-            className="bg-white hover:bg-slate-100 text-[#001A62] font-black px-8 py-4 rounded-xl shadow-lg transition-all text-sm flex items-center gap-2 flex-shrink-0"
+            className="relative z-10 bg-white hover:bg-slate-50 text-[#001A62] font-black px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all text-sm flex items-center gap-2 flex-shrink-0"
           >
             <span>Apply Online Now</span>
             <span className="material-symbols-outlined text-[18px]">arrow_forward</span>

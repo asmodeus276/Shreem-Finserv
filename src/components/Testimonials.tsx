@@ -76,7 +76,7 @@ export const Testimonials: React.FC = () => {
           {reviews.map((rev, idx) => (
             <div
               key={idx}
-              className="bg-slate-50 border border-slate-200/90 rounded-3xl overflow-hidden hover:bg-white hover:border-[#0B2E8D]/30 interactive-shadow transition-all flex flex-col justify-between"
+              className="bg-slate-50/80 border border-slate-200/90 rounded-3xl overflow-hidden hover:bg-white hover:border-[#0B2E8D]/30 interactive-shadow transition-all flex flex-col justify-between"
             >
               {/* Top Video Preview Banner */}
               <div
@@ -115,19 +115,28 @@ export const Testimonials: React.FC = () => {
               <div className="p-6 space-y-4">
                 {/* Metric Badges */}
                 <div className="grid grid-cols-2 gap-2 text-[11px]">
-                  <div className="bg-white p-2 rounded-xl border border-slate-200 text-center">
+                  <div className="bg-white p-2.5 rounded-xl border border-slate-200/80 text-center shadow-xs">
                     <span className="text-slate-400 block text-[9px] uppercase font-bold">Speed</span>
                     <span className="font-bold text-slate-800">{rev.turnaround}</span>
                   </div>
-                  <div className="bg-white p-2 rounded-xl border border-slate-200 text-center">
+                  <div className="bg-white p-2.5 rounded-xl border border-slate-200/80 text-center shadow-xs">
                     <span className="text-slate-400 block text-[9px] uppercase font-bold">Advantage</span>
                     <span className="font-bold text-emerald-700">{rev.interestSaved}</span>
                   </div>
                 </div>
 
-                {/* Rating Stars */}
-                <div className="flex text-amber-400 text-sm">
-                  {"★".repeat(rev.rating)}
+                {/* Star Rating SVGs */}
+                <div className="flex items-center gap-1">
+                  {[...Array(rev.rating)].map((_, starIdx) => (
+                    <svg
+                      key={starIdx}
+                      className="w-4 h-4 text-amber-400 fill-current"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                  <span className="text-[11px] font-bold text-slate-500 ml-1.5">5.0</span>
                 </div>
 
                 <p className="text-xs sm:text-sm text-slate-700 leading-relaxed italic">
@@ -135,23 +144,29 @@ export const Testimonials: React.FC = () => {
                 </p>
               </div>
 
-              {/* Author Strip */}
-              <div className="p-6 pt-4 border-t border-slate-200/80 flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-[#001A62] text-white flex items-center justify-center font-bold text-xs flex-shrink-0">
-                  {rev.avatarInitials}
+              {/* Author Strip with Verified Badge */}
+              <div className="p-6 pt-4 border-t border-slate-200/80 flex items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-10 h-10 rounded-full bg-[#001A62] text-white flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-xs">
+                    {rev.avatarInitials}
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight truncate">
+                      {rev.name}
+                    </h4>
+                    <p className="text-[11px] text-slate-500 truncate">{rev.role}</p>
+                  </div>
                 </div>
-                <div className="min-w-0">
-                  <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-tight truncate">
-                    {rev.name}
-                  </h4>
-                  <p className="text-[11px] text-slate-500 truncate">{rev.role}</p>
-                </div>
+                <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200 flex-shrink-0">
+                  <span className="material-symbols-outlined text-[13px]">check_circle</span>
+                  Verified
+                </span>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Modal / Video Story Popup */}
+        {/* Modal / Story Popup */}
         {activeModal !== null && (
           <div
             onClick={() => setActiveModal(null)}
@@ -159,7 +174,7 @@ export const Testimonials: React.FC = () => {
           >
             <div
               onClick={(e) => e.stopPropagation()}
-              className="bg-white max-w-lg w-full rounded-3xl p-6 sm:p-8 shadow-2xl space-y-4 relative"
+              className="bg-white max-w-lg w-full rounded-3xl p-6 sm:p-8 shadow-2xl space-y-4 relative animate-fade-in-up"
             >
               <button
                 onClick={() => setActiveModal(null)}
