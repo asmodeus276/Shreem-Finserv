@@ -19,9 +19,9 @@ export const PartnerMarquee: React.FC = () => {
           {[...BANK_PARTNERS_DATA, ...BANK_PARTNERS_DATA].map((p, idx) => (
             <div
               key={idx}
-              className="inline-flex items-center gap-3 bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-[#0B2E8D]/40 px-5 py-3 rounded-2xl transition-all shadow-sm hover:shadow group flex-shrink-0 cursor-default select-none min-w-[180px]"
+              className="inline-flex items-center gap-3 bg-slate-50 hover:bg-white border border-slate-200/80 hover:border-[#0B2E8D]/40 px-4 py-2.5 rounded-2xl transition-all shadow-xs hover:shadow group flex-shrink-0 cursor-default select-none min-w-[200px]"
             >
-              <div className="w-9 h-9 flex-shrink-0 rounded-lg overflow-hidden">
+              <div className="w-12 h-8 flex-shrink-0 bg-white rounded-lg p-1 border border-slate-100 flex items-center justify-center shadow-xs">
                 {p.svgIcon}
               </div>
               <div className="flex flex-col text-left justify-center">

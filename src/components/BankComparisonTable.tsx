@@ -72,7 +72,9 @@ export const BankComparisonTable: React.FC<BankComparisonTableProps> = ({
             >
               <div className="flex items-center justify-between gap-3">
                 <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-8 h-8 flex-shrink-0 rounded-lg overflow-hidden">{bank.svgIcon}</div>
+                  <div className="w-12 h-8 flex-shrink-0 bg-white rounded-lg p-1 border border-slate-100 flex items-center justify-center shadow-xs">
+                    {bank.svgIcon}
+                  </div>
                   <div className="min-w-0">
                     <div className="font-bold text-slate-900 text-sm truncate">{bank.name}</div>
                     <span className="text-[10px] font-semibold text-slate-400 block">{bank.category} Partner</span>
@@ -131,15 +133,15 @@ export const BankComparisonTable: React.FC<BankComparisonTableProps> = ({
                   >
                     <td className="py-4 px-6">
                       <div className="flex items-center gap-3">
-                        <div className="w-9 h-9 flex-shrink-0 rounded-lg overflow-hidden group-hover:scale-105 transition-transform">
+                        <div className="w-12 h-8 flex-shrink-0 bg-white rounded-lg p-1 border border-slate-100 flex items-center justify-center shadow-xs">
                           {bank.svgIcon}
                         </div>
                         <div>
                           <div className="font-bold text-slate-900 leading-tight">
                             {bank.name}
                           </div>
-                          <span className="text-[10px] font-semibold text-slate-400">
-                            {bank.category} Partner
+                          <span className="text-[10px] text-slate-400 font-semibold">
+                            {bank.category} Co-Lender
                           </span>
                         </div>
                       </div>

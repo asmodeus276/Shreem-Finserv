@@ -160,9 +160,11 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
                 {BANK_PARTNERS_DATA.slice(0, 7).map((bank) => (
                   <div
                     key={bank.id}
-                    className="inline-flex items-center gap-2 bg-white border border-slate-200/90 rounded-xl px-3 py-2 shadow-sm text-xs font-bold text-slate-800"
+                    className="inline-flex items-center gap-2 bg-white border border-slate-200/90 rounded-xl px-3 py-1.5 shadow-xs text-xs font-bold text-slate-800"
                   >
-                    <div className="w-7 h-7 flex-shrink-0 rounded-md overflow-hidden">{bank.svgIcon}</div>
+                    <div className="w-9 h-6 flex-shrink-0 bg-white rounded p-0.5 border border-slate-100 flex items-center justify-center shadow-xs">
+                      {bank.svgIcon}
+                    </div>
                     <span className="text-[11px] md:text-xs whitespace-nowrap">{bank.shortName}</span>
                   </div>
                 ))}

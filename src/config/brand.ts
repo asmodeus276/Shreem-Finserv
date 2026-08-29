@@ -5,7 +5,7 @@ export const BRAND_CONFIG = {
   subTagline: "Instant Loan Disbursal with Minimal Paperwork",
   phone: "+91 9355445828",
   phoneDisplay: "+91 93554 45828",
-  email: "Contact@shreemfinserv.com",
+  email: "Finservshreem@gmail.com",
   address: "Office No. 537, Cloud 9 Tower, Vaishali (GZB), UP 201010",
   city: "Vaishali, Ghaziabad",
   state: "Uttar Pradesh",
