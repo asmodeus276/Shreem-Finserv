@@ -57,6 +57,38 @@ Shreem Finserv collaborates with tier-1 housing finance companies (HFCs) and sch
           icon: "currency_exchange",
         },
       ]}
+      features={[
+        {
+          title: "Up to 75% Loan-to-Value (LTV)",
+          desc: "Maximize your borrowing capacity with high LTV ratios based on certified technical property valuation.",
+          icon: "pie_chart",
+        },
+        {
+          title: "Lowest Rate Starting 8.75% p.a.",
+          desc: "Secured mortgage financing at rates significantly lower than unsecured personal or business loans.",
+          icon: "savings",
+        },
+        {
+          title: "Extended 15-Year Repayment",
+          desc: "Long amortization tenure up to 180 months keeping your monthly EMI burden manageable and affordable.",
+          icon: "calendar_month",
+        },
+        {
+          title: "All Property Types Accepted",
+          desc: "Pledge residential homes, commercial offices, industrial plots, retail shops, and warehouse facilities.",
+          icon: "domain",
+        },
+        {
+          title: "Balance Transfer + Top-Up",
+          desc: "Transfer existing high-rate LAP from other lenders and unlock surplus top-up funds at better pricing.",
+          icon: "swap_horiz",
+        },
+        {
+          title: "Retain Full Ownership & Usage",
+          desc: "Continue living in or operating your business from the mortgaged property without any disruption.",
+          icon: "home_pin",
+        },
+      ]}
       benefits={[
         {
           title: "Lowest-in-Market Interest Rates",

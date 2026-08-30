@@ -24,6 +24,12 @@ export interface FeeScheduleItem {
   shreemAdvantage: string;
 }
 
+export interface FeatureItem {
+  title: string;
+  desc: string;
+  icon: string;
+}
+
 export interface ProductPageProps {
   categoryName: string;
   badge: string;
@@ -41,6 +47,7 @@ export interface ProductPageProps {
   defaultEmiRate?: number;
   defaultEmiTenureYears?: number;
   variants?: LoanVariant[];
+  features?: FeatureItem[];
   benefits: Array<{ title: string; desc: string; icon: string }>;
   feesSchedule?: FeeScheduleItem[];
   eligibility: string[];
@@ -65,6 +72,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
   defaultEmiRate = 10.5,
   defaultEmiTenureYears = 5,
   variants = [],
+  features = [],
   benefits,
   feesSchedule = [
     {
@@ -205,6 +213,56 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
 
       {/* 2. Co-Lending Partner Marquee */}
       <PartnerMarquee />
+
+      {/* 2.5 Key Features Section */}
+      {features.length > 0 && (
+        <section className="py-14 md:py-20 bg-white border-b border-slate-200">
+          <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#0B2E8D] text-xs font-bold border border-blue-200 mb-3">
+                <span className="material-symbols-outlined text-[16px]">auto_awesome</span>
+                Product Highlights
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
+                Key Features of <span className="text-[#0B2E8D]">{categoryName}</span>
+              </h2>
+              <p className="text-slate-500 text-sm mt-2 max-w-xl mx-auto">
+                Everything you need to know about what makes this product stand out from the rest.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+              {features.map((f, idx) => (
+                <div
+                  key={idx}
+                  className="group relative bg-gradient-to-br from-slate-50 to-white border border-slate-200/80 rounded-2xl p-6 md:p-7 hover:border-[#0B2E8D]/40 hover:shadow-xl transition-all duration-300"
+                >
+                  {/* Number badge */}
+                  <div className="absolute top-5 right-5 w-7 h-7 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center text-[11px] font-black group-hover:bg-[#0B2E8D] group-hover:text-white transition-colors duration-300">
+                    {String(idx + 1).padStart(2, "0")}
+                  </div>
+
+                  {/* Icon */}
+                  <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br from-[#0B2E8D] to-[#001A62] text-white flex items-center justify-center mb-4 shadow-lg shadow-[#0B2E8D]/20 group-hover:scale-110 transition-transform duration-300">
+                    <span className="material-symbols-outlined text-[24px] md:text-[26px]">{f.icon}</span>
+                  </div>
+
+                  {/* Content */}
+                  <h3 className="text-base md:text-lg font-bold text-slate-900 mb-2 group-hover:text-[#0B2E8D] transition-colors">
+                    {f.title}
+                  </h3>
+                  <p className="text-xs md:text-sm text-slate-500 leading-relaxed">
+                    {f.desc}
+                  </p>
+
+                  {/* Bottom accent line */}
+                  <div className="mt-5 h-1 w-10 rounded-full bg-slate-200 group-hover:w-full group-hover:bg-gradient-to-r group-hover:from-[#0B2E8D] group-hover:to-[#BB0119] transition-all duration-500"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 3. Comprehensive Overview Section */}
       {longOverview && (

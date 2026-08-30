@@ -57,6 +57,38 @@ Shreem Finserv’s Instant Urgent Cash facility uses 100% automated algorithmic 
           icon: "storefront",
         },
       ]}
+      features={[
+        {
+          title: "2-Hour Guaranteed Disbursal",
+          desc: "Funds credited via IMPS/RTGS directly to your bank account within 2 hours of e-sign completion.",
+          icon: "timer",
+        },
+        {
+          title: "100% Paperless Aadhaar eKYC",
+          desc: "No physical documents needed. Complete identity verification via DigiLocker and Aadhaar OTP instantly.",
+          icon: "fingerprint",
+        },
+        {
+          title: "Flexible 3 to 36 Month Tenure",
+          desc: "Choose micro-tenures to pay off quickly or longer repayment windows for comfortable monthly instalments.",
+          icon: "date_range",
+        },
+        {
+          title: "Zero Hidden Charges",
+          desc: "Full transparency on processing fees, interest calculations, and repayment schedules with no surprise costs.",
+          icon: "money_off",
+        },
+        {
+          title: "Auto-Repay via eNACH/UPI",
+          desc: "Set up one-time automated EMI debits through RBI-regulated eNACH or UPI AutoPay mandate.",
+          icon: "autorenew",
+        },
+        {
+          title: "Build Your Credit Score",
+          desc: "On-time repayments reported monthly to CIBIL and Experian, strengthening your long-term credit profile.",
+          icon: "trending_up",
+        },
+      ]}
       benefits={[
         {
           title: "100% Paperless Digital Processing",

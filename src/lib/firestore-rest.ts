@@ -159,3 +159,35 @@ export async function saveCareerToFirestore(career: FirestoreCareerRecord): Prom
     return false;
   }
 }
+
+export interface FirestoreContactRecord {
+  ticketId: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+  status: string;
+  submittedAt: string;
+}
+
+/**
+ * 5. Save Contact Inquiry into `contacts` collection
+ */
+export async function saveContactToFirestore(contact: FirestoreContactRecord): Promise<boolean> {
+  try {
+    const url = `https://firestore.googleapis.com/v1/projects/${PROJECT_ID}/databases/(default)/documents/contacts/${contact.ticketId}?key=${FIREBASE_API_KEY}`;
+    const fields = objectToFirestoreFields(contact);
+
+    const res = await fetch(url, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ fields }),
+    });
+
+    return res.ok;
+  } catch (err) {
+    console.warn("[Firestore REST Contact Save Warning]:", err);
+    return false;
+  }
+}

@@ -57,6 +57,38 @@ To champion this growth, Shreem Finserv has established an exclusive Women Entre
           icon: "rocket_launch",
         },
       ]}
+      features={[
+        {
+          title: "0.50% Special Interest Concession",
+          desc: "Automatic half-percent interest rate rebate below standard card rates for qualified women-owned enterprises.",
+          icon: "percent",
+        },
+        {
+          title: "Collateral-Free Up to ₹1 Crore",
+          desc: "CGTMSE-backed guarantee eliminates the need for property mortgage or gold pledge for eligible businesses.",
+          icon: "verified_user",
+        },
+        {
+          title: "Dedicated Women Relationship Manager",
+          desc: "Female credit advisors provide end-to-end support from documentation to final disbursal and beyond.",
+          icon: "support_agent",
+        },
+        {
+          title: "Subsidized Processing Fees",
+          desc: "Up to 50% discount on standard bank processing charges with zero hidden administrative surcharges.",
+          icon: "price_check",
+        },
+        {
+          title: "Mudra & Stand-Up India Access",
+          desc: "Direct access to government-backed schemes providing micro-credit and greenfield enterprise funding.",
+          icon: "account_balance",
+        },
+        {
+          title: "36-Hour Fast-Track Approval",
+          desc: "Digital KYC and GST analytics enable rapid in-principle sanction generation within 24 to 36 hours.",
+          icon: "speed",
+        },
+      ]}
       benefits={[
         {
           title: "0.50% Preferential Interest Subsidy",

@@ -57,6 +57,38 @@ Shreem Finserv’s dedicated Doctor Lending Desk bypasses traditional cumbersome
           icon: "flight_takeoff",
         },
       ]}
+      features={[
+        {
+          title: "100% Unsecured Lending",
+          desc: "No collateral, gold, or property pledge needed. Sanctioned purely on medical credentials and banking track.",
+          icon: "shield",
+        },
+        {
+          title: "Preferential 9.99% Interest Rate",
+          desc: "Exclusive doctor-tier pricing across HDFC, ICICI, SBI, and Axis Bank — lowest in the professional category.",
+          icon: "trending_down",
+        },
+        {
+          title: "24-Hour Express Disbursal",
+          desc: "From application to bank credit in under 24 hours with fully digital document processing.",
+          icon: "bolt",
+        },
+        {
+          title: "Flexi Overdraft Option",
+          desc: "Draw funds as needed, repay anytime from patient collections — pay interest only on utilized balance.",
+          icon: "account_balance_wallet",
+        },
+        {
+          title: "Zero Foreclosure After 12 EMIs",
+          desc: "Close your loan early without any prepayment penalty once 12 EMIs have been paid on floating rate.",
+          icon: "lock_open",
+        },
+        {
+          title: "Pan-India Multi-City Access",
+          desc: "Apply from any city across India. Our digital desk covers 500+ pin codes with doorstep document pickup.",
+          icon: "public",
+        },
+      ]}
       benefits={[
         {
           title: "No Collateral or Guarantor",

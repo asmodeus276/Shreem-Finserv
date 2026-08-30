@@ -57,6 +57,38 @@ Shreem Finserv’s Industrial Equipment Financing program provides up to 90% fun
           icon: "table_view",
         },
       ]}
+      features={[
+        {
+          title: "90% Proforma Invoice Funding",
+          desc: "Minimal 10-15% promoter contribution — the bank finances up to 90% of your equipment's invoice value.",
+          icon: "receipt",
+        },
+        {
+          title: "No Property Mortgage Needed",
+          desc: "The purchased equipment itself serves as primary collateral through hypothecation — no real estate required.",
+          icon: "security",
+        },
+        {
+          title: "Import LC & Trade Finance",
+          desc: "Seamless Letter of Credit facility for importing machinery from Germany, Japan, USA, and China.",
+          icon: "flight_land",
+        },
+        {
+          title: "Tax Depreciation Benefits",
+          desc: "Claim 15% to 40% accelerated depreciation on qualifying plant machinery under Indian Income Tax Act.",
+          icon: "calculate",
+        },
+        {
+          title: "3-6 Month Moratorium Period",
+          desc: "Repayment holiday during machine shipping, installation, and commissioning — pay only simple interest.",
+          icon: "hourglass_empty",
+        },
+        {
+          title: "Direct OEM Supplier Disbursal",
+          desc: "Fast and transparent settlement made directly to authorized manufacturers or equipment distributors.",
+          icon: "local_shipping",
+        },
+      ]}
       benefits={[
         {
           title: "Up to 90% Proforma Invoice Funding",

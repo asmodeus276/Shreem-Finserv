@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { BRAND_CONFIG } from "@/config/brand";
-import { LeadForm } from "@/components/LeadForm";
+import ContactForm from "@/components/ContactForm";
 
 export const metadata: Metadata = {
   title: "Contact Us - Shreem Finserv Priority Helpline & Office",
@@ -114,12 +114,9 @@ export default function ContactPage() {
 
           </div>
 
-          {/* Right Column: Lead Form */}
+          {/* Right Column: Contact Form */}
           <div className="lg:col-span-6">
-            <LeadForm
-              title="Request Priority Callback"
-              subtitle="Our senior credit underwriting desk will reach out immediately."
-            />
+            <ContactForm />
           </div>
 
         </div>

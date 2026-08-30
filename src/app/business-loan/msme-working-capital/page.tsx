@@ -57,6 +57,38 @@ Traditional bank branch approvals often demand massive physical collateral, year
           icon: "fact_check",
         },
       ]}
+      features={[
+        {
+          title: "Zero Collateral Required",
+          desc: "Unsecured business credit lines sanctioned on GST turnover and banking cash flow — no property mortgage needed.",
+          icon: "verified_user",
+        },
+        {
+          title: "GST Surrogate Analytics",
+          desc: "Our automated algorithms assess GSTR-1 and GSTR-3B filings to calculate maximum eligible loan limits instantly.",
+          icon: "analytics",
+        },
+        {
+          title: "Instant Overdraft Activation",
+          desc: "Revolving cash credit limits activated on your current account — draw and repay funds as business demands.",
+          icon: "sync_alt",
+        },
+        {
+          title: "CGTMSE Coverage Up to ₹5 Cr",
+          desc: "Government guarantee scheme backing collateral-free loans for eligible micro and small enterprises.",
+          icon: "account_balance",
+        },
+        {
+          title: "Flexible Repayment Options",
+          desc: "Choose from EMI term loans, drop-line overdrafts, or bullet repayment structures matching your revenue cycle.",
+          icon: "tune",
+        },
+        {
+          title: "100% Digital Application",
+          desc: "Complete online processing with e-KYC, digital bank statement parsing, and paperless sanction letters.",
+          icon: "cloud_upload",
+        },
+      ]}
       benefits={[
         {
           title: "Zero Collateral Mortgage Required",

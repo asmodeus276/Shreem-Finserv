@@ -289,3 +289,114 @@ export async function sendCareerNotificationEmail(career: CareerEmailData): Prom
     return false;
   }
 }
+
+export interface ContactEmailData {
+  ticketId: string;
+  fullName: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+  submittedAt: string;
+}
+
+/**
+ * Send an email notification when a new contact form submission is received.
+ */
+export async function sendContactNotificationEmail(contact: ContactEmailData): Promise<boolean> {
+  const notificationEmail = process.env.NOTIFICATION_EMAIL || BRAND_CONFIG.email;
+  const smtpUser = process.env.SMTP_USER;
+  const transporter = getTransporter();
+
+  if (!transporter || !smtpUser) {
+    console.info("[Nodemailer] SMTP not configured. Skipping contact notification email.");
+    return false;
+  }
+
+  try {
+    const istDate = new Date(contact.submittedAt).toLocaleString("en-IN", {
+      timeZone: "Asia/Kolkata",
+      dateStyle: "medium",
+      timeStyle: "short",
+    });
+
+    const htmlContent = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f7f9fb; margin: 0; padding: 24px; }
+    .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
+    .header { background: linear-gradient(135deg, #001A62, #0B2E8D); color: #ffffff; padding: 28px 24px; text-align: center; }
+    .header h1 { margin: 0; font-size: 22px; font-weight: 800; }
+    .header p { margin: 6px 0 0; font-size: 13px; color: #b7c4ff; }
+    .badge { display: inline-block; background: #10b981; color: #ffffff; font-size: 12px; font-weight: bold; padding: 4px 12px; border-radius: 20px; margin-top: 10px; }
+    .content { padding: 24px; }
+    .grid-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
+    .grid-table td { padding: 12px 10px; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+    .grid-table td.label { color: #64748b; font-weight: 600; width: 35%; }
+    .grid-table td.value { color: #0f172a; font-weight: bold; width: 65%; }
+    .message-box { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; padding: 16px; margin-top: 16px; font-size: 14px; color: #334155; line-height: 1.6; }
+    .footer { background: #f8fafc; padding: 16px 24px; border-top: 1px solid #e2e8f0; font-size: 12px; color: #64748b; text-align: center; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="header">
+      <h1>📩 New Contact Inquiry</h1>
+      <p>Message received via ${BRAND_CONFIG.name} Contact Page</p>
+      <div class="badge">Ticket: ${contact.ticketId}</div>
+    </div>
+    <div class="content">
+      <table class="grid-table">
+        <tr>
+          <td class="label">Name</td>
+          <td class="value">${contact.fullName}</td>
+        </tr>
+        <tr>
+          <td class="label">Email</td>
+          <td class="value"><a href="mailto:${contact.email}" style="color: #0B2E8D; text-decoration: none;">${contact.email}</a></td>
+        </tr>
+        <tr>
+          <td class="label">Phone</td>
+          <td class="value"><a href="tel:${contact.phone}" style="color: #0B2E8D; text-decoration: none;">+91 ${contact.phone}</a></td>
+        </tr>
+        <tr>
+          <td class="label">Subject</td>
+          <td class="value" style="color: #0B2E8D;">${contact.subject}</td>
+        </tr>
+        <tr>
+          <td class="label">Submitted At</td>
+          <td class="value">${istDate} (IST)</td>
+        </tr>
+      </table>
+      <div class="message-box">
+        <strong style="display: block; margin-bottom: 6px; color: #64748b; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px;">Message:</strong>
+        ${contact.message.replace(/\n/g, "<br>")}
+      </div>
+    </div>
+    <div class="footer">
+      This notification was generated automatically by <strong>${BRAND_CONFIG.legalName}</strong> Contact Portal.<br>
+      Please respond to the inquiry within 24 hours.
+    </div>
+  </div>
+</body>
+</html>
+`;
+
+    await transporter.sendMail({
+      from: `"${BRAND_CONFIG.name} Contact" <${smtpUser}>`,
+      to: notificationEmail,
+      subject: `📩 Contact Inquiry: ${contact.subject} — ${contact.fullName} [${contact.ticketId}]`,
+      html: htmlContent,
+      replyTo: `${contact.fullName} <${contact.email}>`,
+    });
+
+    console.info(`[Nodemailer] Contact alert sent successfully to ${notificationEmail} for ${contact.ticketId}`);
+    return true;
+  } catch (error) {
+    console.error("[Nodemailer Error]: Failed to send contact notification email:", error);
+    return false;
+  }
+}
