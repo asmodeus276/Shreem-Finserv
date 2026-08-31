@@ -270,22 +270,22 @@ export const Navbar: React.FC = () => {
 
           {/* Action CTAs */}
           <div className="hidden sm:flex items-center gap-3">
-            <a
-              href="#application-tracker"
-              onClick={scrollToTrack}
+            <Link
+              href="/track-application"
+              onClick={pathname === "/" ? scrollToTrack : undefined}
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#001A62] border border-[#001A62]/30 hover:border-[#001A62] bg-white hover:bg-slate-50 px-4 py-2.5 rounded-lg transition-colors"
             >
               <span className="material-symbols-outlined text-[16px]">manage_search</span>
               Track Application
-            </a>
-            <a
-              href="#lead-application-form"
-              onClick={scrollToApply}
+            </Link>
+            <Link
+              href="/apply"
+              onClick={pathname === "/" ? scrollToApply : undefined}
               className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#BB0119] hover:bg-[#E0292E] px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition-all"
             >
               <span className="material-symbols-outlined text-[16px]">bolt</span>
               Apply Now
-            </a>
+            </Link>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -369,20 +369,26 @@ export const Navbar: React.FC = () => {
             ))}
 
             <div className="pt-4 flex flex-col gap-2 border-t border-slate-100">
-              <a
-                href="#application-tracker"
-                onClick={scrollToTrack}
+              <Link
+                href="/track-application"
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  if (pathname === "/") scrollToTrack(e);
+                }}
                 className="w-full text-center py-2.5 text-xs font-semibold text-[#001A62] border border-[#001A62] rounded-lg"
               >
                 Track Loan Application
-              </a>
-              <a
-                href="#lead-application-form"
-                onClick={scrollToApply}
+              </Link>
+              <Link
+                href="/apply"
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  if (pathname === "/") scrollToApply(e);
+                }}
                 className="w-full text-center py-2.5 text-xs font-semibold text-white bg-[#BB0119] rounded-lg shadow"
               >
                 Apply for Loan
-              </a>
+              </Link>
             </div>
           </nav>
         </div>

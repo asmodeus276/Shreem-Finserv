@@ -47,14 +47,20 @@ export const MobileStickyBar: React.FC = () => {
         </Link>
 
         {/* Apply Now Primary */}
-        <a
-          href="#lead-application-form"
-          onClick={scrollToApply}
+        <Link
+          href="/apply"
+          onClick={(e) => {
+            const form = document.getElementById("lead-application-form");
+            if (form) {
+              e.preventDefault();
+              form.scrollIntoView({ behavior: "smooth" });
+            }
+          }}
           className="flex flex-col items-center justify-center p-1.5 rounded-xl bg-[#BB0119] hover:bg-[#E0292E] text-white active:scale-95 transition-all text-center shadow-sm"
         >
           <span className="material-symbols-outlined text-[20px]">bolt</span>
           <span className="text-[10px] font-bold mt-0.5">Apply</span>
-        </a>
+        </Link>
 
       </div>
     </div>
