@@ -61,23 +61,24 @@ export default function ApplyClientPage() {
     const generatedRefId = `SF-${Math.floor(100000 + Math.random() * 900000)}`;
 
     try {
-      const res = await fetch("/api/lead-submit", {
+      const res = await fetch("/api/submit-lead", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           fullName,
-          phone,
-          email: email || "Not provided",
+          mobile: phone,
+          email: email || undefined,
           city,
-          loanType,
+          loanCategory: loanType,
           amount: loanAmount,
           tenure: `${tenureYears} Years`,
           employmentType,
           monthlyIncome,
-          companyName: companyName || "Self / Private",
-          pan: pan || "N/A",
+          companyName: companyName || undefined,
+          pan: pan || undefined,
           refId: generatedRefId,
-          source: "Direct /apply Portal",
+          consent: true,
+          sourcePage: "/apply",
         }),
       });
 

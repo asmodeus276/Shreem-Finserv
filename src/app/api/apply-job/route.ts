@@ -42,20 +42,23 @@ export async function POST(req: NextRequest) {
       submittedAt: nowIso,
     };
 
-    // 1. Save to `careers` collection in Firestore
-    saveCareerToFirestore(careerRecord).catch((err) =>
-      console.warn("[Career Async Save Warning]:", err)
-    );
+    // Await both Firestore REST save and Gmail email dispatch
+    const [firestoreRes, emailRes] = await Promise.allSettled([
+      saveCareerToFirestore(careerRecord),
+      sendCareerNotificationEmail(careerRecord),
+    ]);
 
-    // 2. Send email alert to client (Contact@shreemfinserv.com)
-    sendCareerNotificationEmail(careerRecord).catch((err) =>
-      console.error("[Career Email Async Error]:", err)
-    );
+    const firestoreSaved = firestoreRes.status === "fulfilled" && firestoreRes.value;
+    const emailSent = emailRes.status === "fulfilled" && emailRes.value;
+
+    console.info(`[Career Submission Pipeline] ID: ${applicationId}, Firestore: ${firestoreSaved}, Email: ${emailSent}`);
 
     return NextResponse.json(
       {
         success: true,
         applicationId,
+        firestoreSaved,
+        emailSent,
         message: "Candidate profile submitted successfully. Our HR team will reach out shortly.",
       },
       { status: 200 }

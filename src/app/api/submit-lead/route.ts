@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { saveLeadToFirestore } from "@/lib/firestore-rest";
+import { saveLeadToFirestore, FirestoreLeadRecord } from "@/lib/firestore-rest";
 import { sendLeadNotificationEmail } from "@/lib/email";
 
 function maskName(name: string): string {
@@ -23,13 +23,21 @@ export async function POST(req: NextRequest) {
     const body = await req.json();
 
     const fullName = (body.fullName || "").trim();
-    const cleanMobile = (body.mobile || "").replace(/\D/g, "");
+    const cleanMobile = (body.mobile || body.phone || "").replace(/\D/g, "");
+    const email = (body.email || "").trim();
+    const pan = (body.pan || "").trim().toUpperCase();
     const city = (body.city || "").trim();
-    const loanCategory = (body.loanCategory || "Personal Loan").trim();
+    const loanCategory = (body.loanCategory || body.loanType || "Personal Loan").trim();
     const amount = Number(body.amount) || 0;
-    const consent = Boolean(body.consent);
+    const tenure = (body.tenure || "").trim();
+    const employmentType = (body.employmentType || "").trim();
+    const monthlyIncome = Number(body.monthlyIncome) || 0;
+    const companyName = (body.companyName || "").trim();
+    const dob = (body.dob || "").trim();
+    const estimatedScore = Number(body.estimatedScore) || undefined;
+    const consent = body.consent !== undefined ? Boolean(body.consent) : true;
     const marketingConsent = Boolean(body.marketingConsent);
-    const sourcePage = (body.sourcePage || "/").trim();
+    const sourcePage = (body.sourcePage || "/apply").trim();
 
     // 1. Mandatory DPDP Compliance Check
     if (!consent) {
@@ -65,18 +73,26 @@ export async function POST(req: NextRequest) {
     }
 
     // 3. Generate Tracking ID & Record
-    const applicationId = generateTrackingId();
+    const applicationId = body.refId || generateTrackingId();
     const nowIso = new Date().toISOString();
     const maskedName = maskName(fullName);
 
-    const leadRecord = {
+    const leadRecord: FirestoreLeadRecord = {
       applicationId,
       fullName,
       applicantNameMasked: maskedName,
       mobile: cleanMobile,
+      email: email || undefined,
+      pan: pan || undefined,
       city,
       loanCategory,
       amount,
+      tenure: tenure || undefined,
+      employmentType: employmentType || undefined,
+      monthlyIncome: monthlyIncome > 0 ? monthlyIncome : undefined,
+      companyName: companyName || undefined,
+      dob: dob || undefined,
+      estimatedScore,
       consent,
       marketingConsent,
       sourcePage,
@@ -86,20 +102,42 @@ export async function POST(req: NextRequest) {
       updatedAt: nowIso,
     };
 
-    // 4. Save to Firestore (REST API - zero credentials/ADC needed)
-    saveLeadToFirestore(leadRecord).catch((err) =>
-      console.warn("[Firestore Async Save Warning]:", err)
-    );
+    // 4. Save to Firestore and Send Email Alert
+    const [firestoreRes, emailRes] = await Promise.allSettled([
+      saveLeadToFirestore(leadRecord),
+      sendLeadNotificationEmail({
+        applicationId,
+        fullName,
+        mobile: cleanMobile,
+        email: email || undefined,
+        pan: pan || undefined,
+        city,
+        loanCategory,
+        amount,
+        tenure: tenure || undefined,
+        employmentType: employmentType || undefined,
+        monthlyIncome: monthlyIncome > 0 ? monthlyIncome : undefined,
+        companyName: companyName || undefined,
+        dob: dob || undefined,
+        estimatedScore,
+        consent,
+        marketingConsent,
+        sourcePage,
+        submittedAt: nowIso,
+      }),
+    ]);
 
-    // 5. Send Nodemailer Email Notification (Gmail SMTP)
-    sendLeadNotificationEmail(leadRecord).catch((err) =>
-      console.error("[Email Alert Async Error]:", err)
-    );
+    const firestoreSaved = firestoreRes.status === "fulfilled" && firestoreRes.value;
+    const emailSent = emailRes.status === "fulfilled" && emailRes.value;
+
+    console.info(`[Lead Submission Pipeline] ID: ${applicationId}, Firestore: ${firestoreSaved}, Email: ${emailSent}`);
 
     return NextResponse.json(
       {
         success: true,
         applicationId,
+        firestoreSaved,
+        emailSent,
         message: "Application submitted successfully. Our credit team will contact you within 30 minutes.",
         timestamp: nowIso,
       },

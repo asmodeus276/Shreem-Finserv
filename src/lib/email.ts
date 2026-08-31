@@ -5,9 +5,17 @@ export interface LeadEmailData {
   applicationId: string;
   fullName: string;
   mobile: string;
+  email?: string;
+  pan?: string;
   city: string;
   loanCategory: string;
   amount: number;
+  tenure?: string;
+  employmentType?: string;
+  monthlyIncome?: number;
+  companyName?: string;
+  dob?: string;
+  estimatedScore?: number;
   consent: boolean;
   marketingConsent?: boolean;
   sourcePage?: string;
@@ -118,6 +126,62 @@ export async function sendLeadNotificationEmail(lead: LeadEmailData): Promise<bo
           <td class="label">Mobile Number</td>
           <td class="value"><a href="tel:${lead.mobile}" style="color: #0B2E8D; text-decoration: none;">+91 ${lead.mobile}</a></td>
         </tr>
+        ${
+          lead.email
+            ? `<tr>
+                <td class="label">Email Address</td>
+                <td class="value"><a href="mailto:${lead.email}" style="color: #0B2E8D; text-decoration: none;">${lead.email}</a></td>
+              </tr>`
+            : ""
+        }
+        ${
+          lead.pan
+            ? `<tr>
+                <td class="label">PAN Number</td>
+                <td class="value" style="font-family: monospace; font-weight: bold; color: #0B2E8D;">${lead.pan}</td>
+              </tr>`
+            : ""
+        }
+        ${
+          lead.employmentType
+            ? `<tr>
+                <td class="label">Employment Type</td>
+                <td class="value">${lead.employmentType}</td>
+              </tr>`
+            : ""
+        }
+        ${
+          lead.monthlyIncome && lead.monthlyIncome > 0
+            ? `<tr>
+                <td class="label">Monthly Net Income</td>
+                <td class="value">${formatCurrency(lead.monthlyIncome)}/month</td>
+              </tr>`
+            : ""
+        }
+        ${
+          lead.companyName
+            ? `<tr>
+                <td class="label">Company / Business</td>
+                <td class="value">${lead.companyName}</td>
+              </tr>`
+            : ""
+        }
+        ${
+          lead.tenure
+            ? `<tr>
+                <td class="label">Requested Tenure</td>
+                <td class="value">${lead.tenure}</td>
+              </tr>`
+            : ""
+        }
+        ${
+          lead.estimatedScore
+            ? `<tr>
+                <td class="label">CIBIL / Bureau Score</td>
+                <td class="value" style="color: #10b981; font-weight: 900;">${lead.estimatedScore} / 900</td>
+              </tr>`
+            : ""
+        }
         <tr>
           <td class="label">City / Location</td>
           <td class="value">${lead.city}</td>

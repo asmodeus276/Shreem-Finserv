@@ -57,25 +57,28 @@ export async function POST(req: NextRequest) {
       email,
       phone,
       subject,
-      message: message.substring(0, 1000), // cap message length
+      message: message.substring(0, 1000),
       status: "New",
       submittedAt: nowIso,
     };
 
-    // Save to Firestore asynchronously
-    saveContactToFirestore(contactRecord).catch((err) =>
-      console.warn("[Firestore Async Contact Save Warning]:", err)
-    );
+    // Await both Firestore REST save and Gmail email dispatch
+    const [firestoreRes, emailRes] = await Promise.allSettled([
+      saveContactToFirestore(contactRecord),
+      sendContactNotificationEmail(contactRecord),
+    ]);
 
-    // Send email notification asynchronously
-    sendContactNotificationEmail(contactRecord).catch((err) =>
-      console.error("[Email Contact Alert Async Error]:", err)
-    );
+    const firestoreSaved = firestoreRes.status === "fulfilled" && firestoreRes.value;
+    const emailSent = emailRes.status === "fulfilled" && emailRes.value;
+
+    console.info(`[Contact Submission Pipeline] Ticket: ${ticketId}, Firestore: ${firestoreSaved}, Email: ${emailSent}`);
 
     return NextResponse.json(
       {
         success: true,
         ticketId,
+        firestoreSaved,
+        emailSent,
         message: "Your message has been received. We will get back to you within 24 hours.",
         timestamp: nowIso,
       },

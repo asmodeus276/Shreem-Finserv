@@ -37,29 +37,34 @@ export async function POST(req: NextRequest) {
       updatedAt: nowIso,
     };
 
-    // 1. Save to `partners` collection in Firestore
-    savePartnerToFirestore(partnerRecord).catch((err) =>
-      console.warn("[Partner Async Save Warning]:", err)
-    );
+    // Await both Firestore REST save and Gmail email dispatch
+    const [firestoreRes, emailRes] = await Promise.allSettled([
+      savePartnerToFirestore(partnerRecord),
+      sendLeadNotificationEmail({
+        applicationId: partnerId,
+        fullName: name,
+        mobile: cleanMobile,
+        city: city || "India",
+        loanCategory: `Partner Onboarding (${profession})`,
+        amount: 0,
+        consent: true,
+        marketingConsent: false,
+        sourcePage: "/partner",
+        submittedAt: nowIso,
+      }),
+    ]);
 
-    // 2. Send Email Alert to Contact@shreemfinserv.com
-    sendLeadNotificationEmail({
-      applicationId: partnerId,
-      fullName: name,
-      mobile: cleanMobile,
-      city: city || "India",
-      loanCategory: `Partner Onboarding (${profession})`,
-      amount: 0,
-      consent: true,
-      marketingConsent: false,
-      sourcePage: "/partner",
-      submittedAt: nowIso,
-    }).catch((err) => console.error("[Partner Email Async Error]:", err));
+    const firestoreSaved = firestoreRes.status === "fulfilled" && firestoreRes.value;
+    const emailSent = emailRes.status === "fulfilled" && emailRes.value;
+
+    console.info(`[Partner Submission Pipeline] ID: ${partnerId}, Firestore: ${firestoreSaved}, Email: ${emailSent}`);
 
     return NextResponse.json(
       {
         success: true,
         partnerId,
+        firestoreSaved,
+        emailSent,
         message: "Partner registration received. Our channel manager will contact you within 2 hours.",
       },
       { status: 200 }

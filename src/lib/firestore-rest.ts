@@ -12,9 +12,17 @@ export interface FirestoreLeadRecord {
   fullName: string;
   applicantNameMasked: string;
   mobile: string;
+  email?: string;
+  pan?: string;
   city: string;
   loanCategory: string;
   amount: number;
+  tenure?: string;
+  employmentType?: string;
+  monthlyIncome?: number;
+  companyName?: string;
+  dob?: string;
+  estimatedScore?: number;
   consent: boolean;
   marketingConsent?: boolean;
   sourcePage?: string;
