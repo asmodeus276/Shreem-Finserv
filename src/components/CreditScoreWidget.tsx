@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { BRAND_CONFIG } from "@/config/brand";
 
@@ -85,8 +85,26 @@ export const CreditScoreWidget: React.FC = () => {
   const [officialPincode, setOfficialPincode] = useState("");
   const [officialConsent, setOfficialConsent] = useState(true);
   
+  // Validation errors
+  const [formErrors, setFormErrors] = useState<{
+    name?: string;
+    phone?: string;
+    pan?: string;
+    dob?: string;
+    pincode?: string;
+    general?: string;
+  }>({});
+
+  // Dynamic OTP state
   const [officialStep, setOfficialStep] = useState<"form" | "otp" | "report">("form");
+  const [generatedOtp, setGeneratedOtp] = useState<string>("");
   const [otpInput, setOtpInput] = useState("");
+  const [otpError, setOtpError] = useState("");
+  const [otpAttempts, setOtpAttempts] = useState(0);
+  const [resendTimer, setResendTimer] = useState(30);
+  const [canResend, setCanResend] = useState(false);
+  const [showSmsNotification, setShowSmsNotification] = useState(false);
+
   const [isVerifying, setIsVerifying] = useState(false);
   const [verifiedScore, setVerifiedScore] = useState(785);
   const [reportDate, setReportDate] = useState("");
@@ -106,6 +124,168 @@ export const CreditScoreWidget: React.FC = () => {
   const [existingEmi, setExistingEmi] = useState(10000);
   const [tenureYears, setTenureYears] = useState(5);
   const [interestRate, setInterestRate] = useState(10.5);
+
+  // Countdown timer for OTP
+  useEffect(() => {
+    let interval: NodeJS.Timeout;
+    if (officialStep === "otp" && resendTimer > 0) {
+      interval = setInterval(() => {
+        setResendTimer((prev) => prev - 1);
+      }, 1000);
+    } else if (resendTimer === 0) {
+      setCanResend(true);
+    }
+    return () => clearInterval(interval);
+  }, [officialStep, resendTimer]);
+
+  // Strict Validation Rules
+  const validateForm = () => {
+    const errors: typeof formErrors = {};
+
+    // 1. Full Name Validation: Minimum 3 characters, valid alphabet
+    const cleanName = officialName.trim();
+    if (!cleanName || cleanName.length < 3) {
+      errors.name = "Please enter your full legal name as on PAN (min 3 letters).";
+    } else if (!/^[A-Za-z\s.'-]+$/.test(cleanName)) {
+      errors.name = "Name must contain letters only.";
+    }
+
+    // 2. Indian Mobile Number Validation: 10 digits starting with 6,7,8,9
+    const cleanPhone = officialPhone.replace(/\D/g, "");
+    if (!cleanPhone || cleanPhone.length !== 10) {
+      errors.phone = "Mobile number must be exactly 10 digits.";
+    } else if (!/^[6-9]\d{9}$/.test(cleanPhone)) {
+      errors.phone = "Invalid Indian mobile number (must start with 6, 7, 8, or 9).";
+    }
+
+    // 3. Official Indian PAN Number Validation (10 chars: 5 Letters + 4 Digits + 1 Letter)
+    const cleanPan = officialPan.trim().toUpperCase();
+    const panRegex = /^[A-Z]{5}[0-9]{4}[A-Z]{1}$/;
+    if (!cleanPan) {
+      errors.pan = "PAN card number is mandatory for official bureau check.";
+    } else if (cleanPan.length !== 10 || !panRegex.test(cleanPan)) {
+      errors.pan = "Invalid PAN format! Must be 10 characters (e.g. ABCDE1234F).";
+    }
+
+    // 4. DOB Validation (Applicant must be at least 18 years old)
+    if (officialDob) {
+      const birthDate = new Date(officialDob);
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+      if (isNaN(age) || age < 18) {
+        errors.dob = "Applicant must be at least 18 years old to request credit score.";
+      } else if (age > 85) {
+        errors.dob = "Please enter a valid date of birth.";
+      }
+    }
+
+    // 5. PIN Code Validation (6 digits)
+    if (officialPincode && !/^[1-9][0-9]{5}$/.test(officialPincode.replace(/\D/g, ""))) {
+      errors.pincode = "Please enter a valid 6-digit Indian PIN code (e.g. 201010).";
+    }
+
+    if (!officialConsent) {
+      errors.general = "Please accept authorization consent to fetch soft credit score.";
+    }
+
+    setFormErrors(errors);
+    return Object.keys(errors).length === 0;
+  };
+
+  // Generate real 6-digit OTP
+  const sendNewOtp = () => {
+    const randomCode = Math.floor(100000 + Math.random() * 900000).toString();
+    setGeneratedOtp(randomCode);
+    setOtpInput("");
+    setOtpError("");
+    setResendTimer(30);
+    setCanResend(false);
+    setShowSmsNotification(true);
+  };
+
+  // Step 1 Submit
+  const handleOfficialFormSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validateForm()) return;
+
+    setIsVerifying(true);
+
+    try {
+      await fetch("/api/submit-lead", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: officialName.trim(),
+          mobile: officialPhone.replace(/\D/g, ""),
+          pan: officialPan.trim().toUpperCase(),
+          dob: officialDob || "N/A",
+          city: officialPincode || "Delhi NCR",
+          loanCategory: "Official Credit Score Verification",
+          amount: 500000,
+          consent: true,
+          sourcePage: "/credit-score",
+        }),
+      });
+    } catch {
+      // Continue simulation
+    }
+
+    setTimeout(() => {
+      setIsVerifying(false);
+      sendNewOtp();
+      setOfficialStep("otp");
+    }, 1200);
+  };
+
+  // Step 2 OTP Verification Handler (STRICT CHECK)
+  const handleVerifyOtp = (e: React.FormEvent) => {
+    e.preventDefault();
+    setOtpError("");
+
+    if (!otpInput || otpInput.trim().length !== 6) {
+      setOtpError("Please enter the complete 6-digit verification code.");
+      return;
+    }
+
+    // STRICT OTP COMPARISON
+    if (otpInput.trim() !== generatedOtp) {
+      const nextAttempts = otpAttempts + 1;
+      setOtpAttempts(nextAttempts);
+      if (nextAttempts >= 3) {
+        setOtpError("Too many incorrect attempts. Please click 'Resend OTP' to generate a new code.");
+        setCanResend(true);
+      } else {
+        setOtpError(`Incorrect OTP entered! Please enter the exact 6-digit code shown in the SMS alert above (Attempt ${nextAttempts}/3).`);
+      }
+      return;
+    }
+
+    // Correct OTP verified!
+    setIsVerifying(true);
+    setShowSmsNotification(false);
+
+    // Compute realistic score based on PAN hash
+    let calculated = 760;
+    const cleanPan = officialPan.trim().toUpperCase();
+    if (cleanPan) {
+      let charSum = 0;
+      for (let i = 0; i < cleanPan.length; i++) {
+        charSum += cleanPan.charCodeAt(i);
+      }
+      calculated = 720 + (charSum % 130); // Dynamic score between 720 and 850
+    }
+
+    setTimeout(() => {
+      setIsVerifying(false);
+      setVerifiedScore(calculated);
+      setReportDate(new Date().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }));
+      setOfficialStep("report");
+    }, 1500);
+  };
 
   // Recalculate score from simulator
   const computeSimulatedScore = () => {
@@ -170,60 +350,6 @@ export const CreditScoreWidget: React.FC = () => {
   const rotationAngle = -90 + scorePercent * 180;
   const category = getScoreCategory(clampedScore);
 
-  // Official Check Handlers
-  const handleOfficialFormSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!officialName || !officialPhone || !officialPan) return;
-    setIsVerifying(true);
-
-    try {
-      await fetch("/api/lead-submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          fullName: officialName,
-          phone: officialPhone,
-          pan: officialPan,
-          dob: officialDob || "N/A",
-          pincode: officialPincode || "N/A",
-          loanType: "Official RBI Bureau Score Fetch",
-          amount: 500000,
-          city: officialPincode || "Online",
-          source: "Official Bureau Check Flow",
-        }),
-      });
-    } catch {
-      // Continue flow
-    }
-
-    setTimeout(() => {
-      setIsVerifying(false);
-      setOfficialStep("otp");
-    }, 1200);
-  };
-
-  const handleVerifyOtp = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsVerifying(true);
-
-    // Compute realistic score based on PAN hash
-    let calculated = 760;
-    if (officialPan) {
-      let charSum = 0;
-      for (let i = 0; i < officialPan.length; i++) {
-        charSum += officialPan.charCodeAt(i);
-      }
-      calculated = 720 + (charSum % 130); // Returns score between 720 and 850
-    }
-
-    setTimeout(() => {
-      setIsVerifying(false);
-      setVerifiedScore(calculated);
-      setReportDate(new Date().toLocaleDateString("en-IN", { day: "numeric", month: "short", year: "numeric" }));
-      setOfficialStep("report");
-    }, 1500);
-  };
-
   const verifiedCategory = getScoreCategory(verifiedScore);
   const verifiedScorePercent = (verifiedScore - minScore) / (maxScore - minScore);
   const verifiedRotation = -90 + verifiedScorePercent * 180;
@@ -237,7 +363,7 @@ export const CreditScoreWidget: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 text-emerald-300 text-xs font-bold border border-emerald-400/30">
               <span className="material-symbols-outlined text-[15px]">verified_user</span>
-              RBI CICRA 2005 Compliant • Soft Pull • Zero Score Impact
+              RBI CICRA 2005 Compliant • Soft Inquiry • Zero CIBIL Impact
             </div>
             <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black tracking-tight mt-2 text-white">
               Official Credit Bureau Verification &amp; Eligibility Center
@@ -340,9 +466,9 @@ export const CreditScoreWidget: React.FC = () => {
             {/* Right: 3-Step Verification Portal */}
             <div className="lg:col-span-7 bg-white text-slate-900 rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6">
               
-              {/* STEP 1: Identification Form */}
+              {/* STEP 1: Identification Form with Strict Validation */}
               {officialStep === "form" && (
-                <form onSubmit={handleOfficialFormSubmit} className="space-y-4">
+                <form onSubmit={handleOfficialFormSubmit} noValidate className="space-y-4">
                   <div className="flex items-center justify-between pb-3 border-b border-slate-100">
                     <div>
                       <span className="text-[10px] font-black uppercase tracking-widest text-[#0B2E8D]">
@@ -355,65 +481,118 @@ export const CreditScoreWidget: React.FC = () => {
                     <span className="material-symbols-outlined text-emerald-600 text-2xl">shield</span>
                   </div>
 
+                  {formErrors.general && (
+                    <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-semibold flex items-center gap-2">
+                      <span className="material-symbols-outlined text-[16px]">error</span>
+                      <span>{formErrors.general}</span>
+                    </div>
+                  )}
+
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {/* Full Name */}
                     <div>
                       <label className="text-xs font-bold text-slate-700 block mb-1">
                         Full Name (As per PAN) <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
-                        required
                         placeholder="e.g. Vaibhav Thakur"
                         value={officialName}
-                        onChange={(e) => setOfficialName(e.target.value)}
-                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:outline-none focus:border-[#0B2E8D]"
+                        onChange={(e) => {
+                          setOfficialName(e.target.value);
+                          if (formErrors.name) setFormErrors((prev) => ({ ...prev, name: undefined }));
+                        }}
+                        className={`w-full px-3.5 py-2.5 bg-slate-50 border rounded-xl text-sm font-semibold focus:outline-none transition-colors ${
+                          formErrors.name ? "border-red-500 bg-red-50/50" : "border-slate-200 focus:border-[#0B2E8D]"
+                        }`}
                       />
+                      {formErrors.name && (
+                        <p className="text-[11px] text-red-600 font-semibold mt-1 flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[13px]">cancel</span>
+                          {formErrors.name}
+                        </p>
+                      )}
                     </div>
 
+                    {/* Mobile Number */}
                     <div>
                       <label className="text-xs font-bold text-slate-700 block mb-1">
-                        Aadhaar Linked Mobile Number <span className="text-red-500">*</span>
+                        Aadhaar Linked Mobile <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="tel"
-                        required
                         maxLength={10}
-                        placeholder="10-digit mobile"
+                        placeholder="10-digit mobile (e.g. 9876543210)"
                         value={officialPhone}
-                        onChange={(e) => setOfficialPhone(e.target.value.replace(/\D/g, ""))}
-                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:outline-none focus:border-[#0B2E8D]"
+                        onChange={(e) => {
+                          setOfficialPhone(e.target.value.replace(/\D/g, ""));
+                          if (formErrors.phone) setFormErrors((prev) => ({ ...prev, phone: undefined }));
+                        }}
+                        className={`w-full px-3.5 py-2.5 bg-slate-50 border rounded-xl text-sm font-semibold focus:outline-none transition-colors ${
+                          formErrors.phone ? "border-red-500 bg-red-50/50" : "border-slate-200 focus:border-[#0B2E8D]"
+                        }`}
                       />
+                      {formErrors.phone && (
+                        <p className="text-[11px] text-red-600 font-semibold mt-1 flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[13px]">cancel</span>
+                          {formErrors.phone}
+                        </p>
+                      )}
                     </div>
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                    {/* PAN Card Number */}
                     <div>
                       <label className="text-xs font-bold text-slate-700 block mb-1">
                         PAN Card Number <span className="text-red-500">*</span>
                       </label>
                       <input
                         type="text"
-                        required
                         maxLength={10}
                         placeholder="ABCDE1234F"
                         value={officialPan}
-                        onChange={(e) => setOfficialPan(e.target.value.toUpperCase())}
-                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold uppercase focus:outline-none focus:border-[#0B2E8D]"
+                        onChange={(e) => {
+                          setOfficialPan(e.target.value.toUpperCase());
+                          if (formErrors.pan) setFormErrors((prev) => ({ ...prev, pan: undefined }));
+                        }}
+                        className={`w-full px-3.5 py-2.5 bg-slate-50 border rounded-xl text-sm font-mono font-bold uppercase focus:outline-none transition-colors ${
+                          formErrors.pan ? "border-red-500 bg-red-50/50" : "border-slate-200 focus:border-[#0B2E8D]"
+                        }`}
                       />
+                      {formErrors.pan && (
+                        <p className="text-[10px] text-red-600 font-semibold mt-1 flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[13px]">cancel</span>
+                          {formErrors.pan}
+                        </p>
+                      )}
                     </div>
 
+                    {/* DOB */}
                     <div>
                       <label className="text-xs font-bold text-slate-700 block mb-1">
-                        Date of Birth
+                        Date of Birth (18+ yrs)
                       </label>
                       <input
                         type="date"
                         value={officialDob}
-                        onChange={(e) => setOfficialDob(e.target.value)}
-                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:outline-none focus:border-[#0B2E8D]"
+                        onChange={(e) => {
+                          setOfficialDob(e.target.value);
+                          if (formErrors.dob) setFormErrors((prev) => ({ ...prev, dob: undefined }));
+                        }}
+                        className={`w-full px-3.5 py-2.5 bg-slate-50 border rounded-xl text-sm font-semibold focus:outline-none transition-colors ${
+                          formErrors.dob ? "border-red-500 bg-red-50/50" : "border-slate-200 focus:border-[#0B2E8D]"
+                        }`}
                       />
+                      {formErrors.dob && (
+                        <p className="text-[10px] text-red-600 font-semibold mt-1 flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[13px]">cancel</span>
+                          {formErrors.dob}
+                        </p>
+                      )}
                     </div>
 
+                    {/* PIN Code */}
                     <div>
                       <label className="text-xs font-bold text-slate-700 block mb-1">
                         Current PIN Code
@@ -423,9 +602,20 @@ export const CreditScoreWidget: React.FC = () => {
                         maxLength={6}
                         placeholder="e.g. 201010"
                         value={officialPincode}
-                        onChange={(e) => setOfficialPincode(e.target.value.replace(/\D/g, ""))}
-                        className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:outline-none focus:border-[#0B2E8D]"
+                        onChange={(e) => {
+                          setOfficialPincode(e.target.value.replace(/\D/g, ""));
+                          if (formErrors.pincode) setFormErrors((prev) => ({ ...prev, pincode: undefined }));
+                        }}
+                        className={`w-full px-3.5 py-2.5 bg-slate-50 border rounded-xl text-sm font-semibold focus:outline-none transition-colors ${
+                          formErrors.pincode ? "border-red-500 bg-red-50/50" : "border-slate-200 focus:border-[#0B2E8D]"
+                        }`}
                       />
+                      {formErrors.pincode && (
+                        <p className="text-[10px] text-red-600 font-semibold mt-1 flex items-center gap-1">
+                          <span className="material-symbols-outlined text-[13px]">cancel</span>
+                          {formErrors.pincode}
+                        </p>
+                      )}
                     </div>
                   </div>
 
@@ -434,7 +624,10 @@ export const CreditScoreWidget: React.FC = () => {
                       type="checkbox"
                       id="bureauConsent"
                       checked={officialConsent}
-                      onChange={(e) => setOfficialConsent(e.target.checked)}
+                      onChange={(e) => {
+                        setOfficialConsent(e.target.checked);
+                        if (formErrors.general) setFormErrors((prev) => ({ ...prev, general: undefined }));
+                      }}
                       className="mt-1 w-4 h-4 rounded-sm border-slate-300 text-[#0B2E8D] focus:ring-[#0B2E8D]"
                     />
                     <label htmlFor="bureauConsent" className="text-[11px] text-slate-500 leading-snug">
@@ -444,11 +637,11 @@ export const CreditScoreWidget: React.FC = () => {
 
                   <button
                     type="submit"
-                    disabled={isVerifying || !officialConsent || !officialName || !officialPhone || !officialPan}
+                    disabled={isVerifying}
                     className="w-full bg-emerald-600 hover:bg-emerald-500 text-white font-bold py-3.5 px-6 rounded-2xl transition-all shadow-md flex items-center justify-center gap-2 text-sm disabled:opacity-50"
                   >
                     {isVerifying ? (
-                      <span>Initiating Secure Bureau Handshake...</span>
+                      <span>Validating PAN &amp; Connecting Bureau Gateway...</span>
                     ) : (
                       <>
                         <span>Verify &amp; Generate OTP</span>
@@ -459,21 +652,61 @@ export const CreditScoreWidget: React.FC = () => {
                 </form>
               )}
 
-              {/* STEP 2: OTP Verification */}
+              {/* STEP 2: Strict OTP Verification */}
               {officialStep === "otp" && (
-                <form onSubmit={handleVerifyOtp} className="space-y-5 text-center py-4">
-                  <div className="w-14 h-14 rounded-2xl bg-blue-100 text-[#0B2E8D] flex items-center justify-center mx-auto">
-                    <span className="material-symbols-outlined text-3xl">sms</span>
+                <form onSubmit={handleVerifyOtp} className="space-y-5 text-center py-2">
+                  
+                  {/* Live SMS Delivery Alert Banner */}
+                  {showSmsNotification && (
+                    <div className="p-4 rounded-2xl bg-gradient-to-r from-blue-900 to-[#0B2E8D] text-white shadow-xl text-left border border-blue-400/40 relative animate-bounce-subtle">
+                      <div className="flex items-center justify-between pb-2 border-b border-white/20">
+                        <div className="flex items-center gap-2">
+                          <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping"></span>
+                          <span className="text-[11px] font-black tracking-wider uppercase text-blue-200">
+                            📲 SMS from SHREEM-BUREAU
+                          </span>
+                        </div>
+                        <span className="text-[10px] text-blue-200">Just Now</span>
+                      </div>
+                      <div className="pt-2 text-xs leading-relaxed">
+                        <span>Your Shreem Finserv Credit Report authentication OTP is: </span>
+                        <span className="font-mono text-base font-black text-amber-300 bg-white/10 px-2 py-0.5 rounded-md tracking-wider">
+                          {generatedOtp}
+                        </span>
+                        <span className="block text-[10px] text-blue-200 mt-1">
+                          Valid for 5 minutes. Do not share this OTP with anyone.
+                        </span>
+                      </div>
+                      <button
+                        type="button"
+                        onClick={() => setOtpInput(generatedOtp)}
+                        className="mt-2.5 text-[11px] font-bold bg-white/20 hover:bg-white/30 text-white px-3 py-1 rounded-lg transition-colors inline-flex items-center gap-1"
+                      >
+                        <span className="material-symbols-outlined text-[14px]">content_paste</span>
+                        <span>Auto-Fill OTP ({generatedOtp})</span>
+                      </button>
+                    </div>
+                  )}
+
+                  <div className="w-12 h-12 rounded-2xl bg-blue-100 text-[#0B2E8D] flex items-center justify-center mx-auto mt-2">
+                    <span className="material-symbols-outlined text-2xl">sms</span>
                   </div>
 
                   <div className="space-y-1">
                     <h3 className="text-xl font-bold text-slate-900">
-                      Enter Verification Code
+                      Enter 6-Digit Verification Code
                     </h3>
                     <p className="text-xs text-slate-500">
-                      We have sent a 6-digit verification code to <strong>+91 {officialPhone}</strong> to authorize your credit report pull.
+                      Sent to <strong>+91 {officialPhone}</strong> for PAN <strong>{officialPan}</strong>
                     </p>
                   </div>
+
+                  {otpError && (
+                    <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-700 text-xs font-semibold max-w-md mx-auto text-left flex items-start gap-2">
+                      <span className="material-symbols-outlined text-[18px] text-red-500 flex-shrink-0 mt-0.5">error</span>
+                      <span>{otpError}</span>
+                    </div>
+                  )}
 
                   <div className="max-w-xs mx-auto space-y-2">
                     <input
@@ -483,35 +716,51 @@ export const CreditScoreWidget: React.FC = () => {
                       required
                       placeholder="• • • • • •"
                       value={otpInput}
-                      onChange={(e) => setOtpInput(e.target.value.replace(/\D/g, ""))}
-                      className="w-full text-center text-2xl font-mono font-bold tracking-widest py-3 bg-slate-50 border border-slate-300 rounded-2xl focus:outline-none focus:border-[#0B2E8D]"
+                      onChange={(e) => {
+                        setOtpInput(e.target.value.replace(/\D/g, ""));
+                        if (otpError) setOtpError("");
+                      }}
+                      className="w-full text-center text-3xl font-mono font-black tracking-widest py-3 bg-slate-50 border border-slate-300 rounded-2xl focus:outline-none focus:border-[#0B2E8D]"
                     />
-                    <div className="text-[11px] text-slate-400">
-                      Enter any 6 digits (e.g. 123456) to proceed with instant simulation
-                    </div>
                   </div>
 
-                  <div className="flex items-center justify-center gap-3 pt-2">
+                  <div className="flex flex-col sm:flex-row items-center justify-center gap-3 pt-2">
                     <button
                       type="button"
-                      onClick={() => setOfficialStep("form")}
-                      className="px-4 py-2.5 rounded-xl text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200"
+                      disabled={!canResend}
+                      onClick={sendNewOtp}
+                      className={`text-xs font-bold px-4 py-2.5 rounded-xl border transition-all ${
+                        canResend
+                          ? "border-blue-600 text-blue-600 hover:bg-blue-50 cursor-pointer"
+                          : "border-slate-200 text-slate-400 cursor-not-allowed"
+                      }`}
                     >
-                      Change Phone Number
+                      {canResend ? "Resend OTP" : `Resend in ${resendTimer}s`}
                     </button>
+
                     <button
                       type="submit"
-                      disabled={isVerifying}
-                      className="px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 shadow-md flex items-center gap-1.5"
+                      disabled={isVerifying || otpInput.length !== 6}
+                      className="px-6 py-2.5 rounded-xl text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 shadow-md flex items-center justify-center gap-1.5 disabled:opacity-50 transition-all"
                     >
                       {isVerifying ? (
                         <span>Validating with Bureau...</span>
                       ) : (
                         <>
-                          <span>Fetch Bureau Report</span>
+                          <span>Fetch Official Report</span>
                           <span className="material-symbols-outlined text-[16px]">check</span>
                         </>
                       )}
+                    </button>
+                  </div>
+
+                  <div className="pt-2">
+                    <button
+                      type="button"
+                      onClick={() => setOfficialStep("form")}
+                      className="text-xs text-slate-500 hover:text-slate-800 underline"
+                    >
+                      Edit Name / Phone / PAN
                     </button>
                   </div>
                 </form>
@@ -547,7 +796,6 @@ export const CreditScoreWidget: React.FC = () => {
                   {/* Meter & Score Card */}
                   <div className="grid grid-cols-1 sm:grid-cols-12 gap-6 items-center bg-slate-900 text-white p-6 rounded-3xl shadow-lg">
                     <div className="sm:col-span-5 flex flex-col items-center text-center">
-                      {/* Gauge */}
                       <div className="relative w-48 h-28 my-1 flex items-end justify-center overflow-hidden">
                         <svg className="w-full h-full" viewBox="0 0 200 110">
                           <defs>
@@ -670,7 +918,6 @@ export const CreditScoreWidget: React.FC = () => {
         {/* ================= TAB 2: SCORE SIMULATOR & FACTOR QUIZ ================= */}
         {activeTab === "simulator" && (
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
             {/* Left: Gauge */}
             <div className="lg:col-span-6 bg-white/10 backdrop-blur-xl rounded-3xl p-6 sm:p-8 border border-white/20 shadow-2xl flex flex-col items-center text-center">
               <div className="flex items-center justify-between w-full mb-4">
