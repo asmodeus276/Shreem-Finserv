@@ -138,8 +138,10 @@ npm run build    # Production build (31/31 pre-rendered routes, 0 errors)
 - **Brand Colors**: Navy Blue `#0B2E8D` (Trust) + Crimson `#BB0119` (Urgency)
 - **Typography**: Plus Jakarta Sans (Display) + Inter (Body)
 - **Address**: Office No. 537, Cloud 9 Tower, Vaishali, Ghaziabad (UP) 201010
-- **Hotline**: +91 9355445828
-- **Email**: Contact@shreemfinserv.com
+- **Hotline / WhatsApp**: +91 8745003840
+- **Email**: Finservshreem@gmail.com
+- **Instagram**: [instagram.com/shreemfinserv](https://www.instagram.com/shreemfinserv)
+- **LinkedIn**: [linkedin.com/in/shreem-finserv-508234316](https://www.linkedin.com/in/shreem-finserv-508234316)
 - **Compliance**: DPDP Act 2026 | RBI Fair Practice Code | Zero Upfront Fee Guarantee
 
 ---

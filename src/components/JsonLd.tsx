@@ -60,10 +60,9 @@ export const JsonLd: React.FC<JsonLdProps> = ({
       },
     ],
     sameAs: [
-      "https://www.linkedin.com/company/shreem-finserv",
-      "https://www.facebook.com/shreemfinserv",
-      "https://www.instagram.com/shreemfinserv",
-    ],
+      BRAND_CONFIG.social.linkedin,
+      BRAND_CONFIG.social.instagram,
+    ].filter(Boolean),
   };
 
   let schemaToRender: any = baseSchema;
