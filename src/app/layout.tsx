@@ -4,7 +4,6 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { MobileStickyBar } from "@/components/MobileStickyBar";
-import { WhatsAppButton } from "@/components/WhatsAppButton";
 import { BackToTop } from "@/components/BackToTop";
 import { CookieConsent } from "@/components/CookieConsent";
 import { JsonLd } from "@/components/JsonLd";
@@ -95,7 +94,6 @@ export default function RootLayout({
         <main className="flex-grow">{children}</main>
         <Footer />
         <MobileStickyBar />
-        <WhatsAppButton />
         <BackToTop />
         <CookieConsent />
       </body>
