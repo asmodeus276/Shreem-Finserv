@@ -30,7 +30,7 @@ export const DEFAULT_CUSTOMER_REVIEWS: CustomerReview[] = [
     city: "Verified Doctor Client",
     loanType: "Doctor Professional Loan",
     rating: 5,
-    avatarUrl: "/testimonials/review_dr_abhishek.jpg",
+    avatarUrl: "/testimonials/avatar_dr_abhishek.jpg",
     cardImage: "/testimonials/review_dr_abhishek.jpg",
     reviewText:
       "Thank you so much Shikha ji & Team for all the support in making it happen. It was wonderful connecting with you and your efforts, sincerity and commitment towards your work is commendable. You are very prompt and proactive in resolving queries or issues faced by the customers. More power to you 👍",
@@ -45,7 +45,7 @@ export const DEFAULT_CUSTOMER_REVIEWS: CustomerReview[] = [
     city: "Narayana Health Specialist",
     loanType: "Doctor Professional Loan",
     rating: 5,
-    avatarUrl: "/testimonials/review_dr_gautam.jpg",
+    avatarUrl: "/testimonials/avatar_dr_gautam.jpg",
     cardImage: "/testimonials/review_dr_gautam.jpg",
     reviewText:
       "Very thankful to Shikha ma'am & her team. She will guide you through the process and its a streamlined experience. She has a wealth of knowledge and experience. She helped me a lot. Thanks!",
@@ -60,7 +60,7 @@ export const DEFAULT_CUSTOMER_REVIEWS: CustomerReview[] = [
     city: "Consulting Physician",
     loanType: "Doctor Professional Loan",
     rating: 5,
-    avatarUrl: "/testimonials/review_dr_anand.jpg",
+    avatarUrl: "/testimonials/avatar_dr_anand.jpg",
     cardImage: "/testimonials/review_dr_anand.jpg",
     reviewText:
       "I am very satisfied with the services provided by Ms. Pooja Chauhan and her team. From documentation to disbursement, the process was handled efficiently with clear communication and transparency. The team was responsive, supportive, and professional at every stage. I would definitely recommend their services to others. 😊🙏🏻",
@@ -75,7 +75,7 @@ export const DEFAULT_CUSTOMER_REVIEWS: CustomerReview[] = [
     city: "Maharashtra to Rajasthan Relocation",
     loanType: "Doctor Loan @ 9.9% ROI",
     rating: 5,
-    avatarUrl: "/testimonials/review_dr_balaji.jpg",
+    avatarUrl: "/testimonials/avatar_dr_balaji.jpg",
     cardImage: "/testimonials/review_dr_balaji.jpg",
     reviewText:
       "Initially hesitant, but when rate came down to 9.9%, they guided throughout. Since I relocated from Maharashtra to Rajasthan, I had documentation hurdles, but Shikha Ma'am's team took ownership and delivered 100% on their commitment. Highly recommend their service!",
@@ -90,7 +90,7 @@ export const DEFAULT_CUSTOMER_REVIEWS: CustomerReview[] = [
     city: "Clinic Expansion Client",
     loanType: "Doctor Professional Loan",
     rating: 5,
-    avatarUrl: "/testimonials/review_dr_professional.jpg",
+    avatarUrl: "/testimonials/avatar_dr_professional.jpg",
     cardImage: "/testimonials/review_dr_professional.jpg",
     reviewText:
       "Thank you, Pooja Ma'am, and the entire Shreem Team, for your support in helping me with my Dr. Professional Loan. Your professionalism, transparency, and quick assistance made the process smooth and stress-free. I truly appreciate your guidance and timely help.",
