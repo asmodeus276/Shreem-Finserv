@@ -2,171 +2,85 @@ import { Metadata } from "next";
 import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Urgent Cash Advance - Instant 2-Hour Disbursal up to ₹5 Lakhs | Shreem Finserv",
+  title: "Urgent Cash Advance — Instant 2-Hour Disbursal up to ₹25 Lakhs | Shreem Finserv",
   description:
-    "Instant emergency cash loan online. Fast 2-hour disbursal, 100% paperless Aadhaar eKYC, flexible short-term tenures, starting 11.25% p.a. Zero hidden charges.",
+    "Instant emergency cash loan online. Fast 2-hour disbursal, 100% paperless Aadhaar eKYC, flexible short-term tenures, starting 1.15% per month. Zero hidden charges.",
 };
 
 export default function UrgentCashPage() {
   return (
     <ProductPageTemplate
       categoryName="Urgent Cash Advance"
-      badge="Instant Liquidity Solution"
+      badge="Express Liquidity Solution"
       headline="Instant 2-Hour Disbursal for"
-      highlightText="Emergency Financial & Medical Needs"
-      description="Unexpected expenses cannot wait for days of branch approvals. Get immediate unsecured funds from ₹50,000 up to ₹5 Lakhs credited directly to your bank account with zero physical paperwork."
-      longOverview={`Life is unpredictable. Whether you face an unplanned medical emergency hospitalization, urgent vehicle repair, home renovation, or critical short-term working capital gap before client receivables arrive, waiting 7 to 10 days for traditional retail bank processing is simply not an option.
-
-Shreem Finserv’s Instant Urgent Cash facility uses 100% automated algorithmic credit assessment, instant Aadhaar XML eKYC, and automated bank statement account aggregator parsing. Partnering with top-tier digital NBFCs and fintech lending banks (Poonawalla Fincorp, InCred, Tata Capital, KreditBee, DMI Finance), we issue instant in-principle loan approvals in under 15 minutes with complete bank account disbursal in as fast as 2 hours.`}
-      maxAmount="Up to ₹5 Lakhs"
-      interestRate="Starting 11.25% p.a."
-      tenure="3 to 36 Months"
+      highlightText="Emergency Financial & Personal Needs (₹50K – ₹25L)"
+      description="Unexpected expenses cannot wait. Get immediate unsecured funds from ₹50,000 up to ₹25 Lakhs credited directly to your bank account with 100% paperless Aadhaar e-KYC and instant sanction."
+      bannerImage="https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=1400&q=75"
+      maxAmount="₹50K – ₹25L"
+      interestRate="From 1.15% / mo"
+      tenure="3 to 24 Months"
       disbursalSpeed="Within 2 Hours"
       defaultSliderAmount={200000}
       minSliderAmount={50000}
-      maxSliderAmount={500000}
-      defaultEmiRate={11.25}
+      maxSliderAmount={2500000}
+      defaultEmiRate={13.5}
       defaultEmiTenureYears={2}
-      variants={[
-        {
-          title: "Medical Emergency Fast-Track",
-          tag: "2-Hour SLA",
-          desc: "Immediate liquidity for hospital bills, surgeries, diagnostic tests, and critical treatments.",
-          amount: "Up to ₹5 Lakhs",
-          icon: "emergency",
-        },
-        {
-          title: "Short-Term Salary Advance",
-          tag: "Instant",
-          desc: "Bridge mid-month cash crunches, family school fees, or travel ticket bookings.",
-          amount: "Up to ₹2 Lakhs",
-          icon: "payments",
-        },
-        {
-          title: "Home & Vehicle Urgent Repair",
-          tag: "Fast Cash",
-          desc: "Fund urgent roof leakage repairs, interior fixes, or accidental vehicle claims.",
-          amount: "Up to ₹3.5 Lakhs",
-          icon: "home_repair_service",
-        },
-        {
-          title: "Micro-Business Bridge Loan",
-          tag: "Retail MSME",
-          desc: "Quick 30-day liquidity to clear supplier dues or grab bulk raw material cash discounts.",
-          amount: "Up to ₹5 Lakhs",
-          icon: "storefront",
-        },
-      ]}
       features={[
         {
-          title: "2-Hour Guaranteed Disbursal",
-          desc: "Funds credited via IMPS/RTGS directly to your bank account within 2 hours of e-sign completion.",
-          icon: "timer",
-        },
-        {
-          title: "100% Paperless Aadhaar eKYC",
-          desc: "No physical documents needed. Complete identity verification via DigiLocker and Aadhaar OTP instantly.",
-          icon: "fingerprint",
-        },
-        {
-          title: "Flexible 3 to 36 Month Tenure",
-          desc: "Choose micro-tenures to pay off quickly or longer repayment windows for comfortable monthly instalments.",
-          icon: "date_range",
-        },
-        {
-          title: "Zero Hidden Charges",
-          desc: "Full transparency on processing fees, interest calculations, and repayment schedules with no surprise costs.",
-          icon: "money_off",
-        },
-        {
-          title: "Auto-Repay via eNACH/UPI",
-          desc: "Set up one-time automated EMI debits through RBI-regulated eNACH or UPI AutoPay mandate.",
-          icon: "autorenew",
-        },
-        {
-          title: "Build Your Credit Score",
-          desc: "On-time repayments reported monthly to CIBIL and Experian, strengthening your long-term credit profile.",
-          icon: "trending_up",
-        },
-      ]}
-      benefits={[
-        {
-          title: "100% Paperless Digital Processing",
-          desc: "Complete the entire application from your smartphone using Aadhaar OTP verification and net banking statement link.",
-          icon: "smartphone",
-        },
-        {
-          title: "Guaranteed 2-Hour Disbursal SLA",
-          desc: "Direct automated NEFT/IMPS funds transfer to your registered savings or current account upon e-sign agreement.",
+          title: "2-Hour Express Disbursal",
+          desc: "Instant automated approval with direct NEFT/IMPS credit to your savings account in under 2 hours.",
           icon: "bolt",
         },
         {
-          title: "No Collateral or Guarantor",
-          desc: "Clean unsecured facility requiring no gold, property, or fixed deposits as pledge.",
-          icon: "lock_open",
+          title: "100% Paperless e-KYC",
+          desc: "Complete digital processing via Aadhaar OTP verification and online bank account aggregator.",
+          icon: "description",
         },
         {
-          title: "Flexible Micro-Tenures (3 to 36 Mos)",
-          desc: "Select comfortable short-term tenures to pay off quickly and minimize overall interest outflow.",
-          icon: "date_range",
+          title: "Zero Collateral Needed",
+          desc: "No property, gold, or guarantor required. Approved strictly based on income and bank cash flows.",
+          icon: "verified_user",
         },
         {
-          title: "Zero Hidden Administrative Charges",
-          desc: "Full transparency on processing fees and interest calculations with no surprise charges.",
+          title: "Flexible Short Tenures",
+          desc: "Choose budget-friendly repayment tenures from 3 to 24 months with no strict lock-in periods.",
+          icon: "schedule",
+        },
+        {
+          title: "Multipurpose Liquidity",
+          desc: "Use funds freely for medical emergencies, wedding expenses, home repairs, or travel.",
+          icon: "payments",
+        },
+        {
+          title: "Transparent & Zero Hidden Fees",
+          desc: "100% clear upfront fee schedule with zero undisclosed brokerage or administrative penalties.",
           icon: "money_off",
-        },
-        {
-          title: "Build & Rebuild Credit Score",
-          desc: "On-time repayments are reported to CIBIL and Experian monthly, boosting your long-term credit profile.",
-          icon: "trending_up",
         },
       ]}
       eligibility={[
-        "Applicant Type: Salaried Employees (Govt/Pvt Ltd/MNC) and Self-Employed Individuals",
-        "Age Criteria: 21 to 58 years",
-        "Minimum Monthly Net Take-Home: ₹25,000 credited directly to a bank account",
-        "Active Bank Account: Valid savings/current account with active Net Banking or UPI facilities",
-        "Credit Rating: CIBIL score of 650+ (Profiles with limited credit history also considered based on banking cash flows)",
+        "Age Range: 21 to 58 years of age.",
+        "Employment: Salaried Employees (Corporate, Pvt Ltd, Govt) or Self-Employed Individuals.",
+        "Monthly Income: Minimum net salary of ₹20,000/month credited directly to bank account.",
+        "Credit Profile: Minimum 650+ CIBIL score.",
+        "Nationality: Indian Resident.",
       ]}
       documents={[
-        "Instant Identity Proof: PAN Card (Verified via NSDL instant lookup)",
-        "Address & KYC: Aadhaar Card (Instant DigiLocker / OTP verification)",
-        "Income Proof: Last 3 months bank statements via Account Aggregator / PDF net banking upload",
-        "Employment Proof: Official Company Email ID or Employee ID card (for salaried applicants)",
-        "Bank Mandate: eNACH / UPI AutoPay setup for automated hassle-free EMI repayments",
+        "KYC Identity: PAN Card and Aadhaar Card (Linked to active mobile number).",
+        "Income Proof: Last 3 Months Salary Slips (Salaried) or 1 Year ITR (Self-Employed).",
+        "Bank Statements: Last 3–6 Months Salary Account Bank Statement via Net Banking / Account Aggregator.",
       ]}
       faqs={[
         {
-          q: "How fast will the urgent cash be credited to my bank account?",
-          a: "Once you complete digital KYC and e-sign the digital loan agreement, funds are disbursed via IMPS/RTGS within 2 hours during banking operational hours.",
+          q: "How fast can I get funds credited to my bank account?",
+          a: "Upon completing online OTP e-KYC and digital bank statement verification, loan funds are disbursed via IMPS directly into your account within 2 hours.",
         },
         {
-          q: "Is there any physical document collection or home verification?",
-          a: "No. The entire process for loans up to ₹5 Lakhs is 100% digital, paperless, and contactless.",
+          q: "Do I need to submit physical paper documents?",
+          a: "No. The entire process is 100% digital and paperless. You can apply and complete verification from your smartphone.",
         },
         {
-          q: "Can I apply if my CIBIL score is low or I am a first-time borrower?",
-          a: "Yes. Our digital underwriting engine considers your recent 6-month banking transaction velocity and monthly salary consistency, allowing applicants with emerging credit scores (650+) to qualify.",
-        },
-        {
-          q: "What is the minimum and maximum loan amount available?",
-          a: "You can apply for amounts as low as ₹50,000 up to ₹5,00,000 depending on your monthly net income and debt service ratio.",
-        },
-        {
-          q: "How are the monthly EMIs repaid?",
-          a: "Repayments are automated through RBI-regulated eNACH / UPI AutoPay mandate linked directly to your primary salary or business bank account.",
-        },
-        {
-          q: "Can I prepay the urgent cash advance early?",
-          a: "Yes. You can prepay or foreclose the loan anytime through our partner lender portals. Prepayment rules vary between NIL to standard minimal charges after 3 to 6 EMIs.",
-        },
-        {
-          q: "Will checking my eligibility hurt my credit score?",
-          a: "No. Checking your initial pre-approved eligibility on Shreem Finserv is a soft inquiry with zero negative impact on your CIBIL score.",
-        },
-        {
-          q: "Is my personal data and Aadhaar details safe?",
-          a: "Absolutely. Shreem Finserv adheres strictly to the Digital Personal Data Protection (DPDP) Act 2026 and utilizes 256-bit AES encryption with zero third-party data sharing.",
+          q: "Can I prepay the urgent cash advance before tenure ends?",
+          a: "Yes. You can foreclose or part-pay your loan anytime with zero or minimal foreclosure charges.",
         },
       ]}
     />

@@ -2,171 +2,85 @@ import { Metadata } from "next";
 import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Business Loans for Women Entrepreneurs - 0.50% Special Concession | Shreem Finserv",
+  title: "Loans for Women Entrepreneurs — 0.50% Interest Rebate | Shreem Finserv",
   description:
-    "Empowering women-led enterprises, startups, and self-employed professionals. Preferential interest rates with 0.5% interest subsidy, CGTMSE collateral waivers, up to ₹1 Crore.",
+    "Empowering women-led enterprises and self-employed professionals with subsidized business credit from ₹1 Lakh to ₹75 Lakhs. Special 0.5% interest concession and collateral-free approvals.",
 };
 
 export default function WomenLoanPage() {
   return (
     <ProductPageTemplate
-      categoryName="Business Loan for Women"
-      badge="Special Women Empowerment Scheme"
-      headline="Subsidized Business Financing for"
-      highlightText="Women Founders, Professionals & Enterprise Owners"
-      description="Fuel your entrepreneurial vision with exclusive female-focused credit lines, government interest subventions, collateral-free CGTMSE schemes, and expedited underwriting across 50+ banking partners."
-      longOverview={`Women-led enterprises are among the most dynamic drivers of India’s economic expansion. From boutique design studios, healthcare clinics, preschool franchises, and beauty wellness chains to high-tech software startups and manufacturing units, women entrepreneurs demonstrate exceptional fiscal discipline and industry-leading loan repayment integrity.
-
-To champion this growth, Shreem Finserv has established an exclusive Women Entrepreneurship Financing Desk. In direct partnership with top public and private sector lenders (SBI Stree Shakti, PNB Mahila Udyam Nidhi, HDFC Bank, ICICI Bank, Tata Capital, and Mudra Yojana), we provide preferential business loans with a 0.50% interest concession, subsidized processing fees, and collateral-free sanctions up to ₹1 Crore.`}
-      maxAmount="Up to ₹1 Crore"
-      interestRate="Starting 9.75% p.a."
-      tenure="12 to 60 Months"
-      disbursalSpeed="Within 36 Hours"
+      categoryName="Loans for Women Entrepreneurs"
+      badge="Women Empowerment Initiative"
+      headline="Subsidized Business Credit Lines for"
+      highlightText="Women Founders & Enterprise Owners (₹1L – ₹75L)"
+      description="Fuel your entrepreneurial vision with exclusive female-focused credit lines, special 0.5% interest rate concessions, zero collateral requirements, and fast-track approvals across 50+ banking partners."
+      bannerImage="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1400&q=75"
+      maxAmount="₹1L – ₹75L"
+      interestRate="From 10.0% p.a. (0.5% Rebate)"
+      tenure="Up to 5 Years"
+      disbursalSpeed="24 to 48 Hours"
       defaultSliderAmount={2500000}
-      minSliderAmount={200000}
-      maxSliderAmount={10000000}
-      defaultEmiRate={9.75}
-      defaultEmiTenureYears={4}
-      variants={[
+      minSliderAmount={100000}
+      maxSliderAmount={7500000}
+      defaultEmiRate={10.0}
+      defaultEmiTenureYears={3}
+      features={[
         {
-          title: "Women MSME Growth Term Loan",
-          tag: "0.5% Subsidy",
-          desc: "Collateral-free working capital and expansion capital for registered female-owned businesses.",
-          amount: "Up to ₹1 Crore",
+          title: "Special 0.5% Interest Rebate",
+          desc: "Exclusive lower interest rate slabs for enterprises where women hold 51%+ equity.",
+          icon: "percent",
+        },
+        {
+          title: "100% Collateral-Free",
+          desc: "No property mortgage or asset hypothecation required. Approved on business revenue.",
+          icon: "verified_user",
+        },
+        {
+          title: "Flexible Working Capital",
+          desc: "Use funds freely for inventory, marketing, staff payroll, boutique upgrades, or e-commerce expansion.",
           icon: "storefront",
         },
         {
-          title: "Mudra Yojana (Tarun & Kishore)",
-          tag: "Govt Scheme",
-          desc: "Subsidized government-backed micro-credit for boutique owners, caterers, and artisan units.",
-          amount: "Up to ₹10 Lakhs",
-          icon: "account_balance",
-        },
-        {
-          title: "Professional Women Credit Line",
-          tag: "Doctors & CAs",
-          desc: "Customized professional practice loans for female Doctors, Chartered Accountants, and Architects.",
-          amount: "Up to ₹50 Lakhs",
-          icon: "workspace_premium",
-        },
-        {
-          title: "Stand-Up India Scheme Line",
-          tag: "Greenfield",
-          desc: "Bank funding for setting up greenfield manufacturing, trading, or service enterprises.",
-          amount: "Up to ₹1 Crore",
-          icon: "rocket_launch",
-        },
-      ]}
-      features={[
-        {
-          title: "0.50% Special Interest Concession",
-          desc: "Automatic half-percent interest rate rebate below standard card rates for qualified women-owned enterprises.",
-          icon: "percent",
-        },
-        {
-          title: "Collateral-Free Up to ₹1 Crore",
-          desc: "CGTMSE-backed guarantee eliminates the need for property mortgage or gold pledge for eligible businesses.",
-          icon: "verified_user",
-        },
-        {
-          title: "Dedicated Women Relationship Manager",
-          desc: "Female credit advisors provide end-to-end support from documentation to final disbursal and beyond.",
-          icon: "support_agent",
-        },
-        {
-          title: "Subsidized Processing Fees",
-          desc: "Up to 50% discount on standard bank processing charges with zero hidden administrative surcharges.",
-          icon: "price_check",
-        },
-        {
-          title: "Mudra & Stand-Up India Access",
-          desc: "Direct access to government-backed schemes providing micro-credit and greenfield enterprise funding.",
-          icon: "account_balance",
-        },
-        {
-          title: "36-Hour Fast-Track Approval",
-          desc: "Digital KYC and GST analytics enable rapid in-principle sanction generation within 24 to 36 hours.",
-          icon: "speed",
-        },
-      ]}
-      benefits={[
-        {
-          title: "0.50% Preferential Interest Subsidy",
-          desc: "Special discounted interest pricing offered across our partner banking consortium for majority women-owned entities.",
-          icon: "percent",
-        },
-        {
-          title: "Collateral-Free CGTMSE Guarantee",
-          desc: "Avail unsecured business loans up to ₹1 Crore without mortgaging residential property or gold jewelry.",
-          icon: "verified_user",
-        },
-        {
-          title: "Special Women Desk Relationship Manager",
-          desc: "Dedicated female credit advisors to assist with end-to-end documentation, file login, and door-step verification.",
-          icon: "support_agent",
-        },
-        {
-          title: "Subsidized Processing Charges",
-          desc: "Up to 50% discount on standard bank processing fees and zero administrative documentation surcharges.",
-          icon: "price_check",
-        },
-        {
-          title: "Flexible Repayment & Moratorium",
-          desc: "Structured repayment options with customized moratorium periods to support new business scaling.",
-          icon: "schedule",
-        },
-        {
-          title: "Minimal Paperwork & Fast Approval",
-          desc: "Digital KYC and GST analytics enable in-principle sanction generation within 24 to 36 hours.",
+          title: "Fast 24-48 Hour Disbursal",
+          desc: "Rapid digital evaluation with direct account crediting in 24 to 48 hours.",
           icon: "bolt",
+        },
+        {
+          title: "Flexible Repayment Tenures",
+          desc: "Tenures from 1 to 5 years (up to 60 months) with structured cash-flow friendly EMIs.",
+          icon: "tune",
+        },
+        {
+          title: "Dedicated Women Advisory Desk",
+          desc: "Personalized guidance from application to disbursal with free credit counseling.",
+          icon: "support_agent",
         },
       ]}
       eligibility={[
-        "Ownership Criteria: Enterprise must have minimum 51% shareholding / proprietary ownership held by a woman",
-        "Business Vintage: Minimum 1 year of commercial operations with valid business registration (Udyam / GST / Trade License)",
-        "Age Requirements: 21 to 60 years",
-        "Turnover: Minimum ₹15 Lakhs annual turnover (for loans > ₹5 Lakhs)",
-        "Credit History: Promoter CIBIL score of 680+ with clean past repayment record",
+        "Eligibility: Women Entrepreneurs, Directors, Partners, or Self-Employed Female Professionals holding at least 51% ownership.",
+        "Age Range: 21 to 60 years of age.",
+        "Business Vintage: Minimum 1 to 2 years of active continuous business operations.",
+        "Credit Profile: Minimum 650+ CIBIL score with clean repayment track.",
+        "Nationality: Indian Resident.",
       ]}
       documents={[
-        "Identity Proof: PAN Card, Aadhaar Card, Passport / Voter ID of the female promoter",
-        "Business Entity Proof: GST Certificate, Udyam MSME Registration Certificate, Shop & Establishment License",
-        "Ownership Proof: Partnership Deed / MOA & AOA / Shareholding Pattern certificate confirming >51% female ownership",
-        "Financial Records: Last 12 months GSTR-3B filings and 12 months current/savings bank statements",
-        "Past Income: Last 2 years ITR with computation of income (for loans > ₹10 Lakhs)",
+        "KYC Identity: PAN Card, Aadhaar Card, Passport or Voter ID of the primary applicant.",
+        "Business Proof: GST Certificate, Udyam / MSME Certificate, Trade License, or Incorporation Certificate.",
+        "Financial Statements: Last 2 Years ITR with Computation and Banking Statements (Last 12 Months).",
       ]}
       faqs={[
         {
-          q: "What constitutes a 'Women-Owned Enterprise' to qualify for special rates?",
-          a: "To qualify for preferential rates and government subventions, a minimum of 51% equity shareholding and management control must be held by one or more women promoters.",
+          q: "What is the special interest concession for women entrepreneurs?",
+          a: "Women-owned businesses (with 51%+ female shareholding) receive a preferential 0.50% interest rate rebate across our banking partner network.",
         },
         {
-          q: "How does the 0.50% interest concession work?",
-          a: "Our partner banks (including SBI, PNB, HDFC, and ICICI) offer an automatic 0.50% interest rate rebate below standard card rates for qualified female entrepreneurs.",
+          q: "Do I need collateral or security for this loan?",
+          a: "No. All loans under this scheme are 100% collateral-free and unsecured.",
         },
         {
-          q: "Can home-based businesses, salons, and cloud kitchens apply?",
-          a: "Yes. Self-employed women running home-based catering, cloud kitchens, boutique fashion labels, digital agencies, and salons with active bank transaction tracks are fully eligible.",
-        },
-        {
-          q: "Is property collateral required for a women's business loan?",
-          a: "No. Loans up to ₹1 Crore are sanctioned completely collateral-free under the Credit Guarantee Scheme (CGTMSE) or Mudra Yojana.",
-        },
-        {
-          q: "Can a male co-founder or spouse be a co-applicant?",
-          a: "Yes. Spouses or male business partners can join as co-borrowers, which often strengthens the overall household income assessment and allows for higher sanction limits.",
-        },
-        {
-          q: "What is the Stand-Up India scheme for women?",
-          a: "Stand-Up India facilitates bank loans between ₹10 Lakhs and ₹1 Crore to at least one woman borrower per bank branch for setting up greenfield (new) trading, manufacturing, or service enterprises.",
-        },
-        {
-          q: "How fast are the funds disbursed once approved?",
-          a: "Upon complete document verification, funds are disbursed directly into your business current account within 24 to 36 hours.",
-        },
-        {
-          q: "Are there any prepayment charges if I close the loan early?",
-          a: "Our partner lenders offer floating-rate MSME facilities with NIL foreclosure charges once 12 EMIs are completed.",
+          q: "How fast is the loan approval process?",
+          a: "Approvals are processed in 24 hours with complete digital documentation, and funds are disbursed within 48 hours.",
         },
       ]}
     />
