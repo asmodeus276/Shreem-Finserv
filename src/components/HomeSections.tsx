@@ -64,30 +64,35 @@ const PROCESS_STEPS = [
     num: 1,
     icon: "edit_note",
     title: "Apply Online",
+    sla: "2 Mins",
     desc: "Submit basic loan requirements with instant digital pre-evaluation.",
   },
   {
     num: 2,
     icon: "upload_file",
     title: "Upload KYC",
+    sla: "15 Mins",
     desc: "Secure digital document submission via encrypted DPDP-compliant channel.",
   },
   {
     num: 3,
     icon: "compare_arrows",
     title: "Bank Match",
+    sla: "1 Hour",
     desc: "Our algorithmic engine matches you with the lowest-rate bank partners.",
   },
   {
     num: 4,
     icon: "task_alt",
     title: "Quick Sanction",
+    sla: "24 Hours",
     desc: "Receive in-principle formal loan sanction letter in under 24 hours.",
   },
   {
     num: 5,
     icon: "account_balance_wallet",
     title: "Direct Disbursal",
+    sla: "Same Day",
     desc: "Funds credited directly to your registered account with zero hidden fees.",
   },
 ];
@@ -158,7 +163,7 @@ export function WhyChooseUsSection() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 mb-12">
           {WHY_CHOOSE_US.map((item, idx) => (
             <ScrollReveal key={idx} variant="fade-up" delay={idx * 100}>
               <div className="group bg-white border border-slate-200/80 rounded-2xl p-6 md:p-7 hover:border-[#0B2E8D]/40 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
@@ -181,6 +186,73 @@ export function WhyChooseUsSection() {
             </ScrollReveal>
           ))}
         </div>
+
+        {/* Traditional Bank vs Shreem Finserv Comparison Card */}
+        <ScrollReveal variant="fade-up">
+          <div className="bg-white rounded-3xl border border-slate-200 p-6 md:p-8 shadow-md">
+            <div className="text-center max-w-xl mx-auto mb-6">
+              <span className="text-[11px] font-bold uppercase tracking-wider text-[#0B2E8D]">Direct Comparison</span>
+              <h3 className="text-xl md:text-2xl font-bold text-slate-900 mt-0.5">
+                Applying Directly vs Through Shreem Finserv
+              </h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+              {/* Traditional Bank Column */}
+              <div className="bg-slate-50 rounded-2xl p-5 border border-slate-200 space-y-3">
+                <div className="flex items-center gap-2 font-bold text-slate-700 text-sm pb-2 border-b border-slate-200">
+                  <span className="material-symbols-outlined text-red-500 text-[20px]">cancel</span>
+                  <span>Direct Single-Bank Walk-in</span>
+                </div>
+                <div className="space-y-2 text-slate-600">
+                  <div className="flex items-start gap-2">
+                    <span className="text-red-500 font-bold">✕</span>
+                    <span>Single bank quote with take-it-or-leave-it rates</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-red-500 font-bold">✕</span>
+                    <span>Multiple branch visits & tedious physical paperwork</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-red-500 font-bold">✕</span>
+                    <span>7 to 14 days processing time with zero status visibility</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-red-500 font-bold">✕</span>
+                    <span>Rejection hurts CIBIL score if applied at multiple banks</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Shreem Finserv Priority Channel */}
+              <div className="bg-gradient-to-br from-blue-50/80 to-indigo-50/40 rounded-2xl p-5 border border-[#0B2E8D]/30 shadow-xs space-y-3">
+                <div className="flex items-center gap-2 font-bold text-[#0B2E8D] text-sm pb-2 border-b border-blue-200">
+                  <span className="material-symbols-outlined text-emerald-600 text-[20px]">check_circle</span>
+                  <span>Shreem Finserv Priority Channel</span>
+                </div>
+                <div className="space-y-2 text-slate-800 font-medium">
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-600 font-bold">✓</span>
+                    <span>Simultaneous quotes matched across <strong>50+ Banks &amp; NBFCs</strong></span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-600 font-bold">✓</span>
+                    <span><strong>100% digital KYC</strong> with zero upfront consultation fee</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-600 font-bold">✓</span>
+                    <span>Formal sanction in <strong>24 to 48 hours</strong> with dedicated RM</span>
+                  </div>
+                  <div className="flex items-start gap-2">
+                    <span className="text-emerald-600 font-bold">✓</span>
+                    <span>Single soft eligibility check with <strong>zero CIBIL score damage</strong></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </ScrollReveal>
+
       </div>
     </section>
   );
@@ -220,13 +292,18 @@ export function AnimatedProcessTimeline() {
                 <ScrollReveal key={idx} variant="scale-up" delay={idx * 150}>
                   <div className={`bg-slate-50/80 p-6 rounded-2xl border border-slate-200 text-center hover:bg-white ${isLast ? "hover:border-[#BB0119]/30" : "hover:border-[#0B2E8D]/30"} interactive-shadow transition-all group relative`}>
                     {/* Step Number */}
-                    <div className={`w-14 h-14 rounded-2xl ${isLast ? "bg-[#BB0119]" : "bg-[#0B2E8D]"} text-white flex items-center justify-center mx-auto mb-4 shadow-md group-hover:scale-110 group-hover:shadow-xl transition-all duration-300 relative`}>
+                    <div className={`w-14 h-14 rounded-2xl ${isLast ? "bg-[#BB0119]" : "bg-[#0B2E8D]"} text-white flex items-center justify-center mx-auto mb-3 shadow-md group-hover:scale-110 group-hover:shadow-xl transition-all duration-300 relative`}>
                       <span className="material-symbols-outlined text-[26px]">{step.icon}</span>
                       {/* Step number badge */}
                       <span className={`absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full ${isLast ? "bg-[#8B0010]" : "bg-[#001A62]"} text-white text-[10px] font-black flex items-center justify-center border-2 border-white shadow-sm`}>
                         {step.num}
                       </span>
                     </div>
+
+                    <div className="inline-block bg-blue-50 text-[#0B2E8D] text-[10px] font-bold px-2 py-0.5 rounded-md mb-2 border border-blue-200/60">
+                      SLA: {step.sla}
+                    </div>
+
                     <h4 className={`font-bold text-slate-900 text-base mb-1.5 ${isLast ? "group-hover:text-[#BB0119]" : "group-hover:text-[#0B2E8D]"} transition-colors`}>
                       {step.title}
                     </h4>

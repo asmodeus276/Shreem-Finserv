@@ -281,7 +281,7 @@ export const Navbar: React.FC = () => {
             <Link
               href="/apply"
               onClick={pathname === "/" ? scrollToApply : undefined}
-              className="inline-flex items-center gap-1.5 text-xs font-semibold text-white bg-[#BB0119] hover:bg-[#E0292E] px-5 py-2.5 rounded-lg shadow-sm hover:shadow transition-all"
+              className="button-shine inline-flex items-center gap-1.5 text-xs font-bold text-white bg-[#BB0119] hover:bg-[#E0292E] px-5 py-2.5 rounded-xl shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all"
             >
               <span className="material-symbols-outlined text-[16px]">bolt</span>
               Apply Now

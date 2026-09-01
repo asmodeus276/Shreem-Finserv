@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { submitLead } from "@/lib/firebase";
 import { BRAND_CONFIG } from "@/config/brand";
 
 export const PartnerSection: React.FC = () => {
@@ -11,10 +10,22 @@ export const PartnerSection: React.FC = () => {
   const [experience, setExperience] = useState("Direct Selling Agent (DSA)");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || mobile.length !== 10) return;
+    setErrorMessage(null);
+
+    if (!name.trim()) {
+      setErrorMessage("Please enter your full name or company name.");
+      return;
+    }
+
+    const cleanMobile = mobile.replace(/\D/g, "");
+    if (cleanMobile.length !== 10) {
+      setErrorMessage("Please enter a valid 10-digit mobile number.");
+      return;
+    }
 
     setLoading(true);
     try {
@@ -23,16 +34,20 @@ export const PartnerSection: React.FC = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: name.trim(),
-          mobile,
+          mobile: cleanMobile,
           city: city.trim() || "India",
           profession: experience,
         }),
       });
-      if (res.ok) {
+      const data = await res.json();
+      if (res.ok && data.success) {
         setSubmitted(true);
+      } else {
+        setErrorMessage(data.error || "Unable to submit partner registration. Please try again.");
       }
     } catch (err) {
       console.error("[Partner Submit Error]:", err);
+      setErrorMessage("Connection error. Please check your network and try again.");
     } finally {
       setLoading(false);
     }
@@ -118,6 +133,13 @@ export const PartnerSection: React.FC = () => {
                       <h3 className="text-2xl font-bold text-slate-900 mt-0.5">Register as Channel Partner</h3>
                       <p className="text-xs text-slate-500 mt-1">Start monetizing your client referrals today.</p>
                     </div>
+
+                    {errorMessage && (
+                      <div className="mb-4 p-3 bg-red-50 border border-red-200 rounded-xl text-xs font-semibold text-red-700 flex items-center gap-2">
+                        <span className="material-symbols-outlined text-[18px]">error</span>
+                        <span>{errorMessage}</span>
+                      </div>
+                    )}
 
                     <form onSubmit={handleSubmit} className="space-y-4">
                       <div>

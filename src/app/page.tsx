@@ -4,6 +4,7 @@ import { LeadForm } from "@/components/LeadForm";
 import { PartnerMarquee } from "@/components/PartnerMarquee";
 import { ApplicationTracker } from "@/components/ApplicationTracker";
 import { ProductCard } from "@/components/ProductCard";
+import { BankComparisonTable } from "@/components/BankComparisonTable";
 import { EmiCalculator } from "@/components/EmiCalculator";
 import { CreditScoreWidget } from "@/components/CreditScoreWidget";
 import { AwardsShowcase } from "@/components/AwardsShowcase";
@@ -31,9 +32,16 @@ export default function HomePage() {
             
             {/* Left Value Proposition */}
             <div className="lg:col-span-7 space-y-6 md:space-y-8">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B2E8D]/10 text-[#0B2E8D] text-xs font-bold border border-[#0B2E8D]/20">
-                <span className="material-symbols-outlined text-[16px] text-[#BB0119]">flash_on</span>
-                Fast-Track Disbursals Across 50+ Banks & NBFCs
+              {/* Live Ticker & Trust Pill */}
+              <div className="flex flex-wrap items-center gap-2">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B2E8D]/10 text-[#0B2E8D] text-xs font-bold border border-[#0B2E8D]/20">
+                  <span className="material-symbols-outlined text-[16px] text-[#BB0119]">flash_on</span>
+                  Fast-Track Disbursals Across 50+ Banks & NBFCs
+                </div>
+                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200 shadow-2xs">
+                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                  <span>99.2% Sanction Rate</span>
+                </div>
               </div>
 
               <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
@@ -119,7 +127,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Why Choose Us — NEW */}
+      {/* 5. Live Bank & NBFC Comparison Matrix */}
+      <ScrollReveal variant="fade-up">
+        <BankComparisonTable />
+      </ScrollReveal>
+
+      {/* 6. Why Choose Us — NEW */}
       <WhyChooseUsSection />
 
       {/* 6. Interactive Smart EMI Calculator */}

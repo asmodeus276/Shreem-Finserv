@@ -46,11 +46,12 @@ export default function ApplyClientPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!fullName || !phone || !city) {
+    if (!fullName.trim() || !phone.trim() || !city.trim()) {
       setErrorMsg("Please fill in all mandatory details.");
       return;
     }
-    if (phone.length < 10) {
+    const cleanPhone = phone.replace(/\D/g, "");
+    if (cleanPhone.length !== 10) {
       setErrorMsg("Please enter a valid 10-digit mobile number.");
       return;
     }
@@ -65,17 +66,17 @@ export default function ApplyClientPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          fullName,
-          mobile: phone,
-          email: email || undefined,
-          city,
+          fullName: fullName.trim(),
+          mobile: cleanPhone,
+          email: email.trim() || undefined,
+          city: city.trim(),
           loanCategory: loanType,
           amount: loanAmount,
           tenure: `${tenureYears} Years`,
           employmentType,
           monthlyIncome,
-          companyName: companyName || undefined,
-          pan: pan || undefined,
+          companyName: companyName.trim() || undefined,
+          pan: pan.trim() || undefined,
           refId: generatedRefId,
           consent: true,
           sourcePage: "/apply",

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { submitLead } from "@/lib/firebase";
 import { BRAND_CONFIG } from "@/config/brand";
@@ -282,7 +283,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
           </select>
         </div>
 
-        {/* Amount Slider */}
+        {/* Amount Slider & Live Instant Quote */}
         <div className="pt-2">
           <div className="flex justify-between items-center gap-2 mb-1.5">
             <label className="text-xs font-bold uppercase tracking-wider text-slate-700">
@@ -305,6 +306,29 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             <span>{formatCurrency(minAmount)}</span>
             <span>{formatCurrency(maxAmount)}</span>
           </div>
+
+          {/* Live Estimate Feedback Pill */}
+          <div className="mt-3 p-3 bg-gradient-to-r from-blue-50 to-indigo-50/60 border border-blue-200/80 rounded-xl flex items-center justify-between gap-2 text-xs">
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-[18px] text-[#0B2E8D]">speed</span>
+              <div>
+                <span className="text-slate-500 text-[10px] uppercase font-bold block">Estimated EMI (~5 Yrs)</span>
+                <span className="font-extrabold text-[#001A62] text-sm">
+                  {formatCurrency(
+                    Math.round(
+                      (amount * (10.5 / 1200) * Math.pow(1 + 10.5 / 1200, 60)) /
+                        (Math.pow(1 + 10.5 / 1200, 60) - 1)
+                    )
+                  )}
+                  <span className="text-[10px] text-slate-500 font-normal"> /mo</span>
+                </span>
+              </div>
+            </div>
+            <div className="text-right">
+              <span className="text-emerald-700 text-[10px] font-bold block">Sanction SLA</span>
+              <span className="font-bold text-slate-800 text-xs">Within 24 Hours</span>
+            </div>
+          </div>
         </div>
 
         {/* DPDP Consent — Mandatory: Data Sharing with Lenders */}
@@ -320,7 +344,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               <span className="text-red-500">*</span>{" "}
               I consent to Shreem Finserv sharing my personal data with its lending partners for the purpose of processing this loan application, in accordance with the{" "}
               <span className="font-semibold text-slate-700">Digital Personal Data Protection Act, 2023</span> and{" "}
-              <a href="/privacy" className="underline text-[#0B2E8D] hover:text-[#001A62]">Privacy Policy</a>.
+              <Link href="/privacy-policy" className="underline text-[#0B2E8D] hover:text-[#001A62]">Privacy Policy</Link>.
             </span>
           </label>
 
@@ -342,7 +366,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-[#BB0119] hover:bg-[#E0292E] disabled:bg-slate-400 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 text-sm mt-3"
+          className="w-full button-shine bg-[#BB0119] hover:bg-[#E0292E] disabled:bg-slate-400 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 text-sm mt-3 cursor-pointer"
         >
           {loading ? (
             <>
@@ -356,6 +380,24 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             </>
           )}
         </button>
+
+        {/* Security & Regulatory Badges */}
+        <div className="pt-2 flex items-center justify-center gap-4 text-[10px] text-slate-400 font-semibold border-t border-slate-100">
+          <span className="flex items-center gap-1">
+            <span className="material-symbols-outlined text-[13px] text-emerald-600">lock</span>
+            256-Bit SSL
+          </span>
+          <span>•</span>
+          <span className="flex items-center gap-1">
+            <span className="material-symbols-outlined text-[13px] text-[#0B2E8D]">verified_user</span>
+            DPDP Compliant
+          </span>
+          <span>•</span>
+          <span className="flex items-center gap-1">
+            <span className="material-symbols-outlined text-[13px] text-slate-600">money_off</span>
+            Zero Upfront Fee
+          </span>
+        </div>
       </form>
     </div>
   );
