@@ -41,7 +41,7 @@ const HERO_SLIDES: SlideData[] = [
     secondaryCtaText: "Check Eligibility",
     secondaryCtaLink: "#lead-form",
     bgImage:
-      "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=2000&q=85",
+      "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1280&q=75",
     gradientOverlay:
       "from-[#00103A]/95 via-[#001A62]/85 to-transparent",
   },
@@ -63,7 +63,7 @@ const HERO_SLIDES: SlideData[] = [
     secondaryCtaText: "Calculate EMI",
     secondaryCtaLink: "#emi-calculator",
     bgImage:
-      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85",
+      "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1280&q=75",
     gradientOverlay:
       "from-[#051846]/95 via-[#0B2E8D]/80 to-transparent",
   },
@@ -85,7 +85,7 @@ const HERO_SLIDES: SlideData[] = [
     secondaryCtaText: "View Bank Comparison",
     secondaryCtaLink: "#bank-comparison",
     bgImage:
-      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=85",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1280&q=75",
     gradientOverlay:
       "from-[#001740]/95 via-[#002277]/80 to-transparent",
   },
@@ -107,7 +107,7 @@ const HERO_SLIDES: SlideData[] = [
     secondaryCtaText: "Check Property Value",
     secondaryCtaLink: "#lead-form",
     bgImage:
-      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=85",
+      "https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1280&q=75",
     gradientOverlay:
       "from-[#04143A]/95 via-[#082670]/80 to-transparent",
   },
@@ -129,7 +129,7 @@ const HERO_SLIDES: SlideData[] = [
     secondaryCtaText: "Talk to Expert",
     secondaryCtaLink: "#lead-form",
     bgImage:
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=85",
+      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1280&q=75",
     gradientOverlay:
       "from-[#031131]/95 via-[#062060]/80 to-transparent",
   },
@@ -240,23 +240,20 @@ export function Hero() {
                 className="relative flex-[0_0_100%] min-w-0 min-h-[540px] sm:min-h-[580px] md:min-h-[620px] lg:min-h-[660px] flex items-center"
               >
                 {/* Background Image with Next.js Image */}
-                <div className="absolute inset-0 z-0">
+                <div className="absolute inset-0 z-0 overflow-hidden">
                   <Image
                     src={slide.bgImage}
                     alt={slide.productTitle}
                     fill
                     priority={index === 0}
-                    sizes="100vw"
-                    className="object-cover object-center transition-transform duration-1000 ease-out"
-                    style={{
-                      transform: isActive ? "scale(1.04)" : "scale(1)",
-                    }}
+                    sizes="(max-width: 768px) 100vw, 1280px"
+                    className="object-cover object-center"
                   />
                   {/* Deep Multi-Layered Gradient & Vignette Overlay for High Readability */}
                   <div
                     className={`absolute inset-0 bg-gradient-to-r ${slide.gradientOverlay}`}
                   />
-                  <div className="absolute inset-0 bg-slate-950/40 backdrop-brightness-[0.85]" />
+                  <div className="absolute inset-0 bg-slate-950/40" />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-black/30" />
                 </div>
 

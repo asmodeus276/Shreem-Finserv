@@ -131,10 +131,12 @@ export function TestimonialsSlider({
       align: "start",
       slidesToScroll: 1,
       containScroll: "trimSnaps",
+      duration: 25,
+      dragFree: false,
     },
     [
       Autoplay({
-        delay: 4500,
+        delay: 5000,
         stopOnInteraction: false,
         stopOnMouseEnter: true,
       }),

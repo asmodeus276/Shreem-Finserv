@@ -22,28 +22,28 @@ interface ScrollRevealProps {
 
 const variantStyles: Record<AnimationVariant, { hidden: React.CSSProperties; visible: React.CSSProperties }> = {
   "fade-up": {
-    hidden: { opacity: 0, transform: "translateY(40px)" },
-    visible: { opacity: 1, transform: "translateY(0)" },
+    hidden: { opacity: 0, transform: "translate3d(0, 24px, 0)" },
+    visible: { opacity: 1, transform: "translate3d(0, 0, 0)" },
   },
   "fade-down": {
-    hidden: { opacity: 0, transform: "translateY(-40px)" },
-    visible: { opacity: 1, transform: "translateY(0)" },
+    hidden: { opacity: 0, transform: "translate3d(0, -24px, 0)" },
+    visible: { opacity: 1, transform: "translate3d(0, 0, 0)" },
   },
   "fade-left": {
-    hidden: { opacity: 0, transform: "translateX(-40px)" },
-    visible: { opacity: 1, transform: "translateX(0)" },
+    hidden: { opacity: 0, transform: "translate3d(-24px, 0, 0)" },
+    visible: { opacity: 1, transform: "translate3d(0, 0, 0)" },
   },
   "fade-right": {
-    hidden: { opacity: 0, transform: "translateX(40px)" },
-    visible: { opacity: 1, transform: "translateX(0)" },
+    hidden: { opacity: 0, transform: "translate3d(24px, 0, 0)" },
+    visible: { opacity: 1, transform: "translate3d(0, 0, 0)" },
   },
   "zoom-in": {
-    hidden: { opacity: 0, transform: "scale(0.9)" },
-    visible: { opacity: 1, transform: "scale(1)" },
+    hidden: { opacity: 0, transform: "scale3d(0.96, 0.96, 1)" },
+    visible: { opacity: 1, transform: "scale3d(1, 1, 1)" },
   },
   "scale-up": {
-    hidden: { opacity: 0, transform: "scale(0.95) translateY(20px)" },
-    visible: { opacity: 1, transform: "scale(1) translateY(0)" },
+    hidden: { opacity: 0, transform: "scale3d(0.96, 0.96, 1) translate3d(0, 16px, 0)" },
+    visible: { opacity: 1, transform: "scale3d(1, 1, 1) translate3d(0, 0, 0)" },
   },
 };
 
@@ -51,11 +51,11 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   children,
   variant = "fade-up",
   delay = 0,
-  duration = 700,
+  duration = 500,
   className = "",
   once = true,
 }) => {
-  const { ref, isInView } = useInView({ threshold: 0.1, triggerOnce: once });
+  const { ref, isInView } = useInView({ threshold: 0.05, rootMargin: "50px", triggerOnce: once });
 
   const styles = variantStyles[variant];
 
@@ -66,7 +66,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
       style={{
         ...(isInView ? styles.visible : styles.hidden),
         transition: `opacity ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms, transform ${duration}ms cubic-bezier(0.16, 1, 0.3, 1) ${delay}ms`,
-        willChange: "opacity, transform",
+        willChange: isInView ? "auto" : "opacity, transform",
       }}
     >
       {children}

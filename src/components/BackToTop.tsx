@@ -6,11 +6,15 @@ export const BackToTop: React.FC = () => {
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      if (window.scrollY > 400) {
-        setShowButton(true);
-      } else {
-        setShowButton(false);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const show = window.scrollY > 400;
+          setShowButton((prev) => (prev !== show ? show : prev));
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 
