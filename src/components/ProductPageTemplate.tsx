@@ -214,20 +214,20 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
       {/* 2. Co-Lending Partner Marquee */}
       <PartnerMarquee />
 
-      {/* 2.5 Key Features Section */}
+      {/* 2.5 Loan Features & Benefits Section */}
       {features.length > 0 && (
         <section className="py-14 md:py-20 bg-white border-b border-slate-200">
           <div className="max-w-7xl mx-auto px-4 md:px-8">
             <div className="text-center max-w-3xl mx-auto mb-10 md:mb-14">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#0B2E8D] text-xs font-bold border border-blue-200 mb-3">
                 <span className="material-symbols-outlined text-[16px]">auto_awesome</span>
-                Product Highlights
+                Core Highlights
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
-                Key Features of <span className="text-[#0B2E8D]">{categoryName}</span>
+                <span className="text-[#0B2E8D]">{categoryName}</span> Features &amp; Benefits
               </h2>
               <p className="text-slate-500 text-sm mt-2 max-w-xl mx-auto">
-                Everything you need to know about what makes this product stand out from the rest.
+                Comprehensive advantages, flexible terms, and fast-track processing designed for your needs.
               </p>
             </div>
 

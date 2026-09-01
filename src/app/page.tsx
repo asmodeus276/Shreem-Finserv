@@ -9,7 +9,8 @@ import { EmiCalculator } from "@/components/EmiCalculator";
 import { CreditScoreWidget } from "@/components/CreditScoreWidget";
 import { AwardsShowcase } from "@/components/AwardsShowcase";
 import { PartnerSection } from "@/components/PartnerSection";
-import { Testimonials } from "@/components/Testimonials";
+import { TestimonialsSlider } from "@/components/TestimonialsSlider";
+import { Hero } from "@/components/Hero";
 import {
   HeroTypewriterSection,
   HeroStats,
@@ -20,68 +21,59 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 
 export default function HomePage() {
   return (
-    <div className="pt-28 sm:pt-32 md:pt-36">
-      
-      {/* 1. Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-blue-50/50 via-white to-[#F7F9FB] py-8 sm:py-12 md:py-16">
-        <div className="absolute top-0 right-0 -z-10 w-[600px] h-[600px] bg-gradient-to-br from-[#B7C4FF]/30 to-transparent rounded-full blur-3xl opacity-60 pointer-events-none transform translate-x-1/3 -translate-y-1/4"></div>
-        <div className="absolute bottom-0 left-0 -z-10 w-[500px] h-[500px] bg-gradient-to-tr from-blue-200/20 to-transparent rounded-full blur-3xl opacity-40 pointer-events-none"></div>
+    <div className="pt-24 sm:pt-28 md:pt-32">
+      {/* 1. Dynamic Hero Banner Slider */}
+      <Hero />
 
+      {/* 1.5 Quick Instant Lead Form & Value Section */}
+      <section id="lead-form" className="relative overflow-hidden bg-gradient-to-b from-slate-900 via-[#001A62] to-[#0B2E8D] text-white py-12 md:py-16 shadow-inner">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
-            
-            {/* Left Value Proposition */}
-            <div className="lg:col-span-7 space-y-6 md:space-y-8">
-              {/* Live Ticker & Trust Pill */}
-              <div className="flex flex-wrap items-center gap-2">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0B2E8D]/10 text-[#0B2E8D] text-xs font-bold border border-[#0B2E8D]/20">
-                  <span className="material-symbols-outlined text-[16px] text-[#BB0119]">flash_on</span>
-                  Fast-Track Disbursals Across 50+ Banks & NBFCs
-                </div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-800 text-xs font-bold border border-emerald-200 shadow-2xs">
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span>99.2% Sanction Rate</span>
-                </div>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Value Highlights */}
+            <div className="lg:col-span-6 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-emerald-300 text-xs font-bold border border-white/15">
+                <span className="material-symbols-outlined text-[16px] text-amber-400">flash_on</span>
+                Fast-Track Disbursals Across 50+ Banks & NBFCs
               </div>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-slate-900 tracking-tight leading-[1.15]">
-                Instant Disbursal for{" "}
-                <HeroTypewriterSection />
-              </h1>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight leading-tight">
+                Instant Sanction & Disbursal For Any Financial Need
+              </h2>
 
-              <p className="text-sm sm:text-base md:text-lg text-slate-600 max-w-xl leading-relaxed">
+              <p className="text-slate-200 text-sm sm:text-base leading-relaxed">
                 {BRAND_CONFIG.tagline}. We deliver tailored lending solutions designed to fuel
-                your personal aspirations, clinic upgrades, and enterprise scaling with total transparency.
+                your personal aspirations, clinic upgrades, and enterprise scaling with total transparency and zero upfront fees.
               </p>
 
-              {/* Trust Badges Bar */}
-              <div className="flex flex-wrap gap-2.5 sm:gap-3 pt-1">
-                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/90 border border-slate-200 rounded-xl px-3 py-2 shadow-xs text-xs font-bold text-slate-800">
-                  <span className="material-symbols-outlined text-emerald-600 text-[18px]">verified_user</span>
+              {/* Trust Badges */}
+              <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+                <div className="flex items-center gap-2 bg-white/10 border border-white/15 rounded-xl px-3 py-2.5 backdrop-blur-sm text-xs font-semibold text-white">
+                  <span className="material-symbols-outlined text-emerald-400 text-[18px]">verified_user</span>
                   <span>{BRAND_CONFIG.compliance.dpdp}</span>
                 </div>
-                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/90 border border-slate-200 rounded-xl px-3 py-2 shadow-xs text-xs font-bold text-slate-800">
-                  <span className="material-symbols-outlined text-[#0B2E8D] text-[18px]">shield</span>
+                <div className="flex items-center gap-2 bg-white/10 border border-white/15 rounded-xl px-3 py-2.5 backdrop-blur-sm text-xs font-semibold text-white">
+                  <span className="material-symbols-outlined text-blue-300 text-[18px]">shield</span>
                   <span>{BRAND_CONFIG.compliance.security}</span>
                 </div>
-                <div className="flex items-center gap-1.5 sm:gap-2 bg-white/90 border border-slate-200 rounded-xl px-3 py-2 shadow-xs text-xs font-bold text-slate-800">
-                  <span className="material-symbols-outlined text-slate-700 text-[18px]">money_off</span>
+                <div className="flex items-center gap-2 bg-white/10 border border-white/15 rounded-xl px-3 py-2.5 backdrop-blur-sm text-xs font-semibold text-white">
+                  <span className="material-symbols-outlined text-amber-300 text-[18px]">money_off</span>
                   <span>{BRAND_CONFIG.compliance.upfrontFee}</span>
                 </div>
               </div>
 
-              {/* Key Proof Metrics — Animated */}
-              <HeroStats />
+              {/* Key Proof Metrics */}
+              <div className="pt-2">
+                <HeroStats />
+              </div>
             </div>
 
-            {/* Right Lead Form */}
-            <div className="lg:col-span-5">
+            {/* Quick Application Form */}
+            <div className="lg:col-span-6">
               <LeadForm
-                title="Check Loan Eligibility & Rates"
-                subtitle="Instant evaluation with zero impact on credit score."
+                title="Check Loan Eligibility & Best Rates"
+                subtitle="Instant evaluation with zero impact on your credit score."
               />
             </div>
-
           </div>
         </div>
       </section>
@@ -160,9 +152,9 @@ export default function HomePage() {
         <PartnerSection />
       </ScrollReveal>
 
-      {/* 11. Customer Testimonials */}
+      {/* 11. Customer Testimonials Slider */}
       <ScrollReveal variant="fade-up">
-        <Testimonials />
+        <TestimonialsSlider />
       </ScrollReveal>
 
       {/* 12. Final Call-To-Action Banner */}

@@ -2,172 +2,173 @@ import { Metadata } from "next";
 import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Personal Loans for Doctors - Preferential Rates up to ₹50 Lakhs | Shreem Finserv",
+  title: "Personal Loans & Professional Loans — From 9.9% p.a. | Shreem Finserv",
   description:
-    "Exclusive unsecured personal & professional loans for MBBS, MD, MS, BDS, and specialized doctors. Preferential rates from 9.99% p.a., 24-hour disbursal, zero collateral.",
+    "Apply for collateral-free Personal Loans and Professional Loans from ₹50,000 to ₹1 Crore. Preferential rates from 9.9% p.a., flexible tenure up to 7 years, minimal documentation, and 24-hour disbursal across 50+ lenders.",
 };
 
-export default function DoctorLoanPage() {
+export default function ProfessionalLoanPage() {
   return (
     <ProductPageTemplate
-      categoryName="Personal Loan for Doctors"
-      badge="Specialized Medical Professional Scheme"
-      headline="Exclusive Unsecured Credit Lines"
-      highlightText="Engineered for Doctors & Healthcare Practitioners"
-      description="Medical practitioners need frictionless, collateral-free liquidity to scale clinics, procure cutting-edge diagnostic equipment, or fund personal life milestones. Shreem Finserv offers custom-structured loans with priority underwriting across 50+ banking partners."
-      longOverview={`As a licensed medical practitioner (MBBS, MD, MS, BDS, MDS, BHMS, BAMS), your financial profile represents high stability, elite creditworthiness, and essential societal impact. Traditional retail loan products often fail to acknowledge the unique cash flow dynamics of private clinics, consultation retainers, and hospital visiting fees.
+      categoryName="Personal & Professional Loan"
+      badge="Collateral-Free Instant Credit"
+      headline="Instant Collateral-Free Financing"
+      highlightText="Personal Loans & Professional Loans from ₹50K to ₹1 Crore"
+      description="A Personal Loan is an unsecured loan that helps individuals, salaried professionals, doctors, and consultants meet personal, clinical, or emergency financial needs without providing any collateral."
+      longOverview={`A Personal & Professional Loan is an all-purpose, collateral-free credit instrument crafted to deliver fast liquidity with zero asset pledging. Whether you are a salaried executive funding medical needs or home renovation, or a certified medical doctor / chartered accountant expanding clinic infrastructure, our lending marketplace pairs you with India's highest-tier banking institutions.
 
-Shreem Finserv’s dedicated Doctor Lending Desk bypasses traditional cumbersome audit protocols. We provide collateral-free personal and professional credit lines up to ₹50 Lakhs based primarily on your Medical Registration Certificate and recent banking turnover. Whether you are expanding an ICU setup, opening a multi-speciality polyclinic, or attending an international medical fellowship, our consortium of 50+ partner banks guarantees lowest-in-class interest rates starting from 9.99% p.a.`}
-      maxAmount="Up to ₹50 Lakhs"
-      interestRate="Starting 9.99% p.a."
-      tenure="12 to 84 Months"
+Shreem Finserv connects you with 50+ leading scheduled commercial banks and premier NBFCs—including HDFC Bank, ICICI Bank, SBI, Axis Bank, Kotak, Tata Capital, and Bajaj Finance—to secure preferential interest rates starting from 9.9% p.a. With our 100% digital e-KYC and automated underwriting, funds can be credited directly to your bank account in as fast as 24 hours.`}
+      maxAmount="₹50K – ₹1Cr"
+      interestRate="From 9.9% p.a."
+      tenure="Up to 7 Years (84 Mos)"
       disbursalSpeed="Within 24 Hours"
-      defaultSliderAmount={3500000}
-      minSliderAmount={200000}
-      maxSliderAmount={5000000}
-      defaultEmiRate={9.99}
+      defaultSliderAmount={2500000}
+      minSliderAmount={50000}
+      maxSliderAmount={10000000}
+      defaultEmiRate={9.9}
       defaultEmiTenureYears={5}
       variants={[
         {
-          title: "Clinic Setup & Expansion Loan",
-          tag: "Unsecured",
-          desc: "Finance modern interiors, diagnostic setups, consultation suites, and pharmacy inventory.",
-          amount: "Up to ₹50 Lakhs",
-          icon: "local_hospital",
-        },
-        {
-          title: "Medical Equipment Refinance",
-          tag: "Low Rate",
-          desc: "Fund advanced ultrasound machines, dental chairs, laser workstations, and surgical tools.",
+          title: "Doctor & Medical Professional Loan",
+          tag: "Zero Collateral",
+          desc: "Tailored for MBBS, MD, MS, BDS, and clinic directors with fast-track underwriting.",
           amount: "Up to ₹1 Crore",
-          icon: "biomedical",
+          icon: "medical_services",
         },
         {
-          title: "Doctor Home & Clinic Mortgage",
-          tag: "Secured",
-          desc: "Low-cost high-tenure mortgage for purchasing commercial clinic space or prime residential homes.",
-          amount: "Up to ₹10 Crore",
-          icon: "home_work",
+          title: "Salaried Personal Loan",
+          tag: "Instant e-KYC",
+          desc: "Pre-approved personal financing for corporate, MNC, and government employees.",
+          amount: "₹50K to ₹50 Lakhs",
+          icon: "person",
         },
         {
-          title: "Personal Milestone & Travel Loan",
-          tag: "Instant",
-          desc: "Unrestricted end-use funds for international medical conferences, family weddings, or tax outflows.",
-          amount: "Up to ₹40 Lakhs",
-          icon: "flight_takeoff",
+          title: "Chartered Accountant / CS Loan",
+          tag: "Professional",
+          desc: "Bespoke unsecured funding for practicing CAs, CS, and management consultants.",
+          amount: "Up to ₹75 Lakhs",
+          icon: "calculate",
+        },
+        {
+          title: "Emergency & Medical Liquidity",
+          tag: "Express SLA",
+          desc: "Fast-track personal credit line for unforeseen medical emergencies and personal milestones.",
+          amount: "Up to ₹25 Lakhs",
+          icon: "bolt",
         },
       ]}
       features={[
         {
-          title: "100% Unsecured Lending",
-          desc: "No collateral, gold, or property pledge needed. Sanctioned purely on medical credentials and banking track.",
-          icon: "shield",
+          title: "Collateral-Free Financing",
+          desc: "Access unsecured funds from ₹50,000 to ₹1 Crore without pledging property, gold, or shares.",
+          icon: "verified_user",
         },
         {
-          title: "Preferential 9.99% Interest Rate",
-          desc: "Exclusive doctor-tier pricing across HDFC, ICICI, SBI, and Axis Bank — lowest in the professional category.",
-          icon: "trending_down",
-        },
-        {
-          title: "24-Hour Express Disbursal",
-          desc: "From application to bank credit in under 24 hours with fully digital document processing.",
+          title: "Quick Approval & Express Disbursal",
+          desc: "Streamlined digital verification with in-principle sanction in minutes and disbursal in 24 hours.",
           icon: "bolt",
         },
         {
-          title: "Flexi Overdraft Option",
-          desc: "Draw funds as needed, repay anytime from patient collections — pay interest only on utilized balance.",
-          icon: "account_balance_wallet",
+          title: "Flexible Repayment Tenure",
+          desc: "Choose customized repayment options from 12 to 84 months (up to 7 years) for low monthly EMIs.",
+          icon: "tune",
         },
         {
-          title: "Zero Foreclosure After 12 EMIs",
-          desc: "Close your loan early without any prepayment penalty once 12 EMIs have been paid on floating rate.",
-          icon: "lock_open",
+          title: "Multipurpose End-Use",
+          desc: "Use funds freely for clinic expansion, home improvements, weddings, travel, education, or debt consolidation.",
+          icon: "payments",
         },
         {
-          title: "Pan-India Multi-City Access",
-          desc: "Apply from any city across India. Our digital desk covers 500+ pin codes with doorstep document pickup.",
-          icon: "public",
+          title: "Competitive Interest Rates",
+          desc: "Access preferential interest rates starting from 9.9% p.a. based on professional credentials and CIBIL score.",
+          icon: "percent",
+        },
+        {
+          title: "Digital & Paperless Documentation",
+          desc: "100% online processing with Aadhaar OTP e-KYC and digital bank statement verification.",
+          icon: "description",
+        },
+        {
+          title: "Multi-Lender Pre-Approval",
+          desc: "Compare pre-approved loan quotes across 50+ banking partners with zero impact on credit score.",
+          icon: "hub",
+        },
+        {
+          title: "Dedicated Loan Assistance",
+          desc: "Personal loan relationship manager assigned from application to direct bank account crediting.",
+          icon: "support_agent",
         },
       ]}
       benefits={[
         {
-          title: "No Collateral or Guarantor",
-          desc: "100% unsecured lending sanctioned solely on your medical degree, registration license, and clean repayment track.",
-          icon: "verified_user",
+          title: "Zero Collateral Required",
+          desc: "No property, guarantor, or fixed deposit lien needed to unlock full loan sanction limits.",
+          icon: "lock_open",
         },
         {
-          title: "Preferential Interest Slabs",
-          desc: "Direct tie-ups with HDFC, ICICI, SBI, and Axis Bank ensuring doctor-exclusive 9.99% interest pricing.",
-          icon: "percent",
+          title: "Industry-Leading Interest Rates",
+          desc: "Preferential rate slabs starting at 9.9% p.a. saving significant interest across your loan lifecycle.",
+          icon: "savings",
         },
         {
-          title: "Flexi-Hybrid Overdraft Facility",
-          desc: "Withdraw and repay capital as per your clinic's patient inflow; pay interest only on the utilized amount.",
-          icon: "account_balance_wallet",
-        },
-        {
-          title: "Minimal Financial Scrutiny",
-          desc: "No balance sheet auditing or complex P&L requirements for loans up to ₹30 Lakhs for established doctors.",
-          icon: "task",
-        },
-        {
-          title: "Extended 7-Year Tenure",
-          desc: "Comfortable repayment horizons up to 84 months keeping monthly EMI burden minimal during initial practice setup.",
+          title: "Extended 7-Year Repayment",
+          desc: "Longer amortization horizons keep monthly EMIs comfortable and stress-free for your budget.",
           icon: "calendar_month",
         },
         {
-          title: "NIL Foreclosure Post 12 EMIs",
-          desc: "Full freedom to close the loan or make bulk prepayments from surplus consultancy income with zero penalty.",
-          icon: "lock_open",
+          title: "Debt Consolidation",
+          desc: "Combine multiple high-cost credit cards and personal loans into a single lower-interest EMI.",
+          icon: "merge_type",
+        },
+        {
+          title: "Special Professional Concessions",
+          desc: "Exclusive pricing discounts and higher sanction multipliers for Doctors, CAs, and Architects.",
+          icon: "workspace_premium",
+        },
+        {
+          title: "Zero Hidden Charges",
+          desc: "Complete transparency with transparent fee schedules and zero upfront advisory brokerage.",
+          icon: "money_off",
         },
       ]}
+      feesSchedule={[
+        { chargeType: "Processing Fees", standardBankRate: "1.50% to 3.00% of loan amount", shreemAdvantage: "From 0.75% (Special Partner Rate)" },
+        { chargeType: "Prepayment / Foreclosure", standardBankRate: "3% to 5% on principal outstanding", shreemAdvantage: "Zero charges after 6-12 EMIs" },
+        { chargeType: "Documentation & Verification", standardBankRate: "₹1,000 to ₹3,000", shreemAdvantage: "100% Digital e-Sign & e-Stamp" },
+        { chargeType: "Upfront Brokerage Fees", standardBankRate: "Often charged by local brokers (1%)", shreemAdvantage: "₹0 Free Service (Zero Upfront Charges)" },
+      ]}
       eligibility={[
-        "Educational Qualification: MBBS, MD, MS, BDS, MDS, BHMS, BAMS from recognized MCI/NMC university",
-        "Professional Vintage: Minimum 2 years post-registration experience (1 year for MD/MS specialists)",
-        "Age Criteria: 25 to 65 years at the time of loan maturity",
-        "Minimum Monthly Net Receipts: ₹60,000 for salaried doctors / ₹1,00,000 for self-employed practitioners",
-        "Credit Health: CIBIL score of 700+ with clean repayment history on existing facilities",
+        "Age Range: Applicant must be between 21 and 65 years of age at loan maturity.",
+        "Employment Status: Salaried Individuals (MNC, Corporate, Govt), Medical Doctors, Chartered Accountants, Self-Employed Professionals.",
+        "Income Stability: Minimum monthly income of ₹25,000/month (Salaried) or ₹3.5 Lakhs annual ITR (Self-Employed).",
+        "Work Experience: Minimum 1 year total work experience (at least 6 months with current organization) or 2 years in professional practice.",
+        "Credit Profile: Minimum 700+ CIBIL score with clean repayment track record.",
+        "Nationality: Applicant must be an Indian Resident.",
       ]}
       documents={[
-        "KYC Proofs: PAN Card, Aadhaar Card / Passport",
-        "Medical Credentials: NMC / State Medical Council Registration Certificate & Highest Degree",
-        "Income Proofs (Salaried): Last 3 months payslips + Form 16",
-        "Income Proofs (Self-Employed): Last 2 years ITR with computation sheets + P&L statement",
-        "Banking Statements: Last 6 months operative bank statements showing consultancy/practice receipts",
-        "Clinic Ownership Proof: Electricity bill / Lease agreement (for self-employed clinic owners)",
+        "KYC Identity Proof: PAN Card, Aadhaar Card (Linked to mobile), Passport, or Voter ID.",
+        "Income Proof (Salaried): Last 3 Months Salary Slips and latest Form 16 / 2 Years ITR.",
+        "Income Proof (Self-Employed / Doctors): Last 2–3 Years ITR with Computation of Income and Balance Sheet.",
+        "Bank Statements: Last 6 Months Bank Statement showing salary credits or active professional practice transactions.",
+        "Professional Credentials (for Doctors/CAs): Medical Council of India (MCI) / State Council Registration, MBBS/MD Degree Certificate, ICAI Membership Certificate.",
+        "Current Address Proof: Electricity Bill, Water Bill, or Registered Rent Agreement.",
       ]}
       faqs={[
         {
-          q: "What is the maximum unsecured loan amount a doctor can obtain?",
-          a: "Under the doctor-specific unsecured lending program, practicing doctors can avail up to ₹50 Lakhs without pledging any collateral, gold, or property. For larger equipment or multi-speciality hospital infrastructure, secured lines up to ₹15 Crores are available.",
+          q: "What is the maximum loan amount available for Personal & Professional Loans?",
+          a: "Loan amounts range from ₹50,000 up to ₹1 Crore. For certified medical professionals and CAs, higher sanction limits are available based on professional vintage and gross receipts.",
         },
         {
-          q: "Can BDS, BAMS, and BHMS practitioners apply for this loan?",
-          a: "Yes. In addition to allopathic MBBS/MD/MS doctors, registered dental practitioners (BDS/MDS) and AYUSH practitioners (BAMS/BHMS) with active state council registration and minimum 2 years of practice are fully eligible.",
+          q: "Do I need to submit collateral or security for this loan?",
+          a: "No. All personal and professional loans are 100% collateral-free and unsecured. Sanction is determined by your income stability, CIBIL score, and banking transactions.",
         },
         {
-          q: "Is there any restriction on how the sanctioned funds can be used?",
-          a: "No. The Personal Loan for Doctors has zero end-use restrictions. You can utilize the funds for clinic renovation, hiring staff, medical device purchases, debt consolidation, children's overseas education, or personal vacations.",
+          q: "What is the interest rate for Personal & Professional Loans?",
+          a: "Interest rates start from 9.9% p.a. depending on your employer category, professional qualifications, CIBIL score, and chosen lending partner.",
         },
         {
-          q: "How fast will the funds be disbursed to my bank account?",
-          a: "Upon complete digital document submission, in-principle approval is generated within 4 hours. Final documentation execution and disbursement into your designated bank account typically complete within 24 to 36 hours.",
-        },
-        {
-          q: "How does the Flexi Hybrid Drop-Line overdraft work for doctors?",
-          a: "With a Flexi Drop-Line facility, a predetermined limit (e.g. ₹35 Lakhs) is assigned to your current account. You can withdraw funds whenever a supplier payment or clinic expense arises, and deposit surplus patient collections anytime. Interest is charged strictly on daily utilized balance, saving up to 40% on interest.",
-        },
-        {
-          q: "Are there any foreclosure or prepayment charges if I close the loan early?",
-          a: "Shreem Finserv partners with banks offering NIL foreclosure charges on floating-rate doctor loans once 12 regular EMIs have been successfully serviced.",
-        },
-        {
-          q: "Does applying through Shreem Finserv impact my CIBIL score?",
-          a: "No. Our initial eligibility assessment is a soft inquiry that has zero negative impact on your CIBIL or Experian credit score.",
-        },
-        {
-          q: "Can doctors working in government or corporate hospitals apply?",
-          a: "Yes. Salaried medical consultants and doctors employed at government medical colleges, AIIMS, Apollo, Max, Fortis, and other corporate hospitals are eligible with expedited salary-slip processing.",
+          q: "How soon will the funds be disbursed to my account?",
+          a: "With complete online KYC and bank statement verification, in-principle sanction is delivered in hours and direct disbursal takes place within 24 hours.",
         },
       ]}
     />

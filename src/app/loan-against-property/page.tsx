@@ -2,30 +2,30 @@ import { Metadata } from "next";
 import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Loan Against Property (LAP) - Low Interest Mortgages up to ₹15 Crore | Shreem Finserv",
+  title: "Loan Against Property (LAP) — From 9% p.a. | Shreem Finserv",
   description:
-    "Unlock equity from residential, commercial, or industrial real estate. Lowest mortgage rates starting from 8.75% p.a., flexible 15-year tenure, up to 75% LTV.",
+    "Apply for Loan Against Property (LAP) from ₹25 Lakhs to ₹10 Crore. Lowest mortgage rates starting from 9% p.a., flexible 15-year tenure, up to 75% LTV, and swift legal clearance across 50+ lenders.",
 };
 
 export default function LapPage() {
   return (
     <ProductPageTemplate
-      categoryName="Loan Against Property (LAP)"
+      categoryName="Loan Against Property"
       badge="Secured Real Estate Equity Line"
       headline="Unlock Substantial Capital Against"
-      highlightText="Residential, Commercial & Industrial Real Estate"
-      description="Leverage your immovable property to secure long-term, low-interest capital up to ₹15 Crore for business expansion, debt restructuring, or capital-intensive investments across 50+ partner banks."
-      longOverview={`Loan Against Property (LAP) is one of the most cost-effective borrowing instruments available in India. By mortgaging clear-title residential homes, commercial office buildings, industrial plots, or retail shops, property owners can access massive liquidity at interest rates significantly lower than unsecured business or personal loans.
+      highlightText="Residential, Commercial & Industrial Real Estate (₹25L – ₹10Cr)"
+      description="A Loan Against Property (LAP) allows you to unlock the value of your residential, commercial, or industrial property and obtain high-ticket funds for personal or business requirements at significantly lower interest rates."
+      longOverview={`A Loan Against Property (LAP) is one of the most cost-effective borrowing instruments in India. By mortgaging clear-title residential homes, commercial office buildings, industrial plots, or retail shops, property owners can access substantial liquidity at interest rates significantly lower than unsecured business or personal loans.
 
-Shreem Finserv collaborates with tier-1 housing finance companies (HFCs) and scheduled commercial banks—including HDFC Bank, SBI, ICICI, Piramal Capital, Godrej Finance, and Axis Bank—to deliver customized mortgage structures. Whether you are aiming to reduce cash burn through debt consolidation, expand industrial manufacturing, or discount long-term commercial lease rentals (LRD), our legal and technical appraisal desk guarantees maximum Loan-to-Value (up to 75%) and swift title clearance.`}
-      maxAmount="Up to ₹15 Crore"
-      interestRate="Starting 8.75% p.a."
+Shreem Finserv collaborates with India's tier-1 housing finance companies (HFCs) and scheduled commercial banks—including HDFC Bank, SBI, ICICI Bank, Axis Bank, Piramal Capital, Godrej Finance, and Bajaj Housing—to deliver customized mortgage structures. Whether you are aiming to reduce monthly interest outflow through debt consolidation, expand manufacturing capacity, or discount long-term commercial lease rentals (LRD), our legal and technical appraisal desk guarantees maximum Loan-to-Value (up to 75%) and swift title clearance.`}
+      maxAmount="₹25L – ₹10Cr"
+      interestRate="From 9% p.a."
       tenure="Up to 15 Years (180 Mos)"
       disbursalSpeed="5 to 7 Working Days"
       defaultSliderAmount={7500000}
-      minSliderAmount={1000000}
-      maxSliderAmount={50000000}
-      defaultEmiRate={8.75}
+      minSliderAmount={2500000}
+      maxSliderAmount={100000000}
+      defaultEmiRate={9.0}
       defaultEmiTenureYears={10}
       variants={[
         {
@@ -59,40 +59,50 @@ Shreem Finserv collaborates with tier-1 housing finance companies (HFCs) and sch
       ]}
       features={[
         {
-          title: "Up to 75% Loan-to-Value (LTV)",
-          desc: "Maximize your borrowing capacity with high LTV ratios based on certified technical property valuation.",
+          title: "High Loan Amount (Up to 75% LTV)",
+          desc: "Unlock maximum liquidity from ₹25 Lakhs up to ₹10 Crore based on certified technical property valuation.",
           icon: "pie_chart",
         },
         {
-          title: "Lowest Rate Starting 8.75% p.a.",
-          desc: "Secured mortgage financing at rates significantly lower than unsecured personal or business loans.",
+          title: "Lower Interest Rates",
+          desc: "Access competitive interest rates starting from 9% p.a., significantly lower than unsecured loans.",
           icon: "savings",
         },
         {
-          title: "Extended 15-Year Repayment",
-          desc: "Long amortization tenure up to 180 months keeping your monthly EMI burden manageable and affordable.",
+          title: "Extended Repayment Horizon",
+          desc: "Flexible tenure up to 15–20 years (up to 180 months) keeping your monthly EMI burden low and manageable.",
           icon: "calendar_month",
         },
         {
-          title: "All Property Types Accepted",
-          desc: "Pledge residential homes, commercial offices, industrial plots, retail shops, and warehouse facilities.",
+          title: "Multi-Property Eligibility",
+          desc: "Pledge residential houses, freehold builder flats, commercial shops, office spaces, and industrial plots.",
           icon: "domain",
         },
         {
-          title: "Balance Transfer + Top-Up",
-          desc: "Transfer existing high-rate LAP from other lenders and unlock surplus top-up funds at better pricing.",
+          title: "Flexible Multipurpose End-Use",
+          desc: "Use funds freely for business expansion, debt restructuring, working capital, or personal milestones.",
+          icon: "tune",
+        },
+        {
+          title: "Balance Transfer & Top-Up",
+          desc: "Transfer existing high-rate LAP from other lenders to lower your interest and unlock surplus top-up funds.",
           icon: "swap_horiz",
         },
         {
           title: "Retain Full Ownership & Usage",
-          desc: "Continue living in or operating your business from the mortgaged property without any disruption.",
+          desc: "Continue living in your residence or running business operations from your property without any disruption.",
           icon: "home_pin",
+        },
+        {
+          title: "Simplified Legal & Technical Clearance",
+          desc: "Dedicated legal desk for quick title vetting, encumbrance check, and hassle-free property appraisal.",
+          icon: "verified_user",
         },
       ]}
       benefits={[
         {
           title: "Lowest-in-Market Interest Rates",
-          desc: "Starting at just 8.75% p.a., secured mortgage financing reduces your monthly interest outflow by up to 50% compared to unsecured loans.",
+          desc: "Starting at just 9% p.a., secured mortgage financing reduces your monthly interest outflow by up to 50% compared to unsecured loans.",
           icon: "savings",
         },
         {
@@ -121,53 +131,45 @@ Shreem Finserv collaborates with tier-1 housing finance companies (HFCs) and sch
           icon: "swap_horiz",
         },
       ]}
+      feesSchedule={[
+        { chargeType: "Processing Fees", standardBankRate: "1.00% to 2.00% of loan amount", shreemAdvantage: "From 0.50% (Special Institutional Slabs)" },
+        { chargeType: "Property Legal & Technical Valuation", standardBankRate: "₹7,500 to ₹15,000 per property", shreemAdvantage: "Subsidized / Waived by select lenders" },
+        { chargeType: "Foreclosure Charges", standardBankRate: "2% to 4% (for non-individual borrowers)", shreemAdvantage: "Zero foreclosure charges on floating rates" },
+        { chargeType: "Advisory & Brokerage Fee", standardBankRate: "1% to 2% charged by DSA brokers", shreemAdvantage: "₹0 Free Advisory (Zero Upfront Brokerage)" },
+      ]}
       eligibility={[
-        "Borrower Profile: Salaried Individuals, Self-Employed Professionals (Doctors, CAs), Business Proprietors, Directors",
-        "Age Requirements: 21 to 65 years at the time of loan maturity",
-        "Property Title: Clear, marketable freehold title without pending litigation or municipal encumbrances",
-        "Eligible Property Types: Freehold residential apartments, independent houses, approved commercial buildings, industrial plots",
-        "Credit Score: CIBIL score of 680+ with steady income generation to service monthly mortgage obligations",
+        "Age Range: Applicant should be between 21 and 65 years at the time of loan maturity.",
+        "Employment Status: Salaried Individuals, Self-Employed Professionals (Doctors, CAs), Business Proprietors, Directors, LLPs.",
+        "Property Title: Clear, marketable freehold title without pending litigation, family disputes, or municipal encumbrances.",
+        "Eligible Property Types: Freehold residential apartments, independent houses, approved commercial buildings, industrial plots.",
+        "Income Stability: Stable and verifiable income source to support loan repayment (FOIR within 60%).",
+        "Credit Profile: Minimum 680+ CIBIL score with healthy repayment track record.",
+        "Nationality: Applicant must be an Indian Resident.",
       ]}
       documents={[
-        "Property Title Documents: Registered Sale Deed, Conveyance Deed, Allotment Letter, Mother Deed chain for 13–30 years",
-        "Municipal Proofs: Approved Sanction Plan, Latest Paid Property Tax Receipts, Occupancy Certificate (OC)",
-        "Identity & Address: PAN Card, Aadhaar Card, Passport of all co-owners and applicants",
-        "Income Proofs (Salaried): Last 3 months payslips, Form 16 (Part A & B), 6 months bank statements",
-        "Income Proofs (Self-Employed / Business): Last 3 years audited financial statements with ITR and 12 months bank statements",
-        "Existing Loan Track: Loan sanction letter and 12 months repayment track record (if balance transfer)",
+        "Property Title Documents: Registered Sale Deed, Conveyance Deed, Allotment Letter, Mother Deed chain for 13–30 years.",
+        "Municipal Approvals: Approved Building Sanction Plan, Latest Paid Property Tax Receipts, Occupancy Certificate (OC).",
+        "KYC of Applicants: PAN Card, Aadhaar Card, Passport or Voter ID of all co-owners and applicants.",
+        "Income Proofs (Salaried): Last 3 Months Payslips, Form 16 (Part A & B), 6 Months Bank Statements.",
+        "Income Proofs (Self-Employed / Business): Last 3 Years Audited Financial Statements with ITR and Computation, 12 Months Current Bank Statements, GST Certificate.",
+        "Existing Loan Track (if Balance Transfer): Loan Sanction Letter and 12-month repayment track statement.",
       ]}
       faqs={[
         {
-          q: "What properties can be pledged for a Loan Against Property?",
-          a: "You can pledge self-occupied residential houses, flats/apartments, rented commercial spaces, office units, retail shops, industrial plots, and factory land with approved municipal layout plans.",
+          q: "What is the maximum loan amount I can get against my property?",
+          a: "You can get loans from ₹25 Lakhs up to ₹10 Crore (and higher for commercial properties), funding up to 75% of the property's certified market valuation.",
         },
         {
-          q: "How is the eligible loan amount calculated in LAP?",
-          a: "The sanction limit is determined by two factors: (1) The technical market valuation of the property (up to 60%–75% LTV), and (2) Your net disposable income and Fixed Obligation to Income Ratio (FOIR) to ensure comfortable repayment.",
+          q: "Can I take a loan against residential or commercial property?",
+          a: "Yes. All clear-title freehold properties—including self-occupied residential apartments, villas, commercial shops, office floors, and industrial sheds—are eligible.",
         },
         {
-          q: "Can co-owned properties be mortgaged?",
-          a: "Yes. In fact, all legal co-owners of the property must be co-applicants in the loan application. This also allows you to combine household incomes to achieve a higher loan sanction.",
+          q: "What is the interest rate for Loan Against Property?",
+          a: "Interest rates start from 9% p.a. depending on property type, borrower income profile, and credit score across our 50+ banking partners.",
         },
         {
-          q: "What is Lease Rental Discounting (LRD)?",
-          a: "Lease Rental Discounting is a specialized mortgage facility for commercial property owners who have leased space to established corporate or retail tenants. The bank sanctions a loan based on the discounted net present value of your future rental receipts.",
-        },
-        {
-          q: "How long does it take to get a Loan Against Property disbursed?",
-          a: "Because LAP involves technical property inspection and legal title search (30-year search report), the end-to-end turnaround is typically 5 to 7 working days from document collection to disbursement.",
-        },
-        {
-          q: "Can I prepay or foreclose my Loan Against Property?",
-          a: "Yes. Under RBI guidelines, individual borrowers with floating interest rate LAP facilities enjoy NIL foreclosure charges after the mandatory lock-in period.",
-        },
-        {
-          q: "What happens to original property title deeds during the loan tenure?",
-          a: "The original registered sale deed and property chain documents are stored in fireproof bank vaults with institutional insurance until the loan is fully repaid and a No Objection Certificate (NOC) is issued.",
-        },
-        {
-          q: "Can I get a top-up on my existing Loan Against Property?",
-          a: "Yes. If your property value has appreciated or you have serviced your mortgage for over 12 months, Shreem Finserv can facilitate a substantial top-up loan at prime interest rates.",
+          q: "Can I transfer my existing high-interest LAP to Shreem Finserv's banking partners?",
+          a: "Yes. You can execute a balance transfer to lower your interest rate, reduce your monthly EMI, and access high-ticket surplus top-up funds.",
         },
       ]}
     />

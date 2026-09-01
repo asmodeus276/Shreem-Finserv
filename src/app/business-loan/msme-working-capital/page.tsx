@@ -2,172 +2,174 @@ import { Metadata } from "next";
 import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 
 export const metadata: Metadata = {
-  title: "MSME Working Capital & Business Loans up to ₹2 Crore | Shreem Finserv",
+  title: "Business Loan & MSME Working Capital — From 10.5% p.a. | Shreem Finserv",
   description:
-    "Unsecured working capital loans and revolving credit lines for Indian MSMEs, manufacturers, traders, and service enterprises. Fast approvals, GST surrogate underwriting, starting 10.5% p.a.",
+    "Apply for collateral-free Business Loans from ₹1 Lakh to ₹2 Crore. Starting from 10.5% p.a., flexible tenure up to 5 years, minimal documentation, and 48-hour disbursal across 50+ lenders.",
 };
 
-export default function MsmeLoanPage() {
+export default function BusinessLoanPage() {
   return (
     <ProductPageTemplate
-      categoryName="MSME Working Capital Loan"
-      badge="High-Growth Enterprise Liquidity"
-      headline="Collateral-Free Working Capital Lines"
-      highlightText="Powering Manufacturing, Trading & MSME Expansion"
-      description="Maintain uninterrupted supply chains, bridge debtor payment cycles, and procure bulk raw materials with tailored unsecured credit lines up to ₹2 Crore across 50+ banking partners."
-      longOverview={`In today’s competitive industrial ecosystem, steady working capital is the lifeblood of every Micro, Small, and Medium Enterprise (MSME). Whether you are managing seasonal inventory buildup, fulfilling large government or corporate tenders, or navigating 90-day debtor payment cycles, liquidity shortfalls can stall business momentum.
+      categoryName="Business Loan"
+      badge="Unsecured MSME & Enterprise Credit"
+      headline="Fuel Your Business Growth With"
+      highlightText="Collateral-Free Business Loans from ₹1 Lakh to ₹2 Crore"
+      description="A Business Loan is a financial solution designed to help businesses meet their operational, inventory, working capital, and expansion-related requirements with zero asset mortgaging and fastest approvals across 50+ banks & NBFCs."
+      longOverview={`A Business Loan is a specialized financing solution designed to empower Indian enterprises, traders, manufacturers, and service providers. Whether you need working capital to bridge cash flow gaps, procure bulk raw materials, upgrade technology, or hire talent to fulfill large contracts, our unsecured business loans provide the necessary liquidity without demanding physical collateral.
 
-Traditional bank branch approvals often demand massive physical collateral, years of audited profitability, and weeks of tedious branch visits. Shreem Finserv reimagines commercial lending by leveraging GST surrogate analytics, banking turnover algorithms, and digital ledger verification. We connect your enterprise with premier scheduled banks (HDFC, ICICI, SBI, Kotak, IndusInd, Tata Capital) to sanction unsecured working capital credit lines and overdraft limits up to ₹2 Crore in as fast as 48 hours.`}
-      maxAmount="Up to ₹2 Crore"
-      interestRate="Starting 10.50% p.a."
-      tenure="12 to 60 Months"
+Shreem Finserv collaborates with 50+ leading scheduled commercial banks and premier NBFCs—including HDFC Bank, ICICI Bank, SBI, Axis Bank, Kotak, Tata Capital, and Bajaj Finance—to deliver competitive interest rates starting from 10.5% p.a. With our streamlined digital underwriting and GST surrogate evaluation, your enterprise can secure sanctions up to ₹2 Crore in as fast as 48 hours.`}
+      maxAmount="₹1L – upto ₹2Cr"
+      interestRate="From 10.5% p.a."
+      tenure="Up to 5 Years (60 Mos)"
       disbursalSpeed="Within 48 Hours"
       defaultSliderAmount={5000000}
-      minSliderAmount={500000}
+      minSliderAmount={100000}
       maxSliderAmount={20000000}
       defaultEmiRate={10.5}
       defaultEmiTenureYears={3}
       variants={[
         {
-          title: "GST Surrogate Unsecured Term Loan",
-          tag: "Unsecured",
-          desc: "Sanctions calculated directly on 12-month GSTR-3B filings without hard collateral.",
+          title: "Working Capital Term Loan",
+          tag: "Most Popular",
+          desc: "Collateral-free liquidity for inventory, raw materials, supplier payments, and payroll.",
+          amount: "₹1L to ₹2 Crore",
+          icon: "account_balance_wallet",
+        },
+        {
+          title: "GST Surrogate Business Loan",
+          tag: "Fast Track",
+          desc: "Instant sanction based on 12-month GSTR-3B filings without traditional collateral.",
           amount: "Up to ₹2 Crore",
           icon: "receipt_long",
         },
         {
           title: "Revolving Overdraft / CC Limit",
-          tag: "Revolving",
-          desc: "Flexible cash credit overdraft on current account; pay interest strictly on utilized funds.",
+          tag: "Flexible Draw",
+          desc: "Cash credit facility on current account — pay interest strictly on utilized funds.",
           amount: "Up to ₹1.5 Crore",
           icon: "sync_alt",
         },
         {
           title: "CGTMSE Government Backed Line",
           tag: "Govt Scheme",
-          desc: "Subsidized collateral-free business credit covered under Credit Guarantee Fund Trust for MSEs.",
+          desc: "Subsidized collateral-free business loan backed by Credit Guarantee Trust for MSEs.",
           amount: "Up to ₹5 Crore",
           icon: "account_balance",
-        },
-        {
-          title: "Invoice Discounting & Bill Factoring",
-          tag: "Supply Chain",
-          desc: "Instant 85% liquidity advance against verified corporate and PSU debtor invoices.",
-          amount: "Up to ₹3 Crore",
-          icon: "fact_check",
         },
       ]}
       features={[
         {
-          title: "Zero Collateral Required",
-          desc: "Unsecured business credit lines sanctioned on GST turnover and banking cash flow — no property mortgage needed.",
+          title: "Working Capital Support",
+          desc: "Manage day-to-day business operations, supplier invoices, seasonal inventory, and payroll smoothly.",
+          icon: "account_balance_wallet",
+        },
+        {
+          title: "Collateral-Free Loans",
+          desc: "Access unsecured business financing without pledging commercial, industrial, or residential assets.",
           icon: "verified_user",
         },
         {
-          title: "GST Surrogate Analytics",
-          desc: "Our automated algorithms assess GSTR-1 and GSTR-3B filings to calculate maximum eligible loan limits instantly.",
-          icon: "analytics",
-        },
-        {
-          title: "Instant Overdraft Activation",
-          desc: "Revolving cash credit limits activated on your current account — draw and repay funds as business demands.",
-          icon: "sync_alt",
-        },
-        {
-          title: "CGTMSE Coverage Up to ₹5 Cr",
-          desc: "Government guarantee scheme backing collateral-free loans for eligible micro and small enterprises.",
-          icon: "account_balance",
-        },
-        {
           title: "Flexible Repayment Options",
-          desc: "Choose from EMI term loans, drop-line overdrafts, or bullet repayment structures matching your revenue cycle.",
+          desc: "Choose customized repayment tenures up to 5 years (60 months) with structured EMI plans matching cash flow.",
           icon: "tune",
         },
         {
-          title: "100% Digital Application",
-          desc: "Complete online processing with e-KYC, digital bank statement parsing, and paperless sanction letters.",
-          icon: "cloud_upload",
+          title: "High Loan Eligibility",
+          desc: "Funding ranges from ₹1 Lakh up to ₹2 Crore based on your business turnover, GST filing, and bank track record.",
+          icon: "payments",
+        },
+        {
+          title: "Fast Processing & Disbursal",
+          desc: "Streamlined digital underwriting with fast sanction and direct bank credit within 48 hours.",
+          icon: "bolt",
+        },
+        {
+          title: "Competitive Interest Rates",
+          desc: "Access preferential interest rates starting from 10.5% p.a. through India's premier lending network.",
+          icon: "percent",
+        },
+        {
+          title: "Multiple Lender Options",
+          desc: "Compare offers across 50+ leading private, public banks and NBFCs to secure the lowest rate and fee structure.",
+          icon: "hub",
+        },
+        {
+          title: "Simple & Digital Documentation",
+          desc: "100% paperless verification with digital bank statement parsing, GST e-verification, and minimal paperwork.",
+          icon: "description",
         },
       ]}
       benefits={[
         {
-          title: "Zero Collateral Mortgage Required",
-          desc: "Sanctioned on financial turnover, bank cash flow, and GST filings rather than pledging factory land or machinery.",
-          icon: "no_sim",
+          title: "100% Collateral-Free Financing",
+          desc: "Obtain high-ticket capital without risking your commercial property, factory, or personal assets.",
+          icon: "lock_open",
         },
         {
-          title: "GST Surrogate Underwriting",
-          desc: "Our automated algorithms assess GSTR-1, GSTR-3B, and banking credits to maximize your eligible loan limit.",
-          icon: "analytics",
+          title: "Uninterrupted Cash Flow",
+          desc: "Bridge 60-90 day debtor payment cycles and maintain smooth supply chain operations.",
+          icon: "trending_up",
         },
         {
-          title: "Flexible Drop-Line & Overdraft Limits",
-          desc: "Draw funds as needed to clear vendor payments, and deposit customer receivables anytime to curtail interest costs.",
-          icon: "payments",
+          title: "Tax Deductible Interest",
+          desc: "Interest paid on business loans can be claimed as a legitimate business expense to reduce taxable profits.",
+          icon: "receipt_long",
         },
         {
-          title: "Interest Subsidy under MSME Schemes",
-          desc: "Access government interest subvention schemes and lower guarantee fee structures under CGTMSE provisions.",
-          icon: "verified",
+          title: "Customized Drawdown Structures",
+          desc: "Choose between standard monthly EMI term loans or revolving overdraft limits based on capital requirements.",
+          icon: "sync_alt",
         },
         {
-          title: "Custom Moratorium on Expansion",
-          desc: "Structured repayment holidays available during factory relocation or production line commissioning.",
-          icon: "hourglass_bottom",
+          title: "Multi-Bank Algorithmic Matching",
+          desc: "Our automated system pairs your profile with lenders that offer the highest approval probability.",
+          icon: "smart_toy",
         },
         {
-          title: "Multi-Entity Compatibility",
-          desc: "Available for Proprietorships, Partnerships, Private Limited companies, LLPs, and One Person Companies (OPC).",
-          icon: "domain",
+          title: "Dedicated Relationship Manager",
+          desc: "1:1 credit manager assigned to manage documentation, sanction letters, and post-disbursal support.",
+          icon: "support_agent",
         },
+      ]}
+      feesSchedule={[
+        { chargeType: "Processing Fees", standardBankRate: "2.00% to 3.50% of loan amount", shreemAdvantage: "From 0.99% (Special Tie-up Rate)" },
+        { chargeType: "Foreclosure / Prepayment", standardBankRate: "4% to 6% of principal outstanding", shreemAdvantage: "Zero charges after 6-12 months" },
+        { chargeType: "Documentation & Stamp Duty", standardBankRate: "At actuals (₹1,500 - ₹5,000)", shreemAdvantage: "Transparent digital e-stamping" },
+        { chargeType: "Consultation & Advisory", standardBankRate: "Often charged by brokers (1-2%)", shreemAdvantage: "₹0 Free Advisory (Zero Upfront Fees)" },
       ]}
       eligibility={[
-        "Business Constitution: Proprietorship, Partnership Firm, LLP, Private Limited Company",
-        "Operational Vintage: Minimum 2 years in active commercial operations with valid registrations",
-        "Annual Turnover: Minimum ₹40 Lakhs gross annual turnover as declared in GST returns",
-        "Banking Track: Consistent credit turnover and clean banking track with zero major cheque bounces",
-        "Credit Rating: Commercial CIBIL score of 680+ for the enterprise and 700+ for key promoters/directors",
+        "Age Requirement: Applicant / Promoters should be between 21 and 65 years of age.",
+        "Employment Status: Self-Employed Individuals, Proprietors, Partnership Firms, Pvt Ltd Companies, LLPs.",
+        "Business Vintage: Minimum 2 to 3 years of active continuous business operations.",
+        "Annual Turnover: Minimum ₹40 Lakhs+ annual business turnover with regular GST filings.",
+        "Banking Track Record: Healthy banking track record with regular transaction volume and no frequent cheque bounces.",
+        "Credit Profile: Minimum 680+ CIBIL score with clean loan repayment history.",
+        "Nationality: Applicant must be an Indian Resident.",
       ]}
       documents={[
-        "Entity KYC: Business PAN, GST Registration Certificate, Udyam MSME Registration Certificate",
-        "Promoter KYC: PAN Card, Aadhaar Card, Residence Proof of all Partners / Directors",
-        "GST Returns: Last 12 months GSTR-3B filings and GSTR-1 summary",
-        "Banking Statements: Last 12 months official current account banking statements (PDF with e-verification)",
-        "Financial Statements: Last 2 years Audited Financials (Balance Sheet, P&L, Tax Audit Report) for limits > ₹50 Lakhs",
-        "Constitutional Documents: Partnership Deed / MOA & AOA / Certificate of Incorporation",
+        "KYC of Promoters / Directors: PAN Card, Aadhaar Card, Passport or Voter ID.",
+        "Business Registration Proof: GST Registration Certificate, Udyam / MSME Certificate, Shop & Establishment License, Certificate of Incorporation / Partnership Deed.",
+        "Financial Statements: Last 2–3 Years Audited Balance Sheet & P&L Statement with CA seal and Computation of Income.",
+        "Income Tax Returns: Last 2–3 Years ITR acknowledgements of the business entity and individual promoters.",
+        "Bank Statements: Last 12 Months Current Account Bank Statements in PDF format.",
+        "GST Returns: Last 12 Months GSTR-3B and GSTR-1 filings.",
       ]}
       faqs={[
         {
-          q: "What is the difference between an MSME Term Loan and an Overdraft (OD) limit?",
-          a: "A Term Loan provides a lump sum amount disbursed into your bank account with a fixed monthly EMI over 1 to 5 years. An Overdraft (OD) or Cash Credit (CC) limit is a revolving credit line assigned to your current account where you only pay interest on the exact amount utilized on a day-to-day basis.",
+          q: "What is the maximum loan amount I can get under a Business Loan?",
+          a: "You can get unsecured business loans from ₹1 Lakh up to ₹2 Crore (and up to ₹5 Crore under CGTMSE schemes), depending on your annual business turnover, profitability, and banking cash flows.",
         },
         {
-          q: "How does GST surrogate lending work?",
-          a: "GST surrogate lending calculates your borrowing capacity based on your average monthly GSTR-3B turnover and gross operating margins, without requiring extensive real estate collateral. Strong, growing monthly GST filings translate into higher sanction amounts.",
+          q: "Do I need to pledge collateral for a Business Loan?",
+          a: "No. Our business loans are 100% unsecured and collateral-free. Sanction limits are calculated based on your banking transactions, financial statements, and GST turnover.",
         },
         {
-          q: "Can manufacturing units and trading companies both apply?",
-          a: "Yes. Our MSME lending programs cater to manufacturers, traders, wholesalers, retail distributors, IT service providers, and transport logistics operators.",
+          q: "What is the interest rate for a Business Loan?",
+          a: "Interest rates start from 10.5% p.a. depending on your business vintage, annual turnover, CIBIL score, and lender selection across our 50+ banking partners.",
         },
         {
-          q: "What is the CGTMSE scheme and how does it help MSMEs?",
-          a: "The Credit Guarantee Fund Trust for Micro and Small Enterprises (CGTMSE) is a government scheme that guarantees loans up to ₹5 Crore provided by member banks, allowing eligible MSMEs to receive loans without offering third-party collateral.",
-        },
-        {
-          q: "Are the interest rates fixed or floating?",
-          a: "Most MSME working capital facilities are linked to Repo Linked Lending Rate (RLLR) or External Benchmark Lending Rate (EBLR), offering floating rate benefits that decrease whenever the RBI lowers benchmark repo rates.",
-        },
-        {
-          q: "Can I transfer my existing high-interest CC/OD limit to Shreem partner banks?",
-          a: "Yes. Shreem Finserv specializes in Working Capital Takeover & Enhancement, helping you transfer high-cost overdrafts to partner banks at rates starting from 10.50% p.a., often with an additional 25% to 50% top-up limit.",
-        },
-        {
-          q: "How quickly can an MSME receive sanction and disbursement?",
-          a: "With complete digital GST data and bank statement uploads, digital sanction letters are issued within 24 to 48 hours. Legal documentation and limit activation occur within 3 working days.",
-        },
-        {
-          q: "What happens if our enterprise has existing loans?",
-          a: "Existing loans are factored into your Fixed Obligation to Income Ratio (FOIR). If your business cash flows comfortably support additional debt service, surplus limits are readily approved.",
+          q: "How fast will the funds be disbursed?",
+          a: "With complete digital documentation (GST, ITR, and 12-month bank statements), sanction is processed in under 24 hours and funds are disbursed within 48 hours directly to your current account.",
         },
       ]}
     />
