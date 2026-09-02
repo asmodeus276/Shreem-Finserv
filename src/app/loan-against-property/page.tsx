@@ -12,10 +12,10 @@ export default function LapPage() {
     <ProductPageTemplate
       categoryName="Loan Against Property"
       badge="Secured Real Estate Equity Line"
-      headline="Unlock Substantial Capital Against"
-      highlightText="Residential & Commercial Property (₹25L – ₹10Cr)"
+      headline="Unlock Value with"
+      highlightText="Loan Against Property"
       description="Unlock up to 75% of your property's certified market valuation with low mortgage interest rates starting from 9% p.a., extended 15-20 year repayment, and complete retention of ownership."
-      bannerImage="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=1400&q=75"
+      bannerImage="/images/lap-inner-banner.jpg"
       maxAmount="₹25L – ₹10Cr"
       interestRate="From 9% p.a."
       tenure="Up to 15-20 Years"

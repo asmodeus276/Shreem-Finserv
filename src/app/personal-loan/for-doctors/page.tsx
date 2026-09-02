@@ -12,10 +12,10 @@ export default function ProfessionalLoanPage() {
     <ProductPageTemplate
       categoryName="Professional Loan"
       badge="Specialized Credit for Doctors & CAs"
-      headline="Instant Collateral-Free Financing for"
-      highlightText="Doctors, CAs, & Certified Practitioners (₹50K – ₹1Cr)"
+      headline="Professional Loan"
+      highlightText="up to ₹75 Lakh"
       description="Collateral-free credit solutions crafted for doctors, chartered accountants, architects, and salaried executives with 24-hour express disbursals and lowest interest rates from 9.9% p.a."
-      bannerImage="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1400&q=75"
+      bannerImage="/images/professional-loan-inner-banner.jpg"
       maxAmount="₹50K – ₹1Cr"
       interestRate="From 9.9% p.a."
       tenure="Up to 7 Years"

@@ -10,12 +10,12 @@ export const metadata: Metadata = {
 export default function MachineryLoanPage() {
   return (
     <ProductPageTemplate
-      categoryName="Machinery & Equipment Loan"
+      categoryName="Machinery Loan"
       badge="Asset & Equipment Financing"
-      headline="Modernize Plant & Equipment With"
-      highlightText="Machinery Financing up to ₹5 Crore (From 10% p.a.)"
+      headline="Upgrade Industry with"
+      highlightText="Machinery Loan"
       description="Acquire industrial machinery, manufacturing tools, medical diagnostic equipment, and commercial vehicles with up to 90% invoice financing and tenures up to 7 years."
-      bannerImage="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1400&q=75"
+      bannerImage="/images/machinery-loan-inner-banner.jpg"
       maxAmount="₹10L – ₹5Cr"
       interestRate="From 10% p.a."
       tenure="Up to 7 Years"

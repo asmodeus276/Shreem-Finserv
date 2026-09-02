@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { BRAND_CONFIG } from "@/config/brand";
+import { InnerBanner } from "@/components/InnerBanner";
+import { PartnerMarquee } from "@/components/PartnerMarquee";
 
 interface JobOpening {
   id: string;
@@ -111,41 +113,36 @@ export default function CareersPage() {
   };
 
   return (
-    <div className="pt-28 sm:pt-32 md:pt-36 pb-16">
+    <div className="pt-24 sm:pt-28 md:pt-32 pb-16">
       
-      {/* Hero Section */}
-      <section className="bg-gradient-to-b from-blue-50/60 via-white to-slate-50 py-12 md:py-20 border-b border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 md:px-8">
-          <div className="max-w-3xl mx-auto text-center space-y-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#0B2E8D] text-xs font-bold border border-blue-200">
-              <span className="material-symbols-outlined text-[16px]">work</span>
-              We Are Hiring
-            </div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-slate-900 tracking-tight">
-              Build the Future of Transparent Fintech Lending
-            </h1>
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Join Shreem Finserv’s high-growth financial advisory team in Ghaziabad (NCR). Empower doctors, MSMEs, and entrepreneurs with fast capital while accelerating your career.
-            </p>
-
-            <div className="pt-4 flex flex-wrap items-center justify-center gap-6 text-xs font-bold text-slate-700">
-              <span className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-emerald-600 text-[18px]">payments</span>
-                Top-Tier Industry Compensation + Performance Incentives
-              </span>
-              <span className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[#0B2E8D] text-[18px]">trending_up</span>
-                Fast-Track Leadership Trajectory
-              </span>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Capital Need Style Banner */}
+      <InnerBanner
+        badge="JOIN OUR TALENT TEAM"
+        badgeIcon="groups"
+        title="Build the Future of"
+        highlightText="Fintech Lending"
+        subtitle="Join Shreem Finserv’s high-growth financial advisory team in Ghaziabad (NCR). Empower doctors, MSMEs, and entrepreneurs with fast capital while accelerating your career."
+        breadcrumbs={[
+          { label: "Home", href: "/" },
+          { label: "Company" },
+          { label: "Careers" },
+        ]}
+        imageSrc="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=800&q=80"
+        imageAlt="Join the Shreem Finserv Career Team"
+        ctaText="View Openings"
+        ctaLink="#openings-section"
+        quickStats={[
+          { label: "Headquarters", value: "Vaishali, GZB" },
+          { label: "Work Culture", value: "High Autonomy" },
+          { label: "Incentives", value: "Uncapped Monthly" },
+          { label: "Review SLA", value: "< 48 Hours" },
+        ]}
+      />
 
       {/* Perks & Benefits Section */}
       <section className="py-12 md:py-16 max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#0B2E8D]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#001A62]">
             Life at Shreem Finserv
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
@@ -155,7 +152,7 @@ export default function CareersPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0B2E8D] flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#001A62] flex items-center justify-center font-bold">
               <span className="material-symbols-outlined text-2xl">account_balance_wallet</span>
             </div>
             <h3 className="font-bold text-slate-900 text-base">Uncapped Bonuses</h3>
@@ -197,10 +194,10 @@ export default function CareersPage() {
       </section>
 
       {/* Open Positions Grid */}
-      <section className="py-12 md:py-16 bg-slate-50 border-y border-slate-200">
+      <section id="openings-section" className="py-12 md:py-16 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="max-w-3xl mb-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0B2E8D]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#001A62]">
               Current Openings
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
@@ -215,11 +212,11 @@ export default function CareersPage() {
             {OPENINGS.map((job) => (
               <div
                 key={job.id}
-                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-[#0B2E8D]/40 transition-all flex flex-col md:flex-row md:items-center justify-between gap-6"
+                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-[#001A62]/40 transition-all flex flex-col md:flex-row md:items-center justify-between gap-6"
               >
                 <div className="space-y-2 max-w-2xl">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-[10px] font-bold uppercase px-2.5 py-1 bg-blue-50 text-[#0B2E8D] border border-blue-200 rounded-md">
+                    <span className="text-[10px] font-bold uppercase px-2.5 py-1 bg-blue-50 text-[#001A62] border border-blue-200 rounded-md">
                       {job.department}
                     </span>
                     <span className="text-[10px] font-bold uppercase px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md">
@@ -258,7 +255,7 @@ export default function CareersPage() {
       <section id="application-form" className="py-16 max-w-3xl mx-auto px-4 md:px-8">
         <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-lg space-y-6">
           <div className="text-center space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#0B2E8D]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#001A62]">
               Direct Talent Application
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -292,7 +289,7 @@ export default function CareersPage() {
                     placeholder="e.g. Rahul Sharma"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2E8D]/30"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
                   />
                 </div>
                 <div>
@@ -305,7 +302,7 @@ export default function CareersPage() {
                     placeholder="rahul@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2E8D]/30"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
                   />
                 </div>
               </div>
@@ -321,7 +318,7 @@ export default function CareersPage() {
                     placeholder="10-digit mobile"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2E8D]/30"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
                   />
                 </div>
                 <div>
@@ -334,7 +331,7 @@ export default function CareersPage() {
                     placeholder="e.g. Senior Credit Manager"
                     value={formData.role}
                     onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2E8D]/30"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
                   />
                 </div>
               </div>
@@ -349,7 +346,7 @@ export default function CareersPage() {
                     placeholder="e.g. 3.5 Years in Banking/DSA"
                     value={formData.experience}
                     onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2E8D]/30"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
                   />
                 </div>
                 <div>
@@ -361,7 +358,7 @@ export default function CareersPage() {
                     placeholder="https://linkedin.com/in/..."
                     value={formData.linkedin}
                     onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2E8D]/30"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
                   />
                 </div>
               </div>
@@ -375,7 +372,7 @@ export default function CareersPage() {
                   placeholder="Tell us about your past loan disbursement milestones or why you’d like to join Shreem Finserv..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B2E8D]/30"
+                  className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
                 ></textarea>
               </div>
 
@@ -393,7 +390,7 @@ export default function CareersPage() {
 
               <p className="text-[11px] text-slate-400 text-center">
                 Or email your CV directly to{" "}
-                <a href={`mailto:${BRAND_CONFIG.email}`} className="text-[#0B2E8D] font-bold underline">
+                <a href={`mailto:${BRAND_CONFIG.email}`} className="text-[#001A62] font-bold underline">
                   {BRAND_CONFIG.email}
                 </a>{" "}
                 with subject &quot;Career Application - [Your Role]&quot;.
@@ -403,6 +400,7 @@ export default function CareersPage() {
         </div>
       </section>
 
+      <PartnerMarquee />
     </div>
   );
 }

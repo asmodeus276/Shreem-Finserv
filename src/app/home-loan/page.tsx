@@ -12,10 +12,10 @@ export default function HomeLoanPage() {
     <ProductPageTemplate
       categoryName="Home Loan"
       badge="Lowest Interest Rates in India"
-      headline="Turn Your Dream Home Into Reality With"
-      highlightText="Affordable Home Loans from ₹10 Lakhs to ₹5 Crore"
+      headline="Your Dream Home with"
+      highlightText="Home Loan"
       description="Affordable home purchase, plot construction, and balance transfer loans at the lowest market rates starting from 8.5% p.a., extended tenures up to 30 years, and maximum tax benefits."
-      bannerImage="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=75"
+      bannerImage="/images/home-loan-inner-banner.jpg"
       maxAmount="₹10L – ₹5Cr"
       interestRate="From 8.5% p.a."
       tenure="Up to 30 Years"
