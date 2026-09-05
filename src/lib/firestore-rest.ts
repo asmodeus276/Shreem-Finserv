@@ -56,7 +56,7 @@ export interface FirestoreCareerRecord {
   submittedAt: string;
 }
 
-function objectToFirestoreFields(obj: Record<string, any>) {
+function objectToFirestoreFields(obj: object) {
   const fields: Record<string, { stringValue?: string; doubleValue?: number; booleanValue?: boolean }> = {};
   for (const [key, val] of Object.entries(obj)) {
     if (val === undefined || val === null) continue;
@@ -105,8 +105,15 @@ export async function getLeadFromFirestore(applicationId: string): Promise<Fires
     const data = await res.json();
     if (!data.fields) return null;
 
-    const parsed: Record<string, any> = {};
-    for (const [key, val] of Object.entries(data.fields as Record<string, any>)) {
+    type RawFirestoreValue = {
+      stringValue?: string;
+      doubleValue?: string | number;
+      integerValue?: string | number;
+      booleanValue?: boolean;
+    };
+
+    const parsed: Record<string, unknown> = {};
+    for (const [key, val] of Object.entries(data.fields as Record<string, RawFirestoreValue>)) {
       parsed[key] =
         val.stringValue !== undefined
           ? val.stringValue
@@ -119,7 +126,7 @@ export async function getLeadFromFirestore(applicationId: string): Promise<Fires
           : null;
     }
 
-    return parsed as FirestoreLeadRecord;
+    return parsed as unknown as FirestoreLeadRecord;
   } catch (err) {
     console.warn("[Firestore REST Query Exception]:", err);
     return null;

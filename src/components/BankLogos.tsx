@@ -19,6 +19,16 @@ export interface BankInfo {
    OFFICIAL BANK & NBFC PARTNER LOGOS (Authentic Browser Logos)
    ═══════════════════════════════════════════════════════════════════ */
 
+const renderBankLogo = (src: string, alt: string) => (
+  <Image
+    src={src}
+    alt={alt}
+    width={80}
+    height={32}
+    className="w-full h-full object-contain"
+  />
+);
+
 export const BANK_PARTNERS_DATA: BankInfo[] = [
   {
     id: "hdfc",
@@ -31,14 +41,7 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     maxAmount: "Up to ₹15 Crore",
     processingFee: "0.50% - 1.00%",
     specialFeature: "Instant digital sanction in 4 hours for prime profiles",
-    svgIcon: (
-      <img
-        src="/logos/banks/hdfc.svg"
-        alt="HDFC Bank"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    ),
+    svgIcon: renderBankLogo("/logos/banks/hdfc.svg", "HDFC Bank"),
   },
   {
     id: "sbi",
@@ -51,14 +54,7 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     maxAmount: "Up to ₹20 Crore",
     processingFee: "Zero to 0.35%",
     specialFeature: "Lowest sovereign repo-linked lending rates (EBLR)",
-    svgIcon: (
-      <img
-        src="/logos/banks/sbi.svg"
-        alt="State Bank of India"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    ),
+    svgIcon: renderBankLogo("/logos/banks/sbi.svg", "State Bank of India"),
   },
   {
     id: "icici",
@@ -71,14 +67,7 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     maxAmount: "Up to ₹10 Crore",
     processingFee: "0.50% - 1.25%",
     specialFeature: "Pre-approved corporate and doctor loan offers",
-    svgIcon: (
-      <img
-        src="/logos/banks/icici.svg"
-        alt="ICICI Bank"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    ),
+    svgIcon: renderBankLogo("/logos/banks/icici.svg", "ICICI Bank"),
   },
   {
     id: "axis",
@@ -91,14 +80,7 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     maxAmount: "Up to ₹5 Crore",
     processingFee: "1.00%",
     specialFeature: "100% paperless digital KYC & video appraisal",
-    svgIcon: (
-      <img
-        src="/logos/banks/axis.svg"
-        alt="Axis Bank"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    ),
+    svgIcon: renderBankLogo("/logos/banks/axis.svg", "Axis Bank"),
   },
   {
     id: "kotak",
@@ -111,14 +93,7 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     maxAmount: "Up to ₹7.5 Crore",
     processingFee: "0.75% - 1.50%",
     specialFeature: "Fastest MSME working capital & overdraft sanctions",
-    svgIcon: (
-      <img
-        src="/logos/banks/kotak.svg"
-        alt="Kotak Mahindra Bank"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    ),
+    svgIcon: renderBankLogo("/logos/banks/kotak.svg", "Kotak Mahindra Bank"),
   },
   {
     id: "idfc",
@@ -131,14 +106,7 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     maxAmount: "Up to ₹5 Crore",
     processingFee: "0.50% - 1.00%",
     specialFeature: "Zero foreclosure charges after 12 EMIs on personal loans",
-    svgIcon: (
-      <img
-        src="/logos/banks/idfc.svg"
-        alt="IDFC FIRST Bank"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    ),
+    svgIcon: renderBankLogo("/logos/banks/idfc.svg", "IDFC FIRST Bank"),
   },
   {
     id: "tata-capital",
@@ -151,14 +119,7 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     maxAmount: "Up to ₹3 Crore",
     processingFee: "1.00% - 1.75%",
     specialFeature: "Customized EMI moratorium for industrial equipment",
-    svgIcon: (
-      <img
-        src="/logos/banks/tata-capital.svg"
-        alt="Tata Capital"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    ),
+    svgIcon: renderBankLogo("/logos/banks/tata-capital.svg", "Tata Capital"),
   },
   {
     id: "bajaj",
@@ -171,14 +132,7 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     maxAmount: "Up to ₹40 Lakhs",
     processingFee: "1.25% - 2.00%",
     specialFeature: "Flexi hybrid limit with unlimited withdrawals",
-    svgIcon: (
-      <img
-        src="/logos/banks/bajaj.svg"
-        alt="Bajaj Finserv"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    ),
+    svgIcon: renderBankLogo("/logos/banks/bajaj.svg", "Bajaj Finserv"),
   },
   {
     id: "piramal",
@@ -191,14 +145,7 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     maxAmount: "Up to ₹10 Crore",
     processingFee: "0.75%",
     specialFeature: "High LTV LAP sanctions for commercial & residential property",
-    svgIcon: (
-      <img
-        src="/logos/banks/piramal.svg"
-        alt="Piramal Finance"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    ),
+    svgIcon: renderBankLogo("/logos/banks/piramal.svg", "Piramal Finance"),
   },
   {
     id: "lt-finance",
@@ -211,14 +158,7 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     maxAmount: "Up to ₹2 Crore",
     processingFee: "1.00%",
     specialFeature: "Tailored micro-enterprise & women business schemes",
-    svgIcon: (
-      <img
-        src="/logos/banks/lt-finance.svg"
-        alt="L&T Finance"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    ),
+    svgIcon: renderBankLogo("/logos/banks/lt-finance.svg", "L&T Finance"),
   },
   {
     id: "indusind",
@@ -231,14 +171,7 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     maxAmount: "Up to ₹5 Crore",
     processingFee: "1.00%",
     specialFeature: "Instant current account overdraft & working capital",
-    svgIcon: (
-      <img
-        src="/logos/banks/indusind.svg"
-        alt="IndusInd Bank"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    ),
+    svgIcon: renderBankLogo("/logos/banks/indusind.svg", "IndusInd Bank"),
   },
   {
     id: "bob",
@@ -251,14 +184,7 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     maxAmount: "Up to ₹15 Crore",
     processingFee: "0.25% - 0.50%",
     specialFeature: "Baroda Sun MSME specialized credit support",
-    svgIcon: (
-      <img
-        src="/logos/banks/bob.png"
-        alt="Bank of Baroda"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    ),
+    svgIcon: renderBankLogo("/logos/banks/bob.png", "Bank of Baroda"),
   },
   {
     id: "pnb",
@@ -271,14 +197,7 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     maxAmount: "Up to ₹10 Crore",
     processingFee: "0.35%",
     specialFeature: "Subsidized government MSME & Mudra loans",
-    svgIcon: (
-      <img
-        src="/logos/banks/pnb.svg"
-        alt="Punjab National Bank"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    ),
+    svgIcon: renderBankLogo("/logos/banks/pnb.svg", "Punjab National Bank"),
   },
   {
     id: "poonawalla",
@@ -291,14 +210,7 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     maxAmount: "Up to ₹50 Lakhs",
     processingFee: "1.00%",
     specialFeature: "Zero pre-payment charges & zero hidden administrative fees",
-    svgIcon: (
-      <img
-        src="/logos/banks/poonawalla.png"
-        alt="Poonawalla Fincorp"
-        className="w-full h-full object-contain"
-        loading="lazy"
-      />
-    ),
+    svgIcon: renderBankLogo("/logos/banks/poonawalla.png", "Poonawalla Fincorp"),
   },
 ];
 

@@ -102,7 +102,7 @@ export const CreditScoreWidget: React.FC = () => {
   const [otpError, setOtpError] = useState("");
   const [otpAttempts, setOtpAttempts] = useState(0);
   const [resendTimer, setResendTimer] = useState(30);
-  const [canResend, setCanResend] = useState(false);
+  const canResend = resendTimer === 0;
   const [showSmsNotification, setShowSmsNotification] = useState(false);
 
   const [isVerifying, setIsVerifying] = useState(false);
@@ -116,14 +116,14 @@ export const CreditScoreWidget: React.FC = () => {
   // Simulator inputs
   const [onTimePayments, setOnTimePayments] = useState<"always" | "mostly" | "delayed">("always");
   const [cardUtilization, setCardUtilization] = useState<"low" | "medium" | "high">("low");
-  const [creditVintage, setCreditVintage] = useState<"vintage5" | "vintage2" | "new">("vintage5");
-  const [activeEnquiries, setActiveEnquiries] = useState<"none" | "few" | "many">("none");
+  const creditVintage: "vintage5" | "vintage2" | "new" = "vintage5";
+  const activeEnquiries: "none" | "few" | "many" = "none";
 
   // --- Eligibility Estimator Tab State ---
   const [monthlyIncome, setMonthlyIncome] = useState(100000);
   const [existingEmi, setExistingEmi] = useState(10000);
-  const [tenureYears, setTenureYears] = useState(5);
-  const [interestRate, setInterestRate] = useState(10.5);
+  const tenureYears = 5;
+  const interestRate = 10.5;
 
   // Countdown timer for OTP
   useEffect(() => {
@@ -132,8 +132,6 @@ export const CreditScoreWidget: React.FC = () => {
       interval = setInterval(() => {
         setResendTimer((prev) => prev - 1);
       }, 1000);
-    } else if (resendTimer === 0) {
-      setCanResend(true);
     }
     return () => clearInterval(interval);
   }, [officialStep, resendTimer]);
@@ -203,7 +201,6 @@ export const CreditScoreWidget: React.FC = () => {
     setOtpInput("");
     setOtpError("");
     setResendTimer(30);
-    setCanResend(false);
     setShowSmsNotification(true);
   };
 
@@ -257,7 +254,7 @@ export const CreditScoreWidget: React.FC = () => {
       setOtpAttempts(nextAttempts);
       if (nextAttempts >= 3) {
         setOtpError("Too many incorrect attempts. Please click 'Resend OTP' to generate a new code.");
-        setCanResend(true);
+        setResendTimer(0);
       } else {
         setOtpError(`Incorrect OTP entered! Please enter the exact 6-digit code shown in the SMS alert above (Attempt ${nextAttempts}/3).`);
       }
@@ -1127,7 +1124,7 @@ export const CreditScoreWidget: React.FC = () => {
                         <button
                           key={item.id}
                           type="button"
-                          onClick={() => setOnTimePayments(item.id as any)}
+                          onClick={() => setOnTimePayments(item.id as "always" | "mostly" | "delayed")}
                           className={`p-2.5 rounded-xl border text-left text-xs transition-all ${
                             onTimePayments === item.id
                               ? "border-[#0B2E8D] bg-blue-50/80 text-[#0B2E8D] font-bold"
@@ -1154,7 +1151,7 @@ export const CreditScoreWidget: React.FC = () => {
                         <button
                           key={item.id}
                           type="button"
-                          onClick={() => setCardUtilization(item.id as any)}
+                          onClick={() => setCardUtilization(item.id as "low" | "medium" | "high")}
                           className={`p-2.5 rounded-xl border text-left text-xs transition-all ${
                             cardUtilization === item.id
                               ? "border-[#0B2E8D] bg-blue-50/80 text-[#0B2E8D] font-bold"

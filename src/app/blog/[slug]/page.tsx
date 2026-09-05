@@ -1,6 +1,7 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 import { BLOG_POSTS } from "@/lib/blogData";
 import { BRAND_CONFIG } from "@/config/brand";
@@ -99,6 +100,23 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               </div>
             </div>
 
+            {/* Featured Article Hero Image */}
+            <div className="relative h-64 sm:h-80 md:h-96 w-full rounded-2xl md:rounded-3xl overflow-hidden border border-slate-200 shadow-md">
+              <Image
+                src={post.image}
+                alt={post.title}
+                fill
+                priority
+                sizes="(max-width: 1024px) 100vw, 66vw"
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
+              <div className="absolute bottom-3 right-3 sm:bottom-4 sm:right-4 bg-white/95 backdrop-blur-md rounded-xl px-3.5 py-1.5 border border-white/40 shadow-xs flex items-center gap-1.5 text-[11px] font-bold text-slate-800">
+                <span className="material-symbols-outlined text-[15px] text-emerald-600">verified</span>
+                <span>Verified Lending Guide • 2026 Edition</span>
+              </div>
+            </div>
+
             {/* Key Takeaways Callout Card */}
             <div className="bg-blue-50/80 border border-blue-200/90 rounded-2xl p-6 space-y-3">
               <div className="flex items-center gap-2 font-bold text-[#0B2E8D] text-sm">
@@ -120,7 +138,6 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
             {/* Article Body Paragraphs */}
             <div className="space-y-5 text-sm sm:text-base text-slate-700 leading-relaxed pt-2">
               {post.content.map((paragraph, index) => {
-                const isHeading = paragraph.includes(":\n") || paragraph.startsWith("Step ");
                 return (
                   <div key={index} className="space-y-2">
                     {paragraph.split("\n").map((line, lIdx) => {
@@ -192,17 +209,33 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                   <Link
                     key={rel.slug}
                     href={`/blog/${rel.slug}`}
-                    className="p-4 bg-slate-50 hover:bg-white border border-slate-200 rounded-2xl transition-all shadow-sm group"
+                    className="overflow-hidden bg-white hover:bg-slate-50 border border-slate-200 rounded-2xl transition-all shadow-sm hover:shadow-md group flex flex-col justify-between"
                   >
-                    <span className="text-[10px] font-bold text-[#0B2E8D] uppercase block mb-1">
-                      {rel.category}
-                    </span>
-                    <div className="font-bold text-xs sm:text-sm text-slate-900 group-hover:text-[#0B2E8D] transition-colors leading-snug">
-                      {rel.title}
+                    <div className="relative h-36 w-full overflow-hidden bg-slate-100">
+                      <Image
+                        src={rel.image}
+                        alt={rel.title}
+                        fill
+                        sizes="(max-width: 640px) 100vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      <div className="absolute top-2.5 left-2.5">
+                        <span className="text-[9px] font-bold uppercase px-2.5 py-0.5 bg-white/95 backdrop-blur-md text-[#0B2E8D] rounded-md shadow-2xs">
+                          {rel.category}
+                        </span>
+                      </div>
                     </div>
-                    <span className="text-[11px] text-slate-400 font-medium block mt-2">
-                      {rel.readTime}
-                    </span>
+                    <div className="p-4 space-y-2 flex-grow flex flex-col justify-between">
+                      <div className="font-bold text-xs sm:text-sm text-slate-900 group-hover:text-[#0B2E8D] transition-colors leading-snug line-clamp-2">
+                        {rel.title}
+                      </div>
+                      <div className="flex items-center justify-between text-[11px] text-slate-400 font-medium pt-2 border-t border-slate-100">
+                        <span>{rel.readTime}</span>
+                        <span className="inline-flex items-center gap-1 text-[#001A62] group-hover:text-[#BB0119] font-bold">
+                          Read <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
+                        </span>
+                      </div>
+                    </div>
                   </Link>
                 ))}
               </div>

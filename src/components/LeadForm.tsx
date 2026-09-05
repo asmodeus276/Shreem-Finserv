@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { submitLead } from "@/lib/firebase";
-import { BRAND_CONFIG } from "@/config/brand";
 
 interface LeadFormProps {
   defaultCategory?: string;
@@ -31,6 +30,12 @@ export const LeadForm: React.FC<LeadFormProps> = ({
   const [mobile, setMobile] = useState("");
   const [city, setCity] = useState("");
   const [loanCategory, setLoanCategory] = useState(defaultCategory || "Personal Loan");
+  const [prevDefaultCategory, setPrevDefaultCategory] = useState(defaultCategory);
+  if (defaultCategory !== prevDefaultCategory) {
+    setPrevDefaultCategory(defaultCategory);
+    setLoanCategory(defaultCategory || "Personal Loan");
+  }
+
   const [amount, setAmount] = useState(defaultAmount);
   const [consent, setConsent] = useState(false);
   const [marketingConsent, setMarketingConsent] = useState(false);
@@ -41,13 +46,6 @@ export const LeadForm: React.FC<LeadFormProps> = ({
     applicationId: string;
     message?: string;
   } | null>(null);
-
-  // Sync defaultCategory when prop changes
-  useEffect(() => {
-    if (defaultCategory) {
-      setLoanCategory(defaultCategory);
-    }
-  }, [defaultCategory]);
 
   const formatCurrency = (val: number) => {
     return new Intl.NumberFormat("en-IN", {

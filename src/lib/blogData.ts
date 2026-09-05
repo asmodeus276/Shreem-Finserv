@@ -3,6 +3,7 @@ export interface BlogPost {
   title: string;
   excerpt: string;
   category: "Doctor Loans" | "MSME & Business" | "Credit Score" | "Secured Loans" | "Women Finance";
+  image: string;
   date: string;
   readTime: string;
   author: {
@@ -23,6 +24,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Personal Loan for Doctors in India: Eligibility, Interest Rates & Sanction Guide (2026)",
     excerpt: "Learn how practicing doctors, consultants, and clinic owners can unlock collateral-free personal loans up to ₹50 Lakhs with special rate concessions starting at 9.99% p.a.",
     category: "Doctor Loans",
+    image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80",
     date: "February 20, 2026",
     readTime: "6 min read",
     author: {
@@ -52,6 +54,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "How to Secure ₹2 Crore MSME Working Capital Loan in Under 48 Hours",
     excerpt: "Discover the top government-backed schemes, digital overdraft facilities, and fast-track working capital lines available for Indian manufacturing, trade, and service enterprises.",
     category: "MSME & Business",
+    image: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80",
     date: "February 15, 2026",
     readTime: "7 min read",
     author: {
@@ -80,6 +83,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Loan Against Property (LAP) vs Personal Loan: Which is Cheaper & Better?",
     excerpt: "Detailed financial comparison of LAP vs Unsecured Personal Loans: interest costs, tax deductions, tenure flexibility, and maximum loan amounts analyzed.",
     category: "Secured Loans",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80",
     date: "February 10, 2026",
     readTime: "5 min read",
     author: {
@@ -108,6 +112,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "5 Proven Steps to Boost Your CIBIL Score Above 750 in 60 Days",
     excerpt: "Unlock pre-approved low-interest loan quotes by fixing credit report discrepancies, optimizing credit utilization ratio, and structuring your repayment history.",
     category: "Credit Score",
+    image: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?auto=format&fit=crop&w=1200&q=80",
     date: "February 04, 2026",
     readTime: "5 min read",
     author: {
@@ -137,6 +142,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Complete Guide to Business Loans for Women Entrepreneurs: Subsidies & Benefits",
     excerpt: "Explore government subsidies, Stand-Up India benefits, MUDRA Yojana allocations, and 0.50% preferential interest rate discounts for women-led enterprises.",
     category: "Women Finance",
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1200&q=80",
     date: "January 28, 2026",
     readTime: "6 min read",
     author: {
@@ -164,6 +170,7 @@ export const BLOG_POSTS: BlogPost[] = [
     title: "Machinery & Equipment Financing: How to Fund Heavy Industrial Assets at 90% LTV",
     excerpt: "A comprehensive guide on asset financing, vendor invoice funding, customized moratoriums, and tax benefits under Section 32 for industrial equipment.",
     category: "MSME & Business",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80",
     date: "January 20, 2026",
     readTime: "6 min read",
     author: {

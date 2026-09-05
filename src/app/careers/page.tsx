@@ -259,10 +259,12 @@ export default function CareersPage() {
               Direct Talent Application
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
-              Submit Your Resume / Profile
+              {selectedJob ? `Apply for ${selectedJob.title}` : "Submit Your Resume / Profile"}
             </h2>
             <p className="text-slate-500 text-xs sm:text-sm">
-              Don’t see your exact role? Send your details — our HR team reviews every submission.
+              {selectedJob
+                ? `Department: ${selectedJob.department} • Location: ${selectedJob.location}`
+                : "Don’t see your exact role? Send your details — our HR team reviews every submission."}
             </p>
           </div>
 

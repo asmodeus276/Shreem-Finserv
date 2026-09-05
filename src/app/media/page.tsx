@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Link from "next/link";
 import { BRAND_CONFIG } from "@/config/brand";
 
 export default function MediaPage() {

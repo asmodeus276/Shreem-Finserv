@@ -65,7 +65,7 @@ export const JsonLd: React.FC<JsonLdProps> = ({
     ].filter(Boolean),
   };
 
-  let schemaToRender: any = baseSchema;
+  let schemaToRender: Record<string, unknown> = baseSchema;
 
   if (type === "FAQPage" && faqItems && faqItems.length > 0) {
     schemaToRender = {

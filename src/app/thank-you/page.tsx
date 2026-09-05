@@ -11,7 +11,10 @@ export default function ThankYouPage() {
     // Generate or fetch reference ID
     const randomHex = Math.random().toString(36).substring(2, 8).toUpperCase();
     const id = `SF-${new Date().getFullYear()}-${randomHex}`;
-    setRefId(id);
+    const timer = setTimeout(() => {
+      setRefId(id);
+    }, 0);
+    return () => clearTimeout(timer);
   }, []);
 
   const cleanPhone = BRAND_CONFIG.phone.replace(/[^0-9]/g, "");

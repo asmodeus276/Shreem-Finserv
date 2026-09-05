@@ -36,7 +36,6 @@ export const WhatsAppButton: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [chatOpen, setChatOpen] = useState(false);
   const [customMsg, setCustomMsg] = useState("");
-  const [hasAutoOpened, setHasAutoOpened] = useState(false);
 
   const cleanPhone = BRAND_CONFIG.phone.replace(/[^0-9]/g, "");
 
@@ -49,7 +48,6 @@ export const WhatsAppButton: React.FC = () => {
       const dismissed = sessionStorage.getItem("wa_popup_dismissed");
       if (!dismissed) {
         setChatOpen(true);
-        setHasAutoOpened(true);
       }
     }, 6000);
 

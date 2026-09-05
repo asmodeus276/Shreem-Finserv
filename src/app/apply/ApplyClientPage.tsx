@@ -335,6 +335,20 @@ export default function ApplyClientPage() {
                     </div>
                   </div>
 
+                  {/* Employer / Business Name */}
+                  <div>
+                    <label className="text-xs font-bold text-slate-700 block mb-1">
+                      Employer / Business Name (Optional)
+                    </label>
+                    <input
+                      type="text"
+                      placeholder="e.g. Tata Consultancy Services, Private Clinic, Self"
+                      value={companyName}
+                      onChange={(e) => setCompanyName(e.target.value)}
+                      className="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-sm font-semibold focus:outline-none focus:border-[#0B2E8D]"
+                    />
+                  </div>
+
                   {/* Monthly Income & PAN */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                     <div>

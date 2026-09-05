@@ -118,14 +118,20 @@ export function Hero() {
 
   useEffect(() => {
     if (!emblaApi) return;
-    onSelect();
-    setScrollSnaps(emblaApi.scrollSnapList());
+
+    const syncSnaps = () => {
+      onSelect();
+      setScrollSnaps(emblaApi.scrollSnapList());
+    };
+
+    const timer = setTimeout(syncSnaps, 0);
     emblaApi.on("select", onSelect);
-    emblaApi.on("reInit", onSelect);
+    emblaApi.on("reInit", syncSnaps);
 
     return () => {
+      clearTimeout(timer);
       emblaApi.off("select", onSelect);
-      emblaApi.off("reInit", onSelect);
+      emblaApi.off("reInit", syncSnaps);
     };
   }, [emblaApi, onSelect]);
 

@@ -35,7 +35,10 @@ export const Navbar: React.FC = () => {
 
   // Close mobile menu on route change
   useEffect(() => {
-    setMobileMenuOpen(false);
+    const timer = setTimeout(() => {
+      setMobileMenuOpen(false);
+    }, 0);
+    return () => clearTimeout(timer);
   }, [pathname]);
 
   const scrollToApply = (e: React.MouseEvent) => {

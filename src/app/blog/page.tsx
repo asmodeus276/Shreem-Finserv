@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { BLOG_POSTS } from "@/lib/blogData";
 import { BRAND_CONFIG } from "@/config/brand";
 import { InnerBanner } from "@/components/InnerBanner";
@@ -97,12 +98,12 @@ export default function BlogListingPage() {
         {/* Featured Article Box (if showing All and no search) */}
         {selectedCategory === "All" && searchQuery === "" && (
           <div className="mb-12">
-            <div className="bg-gradient-to-br from-[#001A62] via-[#0B2E8D] to-[#001A62] text-white rounded-3xl p-6 sm:p-10 shadow-xl overflow-hidden relative">
+            <div className="bg-gradient-to-br from-[#001A62] via-[#0B2E8D] to-[#001A62] text-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl overflow-hidden relative group">
               <div className="absolute right-0 top-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
               <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                <div className="lg:col-span-8 space-y-4">
+                <div className="lg:col-span-7 space-y-4">
                   <div className="flex items-center gap-3">
-                    <span className="bg-[#BB0119] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full">
+                    <span className="bg-[#BB0119] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-wider shadow-sm">
                       Featured Guide
                     </span>
                     <span className="text-xs text-blue-200 font-medium">
@@ -120,34 +121,40 @@ export default function BlogListingPage() {
                   <p className="text-sm sm:text-base text-blue-100/90 leading-relaxed">
                     {featuredPost.excerpt}
                   </p>
-                  <div className="pt-2 flex items-center gap-4">
+                  <div className="pt-2 flex flex-wrap items-center gap-4">
                     <Link
                       href={`/blog/${featuredPost.slug}`}
-                      className="inline-flex items-center gap-2 bg-white text-[#001A62] hover:bg-slate-100 font-bold px-5 py-2.5 rounded-xl text-xs shadow transition-all"
+                      className="inline-flex items-center gap-2 bg-white text-[#001A62] hover:bg-blue-50 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm shadow-md transition-all group-hover:shadow-lg"
                     >
                       <span>Read Full Guide</span>
-                      <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
+                      <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
                     </Link>
                     <span className="text-xs text-blue-200 font-medium">
-                      By {featuredPost.author.name}
+                      By {featuredPost.author.name} • {featuredPost.author.role}
                     </span>
                   </div>
                 </div>
 
-                <div className="lg:col-span-4 bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/15 space-y-3">
-                  <span className="text-xs font-bold uppercase tracking-wider text-amber-300 block">
-                    Quick Takeaways:
-                  </span>
-                  <ul className="space-y-2 text-xs text-blue-50">
-                    {featuredPost.keyTakeaways.slice(0, 3).map((item, idx) => (
-                      <li key={idx} className="flex items-start gap-2">
-                        <span className="material-symbols-outlined text-emerald-400 text-[16px] flex-shrink-0 mt-0.5">
-                          check_circle
-                        </span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* Right side Featured Image Container */}
+                <div className="lg:col-span-5 relative">
+                  <div className="relative h-64 sm:h-72 lg:h-80 w-full rounded-2xl overflow-hidden border border-white/20 shadow-2xl">
+                    <Image
+                      src={featuredPost.image}
+                      alt={featuredPost.title}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 40vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-700"
+                      priority
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <div className="absolute bottom-4 left-4 right-4 bg-white/90 backdrop-blur-md rounded-xl p-3 border border-white/40 shadow-sm flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="material-symbols-outlined text-emerald-600 text-base">verified</span>
+                        <span className="text-xs font-bold text-slate-800">Verified Underwriter Guide</span>
+                      </div>
+                      <span className="text-[11px] font-semibold text-[#001A62] bg-blue-50 px-2.5 py-0.5 rounded-md">2026 Edition</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -159,41 +166,66 @@ export default function BlogListingPage() {
           {filteredPosts.map((post) => (
             <article
               key={post.slug}
-              className="bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-sm hover:border-[#001A62]/40 interactive-shadow transition-all flex flex-col justify-between"
+              className="bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-sm hover:border-[#001A62]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
-              <div className="p-6 space-y-3">
-                <div className="flex items-center justify-between gap-2">
-                  <span className="text-[10px] font-bold uppercase px-2.5 py-1 bg-blue-50 text-[#001A62] border border-blue-200/80 rounded-lg">
-                    {post.category}
-                  </span>
-                  <span className="text-[11px] text-slate-400 font-medium">
-                    {post.readTime}
-                  </span>
-                </div>
-
-                <h3 className="font-bold text-slate-900 text-base md:text-lg leading-snug hover:text-[#001A62] transition-colors">
-                  <Link href={`/blog/${post.slug}`}>{post.title}</Link>
-                </h3>
-
-                <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
-                  {post.excerpt}
-                </p>
-
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {post.tags.slice(0, 3).map((tag, i) => (
-                    <span
-                      key={i}
-                      className="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-medium"
-                    >
-                      #{tag}
+              <div>
+                {/* Thumbnail Image Header */}
+                <Link href={`/blog/${post.slug}`} className="block relative h-52 w-full overflow-hidden bg-slate-100">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    className="object-cover group-hover:scale-108 transition-transform duration-500"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-black/20"></div>
+                  
+                  {/* Category Pill Floating */}
+                  <div className="absolute top-3 left-3">
+                    <span className="text-[10px] font-bold uppercase px-3 py-1 bg-white/95 backdrop-blur-md text-[#001A62] rounded-lg shadow-sm border border-white/50">
+                      {post.category}
                     </span>
-                  ))}
+                  </div>
+
+                  {/* Read Time Pill Floating */}
+                  <div className="absolute top-3 right-3">
+                    <span className="text-[10px] font-semibold text-white/95 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-lg border border-white/20">
+                      {post.readTime}
+                    </span>
+                  </div>
+
+                  {/* Bottom Image Overlay Tag */}
+                  <div className="absolute bottom-2.5 left-3 text-[11px] font-medium text-white/90 flex items-center gap-1.5">
+                    <span className="material-symbols-outlined text-[14px] text-amber-300">verified</span>
+                    <span>Research Advisory</span>
+                  </div>
+                </Link>
+
+                <div className="p-5 sm:p-6 space-y-3">
+                  <h3 className="font-bold text-slate-900 text-base md:text-lg leading-snug group-hover:text-[#001A62] transition-colors line-clamp-2">
+                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-2">
+                    {post.excerpt}
+                  </p>
+
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {post.tags.slice(0, 3).map((tag, i) => (
+                      <span
+                        key={i}
+                        className="text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded-md font-medium"
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              <div className="p-6 pt-0 border-t border-slate-100 flex items-center justify-between mt-3 text-xs">
+              <div className="p-5 sm:p-6 pt-0 border-t border-slate-100 flex items-center justify-between text-xs mt-2">
                 <div className="flex items-center gap-2 pt-3">
-                  <div className="w-7 h-7 rounded-full bg-[#001A62] text-white flex items-center justify-center font-bold text-[10px]">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#001A62] to-[#0B2E8D] text-white flex items-center justify-center font-bold text-[11px] shadow-xs">
                     {post.author.avatarInitials}
                   </div>
                   <div>
@@ -208,10 +240,10 @@ export default function BlogListingPage() {
 
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center gap-1 text-[#001A62] hover:text-[#BB0119] font-bold transition-colors pt-3"
+                  className="inline-flex items-center gap-1 text-[#001A62] group-hover:text-[#BB0119] font-bold transition-colors pt-3"
                 >
-                  <span>Read</span>
-                  <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                  <span>Read Guide</span>
+                  <span className="material-symbols-outlined text-[15px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
                 </Link>
               </div>
             </article>
