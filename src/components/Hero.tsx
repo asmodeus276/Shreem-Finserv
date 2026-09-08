@@ -212,57 +212,88 @@ export function Hero() {
           {HERO_SLIDES.map((slide, index) => (
             <div
               key={slide.id}
-              className="relative flex-[0_0_100%] min-w-0 w-full min-h-[380px] sm:min-h-[440px] md:min-h-[480px] lg:min-h-[520px] bg-[#dbebf6] overflow-hidden"
+              className="relative flex-[0_0_100%] min-w-0 w-full overflow-hidden bg-slate-50"
             >
-              {/* Full Bleed Panoramic Background Banner */}
-              <div className="absolute inset-0 w-full h-full">
-                <Image
-                  src={slide.bgImage}
-                  alt={slide.imageAlt}
-                  fill
-                  priority={index === 0}
-                  sizes="100vw"
-                  className="object-cover object-left md:object-center select-none pointer-events-none"
-                />
-              </div>
+              {/* DESKTOP LAYOUT (>= md): Full-Bleed Panoramic Banner */}
+              <div className="hidden md:block relative w-full min-h-[440px] lg:min-h-[500px] bg-[#dbebf6] overflow-hidden">
+                {/* Panoramic Background Image */}
+                <div className="absolute inset-0 w-full h-full">
+                  <Image
+                    src={slide.bgImage}
+                    alt={slide.imageAlt}
+                    fill
+                    priority={index === 0}
+                    sizes="100vw"
+                    className="object-cover object-left md:object-center select-none pointer-events-none"
+                  />
+                </div>
 
-              {/* Text Overlay on the Right Half of the Panoramic Banner */}
-              <div className="relative z-10 w-full h-full min-h-[380px] sm:min-h-[440px] md:min-h-[480px] lg:min-h-[520px] max-w-7xl mx-auto px-6 sm:px-10 lg:px-16 flex items-center justify-end">
-                <div className="w-full sm:w-3/4 md:w-3/5 lg:w-1/2 text-left py-8 sm:py-12 space-y-3 sm:space-y-4 bg-white/70 sm:bg-transparent backdrop-blur-xs sm:backdrop-blur-none p-5 sm:p-0 rounded-2xl sm:rounded-none shadow-sm sm:shadow-none">
+                {/* Right-Aligned Text Content Over Gradient Area */}
+                <div className="relative z-10 w-full h-full min-h-[440px] lg:min-h-[500px] max-w-7xl mx-auto px-8 lg:px-16 flex items-center justify-end">
+                  <div className="w-full md:w-3/5 lg:w-1/2 text-left py-10 lg:py-14 space-y-4">
+                    {/* Big Bold Title */}
+                    <h1 className="text-4xl lg:text-6xl font-extrabold text-[#0f172a] tracking-tight leading-[1.08]">
+                      {slide.titleLine1}
+                      <span className="block text-[#0f172a]">{slide.titleLine2}</span>
+                    </h1>
 
-                  {/* Big Bold Title */}
-                  <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-[#0f172a] tracking-tight leading-[1.08]">
-                    {slide.titleLine1}
-                    <span className="block text-[#0f172a]">{slide.titleLine2}</span>
-                  </h1>
+                    {/* Subtitle */}
+                    <p className="text-lg lg:text-xl font-bold text-slate-900 tracking-tight leading-snug">
+                      {slide.headline}
+                    </p>
 
-                  {/* Subtitle */}
-                  <p className="text-base sm:text-lg md:text-xl font-bold text-slate-900 tracking-tight leading-snug">
-                    {slide.headline}
-                  </p>
+                    {/* Desktop CTAs */}
+                    <div className="pt-4 flex items-center gap-3.5">
+                      <Link
+                        href={slide.ctaLink}
+                        className="inline-flex items-center justify-center px-9 py-3.5 rounded-lg bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-sm tracking-wider uppercase border border-slate-300 shadow-md transition-all duration-200 hover:shadow-lg hover:scale-105 active:scale-95 group"
+                      >
+                        <span>{slide.ctaText}</span>
+                      </Link>
 
-                  {/* Clean CTA Button */}
-                  <div className="pt-2 sm:pt-4 flex flex-wrap items-center gap-3">
-                    <Link
-                      href={slide.ctaLink}
-                      className="inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-3.5 rounded-lg bg-white hover:bg-slate-50 text-slate-900 font-extrabold text-xs sm:text-sm tracking-wider uppercase border border-slate-300 shadow-md transition-all duration-200 hover:shadow-lg hover:scale-105 active:scale-95 group"
-                    >
-                      <span>{slide.ctaText}</span>
-                    </Link>
-
-                    <a
-                      href="tel:+918745003840"
-                      className="inline-flex items-center justify-center gap-1.5 px-5 sm:px-6 py-3 sm:py-3.5 rounded-lg bg-white/90 hover:bg-white text-slate-800 font-bold text-xs sm:text-sm tracking-wide border border-slate-300 shadow-sm transition-all duration-200 hover:scale-105"
-                    >
-                      <span className="material-symbols-outlined text-[18px] text-emerald-600">
-                        phone_in_talk
-                      </span>
-                      <span className="whitespace-nowrap">+91 87450 03840</span>
-                    </a>
+                      <a
+                        href="tel:+918745003840"
+                        className="inline-flex items-center justify-center gap-1.5 px-6 py-3.5 rounded-lg bg-white/90 hover:bg-white text-slate-800 font-bold text-sm tracking-wide border border-slate-300 shadow-sm transition-all duration-200 hover:scale-105"
+                      >
+                        <span className="material-symbols-outlined text-[18px] text-emerald-600">
+                          phone_in_talk
+                        </span>
+                        <span className="whitespace-nowrap">+91 87450 03840</span>
+                      </a>
+                    </div>
                   </div>
-
                 </div>
               </div>
+
+              {/* MOBILE LAYOUT (< md): Full-Bleed Banner Image with Clean Title Overlay */}
+              <div className="md:hidden relative w-full bg-slate-50">
+                {/* Full-bleed banner image */}
+                <div className="relative w-full h-[260px] sm:h-[300px] bg-[#dbebf6] overflow-hidden">
+                  <Image
+                    src={slide.bgImage}
+                    alt={slide.imageAlt}
+                    fill
+                    priority={index === 0}
+                    sizes="100vw"
+                    className="object-cover object-left select-none pointer-events-none"
+                  />
+
+                  {/* Subtle gradient overlay for text legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+
+                  {/* Beautiful title overlay — clean, minimal, no clutter */}
+                  <div className="absolute bottom-0 left-0 right-0 z-10 px-5 pb-10 sm:px-8 sm:pb-12">
+                    <h1 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-[1.1] drop-shadow-lg">
+                      {slide.titleLine1}{" "}
+                      <span className="text-white/90">{slide.titleLine2}</span>
+                    </h1>
+                    <p className="mt-1.5 text-sm sm:text-base font-semibold text-white/85 leading-snug drop-shadow-md max-w-[320px]">
+                      {slide.headline}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
             </div>
           ))}
         </div>
