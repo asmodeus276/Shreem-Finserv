@@ -17,14 +17,14 @@ const TOP_NAV_LINKS = [
 
 // Primary Loan Navigation Items for the Full-Width Royal Blue Strip
 const LOAN_STRIP_ITEMS = [
-  { label: "Personal Loan", href: "/personal-loan" },
+  { label: "Professional Loan", href: "/professional-loan" },
   { label: "Business Loan", href: "/business-loan" },
-  { label: "Professional Loan", href: "/personal-loan/for-doctors" },
+  { label: "Home Loan", href: "/home-loan" },
+  { label: "Loan Against Property", href: "/loan-against-property" },
+  { label: "Personal Loan", href: "/personal-loan" },
   { label: "Working Capital", href: "/business-loan/msme-working-capital" },
   { label: "Machinery Loan", href: "/machinery-loan" },
   { label: "Gold Loan", href: "/personal-loan/urgent-cash" },
-  { label: "Home Loan", href: "/home-loan" },
-  { label: "Loan Against Property", href: "/loan-against-property" },
   { label: "Education Loan", href: "/personal-loan" },
 ];
 
@@ -127,7 +127,7 @@ export const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between min-w-max md:min-w-0 py-2.5">
           
           {/* Horizontal Loan Links Row */}
-          <nav className="flex items-center space-x-1 sm:space-x-2 md:space-x-3.5 lg:space-x-4.5 text-xs sm:text-[13px] font-medium whitespace-nowrap overflow-x-auto no-scrollbar">
+          <nav className="flex-1 min-w-0 flex items-center space-x-1 sm:space-x-2 md:space-x-3.5 lg:space-x-4 text-xs sm:text-[13px] font-medium whitespace-nowrap overflow-x-auto no-scrollbar pr-2">
             {LOAN_STRIP_ITEMS.map((loan, idx) => {
               const isCurrentActive =
                 pathname === loan.href ||
@@ -137,7 +137,7 @@ export const Navbar: React.FC = () => {
                 <Link
                   key={idx}
                   href={loan.href}
-                  className={`px-2 py-0.5 rounded transition-all duration-150 flex items-center gap-1 ${
+                  className={`flex-shrink-0 px-2 py-0.5 rounded transition-all duration-150 flex items-center gap-1 whitespace-nowrap ${
                     isCurrentActive
                       ? "text-white font-bold underline underline-offset-4 decoration-2"
                       : "text-blue-100 hover:text-white"
@@ -149,13 +149,14 @@ export const Navbar: React.FC = () => {
             })}
           </nav>
 
-          {/* Right Red Pill Hotline Button matching screenshot (+91 87450 03840) */}
-          <div className="hidden xl:flex items-center pl-4">
+          {/* Right Red Pill Hotline Button matching screenshot (+91 87450 03840) - Fixed Single Line */}
+          <div className="hidden xl:flex items-center pl-3 flex-shrink-0">
             <a
               href={`tel:${BRAND_CONFIG.phone.replace(/\s+/g, "")}`}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#e50914] hover:bg-[#c40812] text-white text-xs font-bold tracking-wide shadow-sm transition-transform hover:scale-105"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#e50914] hover:bg-[#c40812] text-white text-xs font-bold tracking-wide shadow-sm transition-transform hover:scale-105 whitespace-nowrap flex-shrink-0"
             >
-              <span>{BRAND_CONFIG.phoneDisplay}</span>
+              <span className="material-symbols-outlined text-[14px]">call</span>
+              <span className="whitespace-nowrap">{BRAND_CONFIG.phoneDisplay}</span>
             </a>
           </div>
 

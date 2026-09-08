@@ -29,11 +29,11 @@ export const LeadForm: React.FC<LeadFormProps> = ({
   const [fullName, setFullName] = useState("");
   const [mobile, setMobile] = useState("");
   const [city, setCity] = useState("");
-  const [loanCategory, setLoanCategory] = useState(defaultCategory || "Personal Loan");
+  const [loanCategory, setLoanCategory] = useState(defaultCategory || "Professional Loan");
   const [prevDefaultCategory, setPrevDefaultCategory] = useState(defaultCategory);
   if (defaultCategory !== prevDefaultCategory) {
     setPrevDefaultCategory(defaultCategory);
-    setLoanCategory(defaultCategory || "Personal Loan");
+    setLoanCategory(defaultCategory || "Professional Loan");
   }
 
   const [amount, setAmount] = useState(defaultAmount);
@@ -270,14 +270,15 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             onChange={(e) => setLoanCategory(e.target.value)}
             className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#0B2E8D] focus:ring-1 focus:ring-[#0B2E8D] transition-colors"
           >
-            <option value="Personal Loans for Doctors">Personal Loans for Doctors</option>
-            <option value="MSME Working Capital">MSME Working Capital</option>
+            <option value="Professional Loan">Professional Loan (Doctors, CAs & Professionals)</option>
+            <option value="Business Loan">Business Loan / MSME</option>
+            <option value="Home Loan">Home Loan</option>
             <option value="Loan Against Property">Loan Against Property (LAP)</option>
+            <option value="Personal Loan">Personal Loan</option>
+            <option value="Working Capital">Working Capital / Overdraft</option>
             <option value="Machinery & Equipment">Machinery & Equipment Loan</option>
             <option value="Urgent Cash Advance">Urgent Cash Advance</option>
             <option value="Loans for Women Entrepreneurs">Loans for Women Entrepreneurs</option>
-            <option value="General Personal Loan">General Personal Loan</option>
-            <option value="General Business Loan">General Business Loan</option>
           </select>
         </div>
 

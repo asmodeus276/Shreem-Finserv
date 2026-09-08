@@ -8,9 +8,12 @@ import Image from "next/image";
 
 interface SlideData {
   id: string;
+  badge: string;
+  badgeIcon: string;
   titleLine1: string;
   titleLine2: string;
   headline: string;
+  keyBenefits: string[];
   ctaText: string;
   ctaLink: string;
   bgImage: string;
@@ -20,42 +23,77 @@ interface SlideData {
 const HERO_SLIDES: SlideData[] = [
   {
     id: "professional-loans",
+    badge: "Exclusive for Doctors, CAs & Professionals",
+    badgeIcon: "medical_services",
     titleLine1: "Professional",
     titleLine2: "Loans",
-    headline: "Serving Your Financial Needs Is Our Priority!",
+    headline: "Fast-Track Collateral-Free Credit with Express 24-Hour Sanction!",
+    keyBenefits: ["Zero Collateral Required", "Starting @ 9.9% p.a.", "Funding Up to ₹1 Crore"],
     ctaText: "APPLY NOW",
-    ctaLink: "/personal-loan/for-doctors",
-    bgImage: "/images/doctor-hero-banner.jpg",
-    imageAlt: "Professional Loans for Doctors & Practitioners",
+    ctaLink: "/professional-loan",
+    bgImage: "/images/doctor-hero-banner-right.jpg",
+    imageAlt: "Professional Loans for Doctors and Certified Practitioners",
   },
   {
     id: "business-loans",
+    badge: "Fueling Enterprise & MSME Expansion",
+    badgeIcon: "storefront",
     titleLine1: "Business",
     titleLine2: "Loans",
-    headline: "Serving Your Financial Needs Is Our Priority!",
+    headline: "Flexible Commercial Working Capital Across 50+ Leading Lenders!",
+    keyBenefits: ["Loans Up to ₹2 Crore", "Starting @ 10.5% p.a.", "Disbursal in 48 Hours"],
     ctaText: "APPLY NOW",
     ctaLink: "/business-loan",
-    bgImage: "/images/business-hero-banner.jpg",
-    imageAlt: "Business Loans & MSME Working Capital",
+    bgImage: "/images/business-hero-banner-right.jpg",
+    imageAlt: "Business Loans and Working Capital for Enterprises",
+  },
+  {
+    id: "home-loans",
+    badge: "Lowest Interest Mortgage Rates in India",
+    badgeIcon: "home",
+    titleLine1: "Home",
+    titleLine2: "Loans",
+    headline: "Step Into Your Dream Home with Maximum Tax Benefits & Doorstep Clearances!",
+    keyBenefits: ["Starting from 8.5% p.a.", "Tenures up to 30 Years", "Up to 90% Property Value"],
+    ctaText: "APPLY NOW",
+    ctaLink: "/home-loan",
+    bgImage: "/images/home-loan-inner-banner.jpg",
+    imageAlt: "Home Loans and Low Interest Mortgages for Families",
+  },
+  {
+    id: "loan-against-property",
+    badge: "Maximum Liquidity Against Real Estate",
+    badgeIcon: "real_estate_agent",
+    titleLine1: "Property",
+    titleLine2: "Loans",
+    headline: "Unlock Substantial Capital Against Residential & Commercial Real Estate!",
+    keyBenefits: ["Funding ₹25L to ₹10 Crore", "Starting @ 9.0% p.a.", "Flexible 15-Year Tenure"],
+    ctaText: "APPLY NOW",
+    ctaLink: "/loan-against-property",
+    bgImage: "/images/lap-inner-banner.jpg",
+    imageAlt: "Loan Against Property and Commercial Mortgage Financing",
   },
   {
     id: "personal-loans",
+    badge: "Instant Collateral-Free Emergency Credit",
+    badgeIcon: "payments",
     titleLine1: "Personal",
     titleLine2: "Loans",
-    headline: "Serving Your Financial Needs Is Our Priority!",
+    headline: "Instant Digital Approvals with 100% Paperless Processing!",
+    keyBenefits: ["Instant Sanction", "Zero Hidden Charges", "Minimal Documentation"],
     ctaText: "APPLY NOW",
     ctaLink: "/personal-loan",
-    bgImage: "/images/personal-hero-banner.jpg",
-    imageAlt: "Instant Personal Loans & Retail Credit",
+    bgImage: "/images/personal-hero-banner-right.jpg",
+    imageAlt: "Instant Personal Loans and Collateral-Free Retail Credit",
   },
 ];
 
-// Quick Selector Icons & Categories matching the reference
+// Quick Selector Icons & Categories matching user priority order
 const QUICK_LOAN_CARDS = [
   {
-    title: "Working Capital",
-    icon: "account_balance_wallet",
-    link: "/business-loan/msme-working-capital",
+    title: "Professional Loan",
+    icon: "medical_services",
+    link: "/professional-loan",
   },
   {
     title: "Business Loan",
@@ -63,9 +101,14 @@ const QUICK_LOAN_CARDS = [
     link: "/business-loan",
   },
   {
-    title: "Professional Loan",
-    icon: "medical_services",
-    link: "/personal-loan/for-doctors",
+    title: "Home Loan",
+    icon: "home",
+    link: "/home-loan",
+  },
+  {
+    title: "Loan Against Property",
+    icon: "real_estate_agent",
+    link: "/loan-against-property",
   },
   {
     title: "Personal Loan",
@@ -73,14 +116,19 @@ const QUICK_LOAN_CARDS = [
     link: "/personal-loan",
   },
   {
-    title: "New /Used Car Loan",
-    icon: "directions_car",
-    link: "/personal-loan",
+    title: "Working Capital",
+    icon: "account_balance_wallet",
+    link: "/business-loan/msme-working-capital",
   },
   {
-    title: "Medical Equipment Loan",
-    icon: "monitor_heart",
-    link: "/personal-loan/for-doctors",
+    title: "Machinery Loan",
+    icon: "precision_manufacturing",
+    link: "/machinery-loan",
+  },
+  {
+    title: "New / Used Car Loan",
+    icon: "directions_car",
+    link: "/personal-loan",
   },
 ];
 
@@ -88,12 +136,12 @@ export function Hero() {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       loop: true,
-      duration: 25,
+      duration: 20,
       skipSnaps: false,
     },
     [
       Autoplay({
-        delay: 5000,
+        delay: 4500,
         stopOnInteraction: false,
         stopOnMouseEnter: true,
       }),
@@ -103,6 +151,14 @@ export function Hero() {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
   const cardsContainerRef = useRef<HTMLDivElement>(null);
+
+  const scrollPrev = useCallback(() => {
+    if (emblaApi) emblaApi.scrollPrev();
+  }, [emblaApi]);
+
+  const scrollNext = useCallback(() => {
+    if (emblaApi) emblaApi.scrollNext();
+  }, [emblaApi]);
 
   const scrollTo = useCallback(
     (index: number) => {
@@ -150,14 +206,14 @@ export function Hero() {
   return (
     <div className="relative w-full overflow-hidden bg-white">
       
-      {/* 1. Main Hero Slider Container (Full-Bleed Matching capitalneed.com) */}
+      {/* 1. Main Hero Slider Container (Deep Royal Navy & High-Contrast Visuals) */}
       <div className="relative overflow-hidden" ref={emblaRef}>
         <div className="flex touch-pan-y">
           {HERO_SLIDES.map((slide, index) => {
             return (
               <div
                 key={slide.id}
-                className="relative flex-[0_0_100%] min-w-0 min-h-[460px] sm:min-h-[520px] md:min-h-[580px] lg:min-h-[620px] flex items-center bg-[#e7f3fb]"
+                className="relative flex-[0_0_100%] min-w-0 min-h-[480px] sm:min-h-[530px] md:min-h-[580px] lg:min-h-[620px] flex items-center bg-[#001038] overflow-hidden"
               >
                 {/* Full-Bleed Panoramic Background Image */}
                 <div className="absolute inset-0 z-0">
@@ -167,44 +223,95 @@ export function Hero() {
                     fill
                     priority={index === 0}
                     sizes="100vw"
-                    className="object-cover object-left md:object-center"
+                    className="object-cover object-right md:object-right select-none pointer-events-none"
                   />
-                  {/* Subtle right gradient overlay to ensure text contrast on all devices */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-[#e7f3fb]/90 md:to-transparent pointer-events-none" />
+                  {/* Multi-stage Luxury Gradient Overlay:
+                      Solid dark navy on the left where typography and CTAs sit, 
+                      smoothly transitioning across center, completely transparent on the right
+                      to showcase the crisp, high-resolution photographic subjects with zero white haze */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#000d2b] via-[#00164e]/95 via-45% md:via-55% to-[#00164e]/20 md:to-transparent pointer-events-none" />
+                  {/* Soft top-and-bottom vignette for seamless header and section integration */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-[#000d2b]/40 via-transparent to-[#000d2b]/50 pointer-events-none" />
                 </div>
 
-                {/* Foreground Text Overlay positioned in the right half */}
-                <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 md:py-16">
-                  <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+                {/* Foreground Content Area on the Left */}
+                <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-14 md:py-18">
+                  <div className="max-w-2xl lg:max-w-3xl space-y-3 sm:space-y-4 md:space-y-4.5 text-left">
                     
-                    {/* Left 5 Cols: Transparent Space occupied by Doctor / Subject Photo */}
-                    <div className="hidden md:block md:col-span-5 lg:col-span-5" />
+                    {/* Trust Badge Pill */}
+                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/80 border border-blue-400/30 text-cyan-300 backdrop-blur-md shadow-sm">
+                      <span className="material-symbols-outlined text-[17px] text-amber-400">
+                        {slide.badgeIcon}
+                      </span>
+                      <span className="text-xs sm:text-sm font-semibold tracking-wide text-cyan-200">
+                        {slide.badge}
+                      </span>
+                    </div>
 
-                    {/* Right 7 Cols: Exact Typography & CTA Button */}
-                    <div className="md:col-span-7 lg:col-span-7 space-y-3 sm:space-y-4 md:space-y-5 text-left pl-2 md:pl-6 lg:pl-10">
-                      
-                      {/* Giant Bold Headline matching capitalneed.com screenshot */}
-                      <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black text-[#263238] tracking-tight leading-[1.02]">
-                        {slide.titleLine1}
-                        <br />
+                    {/* Giant Bold Headline */}
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.06] drop-shadow-sm">
+                      {slide.titleLine1}{" "}
+                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400">
                         {slide.titleLine2}
-                      </h1>
+                      </span>
+                    </h1>
 
-                      {/* Subtitle */}
-                      <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-[#37474f] tracking-tight leading-snug max-w-xl">
-                        {slide.headline}
-                      </p>
+                    {/* Subtitle */}
+                    <p className="text-base sm:text-lg md:text-xl font-medium text-slate-100/90 tracking-tight leading-relaxed max-w-xl">
+                      {slide.headline}
+                    </p>
 
-                      {/* Styled Pill CTA Button */}
-                      <div className="pt-2 sm:pt-4">
-                        <Link
-                          href={slide.ctaLink}
-                          className="inline-flex items-center justify-center px-8 sm:px-10 py-3 sm:py-3.5 rounded-full bg-[#dce7ee] hover:bg-[#cfdbe3] text-[#263238] font-black text-xs sm:text-sm uppercase tracking-wider shadow-sm transition-all duration-200 hover:scale-105 active:scale-95"
+                    {/* Key Value Benefits Checkmarks */}
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-2.5 pt-1 pb-1">
+                      {slide.keyBenefits.map((benefit, i) => (
+                        <div
+                          key={i}
+                          className="flex items-center gap-2 bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 rounded-xl px-3 py-2 backdrop-blur-md transition-colors"
                         >
-                          <span>{slide.ctaText}</span>
-                        </Link>
-                      </div>
+                          <span className="material-symbols-outlined text-[18px] text-emerald-400 shrink-0">
+                            check_circle
+                          </span>
+                          <span className="text-xs sm:text-[13px] font-semibold text-white whitespace-nowrap">
+                            {benefit}
+                          </span>
+                        </div>
+                      ))}
+                    </div>
 
+                    {/* Action Row */}
+                    <div className="pt-2 sm:pt-3 flex flex-wrap items-center gap-3 sm:gap-4">
+                      <Link
+                        href={slide.ctaLink}
+                        className="inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-[#e50914] hover:bg-[#c40812] text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-xl shadow-red-950/50 transition-all duration-200 hover:scale-105 active:scale-95 group"
+                      >
+                        <span>{slide.ctaText}</span>
+                        <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">
+                          arrow_forward
+                        </span>
+                      </Link>
+
+                      {/* Hotline Call CTA */}
+                      <a
+                        href="tel:+918745003840"
+                        className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm tracking-wide backdrop-blur-md border border-white/20 shadow-sm transition-all duration-200 hover:scale-105 active:scale-95"
+                      >
+                        <span className="material-symbols-outlined text-[18px] text-emerald-400">
+                          phone_in_talk
+                        </span>
+                        <span className="whitespace-nowrap">Call +91 87450 03840</span>
+                      </a>
+                    </div>
+
+                    {/* Micro Trust Proof Strip */}
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] sm:text-xs text-slate-300/85 font-medium pt-1">
+                      <span className="flex items-center gap-1">
+                        <span className="material-symbols-outlined text-[14px] text-amber-400">star</span>
+                        50+ Partner Banks & NBFCs
+                      </span>
+                      <span>•</span>
+                      <span>Zero Prepayment Penalty</span>
+                      <span className="hidden sm:inline">•</span>
+                      <span className="hidden sm:inline">100% Safe & RBI Compliant</span>
                     </div>
 
                   </div>
@@ -215,23 +322,50 @@ export function Hero() {
           })}
         </div>
 
-        {/* Slide Pagination Dots (Bottom Centered inside Hero Slider) */}
-        <div className="absolute bottom-4 left-0 right-0 z-20 flex items-center justify-center gap-2 pointer-events-none">
-          {scrollSnaps.map((_, dotIndex) => {
-            const isDotActive = dotIndex === selectedIndex;
-            return (
-              <button
-                key={dotIndex}
-                onClick={() => scrollTo(dotIndex)}
-                aria-label={`Go to slide ${dotIndex + 1}`}
-                className={`pointer-events-auto transition-all duration-200 rounded-full h-2.5 ${
-                  isDotActive
-                    ? "w-2.5 bg-slate-600 shadow-xs"
-                    : "w-2.5 bg-slate-400/80 hover:bg-slate-500"
-                }`}
-              />
-            );
-          })}
+        {/* Hero Slider Left Navigation Arrow Button */}
+        <button
+          onClick={scrollPrev}
+          aria-label="Previous Banner"
+          className="absolute left-3 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-900/60 hover:bg-slate-900/90 text-white shadow-2xl backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer group/arrow"
+        >
+          <span className="material-symbols-outlined text-[24px] sm:text-[28px] text-white group-hover/arrow:-translate-x-0.5 transition-transform">
+            chevron_left
+          </span>
+        </button>
+
+        {/* Hero Slider Right Navigation Arrow Button */}
+        <button
+          onClick={scrollNext}
+          aria-label="Next Banner"
+          className="absolute right-3 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-900/60 hover:bg-slate-900/90 text-white shadow-2xl backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer group/arrow"
+        >
+          <span className="material-symbols-outlined text-[24px] sm:text-[28px] text-white group-hover/arrow:translate-x-0.5 transition-transform">
+            chevron_right
+          </span>
+        </button>
+
+        {/* Slide Pagination Dots & Counter (Bottom Centered inside Hero Slider) */}
+        <div className="absolute bottom-4 left-0 right-0 z-20 flex items-center justify-center pointer-events-none">
+          <div className="flex items-center gap-2 bg-slate-950/70 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 shadow-lg pointer-events-auto">
+            {scrollSnaps.map((_, dotIndex) => {
+              const isDotActive = dotIndex === selectedIndex;
+              return (
+                <button
+                  key={dotIndex}
+                  onClick={() => scrollTo(dotIndex)}
+                  aria-label={`Go to slide ${dotIndex + 1}`}
+                  className={`transition-all duration-300 rounded-full h-2 cursor-pointer ${
+                    isDotActive
+                      ? "w-7 bg-[#e50914] shadow-sm shadow-red-500/50"
+                      : "w-2 bg-white/50 hover:bg-white/80"
+                  }`}
+                />
+              );
+            })}
+            <span className="text-white/90 text-[11px] font-bold pl-1 tracking-wider">
+              0{selectedIndex + 1} / 0{HERO_SLIDES.length}
+            </span>
+          </div>
         </div>
 
       </div>
@@ -262,7 +396,7 @@ export function Hero() {
             {/* Horizontal Scrollable Row of White Rounded Cards */}
             <div
               ref={cardsContainerRef}
-              className="flex md:grid md:grid-cols-6 gap-3 sm:gap-4 overflow-x-auto no-scrollbar scroll-smooth w-full px-2 py-1 items-stretch"
+              className="flex md:grid md:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-4 overflow-x-auto no-scrollbar scroll-smooth w-full px-2 py-1 items-stretch"
             >
               {QUICK_LOAN_CARDS.map((card, idx) => (
                 <Link

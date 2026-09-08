@@ -131,13 +131,12 @@ export function TestimonialsSlider({
       loop: true,
       align: "start",
       slidesToScroll: 1,
-      containScroll: "trimSnaps",
-      duration: 25,
+      duration: 20,
       dragFree: false,
     },
     [
       Autoplay({
-        delay: 5000,
+        delay: 3500,
         stopOnInteraction: false,
         stopOnMouseEnter: true,
       }),
@@ -195,7 +194,7 @@ export function TestimonialsSlider({
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div className="max-w-2xl space-y-3">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-gradient-to-r from-purple-50 via-pink-50 to-amber-50 text-purple-900 text-xs font-bold border border-purple-200/80 shadow-xs">
-              <span className="w-2 h-2 rounded-full bg-gradient-to-tr from-amber-400 via-pink-500 to-purple-600"></span>
+              <span className="w-2 h-2 rounded-full bg-gradient-to-tr from-amber-400 via-pink-500 to-purple-600 animate-pulse"></span>
               Verified Instagram Client Shoutouts
             </div>
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900 tracking-tight">
@@ -211,23 +210,43 @@ export function TestimonialsSlider({
             <button
               onClick={scrollPrev}
               aria-label="Previous Review"
-              className="w-11 h-11 rounded-full bg-white border border-slate-200 shadow-sm hover:border-[#0B2E8D] hover:bg-blue-50 text-slate-700 hover:text-[#0B2E8D] flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
+              className="w-11 h-11 rounded-full bg-white border border-slate-200 shadow-sm hover:border-[#0B2E8D] hover:bg-blue-50 text-slate-700 hover:text-[#0B2E8D] flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
             >
               <span className="material-symbols-outlined text-[22px]">chevron_left</span>
             </button>
             <button
               onClick={scrollNext}
               aria-label="Next Review"
-              className="w-11 h-11 rounded-full bg-white border border-slate-200 shadow-sm hover:border-[#0B2E8D] hover:bg-blue-50 text-slate-700 hover:text-[#0B2E8D] flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
+              className="w-11 h-11 rounded-full bg-white border border-slate-200 shadow-sm hover:border-[#0B2E8D] hover:bg-blue-50 text-slate-700 hover:text-[#0B2E8D] flex items-center justify-center transition-all duration-200 hover:scale-105 active:scale-95 cursor-pointer"
             >
               <span className="material-symbols-outlined text-[22px]">chevron_right</span>
             </button>
           </div>
         </div>
 
-        {/* Carousel Slider Viewport */}
-        <div className="overflow-hidden -mx-4 px-4 py-2" ref={emblaRef}>
-          <div className="flex touch-pan-y gap-6">
+        {/* Carousel Slider Viewport with Side Floating Arrows */}
+        <div className="relative group/reviews">
+          {/* Side Floating Prev Button */}
+          <button
+            onClick={scrollPrev}
+            aria-label="Previous Review"
+            className="hidden md:flex absolute -left-4 lg:-left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white/95 hover:bg-white text-[#0B2E8D] shadow-xl border border-slate-200/90 items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
+          >
+            <span className="material-symbols-outlined text-[26px]">chevron_left</span>
+          </button>
+
+          {/* Side Floating Next Button */}
+          <button
+            onClick={scrollNext}
+            aria-label="Next Review"
+            className="hidden md:flex absolute -right-4 lg:-right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 lg:w-12 lg:h-12 rounded-full bg-white/95 hover:bg-white text-[#0B2E8D] shadow-xl border border-slate-200/90 items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer"
+          >
+            <span className="material-symbols-outlined text-[26px]">chevron_right</span>
+          </button>
+
+          {/* Carousel Slider Viewport */}
+          <div className="overflow-hidden -mx-4 px-4 py-2" ref={emblaRef}>
+            <div className="flex touch-pan-y gap-6">
             {reviews.map((rev) => (
               <div
                 key={rev.id}
@@ -319,6 +338,7 @@ export function TestimonialsSlider({
               </div>
             ))}
           </div>
+        </div>
         </div>
 
         {/* Bottom Pagination Dots */}

@@ -11,19 +11,29 @@ interface QuickOption {
 
 const QUICK_OPTIONS: QuickOption[] = [
   {
-    label: "Doctor Loan (9.99%)",
-    msg: "Hi Shreem Finserv, I am interested in Personal Loan for Doctors. Please share eligibility details.",
+    label: "Professional Loan (From 9.9%)",
+    msg: "Hi Shreem Finserv, I am interested in Professional Loan for Doctors/CAs. Please share eligibility details.",
     icon: "medical_services",
   },
   {
-    label: "MSME Working Capital",
-    msg: "Hi Shreem Finserv, I need unsecured business working capital for my enterprise.",
+    label: "Business Loan / MSME",
+    msg: "Hi Shreem Finserv, I need collateral-free business working capital for my enterprise.",
     icon: "storefront",
   },
   {
+    label: "Home Loan (From 8.5%)",
+    msg: "Hi Shreem Finserv, I want to inquire about Home Loan interest rates and eligibility.",
+    icon: "home",
+  },
+  {
     label: "Loan Against Property",
-    msg: "Hi Shreem Finserv, I want to explore Loan Against Property at low interest rates.",
+    msg: "Hi Shreem Finserv, I want to explore Loan Against Property (LAP) at low interest rates.",
     icon: "real_estate_agent",
+  },
+  {
+    label: "Instant Personal Loan",
+    msg: "Hi Shreem Finserv, I want to check my eligibility for an instant Personal Loan.",
+    icon: "payments",
   },
   {
     label: "Urgent 2-Hour Cash",

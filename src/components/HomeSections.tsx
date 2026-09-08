@@ -6,12 +6,14 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 
 const TYPEWRITER_WORDS = [
-  "Personal Loans",
+  "Professional Loans",
   "Business Loans",
+  "Home Loans",
   "Loan Against Property",
+  "Personal Loans",
+  "Working Capital",
   "Machinery Loans",
   "Urgent Cash Advance",
-  "Loans for Doctors",
 ];
 
 const WHY_CHOOSE_US = [
@@ -163,24 +165,22 @@ export function WhyChooseUsSection() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-6 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4 mb-12">
           {WHY_CHOOSE_US.map((item, idx) => (
-            <ScrollReveal key={idx} variant="fade-up" delay={idx * 100}>
-              <div className="group bg-white border border-slate-200/80 rounded-2xl p-6 md:p-7 hover:border-[#0B2E8D]/40 hover:shadow-xl transition-all duration-300 relative overflow-hidden">
+            <ScrollReveal key={idx} variant="fade-up" delay={idx * 80}>
+              <div className="group bg-white border border-slate-200/80 rounded-2xl p-4 sm:p-5 hover:border-[#0B2E8D]/40 hover:shadow-xl transition-all duration-300 relative overflow-hidden flex flex-col items-center text-center h-full">
                 {/* Hover gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-br from-[#0B2E8D]/[0.02] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none rounded-2xl"></div>
 
-                <div className="relative z-10 flex items-start gap-4">
-                  <div className={`w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-gradient-to-br ${item.color} text-white flex items-center justify-center flex-shrink-0 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                    <span className="material-symbols-outlined text-[24px] md:text-[26px]">{item.icon}</span>
+                <div className="relative z-10 flex flex-col items-center text-center w-full">
+                  <div className={`w-11 h-11 rounded-2xl bg-gradient-to-br ${item.color} text-white flex items-center justify-center flex-shrink-0 shadow-md group-hover:scale-110 transition-transform duration-300 mb-2.5`}>
+                    <span className="material-symbols-outlined text-[22px]">{item.icon}</span>
                   </div>
-                  <div className="min-w-0">
-                    <div className="text-2xl md:text-3xl font-black text-slate-900 tracking-tight leading-tight group-hover:text-[#0B2E8D] transition-colors">
-                      {item.number}
-                    </div>
-                    <h3 className="text-sm font-bold text-slate-700 mt-0.5">{item.title}</h3>
-                    <p className="text-xs text-slate-500 mt-1 leading-relaxed">{item.desc}</p>
+                  <div className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight leading-tight group-hover:text-[#0B2E8D] transition-colors whitespace-nowrap">
+                    {item.number}
                   </div>
+                  <h3 className="text-xs sm:text-[13px] font-bold text-slate-800 mt-1 line-clamp-1">{item.title}</h3>
+                  <p className="text-[11px] text-slate-500 mt-1 leading-snug line-clamp-2">{item.desc}</p>
                 </div>
               </div>
             </ScrollReveal>

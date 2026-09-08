@@ -6,7 +6,7 @@ import { BRAND_CONFIG } from "@/config/brand";
 
 export default function ApplyClientPage() {
   const [step, setStep] = useState<number>(1);
-  const [loanType, setLoanType] = useState<string>("Personal Loan");
+  const [loanType, setLoanType] = useState<string>("Professional Loan");
   const [loanAmount, setLoanAmount] = useState<number>(500000);
   const [tenureYears, setTenureYears] = useState<number>(5);
   
@@ -163,12 +163,14 @@ export default function ApplyClientPage() {
                     </label>
                     <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5">
                       {[
-                        { name: "Personal Loan", icon: "person" },
+                        { name: "Professional Loan", icon: "medical_services" },
                         { name: "Business Loan", icon: "store" },
-                        { name: "Loan Against Property", icon: "home" },
+                        { name: "Home Loan", icon: "home" },
+                        { name: "Loan Against Property", icon: "real_estate_agent" },
+                        { name: "Personal Loan", icon: "person" },
+                        { name: "Working Capital", icon: "account_balance_wallet" },
                         { name: "Machinery Loan", icon: "precision_manufacturing" },
-                        { name: "Doctor's Loan", icon: "stethoscope" },
-                        { name: "Women Entrepreneur", icon: "shield_person" },
+                        { name: "Women Entrepreneur", icon: "diversity_3" },
                       ].map((item) => (
                         <button
                           key={item.name}
