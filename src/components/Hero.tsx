@@ -204,149 +204,136 @@ export function Hero() {
   };
 
   return (
-    <div className="relative w-full overflow-hidden bg-white">
+    <div className="relative w-full overflow-hidden bg-slate-50">
       
-      {/* 1. Main Hero Slider Container (Deep Royal Navy & High-Contrast Visuals) */}
-      <div className="relative overflow-hidden" ref={emblaRef}>
-        <div className="flex touch-pan-y">
-          {HERO_SLIDES.map((slide, index) => {
-            return (
-              <div
-                key={slide.id}
-                className="relative flex-[0_0_100%] min-w-0 min-h-[480px] sm:min-h-[530px] md:min-h-[580px] lg:min-h-[620px] flex items-center bg-[#001038] overflow-hidden"
-              >
-                {/* Full-Bleed Panoramic Background Image */}
-                <div className="absolute inset-0 z-0">
+      {/* 1. Main Hero Slider */}
+      <div className="w-full overflow-hidden relative" ref={emblaRef}>
+        <div className="flex" style={{ touchAction: "pan-y" }}>
+          {HERO_SLIDES.map((slide, index) => (
+            <div
+              key={slide.id}
+              className="relative flex-[0_0_100%] min-w-0 min-h-[440px] sm:min-h-[480px] md:min-h-[540px] lg:min-h-[560px] bg-slate-50"
+            >
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 items-center max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[inherit] pt-6 pb-16 sm:pt-8 sm:pb-14 lg:py-14">
+
+                {/* Column 1: Text Content */}
+                <div className="space-y-3 sm:space-y-4 text-left order-2 lg:order-1">
+
+                  {/* Badge */}
+                  <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-50 border border-blue-200 shadow-xs">
+                    <span className="material-symbols-outlined text-[16px] text-[#1c4e9e]">
+                      {slide.badgeIcon}
+                    </span>
+                    <span className="text-xs sm:text-sm font-semibold tracking-wide text-[#1c4e9e]">
+                      {slide.badge}
+                    </span>
+                  </div>
+
+                  {/* Title */}
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight leading-[1.12]">
+                    {slide.titleLine1}{" "}
+                    <span className="text-[#1c4e9e]">{slide.titleLine2}</span>
+                  </h1>
+
+                  {/* Subtitle */}
+                  <p className="text-sm sm:text-base md:text-lg font-medium text-slate-600 leading-relaxed max-w-lg">
+                    {slide.headline}
+                  </p>
+
+                  {/* Benefit Pills */}
+                  <div className="flex flex-wrap gap-2 pt-1">
+                    {slide.keyBenefits.map((benefit, i) => (
+                      <div
+                        key={i}
+                        className="inline-flex items-center gap-1.5 bg-white border border-slate-200 rounded-full px-3 py-1.5 shadow-xs"
+                      >
+                        <span className="material-symbols-outlined text-[16px] text-emerald-500 shrink-0">
+                          check_circle
+                        </span>
+                        <span className="text-xs sm:text-[13px] font-semibold text-slate-700 whitespace-nowrap">
+                          {benefit}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* CTA Row */}
+                  <div className="pt-2 sm:pt-3 flex flex-wrap items-center gap-3">
+                    <Link
+                      href={slide.ctaLink}
+                      className="inline-flex items-center justify-center gap-2 px-7 sm:px-9 py-3 sm:py-3.5 rounded-full bg-[#e50914] hover:bg-[#c40812] text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg shadow-red-500/20 transition-all duration-200 hover:scale-105 active:scale-95 group"
+                    >
+                      <span>{slide.ctaText}</span>
+                      <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">
+                        arrow_forward
+                      </span>
+                    </Link>
+
+                    <a
+                      href="tel:+918745003840"
+                      className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-full bg-white hover:bg-slate-100 text-slate-800 font-semibold text-xs sm:text-sm tracking-wide border border-slate-200 shadow-sm transition-all duration-200 hover:scale-105 active:scale-95"
+                    >
+                      <span className="material-symbols-outlined text-[18px] text-emerald-500">
+                        phone_in_talk
+                      </span>
+                      <span className="whitespace-nowrap">Call +91 87450 03840</span>
+                    </a>
+                  </div>
+
+                  {/* Trust Strip */}
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] sm:text-xs text-slate-400 font-medium pt-1">
+                    <span className="flex items-center gap-1">
+                      <span className="material-symbols-outlined text-[14px] text-amber-500">star</span>
+                      50+ Partner Banks & NBFCs
+                    </span>
+                    <span>•</span>
+                    <span>Zero Prepayment Penalty</span>
+                    <span className="hidden sm:inline">•</span>
+                    <span className="hidden sm:inline">100% Safe & RBI Compliant</span>
+                  </div>
+                </div>
+
+                {/* Column 2: Image */}
+                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] lg:aspect-[4/3] rounded-2xl overflow-hidden shadow-sm order-1 lg:order-2">
                   <Image
                     src={slide.bgImage}
                     alt={slide.imageAlt}
                     fill
                     priority={index === 0}
-                    sizes="100vw"
-                    className="object-cover object-right md:object-right select-none pointer-events-none"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                    className="object-cover object-center select-none pointer-events-none"
                   />
-                  {/* Multi-stage Luxury Gradient Overlay:
-                      Solid dark navy on the left where typography and CTAs sit, 
-                      smoothly transitioning across center, completely transparent on the right
-                      to showcase the crisp, high-resolution photographic subjects with zero white haze */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-[#000d2b] via-[#00164e]/95 via-45% md:via-55% to-[#00164e]/20 md:to-transparent pointer-events-none" />
-                  {/* Soft top-and-bottom vignette for seamless header and section integration */}
-                  <div className="absolute inset-0 bg-gradient-to-b from-[#000d2b]/40 via-transparent to-[#000d2b]/50 pointer-events-none" />
-                </div>
-
-                {/* Foreground Content Area on the Left */}
-                <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-14 md:py-18">
-                  <div className="max-w-2xl lg:max-w-3xl space-y-3 sm:space-y-4 md:space-y-4.5 text-left">
-                    
-                    {/* Trust Badge Pill */}
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/80 border border-blue-400/30 text-cyan-300 backdrop-blur-md shadow-sm">
-                      <span className="material-symbols-outlined text-[17px] text-amber-400">
-                        {slide.badgeIcon}
-                      </span>
-                      <span className="text-xs sm:text-sm font-semibold tracking-wide text-cyan-200">
-                        {slide.badge}
-                      </span>
-                    </div>
-
-                    {/* Giant Bold Headline */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white tracking-tight leading-[1.06] drop-shadow-sm">
-                      {slide.titleLine1}{" "}
-                      <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-300 via-yellow-200 to-amber-400">
-                        {slide.titleLine2}
-                      </span>
-                    </h1>
-
-                    {/* Subtitle */}
-                    <p className="text-base sm:text-lg md:text-xl font-medium text-slate-100/90 tracking-tight leading-relaxed max-w-xl">
-                      {slide.headline}
-                    </p>
-
-                    {/* Key Value Benefits Checkmarks */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-2.5 pt-1 pb-1">
-                      {slide.keyBenefits.map((benefit, i) => (
-                        <div
-                          key={i}
-                          className="flex items-center gap-2 bg-white/[0.08] hover:bg-white/[0.12] border border-white/15 rounded-xl px-3 py-2 backdrop-blur-md transition-colors"
-                        >
-                          <span className="material-symbols-outlined text-[18px] text-emerald-400 shrink-0">
-                            check_circle
-                          </span>
-                          <span className="text-xs sm:text-[13px] font-semibold text-white whitespace-nowrap">
-                            {benefit}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Action Row */}
-                    <div className="pt-2 sm:pt-3 flex flex-wrap items-center gap-3 sm:gap-4">
-                      <Link
-                        href={slide.ctaLink}
-                        className="inline-flex items-center justify-center gap-2 px-8 sm:px-10 py-3.5 sm:py-4 rounded-full bg-[#e50914] hover:bg-[#c40812] text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-xl shadow-red-950/50 transition-all duration-200 hover:scale-105 active:scale-95 group"
-                      >
-                        <span>{slide.ctaText}</span>
-                        <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">
-                          arrow_forward
-                        </span>
-                      </Link>
-
-                      {/* Hotline Call CTA */}
-                      <a
-                        href="tel:+918745003840"
-                        className="inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3.5 sm:py-4 rounded-full bg-white/10 hover:bg-white/20 text-white font-semibold text-xs sm:text-sm tracking-wide backdrop-blur-md border border-white/20 shadow-sm transition-all duration-200 hover:scale-105 active:scale-95"
-                      >
-                        <span className="material-symbols-outlined text-[18px] text-emerald-400">
-                          phone_in_talk
-                        </span>
-                        <span className="whitespace-nowrap">Call +91 87450 03840</span>
-                      </a>
-                    </div>
-
-                    {/* Micro Trust Proof Strip */}
-                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-[11px] sm:text-xs text-slate-300/85 font-medium pt-1">
-                      <span className="flex items-center gap-1">
-                        <span className="material-symbols-outlined text-[14px] text-amber-400">star</span>
-                        50+ Partner Banks & NBFCs
-                      </span>
-                      <span>•</span>
-                      <span>Zero Prepayment Penalty</span>
-                      <span className="hidden sm:inline">•</span>
-                      <span className="hidden sm:inline">100% Safe & RBI Compliant</span>
-                    </div>
-
-                  </div>
                 </div>
 
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
-        {/* Hero Slider Left Navigation Arrow Button */}
+        {/* Navigation Arrows */}
         <button
           onClick={scrollPrev}
           aria-label="Previous Banner"
-          className="absolute left-3 sm:left-6 md:left-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-900/60 hover:bg-slate-900/90 text-white shadow-2xl backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer group/arrow"
+          className="hidden sm:flex absolute left-2 sm:left-4 md:left-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/90 hover:bg-white text-slate-700 shadow-lg border border-slate-200 items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer group/arrow"
         >
-          <span className="material-symbols-outlined text-[24px] sm:text-[28px] text-white group-hover/arrow:-translate-x-0.5 transition-transform">
+          <span className="material-symbols-outlined text-[22px] sm:text-[26px] group-hover/arrow:-translate-x-0.5 transition-transform">
             chevron_left
           </span>
         </button>
 
-        {/* Hero Slider Right Navigation Arrow Button */}
         <button
           onClick={scrollNext}
           aria-label="Next Banner"
-          className="absolute right-3 sm:right-6 md:right-8 top-1/2 -translate-y-1/2 z-20 w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-900/60 hover:bg-slate-900/90 text-white shadow-2xl backdrop-blur-md border border-white/20 flex items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer group/arrow"
+          className="hidden sm:flex absolute right-2 sm:right-4 md:right-6 top-1/2 -translate-y-1/2 z-20 w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-white/90 hover:bg-white text-slate-700 shadow-lg border border-slate-200 items-center justify-center transition-all duration-200 hover:scale-110 active:scale-95 cursor-pointer group/arrow"
         >
-          <span className="material-symbols-outlined text-[24px] sm:text-[28px] text-white group-hover/arrow:translate-x-0.5 transition-transform">
+          <span className="material-symbols-outlined text-[22px] sm:text-[26px] group-hover/arrow:translate-x-0.5 transition-transform">
             chevron_right
           </span>
         </button>
 
-        {/* Slide Pagination Dots & Counter (Bottom Centered inside Hero Slider) */}
-        <div className="absolute bottom-4 left-0 right-0 z-20 flex items-center justify-center pointer-events-none">
-          <div className="flex items-center gap-2 bg-slate-950/70 backdrop-blur-md px-4 py-1.5 rounded-full border border-white/20 shadow-lg pointer-events-auto">
+        {/* Pagination Dots */}
+        <div className="absolute bottom-3 left-0 right-0 z-20 flex items-center justify-center pointer-events-none">
+          <div className="flex items-center gap-2 bg-white/90 backdrop-blur-sm px-4 py-1.5 rounded-full border border-slate-200 shadow-md pointer-events-auto">
             {scrollSnaps.map((_, dotIndex) => {
               const isDotActive = dotIndex === selectedIndex;
               return (
@@ -356,13 +343,13 @@ export function Hero() {
                   aria-label={`Go to slide ${dotIndex + 1}`}
                   className={`transition-all duration-300 rounded-full h-2 cursor-pointer ${
                     isDotActive
-                      ? "w-7 bg-[#e50914] shadow-sm shadow-red-500/50"
-                      : "w-2 bg-white/50 hover:bg-white/80"
+                      ? "w-7 bg-[#e50914] shadow-sm"
+                      : "w-2 bg-slate-300 hover:bg-slate-400"
                   }`}
                 />
               );
             })}
-            <span className="text-white/90 text-[11px] font-bold pl-1 tracking-wider">
+            <span className="text-slate-500 text-[11px] font-bold pl-1 tracking-wider">
               0{selectedIndex + 1} / 0{HERO_SLIDES.length}
             </span>
           </div>
