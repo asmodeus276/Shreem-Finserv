@@ -18,6 +18,7 @@ export interface InnerBannerProps {
   breadcrumbs: BreadcrumbItem[];
   imageSrc?: string;
   imageAlt?: string;
+  imageObjectPosition?: string;
   ctaText?: string;
   ctaLink?: string;
   secondaryCtaText?: string;
@@ -32,77 +33,82 @@ export const InnerBanner: React.FC<InnerBannerProps> = ({
   breadcrumbs,
   imageSrc,
   imageAlt,
+  imageObjectPosition = "50% 20%",
   ctaText,
   ctaLink,
 }) => {
   return (
     <section className="relative w-full overflow-hidden bg-slate-50 border-b border-slate-200">
       
-      {/* Full-Bleed Panoramic Background Image */}
-      {imageSrc && (
-        <div className="absolute inset-0 z-0">
+      {/* Controlled Responsive Height Container (Compact Above-The-Fold Layout) */}
+      <div className="relative w-full h-[260px] sm:h-[320px] md:h-[380px] lg:h-[420px] flex items-center overflow-hidden">
+        
+        {/* Full-Bleed Panoramic Background Image (Smart 50% 20% Focal Point for Perfect Headroom) */}
+        {imageSrc && (
           <Image
             src={imageSrc}
             alt={imageAlt || title}
             fill
             priority
             sizes="100vw"
-            className="object-cover object-right md:object-center"
+            className="object-cover select-none pointer-events-none"
+            style={{ objectPosition: imageObjectPosition || "50% 20%" }}
           />
-          {/* Smooth left gradient overlay to guarantee 100% crisp text readability */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent md:via-white/80" />
-        </div>
-      )}
+        )}
 
-      {/* Main Content Area */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-10 sm:py-14 md:py-18 min-h-[300px] sm:min-h-[340px] md:min-h-[380px] flex items-center">
-        <div className="max-w-2xl space-y-2 sm:space-y-3">
-          
-          {/* Main Title (Dark Navy Blue #1c4e9e matching screenshots) */}
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1c4e9e] tracking-tight leading-[1.1]">
-            {title}{" "}
-            {highlightText && (
-              <span className="block font-medium text-[#1c4e9e] mt-0.5">{highlightText}</span>
+        {/* Subtle Left-Side Gradient for Text Legibility Over Dark Backgrounds */}
+        <div className="absolute inset-0 z-[5] bg-gradient-to-r from-white/70 via-white/40 to-transparent pointer-events-none" />
+
+        {/* Foreground Content Area */}
+        <div className="absolute inset-0 z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex items-center">
+          <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl space-y-1 sm:space-y-2 md:space-y-3">
+            
+            {/* Main Title (Dark Navy Blue #1c4e9e matching screenshots) */}
+            <h1 className="text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#1c4e9e] tracking-tight leading-[1.12]">
+              {title}{" "}
+              {highlightText && (
+                <span className="block font-semibold text-[#1c4e9e] mt-0.5">{highlightText}</span>
+              )}
+            </h1>
+
+            {/* Subtitle matching screenshots */}
+            <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-slate-700 font-semibold tracking-normal max-w-md">
+              {subtitle}
+            </p>
+
+            {/* Optional CTA Link */}
+            {ctaText && ctaLink && (
+              <div className="pt-1 sm:pt-2 md:pt-3">
+                <Link
+                  href={ctaLink}
+                  className="inline-flex items-center justify-center px-4 sm:px-6 md:px-7 py-1.5 sm:py-2 md:py-2.5 rounded-full bg-[#1c4e9e] hover:bg-[#163f80] text-white font-bold text-[10px] sm:text-xs md:text-sm uppercase tracking-wider shadow-sm transition-all"
+                >
+                  <span>{ctaText}</span>
+                </Link>
+              </div>
             )}
-          </h1>
 
-          {/* Subtitle matching screenshots: "Loan amount | Quick Disbursal | Flexible EMI" */}
-          <p className="text-sm sm:text-base md:text-lg text-slate-600 font-medium tracking-normal pt-1">
-            {subtitle}
-          </p>
-
-          {/* Optional CTA Link */}
-          {ctaText && ctaLink && (
-            <div className="pt-3">
-              <Link
-                href={ctaLink}
-                className="inline-flex items-center justify-center px-7 py-2.5 rounded-full bg-[#1c4e9e] hover:bg-[#163f80] text-white font-bold text-xs sm:text-sm uppercase tracking-wider shadow-sm transition-all"
-              >
-                <span>{ctaText}</span>
-              </Link>
-            </div>
-          )}
-
+          </div>
         </div>
       </div>
 
       {/* Full-Width Dark Grey Breadcrumb Bar (Matching Screenshots #4b5563) */}
       <div className="w-full bg-[#4b5563] text-slate-200 py-2 sm:py-2.5 border-t border-slate-600/50 shadow-inner">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-xs sm:text-sm font-semibold flex items-center gap-2">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-xs sm:text-sm font-semibold flex items-center gap-2 overflow-x-auto no-scrollbar whitespace-nowrap">
           {breadcrumbs.map((crumb, cIdx) => {
             const isLast = cIdx === breadcrumbs.length - 1;
             return (
               <React.Fragment key={cIdx}>
                 {crumb.href && !isLast ? (
-                  <Link href={crumb.href} className="text-slate-200 hover:text-white transition-colors">
+                  <Link href={crumb.href} className="text-slate-200 hover:text-white transition-colors flex-shrink-0">
                     {crumb.label}
                   </Link>
                 ) : (
-                  <span className={isLast ? "text-white font-bold" : "text-slate-300"}>
+                  <span className={`${isLast ? "text-white font-bold" : "text-slate-300"} flex-shrink-0`}>
                     {crumb.label}
                   </span>
                 )}
-                {!isLast && <span className="text-slate-400">&gt;</span>}
+                {!isLast && <span className="text-slate-400 flex-shrink-0">&gt;</span>}
               </React.Fragment>
             );
           })}

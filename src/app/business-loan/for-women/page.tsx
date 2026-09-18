@@ -16,6 +16,7 @@ export default function WomenLoanPage() {
       highlightText="Women Founders & Enterprise Owners (₹1L – ₹75L)"
       description="Fuel your entrepreneurial vision with exclusive female-focused credit lines, special 0.5% interest rate concessions, zero collateral requirements, and fast-track approvals across 50+ banking partners."
       bannerImage="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1400&q=75"
+      bannerObjectPosition="50% 30%"
       maxAmount="₹1L – ₹75L"
       interestRate="From 10.0% p.a. (0.5% Rebate)"
       tenure="Up to 5 Years"

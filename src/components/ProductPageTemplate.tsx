@@ -21,6 +21,7 @@ export interface ProductPageProps {
   highlightText: string;
   description: string;
   bannerImage?: string;
+  bannerObjectPosition?: string;
   maxAmount: string;
   interestRate: string;
   tenure: string;
@@ -43,6 +44,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
   highlightText,
   description,
   bannerImage,
+  bannerObjectPosition = "50% 20%",
   maxAmount,
   interestRate,
   tenure,
@@ -93,63 +95,67 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
       {/* 1. Full-Bleed Panoramic Hero Banner Matching Capital Need Reference Screenshots */}
       <section className="relative w-full overflow-hidden bg-slate-50 border-b border-slate-200">
         
-        {/* Full-Bleed Background Image */}
-        <div className="absolute inset-0 z-0">
+        {/* Controlled Responsive Height Container (Compact Above-The-Fold Layout) */}
+        <div className="relative w-full h-[260px] sm:h-[320px] md:h-[380px] lg:h-[420px] flex items-center overflow-hidden">
+          
+          {/* Full-Bleed Background Image (Smart 50% 20% Focal Point for Perfect Headroom) */}
           <Image
             src={resolvedBannerImage}
             alt={categoryName}
             fill
             priority
             sizes="100vw"
-            className="object-cover object-right md:object-center"
+            className="object-cover select-none pointer-events-none"
+            style={{ objectPosition: bannerObjectPosition || "50% 20%" }}
           />
-          {/* Smooth left gradient overlay to guarantee 100% text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-transparent md:via-white/80" />
-        </div>
 
-        {/* Foreground Content Area */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 md:px-8 py-12 sm:py-16 md:py-20 min-h-[320px] sm:min-h-[360px] md:min-h-[400px] flex items-center">
-          <div className="max-w-2xl space-y-2 sm:space-y-3">
-            
-            {/* Main Headline (Dark Royal Blue #1c4e9e matching screenshots) */}
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1c4e9e] tracking-tight leading-[1.1]">
-              {headline}
-              <br />
-              <span className="font-medium text-[#1c4e9e]">{highlightText}</span>
-            </h1>
+          {/* Subtle Left-Side Gradient for Text Legibility Over Dark Backgrounds */}
+          <div className="absolute inset-0 z-[5] bg-gradient-to-r from-white/70 via-white/40 to-transparent pointer-events-none" />
 
-            {/* Subtitle matching screenshots */}
-            <p className="text-sm sm:text-base md:text-lg text-slate-600 font-medium tracking-normal pt-1">
-              Loan amount | Quick Disbursal | Flexible EMI
-            </p>
+          {/* Foreground Overlay Content Area */}
+          <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex items-center">
+            <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl space-y-1.5 sm:space-y-2 md:space-y-3">
+              
+              {/* Main Headline (Dark Royal Blue #1c4e9e matching screenshots) */}
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#1c4e9e] tracking-tight leading-[1.12]">
+                {headline}
+                <br />
+                <span className="font-semibold text-[#1c4e9e]">{highlightText}</span>
+              </h1>
 
+              {/* Subtitle matching screenshots */}
+              <p className="text-xs sm:text-sm md:text-base text-slate-700 font-semibold tracking-normal max-w-md">
+                Loan amount | Quick Disbursal | Flexible EMI
+              </p>
+
+            </div>
           </div>
         </div>
 
         {/* Full-Width Dark Grey Breadcrumb Bar (Matching Screenshots #4b5563) */}
         <div className="w-full bg-[#4b5563] text-slate-200 py-2 sm:py-2.5 border-t border-slate-600/50 shadow-inner">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-xs sm:text-sm font-semibold flex items-center gap-2">
-            <Link href="/" className="text-slate-200 hover:text-white transition-colors">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-xs sm:text-sm font-semibold flex items-center gap-2 overflow-x-auto no-scrollbar whitespace-nowrap">
+            <Link href="/" className="text-slate-200 hover:text-white transition-colors flex-shrink-0">
               Home
             </Link>
-            <span className="text-slate-400">&gt;</span>
-            <Link href="/personal-loan" className="text-slate-200 hover:text-white transition-colors">
+            <span className="text-slate-400 flex-shrink-0">&gt;</span>
+            <Link href="/personal-loan" className="text-slate-200 hover:text-white transition-colors flex-shrink-0">
               {categoryName}
             </Link>
-            <span className="text-slate-400">&gt;</span>
-            <span className="text-white font-bold">Overview</span>
+            <span className="text-slate-400 flex-shrink-0">&gt;</span>
+            <span className="text-white font-bold flex-shrink-0">Overview</span>
           </div>
         </div>
 
       </section>
 
       {/* 2. Interactive Navigation Tabs Strip (Matching capitalneed.com tab-fixed style) */}
-      <div className="sticky top-18 md:top-20 z-40 bg-white border-b border-slate-200 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between overflow-x-auto no-scrollbar py-2">
-          <div className="flex items-center space-x-1 sm:space-x-3 text-xs sm:text-sm font-bold whitespace-nowrap">
+      <div className="sticky top-[108px] md:top-[120px] z-40 bg-white border-b border-slate-200 shadow-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between py-2">
+          <div className="flex-1 min-w-0 flex items-center gap-1.5 sm:gap-2.5 md:gap-3 text-xs sm:text-sm font-bold whitespace-nowrap overflow-x-auto no-scrollbar scroll-smooth">
             <button
               onClick={() => scrollToSection("overview-section")}
-              className={`px-3 py-2 rounded-lg transition-colors ${
+              className={`flex-shrink-0 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                 activeTab === "overview" || activeTab === "overview-section"
                   ? "bg-blue-50 text-[#1c4e9e]"
                   : "text-slate-600 hover:text-slate-900"
@@ -160,7 +166,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
 
             <button
               onClick={() => scrollToSection("features-section")}
-              className={`px-3 py-2 rounded-lg transition-colors ${
+              className={`flex-shrink-0 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                 activeTab === "features-section"
                   ? "bg-blue-50 text-[#1c4e9e]"
                   : "text-slate-600 hover:text-slate-900"
@@ -171,7 +177,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
 
             <button
               onClick={() => scrollToSection("eligibility-section")}
-              className={`px-3 py-2 rounded-lg transition-colors ${
+              className={`flex-shrink-0 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                 activeTab === "eligibility-section"
                   ? "bg-blue-50 text-[#1c4e9e]"
                   : "text-slate-600 hover:text-slate-900"
@@ -182,7 +188,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
 
             <button
               onClick={() => scrollToSection("rates-section")}
-              className={`px-3 py-2 rounded-lg transition-colors ${
+              className={`flex-shrink-0 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                 activeTab === "rates-section"
                   ? "bg-blue-50 text-[#1c4e9e]"
                   : "text-slate-600 hover:text-slate-900"
@@ -193,7 +199,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
 
             <button
               onClick={() => scrollToSection("calculator-section")}
-              className={`px-3 py-2 rounded-lg transition-colors ${
+              className={`flex-shrink-0 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                 activeTab === "calculator-section"
                   ? "bg-blue-50 text-[#1c4e9e]"
                   : "text-slate-600 hover:text-slate-900"
@@ -205,7 +211,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
 
           <button
             onClick={() => scrollToSection("lead-application-form")}
-            className="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#1c4e9e] hover:bg-[#163f80] text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all flex-shrink-0 ml-4"
+            className="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#1c4e9e] hover:bg-[#163f80] text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all flex-shrink-0 ml-3 whitespace-nowrap"
           >
             Apply Now
           </button>

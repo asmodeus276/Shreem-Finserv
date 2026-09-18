@@ -123,11 +123,11 @@ export const Navbar: React.FC = () => {
       </div>
 
       {/* Tier 2: Sub-Header Bar (Full-Width Royal Blue Strip #1c4e9e) */}
-      <div className="w-full bg-[#1c4e9e] text-white overflow-x-auto no-scrollbar border-t border-blue-900/40 shadow-inner">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between min-w-max md:min-w-0 py-2.5">
+      <div className="w-full bg-[#1c4e9e] text-white border-t border-blue-900/40 shadow-inner">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between py-2 sm:py-2.5">
           
           {/* Horizontal Loan Links Row */}
-          <nav className="flex-1 min-w-0 flex items-center space-x-1 sm:space-x-2 md:space-x-3.5 lg:space-x-4 text-xs sm:text-[13px] font-medium whitespace-nowrap overflow-x-auto no-scrollbar pr-2">
+          <nav className="flex-1 min-w-0 flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 text-xs sm:text-[13px] font-medium whitespace-nowrap overflow-x-auto no-scrollbar scroll-smooth -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0">
             {LOAN_STRIP_ITEMS.map((loan, idx) => {
               const isCurrentActive =
                 pathname === loan.href ||
@@ -137,7 +137,9 @@ export const Navbar: React.FC = () => {
                 <Link
                   key={idx}
                   href={loan.href}
-                  className={`flex-shrink-0 px-2 py-0.5 rounded transition-all duration-150 flex items-center gap-1 whitespace-nowrap ${
+                  className={`flex-shrink-0 px-2 sm:px-2.5 py-1 rounded transition-all duration-150 flex items-center gap-1 whitespace-nowrap ${
+                    idx === LOAN_STRIP_ITEMS.length - 1 ? "mr-4 md:mr-0" : ""
+                  } ${
                     isCurrentActive
                       ? "text-white font-bold underline underline-offset-4 decoration-2"
                       : "text-blue-100 hover:text-white"
@@ -150,7 +152,7 @@ export const Navbar: React.FC = () => {
           </nav>
 
           {/* Right Red Pill Hotline Button matching screenshot (+91 87450 03840) - Fixed Single Line */}
-          <div className="hidden xl:flex items-center pl-3 flex-shrink-0">
+          <div className="hidden xl:flex items-center pl-4 flex-shrink-0">
             <a
               href={`tel:${BRAND_CONFIG.phone.replace(/\s+/g, "")}`}
               className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#e50914] hover:bg-[#c40812] text-white text-xs font-bold tracking-wide shadow-sm transition-transform hover:scale-105 whitespace-nowrap flex-shrink-0"
