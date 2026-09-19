@@ -68,7 +68,7 @@ const getScoreCategory = (score: number): ScoreCategory => {
     borderColor: "border-red-200",
     approvalRate: "35% (Specialized Desk)",
     loanRate: "From 14.50% - 18.00% p.a.",
-    description: "Higher rejection risk with traditional banks. We help arrange credit-builder programs, gold loans, or secured LAP to rebuild your credit history.",
+    description: "Higher rejection risk with traditional banks. We help arrange credit-builder programs, car loans, or secured LAP to rebuild your credit history.",
     tier: "Credit-Builder Track",
     lenders: ["Specialized NBFCs", "Secured LAP Desks", "Credit-Builder Programs"],
   };
@@ -881,7 +881,7 @@ export const CreditScoreWidget: React.FC = () => {
                   <div className="flex flex-wrap items-center gap-3 pt-2">
                     <Link
                       href="/apply"
-                      className="flex-1 bg-[#BB0119] hover:bg-[#E0292E] text-white font-bold py-3 px-4 rounded-xl transition-all shadow-md text-xs text-center flex items-center justify-center gap-1.5"
+                      className="flex-1 bg-[#E30613] hover:bg-[#FF1A27] text-white font-bold py-3 px-4 rounded-xl transition-all shadow-md text-xs text-center flex items-center justify-center gap-1.5"
                     >
                       <span>Apply with Verified Score</span>
                       <span className="material-symbols-outlined text-[16px]">bolt</span>
@@ -1177,7 +1177,7 @@ export const CreditScoreWidget: React.FC = () => {
               <div className="pt-2">
                 <Link
                   href="/apply"
-                  className="w-full bg-[#BB0119] hover:bg-[#E0292E] text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-sm"
+                  className="w-full bg-[#E30613] hover:bg-[#FF1A27] text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-sm"
                 >
                   <span>Apply for Pre-Approved Loan</span>
                   <span className="material-symbols-outlined text-[18px]">bolt</span>
@@ -1245,7 +1245,7 @@ export const CreditScoreWidget: React.FC = () => {
                 />
               </div>
 
-              <div className="bg-gradient-to-br from-[#001A62] to-[#0B2E8D] rounded-2xl p-5 text-white space-y-2">
+              <div className="bg-gradient-to-br from-[#0B309A] to-[#0B2E8D] rounded-2xl p-5 text-white space-y-2">
                 <span className="text-[10px] font-bold uppercase tracking-widest text-blue-200 block">
                   Estimated Maximum Loan
                 </span>
@@ -1266,7 +1266,7 @@ export const CreditScoreWidget: React.FC = () => {
 
               <Link
                 href="/apply"
-                className="w-full bg-[#BB0119] hover:bg-[#E0292E] text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-sm"
+                className="w-full bg-[#E30613] hover:bg-[#FF1A27] text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-sm"
               >
                 <span>Apply with Instant Eligibility</span>
                 <span className="material-symbols-outlined text-[18px]">arrow_forward</span>

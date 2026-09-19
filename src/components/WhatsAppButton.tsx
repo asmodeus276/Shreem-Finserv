@@ -16,12 +16,12 @@ const QUICK_OPTIONS: QuickOption[] = [
     icon: "medical_services",
   },
   {
-    label: "Business Loan / MSME",
+    label: "Business Loan (From 14%)",
     msg: "Hi Shreem Finserv, I need collateral-free business working capital for my enterprise.",
     icon: "storefront",
   },
   {
-    label: "Home Loan (From 8.5%)",
+    label: "Home Loan (From 7.20%)",
     msg: "Hi Shreem Finserv, I want to inquire about Home Loan interest rates and eligibility.",
     icon: "home",
   },
@@ -88,13 +88,13 @@ export const WhatsAppButton: React.FC = () => {
       {chatOpen && (
         <div className="mb-3 w-[320px] sm:w-[360px] bg-white rounded-3xl shadow-2xl border border-slate-200/90 overflow-hidden animate-fade-in-up transition-all duration-300">
           {/* Header */}
-          <div className="bg-gradient-to-r from-[#001A62] via-[#0B2E8D] to-[#001A62] p-4 text-white flex items-center justify-between relative overflow-hidden">
+          <div className="bg-gradient-to-r from-[#0B309A] via-[#0B2E8D] to-[#0B309A] p-4 text-white flex items-center justify-between relative overflow-hidden">
             <div className="flex items-center gap-3 relative z-10">
               <div className="relative">
                 <div className="w-10 h-10 rounded-full bg-white/15 backdrop-blur-md flex items-center justify-center font-bold text-white border border-white/30 text-sm">
                   SF
                 </div>
-                <span className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-400 border-2 border-[#001A62] rounded-full"></span>
+                <span className="absolute bottom-0 right-0 w-3 h-3 bg-emerald-400 border-2 border-[#0B309A] rounded-full"></span>
               </div>
               <div>
                 <div className="flex items-center gap-1.5 font-bold text-sm leading-tight">

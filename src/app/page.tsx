@@ -76,7 +76,7 @@ export default function HomePage() {
       {/* 8. Final Call-To-Action Banner */}
       <section className="py-16 max-w-7xl mx-auto px-4 md:px-8">
         <ScrollReveal variant="zoom-in">
-          <div className="relative overflow-hidden bg-gradient-to-r from-[#8B0010] via-[#BB0119] to-[#001A62] text-white rounded-3xl p-8 md:p-14 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10">
+          <div className="relative overflow-hidden bg-gradient-to-r from-[#B8040E] via-[#E30613] to-[#0B309A] text-white rounded-3xl p-8 md:p-14 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10">
             <div className="space-y-3 text-center md:text-left relative z-10">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 text-white text-xs font-bold border border-white/20 backdrop-blur-sm">
                 <span className="material-symbols-outlined text-[16px] text-amber-300">bolt</span>
@@ -91,7 +91,7 @@ export default function HomePage() {
             </div>
             <a
               href="/apply"
-              className="relative z-10 bg-white hover:bg-slate-50 text-[#001A62] font-black px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all text-sm flex items-center gap-2 flex-shrink-0"
+              className="relative z-10 bg-white hover:bg-slate-50 text-[#0B309A] font-black px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all text-sm flex items-center gap-2 flex-shrink-0"
             >
               <span>Apply Online Now</span>
               <span className="material-symbols-outlined text-[18px]">arrow_forward</span>

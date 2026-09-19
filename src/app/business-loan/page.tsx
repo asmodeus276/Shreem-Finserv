@@ -4,7 +4,7 @@ import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Business Loan & MSME Working Capital up to ₹5 Crores | Shreem Finserv",
   description:
-    "Secure fast collateral-free Business Loans and MSME Working Capital from ₹2 Lakhs up to ₹5 Crores starting from 11.25% p.a. Multi-bank sanctions in 48 hours with Shreem Finserv.",
+    "Secure fast collateral-free Business Loans and MSME Working Capital from ₹2 Lakhs up to ₹5 Crores starting from 14% p.a. Multi-bank sanctions in 48 hours with Shreem Finserv.",
 };
 
 export default function BusinessLoanPage() {
@@ -17,13 +17,13 @@ export default function BusinessLoanPage() {
       bannerImage="/images/business-loan-inner-banner.jpg"
       description="Scale your enterprise, finance working capital, purchase inventory, or expand operations with collateral-free business loans from ₹2 Lakhs up to ₹5 Crores across 50+ Scheduled Commercial Banks & NBFCs."
       maxAmount="₹5 Crores"
-      interestRate="11.25% p.a."
+      interestRate="From 14% p.a."
       tenure="Up to 5 Years"
       disbursalSpeed="Under 48 Hours"
       defaultSliderAmount={2000000}
       minSliderAmount={100000}
       maxSliderAmount={50000000}
-      defaultEmiRate={11.5}
+      defaultEmiRate={14.0}
       defaultEmiTenureYears={3}
       features={[
         {

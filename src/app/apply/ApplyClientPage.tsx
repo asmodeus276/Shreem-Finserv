@@ -168,6 +168,7 @@ export default function ApplyClientPage() {
                         { name: "Home Loan", icon: "home" },
                         { name: "Loan Against Property", icon: "real_estate_agent" },
                         { name: "Personal Loan", icon: "person" },
+                        { name: "Car Loan", icon: "directions_car" },
                         { name: "Working Capital", icon: "account_balance_wallet" },
                         { name: "Machinery Loan", icon: "precision_manufacturing" },
                         { name: "Women Entrepreneur", icon: "diversity_3" },
@@ -408,7 +409,7 @@ export default function ApplyClientPage() {
                     <button
                       type="submit"
                       disabled={submitting || !consent}
-                      className="w-2/3 bg-[#BB0119] hover:bg-[#E0292E] text-white font-bold py-3.5 px-6 rounded-2xl transition-all shadow-md flex items-center justify-center gap-2 text-sm disabled:opacity-50"
+                      className="w-2/3 bg-[#E30613] hover:bg-[#FF1A27] text-white font-bold py-3.5 px-6 rounded-2xl transition-all shadow-md flex items-center justify-center gap-2 text-sm disabled:opacity-50"
                     >
                       {submitting ? (
                         <span>Sanctioning Request...</span>
@@ -429,7 +430,7 @@ export default function ApplyClientPage() {
             <div className="lg:col-span-5 space-y-6">
               
               {/* Live Quotation Card */}
-              <div className="bg-gradient-to-br from-[#001A62] via-[#0B2E8D] to-[#142450] rounded-3xl p-6 sm:p-7 text-white shadow-xl space-y-5 border border-white/20">
+              <div className="bg-gradient-to-br from-[#0B309A] via-[#0B2E8D] to-[#142450] rounded-3xl p-6 sm:p-7 text-white shadow-xl space-y-5 border border-white/20">
                 <span className="text-xs font-bold uppercase tracking-wider text-emerald-300">
                   Application Summary
                 </span>

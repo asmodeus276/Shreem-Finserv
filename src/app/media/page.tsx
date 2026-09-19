@@ -165,7 +165,7 @@ export default function MediaPage() {
           </div>
           <a
             href={`mailto:${BRAND_CONFIG.email}?subject=Media%20Inquiry%20-%20Shreem%20Finserv`}
-            className="inline-flex items-center gap-2 bg-[#001A62] hover:bg-[#0B2E8D] text-white font-bold px-6 py-3 rounded-xl text-xs shadow transition-colors flex-shrink-0"
+            className="inline-flex items-center gap-2 bg-[#0B309A] hover:bg-[#0B2E8D] text-white font-bold px-6 py-3 rounded-xl text-xs shadow transition-colors flex-shrink-0"
           >
             <span className="material-symbols-outlined text-[16px]">mail</span>
             <span>Contact Media Desk</span>

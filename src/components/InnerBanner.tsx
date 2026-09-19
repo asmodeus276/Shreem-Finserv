@@ -63,11 +63,11 @@ export const InnerBanner: React.FC<InnerBannerProps> = ({
         <div className="absolute inset-0 z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex items-center">
           <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl space-y-1 sm:space-y-2 md:space-y-3">
             
-            {/* Main Title (Dark Navy Blue #1c4e9e matching screenshots) */}
-            <h1 className="text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#1c4e9e] tracking-tight leading-[1.12]">
+            {/* Main Title (Brand Royal Blue #0B309A) */}
+            <h1 className="text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#0B309A] tracking-tight leading-[1.12]">
               {title}{" "}
               {highlightText && (
-                <span className="block font-semibold text-[#1c4e9e] mt-0.5">{highlightText}</span>
+                <span className="block font-semibold text-[#0B309A] mt-0.5">{highlightText}</span>
               )}
             </h1>
 
@@ -81,7 +81,7 @@ export const InnerBanner: React.FC<InnerBannerProps> = ({
               <div className="pt-1 sm:pt-2 md:pt-3">
                 <Link
                   href={ctaLink}
-                  className="inline-flex items-center justify-center px-4 sm:px-6 md:px-7 py-1.5 sm:py-2 md:py-2.5 rounded-full bg-[#1c4e9e] hover:bg-[#163f80] text-white font-bold text-[10px] sm:text-xs md:text-sm uppercase tracking-wider shadow-sm transition-all"
+                  className="inline-flex items-center justify-center px-4 sm:px-6 md:px-7 py-1.5 sm:py-2 md:py-2.5 rounded-full bg-[#0B309A] hover:bg-[#082475] text-white font-bold text-[10px] sm:text-xs md:text-sm uppercase tracking-wider shadow-sm transition-all"
                 >
                   <span>{ctaText}</span>
                 </Link>

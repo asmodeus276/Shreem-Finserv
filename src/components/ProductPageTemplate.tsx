@@ -36,6 +36,7 @@ export interface ProductPageProps {
   eligibility: string[];
   documents: string[];
   faqs: Array<{ q: string; a: string }>;
+  customBankPartners?: typeof BANK_PARTNERS_DATA;
 }
 
 export const ProductPageTemplate: React.FC<ProductPageProps> = ({
@@ -58,6 +59,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
   eligibility = [],
   documents = [],
   faqs = [],
+  customBankPartners,
 }) => {
   const [activeTab, setActiveTab] = useState<string>("overview");
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -116,11 +118,11 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
           <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 flex items-center">
             <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl space-y-1.5 sm:space-y-2 md:space-y-3">
               
-              {/* Main Headline (Dark Royal Blue #1c4e9e matching screenshots) */}
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#1c4e9e] tracking-tight leading-[1.12]">
+              {/* Main Headline (Brand Royal Blue #0B309A) */}
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#0B309A] tracking-tight leading-[1.12]">
                 {headline}
                 <br />
-                <span className="font-semibold text-[#1c4e9e]">{highlightText}</span>
+                <span className="font-semibold text-[#0B309A]">{highlightText}</span>
               </h1>
 
               {/* Subtitle matching screenshots */}
@@ -157,7 +159,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
               onClick={() => scrollToSection("overview-section")}
               className={`flex-shrink-0 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                 activeTab === "overview" || activeTab === "overview-section"
-                  ? "bg-blue-50 text-[#1c4e9e]"
+                  ? "bg-blue-50 text-[#0B2E8D]"
                   : "text-slate-600 hover:text-slate-900"
               }`}
             >
@@ -168,7 +170,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
               onClick={() => scrollToSection("features-section")}
               className={`flex-shrink-0 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                 activeTab === "features-section"
-                  ? "bg-blue-50 text-[#1c4e9e]"
+                  ? "bg-blue-50 text-[#0B2E8D]"
                   : "text-slate-600 hover:text-slate-900"
               }`}
             >
@@ -179,7 +181,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
               onClick={() => scrollToSection("eligibility-section")}
               className={`flex-shrink-0 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                 activeTab === "eligibility-section"
-                  ? "bg-blue-50 text-[#1c4e9e]"
+                  ? "bg-blue-50 text-[#0B2E8D]"
                   : "text-slate-600 hover:text-slate-900"
               }`}
             >
@@ -190,7 +192,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
               onClick={() => scrollToSection("rates-section")}
               className={`flex-shrink-0 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                 activeTab === "rates-section"
-                  ? "bg-blue-50 text-[#1c4e9e]"
+                  ? "bg-blue-50 text-[#0B2E8D]"
                   : "text-slate-600 hover:text-slate-900"
               }`}
             >
@@ -201,7 +203,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
               onClick={() => scrollToSection("calculator-section")}
               className={`flex-shrink-0 px-3 py-1.5 rounded-lg transition-colors whitespace-nowrap ${
                 activeTab === "calculator-section"
-                  ? "bg-blue-50 text-[#1c4e9e]"
+                  ? "bg-blue-50 text-[#0B2E8D]"
                   : "text-slate-600 hover:text-slate-900"
               }`}
             >
@@ -211,7 +213,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
 
           <button
             onClick={() => scrollToSection("lead-application-form")}
-            className="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#1c4e9e] hover:bg-[#163f80] text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all flex-shrink-0 ml-3 whitespace-nowrap"
+            className="hidden sm:inline-flex items-center justify-center px-5 py-2 rounded-full bg-[#0B309A] hover:bg-[#082475] text-white font-bold text-xs uppercase tracking-wider shadow-sm transition-all flex-shrink-0 ml-3 whitespace-nowrap cursor-pointer"
           >
             Apply Now
           </button>
@@ -235,14 +237,14 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
 
             {/* Interest Rates & Charges Table (Matching capitalneed.com table format) */}
             <div id="rates-section" className="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-2xs">
-              <div className="bg-[#1c4e9e] text-white px-5 py-3 font-bold text-sm">
+              <div className="bg-[#0B309A] text-white px-5 py-3 font-bold text-sm">
                 {categoryName} Interest Rates &amp; Key Details
               </div>
               <table className="w-full text-left text-xs sm:text-sm">
                 <tbody className="divide-y divide-slate-200">
                   <tr className="hover:bg-white transition-colors">
                     <td className="px-5 py-3.5 font-bold text-slate-700">Interest Rates</td>
-                    <td className="px-5 py-3.5 font-extrabold text-[#1c4e9e]">{interestRate}</td>
+                    <td className="px-5 py-3.5 font-extrabold text-[#0B309A]">{interestRate}</td>
                   </tr>
                   <tr className="hover:bg-white transition-colors bg-white">
                     <td className="px-5 py-3.5 font-bold text-slate-700">Loan Amount</td>
@@ -264,21 +266,42 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
               </table>
             </div>
 
-            {/* Co-Lenders */}
-            <div className="pt-2">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 block mb-2">
-                Authorized Lending Bank Partners:
-              </span>
-              <div className="flex flex-wrap gap-2 items-center">
-                {BANK_PARTNERS_DATA.slice(0, 6).map((bank) => (
+            {/* Authorized Lending Bank Partners */}
+            <div className="pt-4">
+              <div className="flex items-center justify-between mb-3">
+                <span className="text-xs font-extrabold uppercase tracking-wider text-slate-700 flex items-center gap-2">
+                  <span className="material-symbols-outlined text-[18px] text-[#0B309A]">verified</span>
+                  Authorized Lending Bank Partners
+                </span>
+                <span className="text-[11px] font-bold text-[#0B309A] bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">
+                  Instant Sanction Desks
+                </span>
+              </div>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
+                {(customBankPartners || BANK_PARTNERS_DATA.slice(0, 8)).map((bank) => (
                   <div
                     key={bank.id}
-                    className="inline-flex items-center gap-1.5 bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1 text-[11px] font-bold text-slate-800"
+                    className="bg-white border border-slate-200/90 hover:border-[#0B309A] rounded-xl p-2.5 sm:px-3 sm:py-2.5 shadow-xs hover:shadow-sm transition-all flex flex-col items-center justify-center gap-1.5 text-center group"
                   >
-                    <div className="w-5 h-3.5 bg-white rounded p-0.5 flex items-center justify-center">
-                      {bank.svgIcon}
+                    <div className="w-full h-8 sm:h-9 flex items-center justify-center relative px-2">
+                      <Image
+                        src={bank.logoUrl}
+                        alt={bank.name}
+                        width={130}
+                        height={34}
+                        className="max-h-7 sm:max-h-8 max-w-[110px] sm:max-w-[120px] w-auto h-auto object-contain filter-none brightness-100 contrast-100 group-hover:scale-105 transition-transform"
+                      />
                     </div>
-                    <span>{bank.shortName}</span>
+                    <div className="w-full pt-1 border-t border-slate-100 flex flex-col items-center justify-center">
+                      <span className="text-xs font-bold text-slate-900 group-hover:text-[#0B309A] transition-colors truncate max-w-full">
+                        {bank.shortName}
+                      </span>
+                      {bank.interestRate && (
+                        <span className="text-[10px] font-extrabold text-emerald-700 mt-0.5">
+                          {bank.interestRate}
+                        </span>
+                      )}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -308,12 +331,12 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
         <section id="features-section" className="py-14 md:py-18 bg-slate-50 border-y border-slate-200">
           <div className="max-w-7xl mx-auto px-4 md:px-8">
             <div className="text-center max-w-2xl mx-auto mb-10 md:mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#1c4e9e] text-xs font-bold border border-blue-200 mb-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0B2E8D] text-xs font-bold border border-blue-200 mb-2">
                 <span className="material-symbols-outlined text-[15px]">auto_awesome</span>
                 Key Advantages
               </div>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 tracking-tight">
-                {categoryName} <span className="text-[#1c4e9e]">Features &amp; Benefits</span>
+                {categoryName} <span className="text-[#0B2E8D]">Features &amp; Benefits</span>
               </h2>
               <p className="text-slate-500 text-xs sm:text-sm mt-1.5">
                 Key product features and underwriting advantages tailored for you.
@@ -324,18 +347,18 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
               {features.map((f, idx) => (
                 <div
                   key={idx}
-                  className="bg-white border border-slate-200/80 hover:border-[#1c4e9e]/40 rounded-2xl p-6 transition-all duration-200 hover:shadow-md flex flex-col justify-between group"
+                  className="bg-white border border-slate-200/80 hover:border-[#0B2E8D]/40 rounded-2xl p-6 transition-all duration-200 hover:shadow-md flex flex-col justify-between group"
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <div className="w-11 h-11 rounded-xl bg-blue-50 text-[#1c4e9e] group-hover:bg-[#1c4e9e] group-hover:text-white flex items-center justify-center transition-colors">
+                      <div className="w-11 h-11 rounded-xl bg-blue-50 text-[#0B2E8D] group-hover:bg-[#0B2E8D] group-hover:text-white flex items-center justify-center transition-colors">
                         <span className="material-symbols-outlined text-[22px]">{f.icon}</span>
                       </div>
                       <span className="text-[11px] font-black text-slate-400">
                         {String(idx + 1).padStart(2, "0")}
                       </span>
                     </div>
-                    <h3 className="text-base font-bold text-slate-900 mb-1.5 group-hover:text-[#1c4e9e] transition-colors">
+                    <h3 className="text-base font-bold text-slate-900 mb-1.5 group-hover:text-[#0B2E8D] transition-colors">
                       {f.title}
                     </h3>
                     <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
@@ -393,7 +416,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
             {/* Documents Required Column */}
             <div className="bg-slate-50 rounded-3xl border border-slate-200/90 p-6 md:p-8 shadow-sm">
               <div className="flex items-center gap-3 mb-6 pb-4 border-b border-slate-200">
-                <div className="w-11 h-11 rounded-2xl bg-blue-100 text-[#1c4e9e] flex items-center justify-center">
+                <div className="w-11 h-11 rounded-2xl bg-blue-100 text-[#0B2E8D] flex items-center justify-center">
                   <span className="material-symbols-outlined text-2xl">description</span>
                 </div>
                 <div>
@@ -404,7 +427,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
               <ul className="space-y-3.5 text-xs sm:text-sm text-slate-700">
                 {documents.map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3">
-                    <span className="material-symbols-outlined text-[#1c4e9e] text-[18px] flex-shrink-0 mt-0.5">
+                    <span className="material-symbols-outlined text-[#0B2E8D] text-[18px] flex-shrink-0 mt-0.5">
                       task_alt
                     </span>
                     <span>{item}</span>
@@ -433,7 +456,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
         <section className="py-14 md:py-18 bg-slate-50 border-t border-slate-200">
           <div className="max-w-4xl mx-auto px-4 md:px-8">
             <div className="text-center mb-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#1c4e9e] text-xs font-bold border border-blue-200 mb-2">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0B2E8D] text-xs font-bold border border-blue-200 mb-2">
                 <span className="material-symbols-outlined text-[15px]">quiz</span>
                 FAQs
               </div>
@@ -458,7 +481,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
                       <span>{faq.q}</span>
                       <span
                         className={`material-symbols-outlined text-[20px] transition-transform duration-200 flex-shrink-0 ml-3 ${
-                          isOpen ? "rotate-180 text-[#1c4e9e]" : "text-slate-400"
+                          isOpen ? "rotate-180 text-[#0B2E8D]" : "text-slate-400"
                         }`}
                       >
                         expand_more
@@ -479,7 +502,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
 
       {/* 9. Final Action Callout */}
       <section className="py-12 md:py-16 max-w-7xl mx-auto px-4 md:px-8">
-        <div className="bg-gradient-to-r from-[#00103A] via-[#1c4e9e] to-[#0B2E8D] text-white rounded-3xl p-8 md:p-12 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-white/10">
+        <div className="bg-gradient-to-r from-[#0B309A] via-[#082475] to-[#0B309A] text-white rounded-3xl p-8 md:p-12 shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 border border-white/10">
           <div className="space-y-2 text-center md:text-left">
             <h3 className="text-2xl sm:text-3xl font-black tracking-tight">
               Ready to Apply for {categoryName}?
@@ -490,7 +513,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
           </div>
           <button
             onClick={() => scrollToSection("lead-application-form")}
-            className="bg-[#e50914] hover:bg-[#c40812] text-white font-black px-8 py-3.5 rounded-full shadow-md hover:scale-105 active:scale-95 transition-all text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 flex-shrink-0"
+            className="bg-[#E30613] hover:bg-[#FF1A27] text-white font-black px-8 py-3.5 rounded-full shadow-md hover:scale-105 active:scale-95 transition-all text-xs sm:text-sm uppercase tracking-wider flex items-center gap-2 flex-shrink-0 cursor-pointer"
           >
             <span>Apply Now</span>
             <span className="material-symbols-outlined text-[16px]">arrow_forward</span>

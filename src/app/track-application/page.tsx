@@ -43,11 +43,11 @@ export default function TrackApplicationPage() {
 
       <div className="max-w-4xl mx-auto px-4 md:px-8 py-12">
         <div className="bg-white rounded-3xl border border-slate-200 p-8 shadow-sm space-y-6">
-          <h3 className="text-xl font-bold text-[#001A62]">Understanding Loan Processing Stages</h3>
+          <h3 className="text-xl font-bold text-[#0B309A]">Understanding Loan Processing Stages</h3>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-slate-600">
             <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">
-              <span className="font-bold text-[#001A62] block text-sm mb-1">1. Under Review</span>
+              <span className="font-bold text-[#0B309A] block text-sm mb-1">1. Under Review</span>
               Initial eligibility check and digital KYC verification in progress.
             </div>
             <div className="p-4 bg-slate-50 rounded-xl border border-slate-200">

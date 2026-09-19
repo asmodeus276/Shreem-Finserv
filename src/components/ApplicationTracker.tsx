@@ -116,7 +116,7 @@ export const ApplicationTracker: React.FC = () => {
                   <button
                     type="submit"
                     disabled={loading}
-                    className="bg-[#001A62] hover:bg-[#0B2E8D] text-white px-6 font-bold text-sm transition-colors flex items-center justify-center flex-shrink-0 cursor-pointer"
+                    className="bg-[#0B309A] hover:bg-[#0B2E8D] text-white px-6 font-bold text-sm transition-colors flex items-center justify-center flex-shrink-0 cursor-pointer"
                   >
                     {loading ? (
                       <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>

@@ -67,7 +67,7 @@ export default function ThankYouPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="space-y-2">
-              <div className="w-8 h-8 rounded-full bg-[#001A62] text-white flex items-center justify-center font-bold text-xs">
+              <div className="w-8 h-8 rounded-full bg-[#0B309A] text-white flex items-center justify-center font-bold text-xs">
                 1
               </div>
               <h4 className="font-bold text-slate-900 text-sm">Credit Desk Review</h4>
@@ -87,7 +87,7 @@ export default function ThankYouPage() {
             </div>
 
             <div className="space-y-2">
-              <div className="w-8 h-8 rounded-full bg-[#BB0119] text-white flex items-center justify-center font-bold text-xs">
+              <div className="w-8 h-8 rounded-full bg-[#E30613] text-white flex items-center justify-center font-bold text-xs">
                 3
               </div>
               <h4 className="font-bold text-slate-900 text-sm">Disbursal to Account</h4>
@@ -112,7 +112,7 @@ export default function ThankYouPage() {
 
           <Link
             href="/track-application"
-            className="inline-flex items-center gap-2 bg-[#001A62] hover:bg-[#0B2E8D] text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all"
+            className="inline-flex items-center gap-2 bg-[#0B309A] hover:bg-[#0B2E8D] text-white font-bold px-6 py-3.5 rounded-xl text-xs sm:text-sm shadow-md transition-all"
           >
             <span className="material-symbols-outlined text-[18px]">manage_search</span>
             <span>Track Application Portal</span>

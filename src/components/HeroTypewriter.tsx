@@ -58,7 +58,7 @@ export const HeroTypewriter: React.FC<HeroTypewriterProps> = ({
   return (
     <span className={className}>
       {displayText}
-      <span className="inline-block w-[3px] h-[0.85em] bg-[#BB0119] ml-1 align-middle animate-pulse rounded-full" />
+      <span className="inline-block w-[3px] h-[0.85em] bg-[#E30613] ml-1 align-middle animate-pulse rounded-full" />
     </span>
   );
 };

@@ -72,7 +72,7 @@ export default function BlogListingPage() {
                 onClick={() => setSelectedCategory(cat)}
                 className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap ${
                   selectedCategory === cat
-                    ? "bg-[#001A62] text-white shadow-sm"
+                    ? "bg-[#0B309A] text-white shadow-sm"
                     : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
                 }`}
               >
@@ -90,7 +90,7 @@ export default function BlogListingPage() {
               placeholder="Search articles & topics..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-medium shadow-2xs focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
+              className="w-full pl-10 pr-4 py-2 bg-white border border-slate-200 rounded-xl text-xs font-medium shadow-2xs focus:outline-none focus:ring-2 focus:ring-[#0B309A]/30"
             />
           </div>
         </div>
@@ -98,12 +98,12 @@ export default function BlogListingPage() {
         {/* Featured Article Box (if showing All and no search) */}
         {selectedCategory === "All" && searchQuery === "" && (
           <div className="mb-12">
-            <div className="bg-gradient-to-br from-[#001A62] via-[#0B2E8D] to-[#001A62] text-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl overflow-hidden relative group">
+            <div className="bg-gradient-to-br from-[#0B309A] via-[#0B2E8D] to-[#0B309A] text-white rounded-3xl p-6 sm:p-8 lg:p-10 shadow-xl overflow-hidden relative group">
               <div className="absolute right-0 top-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none"></div>
               <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 <div className="lg:col-span-7 space-y-4">
                   <div className="flex items-center gap-3">
-                    <span className="bg-[#BB0119] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-wider shadow-sm">
+                    <span className="bg-[#E30613] text-white text-[10px] font-black uppercase px-3 py-1 rounded-full tracking-wider shadow-sm">
                       Featured Guide
                     </span>
                     <span className="text-xs text-blue-200 font-medium">
@@ -124,7 +124,7 @@ export default function BlogListingPage() {
                   <div className="pt-2 flex flex-wrap items-center gap-4">
                     <Link
                       href={`/blog/${featuredPost.slug}`}
-                      className="inline-flex items-center gap-2 bg-white text-[#001A62] hover:bg-blue-50 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm shadow-md transition-all group-hover:shadow-lg"
+                      className="inline-flex items-center gap-2 bg-white text-[#0B309A] hover:bg-blue-50 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm shadow-md transition-all group-hover:shadow-lg"
                     >
                       <span>Read Full Guide</span>
                       <span className="material-symbols-outlined text-[18px]">arrow_forward</span>
@@ -152,7 +152,7 @@ export default function BlogListingPage() {
                         <span className="material-symbols-outlined text-emerald-600 text-base">verified</span>
                         <span className="text-xs font-bold text-slate-800">Verified Underwriter Guide</span>
                       </div>
-                      <span className="text-[11px] font-semibold text-[#001A62] bg-blue-50 px-2.5 py-0.5 rounded-md">2026 Edition</span>
+                      <span className="text-[11px] font-semibold text-[#0B309A] bg-blue-50 px-2.5 py-0.5 rounded-md">2026 Edition</span>
                     </div>
                   </div>
                 </div>
@@ -166,7 +166,7 @@ export default function BlogListingPage() {
           {filteredPosts.map((post) => (
             <article
               key={post.slug}
-              className="bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-sm hover:border-[#001A62]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              className="bg-white border border-slate-200/90 rounded-2xl overflow-hidden shadow-sm hover:border-[#0B309A]/40 hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
             >
               <div>
                 {/* Thumbnail Image Header */}
@@ -182,7 +182,7 @@ export default function BlogListingPage() {
                   
                   {/* Category Pill Floating */}
                   <div className="absolute top-3 left-3">
-                    <span className="text-[10px] font-bold uppercase px-3 py-1 bg-white/95 backdrop-blur-md text-[#001A62] rounded-lg shadow-sm border border-white/50">
+                    <span className="text-[10px] font-bold uppercase px-3 py-1 bg-white/95 backdrop-blur-md text-[#0B309A] rounded-lg shadow-sm border border-white/50">
                       {post.category}
                     </span>
                   </div>
@@ -202,7 +202,7 @@ export default function BlogListingPage() {
                 </Link>
 
                 <div className="p-5 sm:p-6 space-y-3">
-                  <h3 className="font-bold text-slate-900 text-base md:text-lg leading-snug group-hover:text-[#001A62] transition-colors line-clamp-2">
+                  <h3 className="font-bold text-slate-900 text-base md:text-lg leading-snug group-hover:text-[#0B309A] transition-colors line-clamp-2">
                     <Link href={`/blog/${post.slug}`}>{post.title}</Link>
                   </h3>
 
@@ -225,7 +225,7 @@ export default function BlogListingPage() {
 
               <div className="p-5 sm:p-6 pt-0 border-t border-slate-100 flex items-center justify-between text-xs mt-2">
                 <div className="flex items-center gap-2 pt-3">
-                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#001A62] to-[#0B2E8D] text-white flex items-center justify-center font-bold text-[11px] shadow-xs">
+                  <div className="w-8 h-8 rounded-full bg-gradient-to-tr from-[#0B309A] to-[#0B2E8D] text-white flex items-center justify-center font-bold text-[11px] shadow-xs">
                     {post.author.avatarInitials}
                   </div>
                   <div>
@@ -240,7 +240,7 @@ export default function BlogListingPage() {
 
                 <Link
                   href={`/blog/${post.slug}`}
-                  className="inline-flex items-center gap-1 text-[#001A62] group-hover:text-[#BB0119] font-bold transition-colors pt-3"
+                  className="inline-flex items-center gap-1 text-[#0B309A] group-hover:text-[#E30613] font-bold transition-colors pt-3"
                 >
                   <span>Read Guide</span>
                   <span className="material-symbols-outlined text-[15px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
@@ -251,7 +251,7 @@ export default function BlogListingPage() {
         </div>
 
         {/* Bottom Lead Advisory Banner */}
-        <div className="mt-16 bg-[#001A62] text-white rounded-3xl p-8 sm:p-12 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="mt-16 bg-[#0B309A] text-white rounded-3xl p-8 sm:p-12 shadow-xl flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-2 text-center md:text-left">
             <span className="text-xs font-bold uppercase tracking-wider text-amber-300">
               Need Personalized Financial Advice?
@@ -265,7 +265,7 @@ export default function BlogListingPage() {
           </div>
           <a
             href={`tel:${BRAND_CONFIG.phone.replace(/[^0-9]/g, "")}`}
-            className="inline-flex items-center gap-2 bg-[#BB0119] hover:bg-[#9c0115] text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition-all text-xs sm:text-sm flex-shrink-0"
+            className="inline-flex items-center gap-2 bg-[#E30613] hover:bg-[#B8040E] text-white font-bold px-6 py-3.5 rounded-xl shadow-lg transition-all text-xs sm:text-sm flex-shrink-0"
           >
             <span className="material-symbols-outlined text-[18px]">call</span>
             <span>Call Advisory: {BRAND_CONFIG.phoneDisplay}</span>

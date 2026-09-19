@@ -3,13 +3,13 @@
 
 @layer theme {
   :root {
-    --primary: #001a62;
-    --primary-container: #0b2e8d;
+    --primary: #0b309a;
+    --primary-container: #082475;
     --primary-fixed: #dde1ff;
     --primary-fixed-dim: #b7c4ff;
     --on-primary: #ffffff;
-    --secondary: #bb0119;
-    --secondary-container: #e0292e;
+    --secondary: #e30613;
+    --secondary-container: #ff1a27;
     --on-secondary: #ffffff;
     --background: #f7f9fb;
     --surface: #ffffff;
@@ -29,13 +29,13 @@
 }
 
 @theme {
-  --color-primary: #001a62;
-  --color-primary-container: #0b2e8d;
+  --color-primary: #0b309a;
+  --color-primary-container: #082475;
   --color-primary-fixed: #dde1ff;
   --color-primary-fixed-dim: #b7c4ff;
   --color-on-primary: #ffffff;
-  --color-secondary: #bb0119;
-  --color-secondary-container: #e0292e;
+  --color-secondary: #e30613;
+  --color-secondary-container: #ff1a27;
   --color-on-secondary: #ffffff;
   --color-background: #f7f9fb;
   --color-surface: #ffffff;
@@ -172,7 +172,7 @@
 }
 
 .gradient-text-navy {
-  background: linear-gradient(135deg, #001A62 0%, #0B2E8D 50%, #001A62 100%);
+  background: linear-gradient(135deg, #0B309A 0%, #0B2E8D 50%, #0B309A 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }

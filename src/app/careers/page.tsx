@@ -142,7 +142,7 @@ export default function CareersPage() {
       {/* Perks & Benefits Section */}
       <section className="py-12 md:py-16 max-w-7xl mx-auto px-4 md:px-8">
         <div className="text-center max-w-2xl mx-auto mb-10">
-          <span className="text-xs font-bold uppercase tracking-wider text-[#001A62]">
+          <span className="text-xs font-bold uppercase tracking-wider text-[#0B309A]">
             Life at Shreem Finserv
           </span>
           <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
@@ -152,7 +152,7 @@ export default function CareersPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-2">
-            <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#001A62] flex items-center justify-center font-bold">
+            <div className="w-10 h-10 rounded-xl bg-blue-50 text-[#0B309A] flex items-center justify-center font-bold">
               <span className="material-symbols-outlined text-2xl">account_balance_wallet</span>
             </div>
             <h3 className="font-bold text-slate-900 text-base">Uncapped Bonuses</h3>
@@ -197,7 +197,7 @@ export default function CareersPage() {
       <section id="openings-section" className="py-12 md:py-16 bg-slate-50 border-y border-slate-200">
         <div className="max-w-7xl mx-auto px-4 md:px-8">
           <div className="max-w-3xl mb-10">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#001A62]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#0B309A]">
               Current Openings
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 mt-1">
@@ -212,11 +212,11 @@ export default function CareersPage() {
             {OPENINGS.map((job) => (
               <div
                 key={job.id}
-                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-[#001A62]/40 transition-all flex flex-col md:flex-row md:items-center justify-between gap-6"
+                className="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm hover:border-[#0B309A]/40 transition-all flex flex-col md:flex-row md:items-center justify-between gap-6"
               >
                 <div className="space-y-2 max-w-2xl">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="text-[10px] font-bold uppercase px-2.5 py-1 bg-blue-50 text-[#001A62] border border-blue-200 rounded-md">
+                    <span className="text-[10px] font-bold uppercase px-2.5 py-1 bg-blue-50 text-[#0B309A] border border-blue-200 rounded-md">
                       {job.department}
                     </span>
                     <span className="text-[10px] font-bold uppercase px-2.5 py-1 bg-slate-100 text-slate-600 rounded-md">
@@ -240,7 +240,7 @@ export default function CareersPage() {
                     setSelectedJob(job);
                     setFormData((prev) => ({ ...prev, role: job.title }));
                   }}
-                  className="inline-flex items-center justify-center gap-1.5 bg-[#001A62] hover:bg-[#BB0119] text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm shadow transition-colors flex-shrink-0"
+                  className="inline-flex items-center justify-center gap-1.5 bg-[#0B309A] hover:bg-[#E30613] text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm shadow transition-colors flex-shrink-0"
                 >
                   <span>Apply for Role</span>
                   <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -255,7 +255,7 @@ export default function CareersPage() {
       <section id="application-form" className="py-16 max-w-3xl mx-auto px-4 md:px-8">
         <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-10 shadow-lg space-y-6">
           <div className="text-center space-y-1">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#001A62]">
+            <span className="text-xs font-bold uppercase tracking-wider text-[#0B309A]">
               Direct Talent Application
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900">
@@ -291,7 +291,7 @@ export default function CareersPage() {
                     placeholder="e.g. Rahul Sharma"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B309A]/30"
                   />
                 </div>
                 <div>
@@ -304,7 +304,7 @@ export default function CareersPage() {
                     placeholder="rahul@example.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B309A]/30"
                   />
                 </div>
               </div>
@@ -320,7 +320,7 @@ export default function CareersPage() {
                     placeholder="10-digit mobile"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B309A]/30"
                   />
                 </div>
                 <div>
@@ -333,7 +333,7 @@ export default function CareersPage() {
                     placeholder="e.g. Senior Credit Manager"
                     value={formData.role}
                     onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B309A]/30"
                   />
                 </div>
               </div>
@@ -348,7 +348,7 @@ export default function CareersPage() {
                     placeholder="e.g. 3.5 Years in Banking/DSA"
                     value={formData.experience}
                     onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B309A]/30"
                   />
                 </div>
                 <div>
@@ -360,7 +360,7 @@ export default function CareersPage() {
                     placeholder="https://linkedin.com/in/..."
                     value={formData.linkedin}
                     onChange={(e) => setFormData({ ...formData, linkedin: e.target.value })}
-                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
+                    className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B309A]/30"
                   />
                 </div>
               </div>
@@ -374,14 +374,14 @@ export default function CareersPage() {
                   placeholder="Tell us about your past loan disbursement milestones or why you’d like to join Shreem Finserv..."
                   value={formData.notes}
                   onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
-                  className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#001A62]/30"
+                  className="w-full px-4 py-2.5 bg-slate-50 border border-slate-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-[#0B309A]/30"
                 ></textarea>
               </div>
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-[#001A62] hover:bg-[#BB0119] text-white font-black py-3.5 px-6 rounded-xl shadow-md transition-colors text-xs sm:text-sm flex items-center justify-center gap-2"
+                className="w-full bg-[#0B309A] hover:bg-[#E30613] text-white font-black py-3.5 px-6 rounded-xl shadow-md transition-colors text-xs sm:text-sm flex items-center justify-center gap-2"
               >
                 {loading ? (
                   <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
@@ -392,7 +392,7 @@ export default function CareersPage() {
 
               <p className="text-[11px] text-slate-400 text-center">
                 Or email your CV directly to{" "}
-                <a href={`mailto:${BRAND_CONFIG.email}`} className="text-[#001A62] font-bold underline">
+                <a href={`mailto:${BRAND_CONFIG.email}`} className="text-[#0B309A] font-bold underline">
                   {BRAND_CONFIG.email}
                 </a>{" "}
                 with subject &quot;Career Application - [Your Role]&quot;.

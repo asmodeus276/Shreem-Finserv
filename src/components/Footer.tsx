@@ -5,9 +5,9 @@ import { Logo } from "@/components/Logo";
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#001A62] text-white pt-16 pb-12 border-t border-blue-900">
+    <footer className="bg-[#0B309A] text-white pt-16 pb-12 border-t border-blue-800">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-blue-900/60">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-blue-800/60">
           
           {/* 1. Brand Info & Address */}
           <div className="lg:col-span-2 space-y-4">
@@ -151,14 +151,14 @@ export const Footer: React.FC = () => {
               <Link href="/calculator" className="hover:text-white transition-colors">Smart EMI Calculator</Link>
               <Link href="/credit-score" className="hover:text-white transition-colors">Free Credit Score Check</Link>
               <Link href="/track-application" className="hover:text-white transition-colors">Live Loan Tracker</Link>
-              <Link href="/privacy-policy" className="hover:text-white transition-colors pt-2 border-t border-blue-900/60">Privacy Policy</Link>
+              <Link href="/privacy-policy" className="hover:text-white transition-colors pt-2 border-t border-blue-800/60">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-white transition-colors">Terms of Service</Link>
               <Link href="/compliance" className="hover:text-white transition-colors">RBI Fair Practice</Link>
             </div>
-            <div className="mt-4 pt-4 border-t border-blue-900/80">
+            <div className="mt-4 pt-4 border-t border-blue-800/80">
               <a
                 href={`tel:${BRAND_CONFIG.phone.replace(/\s+/g, "")}`}
-                className="inline-block text-xs font-bold text-white bg-[#BB0119] hover:bg-[#E0292E] px-3.5 py-2 rounded-lg transition-colors shadow"
+                className="inline-block text-xs font-bold text-white bg-[#E30613] hover:bg-[#FF1A27] px-3.5 py-2 rounded-lg transition-colors shadow"
               >
                 Call Helpline Now
               </a>

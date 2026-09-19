@@ -42,7 +42,7 @@ const HERO_SLIDES: SlideData[] = [
     titleLine1: "Business",
     titleLine2: "Loans",
     headline: "Empowering Growth With Seamless Working Capital!",
-    keyBenefits: ["Loans Up to ₹2 Crore", "Starting @ 10.5% p.a.", "Disbursal in 48 Hours"],
+    keyBenefits: ["Loans Up to ₹2 Crore", "Starting @ 14% p.a.", "Disbursal in 48 Hours"],
     ctaText: "APPLY NOW",
     ctaLink: "/business-loan",
     bgImage: "/images/business-hero-banner.jpg",
@@ -55,7 +55,7 @@ const HERO_SLIDES: SlideData[] = [
     titleLine1: "Home",
     titleLine2: "Loans",
     headline: "Step Into Your Dream Home With Lowest Interest Rates!",
-    keyBenefits: ["Starting from 8.5% p.a.", "Tenures up to 30 Years", "Up to 90% Property Value"],
+    keyBenefits: ["Starting from 7.20% p.a.", "Tenures up to 30 Years", "Up to 90% Property Value"],
     ctaText: "APPLY NOW",
     ctaLink: "/home-loan",
     bgImage: "/images/home-hero-banner.jpg",
@@ -127,9 +127,9 @@ const QUICK_LOAN_CARDS = [
     link: "/machinery-loan",
   },
   {
-    title: "New / Used Car Loan",
+    title: "Car Loan",
     icon: "directions_car",
-    link: "/personal-loan",
+    link: "/car-loan",
   },
 ];
 
@@ -329,7 +329,7 @@ export function Hero() {
                   aria-label={`Go to slide ${dotIndex + 1}`}
                   className={`transition-all duration-300 rounded-full h-2 cursor-pointer ${
                     isDotActive
-                      ? "w-7 bg-[#e50914] shadow-sm"
+                      ? "w-7 bg-[#E30613] shadow-sm"
                       : "w-2 bg-slate-300 hover:bg-slate-400"
                   }`}
                 />
@@ -343,8 +343,8 @@ export function Hero() {
 
       </div>
 
-      {/* 2. Bottom Quick Loan Solutions Carousel (Full-Width Royal Blue Strip #1c4e9e) */}
-      <div className="w-full bg-[#1c4e9e] text-white py-5 md:py-6 shadow-xl border-t border-blue-900/30">
+      {/* 2. Bottom Quick Loan Solutions Carousel (Full-Width Royal Blue Strip #0B309A) */}
+      <div className="w-full bg-[#0B309A] text-white py-5 md:py-6 shadow-xl border-t border-blue-900/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           
           {/* Top Centered White Text */}
@@ -361,7 +361,7 @@ export function Hero() {
             <button
               onClick={scrollCardsLeft}
               aria-label="Scroll left"
-              className="absolute -left-2 sm:-left-4 z-20 w-8 h-8 rounded-full bg-white text-[#1c4e9e] hover:bg-slate-100 flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all"
+              className="absolute -left-2 sm:-left-4 z-20 w-8 h-8 rounded-full bg-white text-[#0B309A] hover:bg-slate-100 flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all"
             >
               <span className="material-symbols-outlined text-[20px]">chevron_left</span>
             </button>
@@ -377,12 +377,12 @@ export function Hero() {
                   href={card.link}
                   className="flex-shrink-0 w-[150px] sm:w-[170px] md:w-auto bg-white hover:bg-slate-50 rounded-2xl p-3.5 sm:p-4 text-center flex flex-col items-center justify-center gap-2.5 border border-white/80 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 group"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-blue-50 text-[#1c4e9e] group-hover:bg-[#1c4e9e] group-hover:text-white flex items-center justify-center transition-colors shadow-2xs">
+                  <div className="w-11 h-11 rounded-xl bg-blue-50 text-[#0B309A] group-hover:bg-[#0B309A] group-hover:text-white flex items-center justify-center transition-colors shadow-2xs">
                     <span className="material-symbols-outlined text-[24px]">
                       {card.icon}
                     </span>
                   </div>
-                  <span className="text-xs sm:text-[13px] font-bold text-slate-900 group-hover:text-[#1c4e9e] transition-colors leading-tight">
+                  <span className="text-xs sm:text-[13px] font-bold text-slate-900 group-hover:text-[#0B309A] transition-colors leading-tight">
                     {card.title}
                   </span>
                 </Link>
@@ -393,7 +393,7 @@ export function Hero() {
             <button
               onClick={scrollCardsRight}
               aria-label="Scroll right"
-              className="absolute -right-2 sm:-right-4 z-20 w-8 h-8 rounded-full bg-white text-[#1c4e9e] hover:bg-slate-100 flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all"
+              className="absolute -right-2 sm:-right-4 z-20 w-8 h-8 rounded-full bg-white text-[#0B309A] hover:bg-slate-100 flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all"
             >
               <span className="material-symbols-outlined text-[20px]">chevron_right</span>
             </button>

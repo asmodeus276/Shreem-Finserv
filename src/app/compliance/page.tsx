@@ -40,8 +40,8 @@ export default function CompliancePage() {
         <div className="bg-white rounded-3xl border border-slate-200 p-8 md:p-12 shadow-sm space-y-6">
           <div className="space-y-4 text-sm text-slate-700 leading-relaxed">
             <div className="bg-blue-50 border border-blue-200 rounded-2xl p-6">
-              <h3 className="font-bold text-[#001A62] text-base mb-1.5 flex items-center gap-2">
-                <span className="material-symbols-outlined text-[#001A62] text-xl">account_balance</span>
+              <h3 className="font-bold text-[#0B309A] text-base mb-1.5 flex items-center gap-2">
+                <span className="material-symbols-outlined text-[#0B309A] text-xl">account_balance</span>
                 <span>RBI Fair Practice Code</span>
               </h3>
               <p className="text-slate-600 leading-relaxed">
@@ -61,13 +61,13 @@ export default function CompliancePage() {
 
             <div className="bg-slate-50 border border-slate-200 rounded-2xl p-6">
               <h3 className="font-bold text-slate-900 text-base mb-1.5 flex items-center gap-2">
-                <span className="material-symbols-outlined text-[#001A62] text-xl">support_agent</span>
+                <span className="material-symbols-outlined text-[#0B309A] text-xl">support_agent</span>
                 <span>Grievance Redressal Cell</span>
               </h3>
               <p className="text-slate-600 leading-relaxed">
                 <strong>Principal Office:</strong> {BRAND_CONFIG.address}<br />
-                <strong>Email:</strong> <a href={`mailto:${BRAND_CONFIG.email}`} className="text-[#001A62] underline font-semibold">{BRAND_CONFIG.email}</a><br />
-                <strong>Helpline:</strong> <a href={`tel:${BRAND_CONFIG.phone.replace(/\s+/g, "")}`} className="text-[#001A62] underline font-semibold">{BRAND_CONFIG.phoneDisplay}</a>
+                <strong>Email:</strong> <a href={`mailto:${BRAND_CONFIG.email}`} className="text-[#0B309A] underline font-semibold">{BRAND_CONFIG.email}</a><br />
+                <strong>Helpline:</strong> <a href={`tel:${BRAND_CONFIG.phone.replace(/\s+/g, "")}`} className="text-[#0B309A] underline font-semibold">{BRAND_CONFIG.phoneDisplay}</a>
               </p>
             </div>
           </div>

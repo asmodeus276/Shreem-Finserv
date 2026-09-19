@@ -22,7 +22,7 @@ const WHY_CHOOSE_US = [
     number: "50+",
     title: "Bank Partners",
     desc: "Direct partnerships with India's top scheduled banks and premier NBFCs.",
-    color: "from-[#0B2E8D] to-[#001A62]",
+    color: "from-[#0B2E8D] to-[#0B309A]",
   },
   {
     icon: "money_off",
@@ -43,7 +43,7 @@ const WHY_CHOOSE_US = [
     number: "100%",
     title: "Secure & Private",
     desc: "DPDP 2026 compliant with 256-bit encryption. Zero data sharing.",
-    color: "from-[#BB0119] to-[#8B0010]",
+    color: "from-[#E30613] to-[#B8040E]",
   },
   {
     icon: "support_agent",
@@ -133,7 +133,7 @@ export function HeroStats() {
       </ScrollReveal>
       <ScrollReveal variant="fade-up" delay={300}>
         <div className="min-w-0">
-          <div className="text-xl sm:text-2xl lg:text-3xl font-black text-[#BB0119] tracking-tight leading-tight">
+          <div className="text-xl sm:text-2xl lg:text-3xl font-black text-[#E30613] tracking-tight leading-tight">
             <AnimatedCounter end={2} suffix=" Hrs" />
           </div>
           <div className="text-[11px] sm:text-xs text-slate-500 font-medium mt-0.5 whitespace-nowrap">Fast KYC</div>
@@ -283,19 +283,19 @@ export function AnimatedProcessTimeline() {
 
         <div className="relative">
           {/* Connecting line for desktop */}
-          <div className="hidden lg:block absolute top-[44px] left-[10%] right-[10%] h-[3px] bg-gradient-to-r from-[#0B2E8D] via-[#0B2E8D] to-[#BB0119] rounded-full z-0 opacity-20"></div>
+          <div className="hidden lg:block absolute top-[44px] left-[10%] right-[10%] h-[3px] bg-gradient-to-r from-[#0B2E8D] via-[#0B2E8D] to-[#E30613] rounded-full z-0 opacity-20"></div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6 relative z-10">
             {PROCESS_STEPS.map((step, idx) => {
               const isLast = idx === PROCESS_STEPS.length - 1;
               return (
                 <ScrollReveal key={idx} variant="scale-up" delay={idx * 150}>
-                  <div className={`bg-slate-50/80 p-6 rounded-2xl border border-slate-200 text-center hover:bg-white ${isLast ? "hover:border-[#BB0119]/30" : "hover:border-[#0B2E8D]/30"} interactive-shadow transition-all group relative`}>
+                  <div className={`bg-slate-50/80 p-6 rounded-2xl border border-slate-200 text-center hover:bg-white ${isLast ? "hover:border-[#E30613]/30" : "hover:border-[#0B2E8D]/30"} interactive-shadow transition-all group relative`}>
                     {/* Step Number */}
-                    <div className={`w-14 h-14 rounded-2xl ${isLast ? "bg-[#BB0119]" : "bg-[#0B2E8D]"} text-white flex items-center justify-center mx-auto mb-3 shadow-md group-hover:scale-110 group-hover:shadow-xl transition-all duration-300 relative`}>
+                    <div className={`w-14 h-14 rounded-2xl ${isLast ? "bg-[#E30613]" : "bg-[#0B2E8D]"} text-white flex items-center justify-center mx-auto mb-3 shadow-md group-hover:scale-110 group-hover:shadow-xl transition-all duration-300 relative`}>
                       <span className="material-symbols-outlined text-[26px]">{step.icon}</span>
                       {/* Step number badge */}
-                      <span className={`absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full ${isLast ? "bg-[#8B0010]" : "bg-[#001A62]"} text-white text-[10px] font-black flex items-center justify-center border-2 border-white shadow-sm`}>
+                      <span className={`absolute -top-1.5 -right-1.5 w-6 h-6 rounded-full ${isLast ? "bg-[#B8040E]" : "bg-[#0B309A]"} text-white text-[10px] font-black flex items-center justify-center border-2 border-white shadow-sm`}>
                         {step.num}
                       </span>
                     </div>
@@ -304,7 +304,7 @@ export function AnimatedProcessTimeline() {
                       SLA: {step.sla}
                     </div>
 
-                    <h4 className={`font-bold text-slate-900 text-base mb-1.5 ${isLast ? "group-hover:text-[#BB0119]" : "group-hover:text-[#0B2E8D]"} transition-colors`}>
+                    <h4 className={`font-bold text-slate-900 text-base mb-1.5 ${isLast ? "group-hover:text-[#E30613]" : "group-hover:text-[#0B2E8D]"} transition-colors`}>
                       {step.title}
                     </h4>
                     <p className="text-xs text-slate-500 leading-relaxed">{step.desc}</p>

@@ -169,7 +169,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
                 tracker.scrollIntoView({ behavior: "smooth" });
               }
             }}
-            className="w-full inline-flex items-center justify-center gap-2 bg-[#0B2E8D] hover:bg-[#001A62] text-white font-semibold py-3 px-6 rounded-lg transition-colors text-sm shadow-sm"
+            className="w-full inline-flex items-center justify-center gap-2 bg-[#0B2E8D] hover:bg-[#0B309A] text-white font-semibold py-3 px-6 rounded-lg transition-colors text-sm shadow-sm"
           >
             <span className="material-symbols-outlined text-[18px]">search</span>
             Track Status Now
@@ -275,8 +275,9 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             <option value="Home Loan">Home Loan</option>
             <option value="Loan Against Property">Loan Against Property (LAP)</option>
             <option value="Personal Loan">Personal Loan</option>
+            <option value="Car Loan">Car Loan (New &amp; Used Cars)</option>
             <option value="Working Capital">Working Capital / Overdraft</option>
-            <option value="Machinery & Equipment">Machinery & Equipment Loan</option>
+            <option value="Machinery & Equipment">Machinery &amp; Equipment Loan</option>
             <option value="Urgent Cash Advance">Urgent Cash Advance</option>
             <option value="Loans for Women Entrepreneurs">Loans for Women Entrepreneurs</option>
           </select>
@@ -312,7 +313,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               <span className="material-symbols-outlined text-[18px] text-[#0B2E8D]">speed</span>
               <div>
                 <span className="text-slate-500 text-[10px] uppercase font-bold block">Estimated EMI (~5 Yrs)</span>
-                <span className="font-extrabold text-[#001A62] text-sm">
+                <span className="font-extrabold text-[#0B309A] text-sm">
                   {formatCurrency(
                     Math.round(
                       (amount * (10.5 / 1200) * Math.pow(1 + 10.5 / 1200, 60)) /
@@ -343,7 +344,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
               <span className="text-red-500">*</span>{" "}
               I consent to Shreem Finserv sharing my personal data with its lending partners for the purpose of processing this loan application, in accordance with the{" "}
               <span className="font-semibold text-slate-700">Digital Personal Data Protection Act, 2023</span> and{" "}
-              <Link href="/privacy-policy" className="underline text-[#0B2E8D] hover:text-[#001A62]">Privacy Policy</Link>.
+              <Link href="/privacy-policy" className="underline text-[#0B2E8D] hover:text-[#0B309A]">Privacy Policy</Link>.
             </span>
           </label>
 
@@ -365,7 +366,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
         <button
           type="submit"
           disabled={loading}
-          className="w-full button-shine bg-[#BB0119] hover:bg-[#E0292E] disabled:bg-slate-400 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 text-sm mt-3 cursor-pointer"
+          className="w-full button-shine bg-[#E30613] hover:bg-[#FF1A27] disabled:bg-slate-400 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 text-sm mt-3 cursor-pointer"
         >
           {loading ? (
             <>

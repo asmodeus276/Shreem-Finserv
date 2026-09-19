@@ -111,7 +111,7 @@ export const EmiCalculator: React.FC<EmiCalculatorProps> = ({
             onClick={() => setCalcMode("standard")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
               calcMode === "standard"
-                ? "bg-[#001A62] text-white shadow-sm"
+                ? "bg-[#0B309A] text-white shadow-sm"
                 : "text-slate-600 hover:text-slate-900"
             }`}
           >
@@ -121,8 +121,8 @@ export const EmiCalculator: React.FC<EmiCalculatorProps> = ({
             onClick={() => setCalcMode("balance-transfer")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all flex items-center gap-1.5 ${
               calcMode === "balance-transfer"
-                ? "bg-[#BB0119] text-white shadow-sm"
-                : "text-slate-600 hover:text-[#BB0119]"
+                ? "bg-[#E30613] text-white shadow-sm"
+                : "text-slate-600 hover:text-[#E30613]"
             }`}
           >
             <span className="material-symbols-outlined text-[15px]">trending_down</span>
@@ -173,15 +173,15 @@ export const EmiCalculator: React.FC<EmiCalculatorProps> = ({
               </div>
               <input
                 type="range"
-                min={8.5}
+                min={7.2}
                 max={24}
-                step={0.25}
+                step={0.1}
                 value={rate}
                 onChange={(e) => setRate(Number(e.target.value))}
                 className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
               />
               <div className="flex justify-between text-[10px] sm:text-[11px] font-semibold text-slate-400">
-                <span>8.50%</span>
+                <span>7.20%</span>
                 <span>15.00%</span>
                 <span>24.00%</span>
               </div>
@@ -211,9 +211,9 @@ export const EmiCalculator: React.FC<EmiCalculatorProps> = ({
                 </div>
                 <input
                   type="range"
-                  min={8.5}
+                  min={7.2}
                   max={13}
-                  step={0.25}
+                  step={0.1}
                   value={rate}
                   onChange={(e) => setRate(Number(e.target.value))}
                   className="w-full h-2 bg-emerald-200 rounded-lg appearance-none cursor-pointer accent-emerald-600"
@@ -239,7 +239,7 @@ export const EmiCalculator: React.FC<EmiCalculatorProps> = ({
               step={1}
               value={tenureYears}
               onChange={(e) => setTenureYears(Number(e.target.value))}
-              className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#BB0119]"
+              className="w-full h-2.5 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-[#E30613]"
             />
             <div className="flex justify-between text-[10px] sm:text-[11px] font-semibold text-slate-400">
               <span>1 Year</span>
@@ -253,7 +253,7 @@ export const EmiCalculator: React.FC<EmiCalculatorProps> = ({
           <div className="pt-1 flex items-center justify-between">
             <button
               onClick={() => setShowAmortization(!showAmortization)}
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0B2E8D] hover:text-[#001A62] transition-colors cursor-pointer"
+              className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0B2E8D] hover:text-[#0B309A] transition-colors cursor-pointer"
             >
               <span className="material-symbols-outlined text-[18px]">
                 {showAmortization ? "visibility_off" : "table_chart"}
@@ -274,7 +274,7 @@ export const EmiCalculator: React.FC<EmiCalculatorProps> = ({
         </div>
 
         {/* Results & Breakdown Column */}
-        <div className="lg:col-span-5 bg-gradient-to-br from-[#001A62] via-[#0B2E8D] to-[#001A62] text-white p-5 sm:p-7 md:p-8 rounded-3xl shadow-xl flex flex-col justify-between space-y-5 md:space-y-6">
+        <div className="lg:col-span-5 bg-gradient-to-br from-[#0B309A] via-[#0B2E8D] to-[#0B309A] text-white p-5 sm:p-7 md:p-8 rounded-3xl shadow-xl flex flex-col justify-between space-y-5 md:space-y-6">
           {calcMode === "standard" ? (
             <div>
               <span className="text-[10px] sm:text-xs font-bold uppercase tracking-widest text-[#B7C4FF] block mb-1">
@@ -339,7 +339,7 @@ export const EmiCalculator: React.FC<EmiCalculatorProps> = ({
 
           <button
             onClick={handleApply}
-            className="w-full button-shine bg-[#BB0119] hover:bg-[#E0292E] text-white font-bold py-3.5 px-5 rounded-xl transition-all shadow-md hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer"
+            className="w-full button-shine bg-[#E30613] hover:bg-[#FF1A27] text-white font-bold py-3.5 px-5 rounded-xl transition-all shadow-md hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] flex items-center justify-center gap-2 text-xs sm:text-sm cursor-pointer"
           >
             <span>Lock This Low Interest Quote</span>
             <span className="material-symbols-outlined text-[16px] sm:text-[18px]">arrow_forward</span>

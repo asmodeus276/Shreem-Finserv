@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Business Loan & MSME Working Capital — From 10.5% p.a. | Shreem Finserv",
+  title: "Business Loan & MSME Working Capital — From 14% p.a. | Shreem Finserv",
   description:
-    "Apply for collateral-free Business Loans from ₹1 Lakh to ₹2 Crore. Starting from 10.5% p.a., flexible tenure up to 5 years, minimal documentation, and 48-hour disbursal across 50+ lenders.",
+    "Apply for collateral-free Business Loans from ₹1 Lakh to ₹2 Crore. Starting from 14% p.a., flexible tenure up to 5 years, minimal documentation, and 48-hour disbursal across 50+ lenders.",
 };
 
 export default function BusinessLoanPage() {
@@ -17,13 +17,13 @@ export default function BusinessLoanPage() {
       description="Flexible unsecured credit lines designed for manufacturers, traders, and service enterprises to manage operational cash flow, inventory, and supplier invoices without pledging physical collateral."
       bannerImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=75"
       maxAmount="₹1L – upto ₹2Cr"
-      interestRate="From 10.5% p.a."
+      interestRate="From 14% p.a."
       tenure="Up to 5 Years"
       disbursalSpeed="Within 48 Hours"
       defaultSliderAmount={5000000}
       minSliderAmount={100000}
       maxSliderAmount={20000000}
-      defaultEmiRate={10.5}
+      defaultEmiRate={14.0}
       defaultEmiTenureYears={3}
       features={[
         {
@@ -52,7 +52,7 @@ export default function BusinessLoanPage() {
           icon: "bolt",
         },
         {
-          title: "Competitive Rates from 10.5% p.a.",
+          title: "Competitive Rates from 14% p.a.",
           desc: "Compare offers across 50+ leading private, public banks and NBFCs for lowest interest rates.",
           icon: "percent",
         },
@@ -83,7 +83,7 @@ export default function BusinessLoanPage() {
         },
         {
           q: "What is the interest rate for a Business Loan?",
-          a: "Interest rates start from 10.5% p.a. depending on your business vintage, annual turnover, and CIBIL score across our 50+ banking partners.",
+          a: "Interest rates start from 14% p.a. depending on your business vintage, annual turnover, and CIBIL score across our 50+ banking partners.",
         },
         {
           q: "How fast will the funds be disbursed?",

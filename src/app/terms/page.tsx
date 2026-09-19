@@ -38,21 +38,21 @@ export default function TermsPage() {
             </p>
             
             <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-              <h3 className="text-base font-bold text-[#001A62] mb-1">1. Credit Appraisal &amp; Sanction</h3>
+              <h3 className="text-base font-bold text-[#0B309A] mb-1">1. Credit Appraisal &amp; Sanction</h3>
               <p className="text-xs sm:text-sm text-slate-600">
                 {BRAND_CONFIG.compliance.rbiDisclaimer} Submission of an inquiry does not guarantee loan disbursal. Final loan sanction, interest rates, and loan limits are determined solely by our partner financial institutions and RBI guidelines.
               </p>
             </div>
 
             <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-              <h3 className="text-base font-bold text-[#001A62] mb-1">2. Zero Upfront Fees Policy</h3>
+              <h3 className="text-base font-bold text-[#0B309A] mb-1">2. Zero Upfront Fees Policy</h3>
               <p className="text-xs sm:text-sm text-slate-600">
                 {BRAND_CONFIG.name} does not charge any upfront or advance cash payments for checking loan eligibility or arranging loans. Beware of fraudulent individuals demanding cash or processing payments before official bank sanction.
               </p>
             </div>
 
             <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-              <h3 className="text-base font-bold text-[#001A62] mb-1">3. Accurate Representation</h3>
+              <h3 className="text-base font-bold text-[#0B309A] mb-1">3. Accurate Representation</h3>
               <p className="text-xs sm:text-sm text-slate-600">
                 Applicants agree to provide accurate and truthful identity and financial details. Any falsified documentation is subject to rejection and reporting under applicable regulatory frameworks.
               </p>

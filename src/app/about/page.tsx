@@ -6,6 +6,7 @@ import { AwardsShowcase } from "@/components/AwardsShowcase";
 import { PartnerMarquee } from "@/components/PartnerMarquee";
 import { AnimatedCounter } from "@/components/AnimatedCounter";
 import { ScrollReveal } from "@/components/ScrollReveal";
+import { TestimonialsSlider } from "@/components/TestimonialsSlider";
 
 export const metadata: Metadata = {
   title: "About Us - Let's Grow Business With Us | Shreem Finserv",
@@ -50,9 +51,9 @@ export default function AboutPage() {
         {/* Subtle curved background contour lines matching reference */}
         <div className="absolute inset-0 pointer-events-none opacity-40">
           <svg className="w-full h-full" viewBox="0 0 1440 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M-50 180 C250 80, 550 320, 950 140 C1150 50, 1350 220, 1500 120" stroke="#001A62" strokeWidth="1.2" strokeOpacity="0.12" fill="none"/>
-            <path d="M-50 230 C250 130, 550 370, 950 190 C1150 100, 1350 270, 1500 170" stroke="#001A62" strokeWidth="1.2" strokeOpacity="0.08" fill="none"/>
-            <path d="M-50 280 C250 180, 550 420, 950 240 C1150 150, 1350 320, 1500 220" stroke="#001A62" strokeWidth="1.2" strokeOpacity="0.05" fill="none"/>
+            <path d="M-50 180 C250 80, 550 320, 950 140 C1150 50, 1350 220, 1500 120" stroke="#0B309A" strokeWidth="1.2" strokeOpacity="0.12" fill="none"/>
+            <path d="M-50 230 C250 130, 550 370, 950 190 C1150 100, 1350 270, 1500 170" stroke="#0B309A" strokeWidth="1.2" strokeOpacity="0.08" fill="none"/>
+            <path d="M-50 280 C250 180, 550 420, 950 240 C1150 150, 1350 320, 1500 220" stroke="#0B309A" strokeWidth="1.2" strokeOpacity="0.05" fill="none"/>
           </svg>
         </div>
 
@@ -73,14 +74,14 @@ export default function AboutPage() {
                     className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                   {/* Subtle tint overlay */}
-                  <div className="absolute inset-0 bg-[#001A62]/10 group-hover:bg-transparent transition-colors duration-300" />
+                  <div className="absolute inset-0 bg-[#0B309A]/10 group-hover:bg-transparent transition-colors duration-300" />
                 </div>
               </div>
             </div>
 
             {/* Right Column: Giant Bold Headline */}
             <div className="md:col-span-6 lg:col-span-7 space-y-3 sm:space-y-4 text-center md:text-left">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#001A62] tracking-tight leading-[1.08]">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#0B309A] tracking-tight leading-[1.08]">
                 Let&apos;s grow <br />
                 <span className="text-[#0B2E8D]">business</span> <br />
                 with us
@@ -115,7 +116,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-5xl mx-auto text-slate-700 text-sm sm:text-base md:text-lg leading-relaxed space-y-4">
             <p className="text-slate-800 font-medium leading-relaxed">
-              <strong className="text-[#001A62] font-black text-lg sm:text-xl">{BRAND_CONFIG.name}</strong> is leading loan market place. Our head office is located in Delhi-NCR ({BRAND_CONFIG.address}). We are available in multiple locations across India. We serve multiple loan services like <strong className="text-slate-900">Professional Loan</strong>, <strong className="text-slate-900">Business Loan</strong>, <strong className="text-slate-900">Home Loan</strong>, <strong className="text-slate-900">Loan Against Property</strong>, <strong className="text-slate-900">Personal Loan</strong>, <strong className="text-slate-900">Working Capital</strong>, <strong className="text-slate-900">Machinery Loan</strong>, <strong className="text-slate-900">Auto Loan (New &amp; Used Cars)</strong> &amp; <strong className="text-slate-900">Gold Loan</strong>.
+              <strong className="text-[#0B309A] font-black text-lg sm:text-xl">{BRAND_CONFIG.name}</strong> is leading loan market place. Our head office is located in Delhi-NCR ({BRAND_CONFIG.address}). We are available in multiple locations across India. We serve multiple loan services like <strong className="text-slate-900">Professional Loan</strong>, <strong className="text-slate-900">Business Loan</strong>, <strong className="text-slate-900">Home Loan</strong>, <strong className="text-slate-900">Loan Against Property</strong>, <strong className="text-slate-900">Personal Loan</strong>, <strong className="text-slate-900">Working Capital</strong>, <strong className="text-slate-900">Machinery Loan</strong>, <strong className="text-slate-900">Car Loan (New &amp; Used Cars)</strong> &amp; <strong className="text-slate-900">Women Entrepreneur Loan</strong>.
             </p>
             <p className="text-slate-600">
               We are associated and tie-ups with India&apos;s leading &amp; Major Banks and NBFCs, which benefits &amp; helps loan seekers to get their expected services and fulfill their loan requirements on time with optimal interest rates, minimal paperwork, and 100% transparency.
@@ -143,7 +144,7 @@ export default function AboutPage() {
                 {/* Floating Experience Badge Overlay */}
                 <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-white/60 flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-[#001A62] text-white flex items-center justify-center font-black text-xl shadow-md">
+                    <div className="w-12 h-12 rounded-xl bg-[#0B309A] text-white flex items-center justify-center font-black text-xl shadow-md">
                       10+
                     </div>
                     <div>
@@ -164,14 +165,14 @@ export default function AboutPage() {
 
             {/* Right Column: Key Commitments and Action Dialers */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-[#001A62] text-xs font-bold border border-blue-200">
-                <span className="material-symbols-outlined text-[16px] text-[#BB0119]">verified</span>
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-[#0B309A] text-xs font-bold border border-blue-200">
+                <span className="material-symbols-outlined text-[16px] text-[#E30613]">verified</span>
                 <span>AUTHORIZED CREDIT PARTNER</span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
                 Thousands Of Customers <br />
-                <span className="text-[#001A62]">Trust Our Company</span>
+                <span className="text-[#0B309A]">Trust Our Company</span>
               </h2>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
@@ -202,7 +203,7 @@ export default function AboutPage() {
               <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-4 border-t border-slate-200">
                 <a
                   href={`tel:${BRAND_CONFIG.phone.replace(/\s+/g, "")}`}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#001A62] hover:bg-[#0B2E8D] text-white font-bold text-xs sm:text-sm shadow-md transition-all hover:scale-105 active:scale-95"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#0B309A] hover:bg-[#0B2E8D] text-white font-bold text-xs sm:text-sm shadow-md transition-all hover:scale-105 active:scale-95"
                 >
                   <span className="material-symbols-outlined text-[18px] text-amber-400">call</span>
                   <span>Call: {BRAND_CONFIG.phoneDisplay}</span>
@@ -220,7 +221,7 @@ export default function AboutPage() {
 
                 <Link
                   href="/apply"
-                  className="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-xl bg-[#BB0119] hover:bg-[#9c0115] text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-md transition-all hover:scale-105 active:scale-95"
+                  className="inline-flex items-center gap-1.5 px-6 py-3.5 rounded-xl bg-[#E30613] hover:bg-[#B8040E] text-white font-black text-xs sm:text-sm uppercase tracking-wider shadow-md transition-all hover:scale-105 active:scale-95"
                 >
                   <span>Apply Online</span>
                   <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -237,7 +238,7 @@ export default function AboutPage() {
       <section className="bg-slate-50 border-y border-slate-200 py-10 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div className="p-3">
-            <div className="text-3xl sm:text-4xl font-black text-[#001A62]">
+            <div className="text-3xl sm:text-4xl font-black text-[#0B309A]">
               <AnimatedCounter end={500} prefix="₹" suffix="Cr+" />
             </div>
             <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mt-1">Loan Volume Disbursed</p>
@@ -255,7 +256,7 @@ export default function AboutPage() {
             <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mt-1">Banking Partners</p>
           </div>
           <div className="p-3 border-l border-slate-200">
-            <div className="text-3xl sm:text-4xl font-black text-[#BB0119]">
+            <div className="text-3xl sm:text-4xl font-black text-[#E30613]">
               <AnimatedCounter end={2} suffix=" Hours" />
             </div>
             <p className="text-xs text-slate-500 font-bold uppercase tracking-wider mt-1">Avg. Fast Sanction</p>
@@ -268,7 +269,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <ScrollReveal variant="fade-up">
             <div className="text-center max-w-2xl mx-auto mb-12">
-              <span className="text-xs font-bold uppercase tracking-wider text-[#001A62]">Foundational Principles</span>
+              <span className="text-xs font-bold uppercase tracking-wider text-[#0B309A]">Foundational Principles</span>
               <h2 className="text-2xl sm:text-4xl font-black text-slate-900 mt-1">
                 The Shreem Operational Pillars
               </h2>
@@ -281,7 +282,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {CORE_PILLARS.map((pillar, idx) => (
               <ScrollReveal key={idx} variant="fade-up" delay={idx * 80}>
-                <div className="bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-200 hover:shadow-xl hover:border-[#001A62]/40 transition-all duration-300 h-full flex flex-col justify-between">
+                <div className="bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-200 hover:shadow-xl hover:border-[#0B309A]/40 transition-all duration-300 h-full flex flex-col justify-between">
                   <div className="space-y-3">
                     <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${pillar.color} text-white flex items-center justify-center shadow-md`}>
                       <span className="material-symbols-outlined text-[24px]">{pillar.icon}</span>
@@ -304,10 +305,15 @@ export default function AboutPage() {
         <AwardsShowcase />
       </ScrollReveal>
 
+      {/* 7.5. Customer Feedback & Testimonials Section (Exact Homepage Component) */}
+      <ScrollReveal variant="fade-up">
+        <TestimonialsSlider />
+      </ScrollReveal>
+
       {/* 8. Ready To Apply CTA */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <ScrollReveal variant="zoom-in">
-          <div className="bg-gradient-to-r from-[#001A62] via-[#0B2E8D] to-[#001A62] text-white rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10">
+          <div className="bg-gradient-to-r from-[#0B309A] via-[#0B2E8D] to-[#0B309A] text-white rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10">
             <div className="space-y-2 text-center md:text-left">
               <h3 className="text-2xl sm:text-3xl font-black">
                 Have a Loan Requirement in Mind?
@@ -319,13 +325,13 @@ export default function AboutPage() {
             <div className="flex flex-wrap items-center gap-3">
               <Link
                 href="/contact"
-                className="bg-white hover:bg-slate-100 text-[#001A62] font-bold px-6 py-3 rounded-xl shadow-md hover:scale-105 transition-all text-xs sm:text-sm"
+                className="bg-white hover:bg-slate-100 text-[#0B309A] font-bold px-6 py-3 rounded-xl shadow-md hover:scale-105 transition-all text-xs sm:text-sm"
               >
                 Contact Us
               </Link>
               <Link
                 href="/apply"
-                className="bg-[#BB0119] hover:bg-[#9c0115] text-white font-bold px-6 py-3 rounded-xl shadow-md hover:scale-105 transition-all text-xs sm:text-sm uppercase tracking-wider"
+                className="bg-[#E30613] hover:bg-[#B8040E] text-white font-bold px-6 py-3 rounded-xl shadow-md hover:scale-105 transition-all text-xs sm:text-sm uppercase tracking-wider"
               >
                 Apply Online
               </Link>

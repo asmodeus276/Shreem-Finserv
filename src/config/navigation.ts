@@ -30,7 +30,7 @@ export const PRIMARY_LOANS: NavLoanItem[] = [
     subText: "MSME & Enterprise Working Capital",
     slug: "/business-loan",
     icon: "storefront",
-    tag: "From 10.5%",
+    tag: "From 14%",
     badgeColor: "text-emerald-700 bg-emerald-50 border-emerald-200",
     highlights: "₹1L – ₹2 Cr | Collateral-Free",
   },
@@ -41,7 +41,7 @@ export const PRIMARY_LOANS: NavLoanItem[] = [
     subText: "Low Interest Rates & Doorstep Mortgage",
     slug: "/home-loan",
     icon: "home",
-    tag: "From 8.5%",
+    tag: "From 7.20%",
     badgeColor: "text-blue-700 bg-blue-50 border-blue-200",
     highlights: "₹10L – ₹5 Cr | Up to 30 Yrs",
   },
@@ -60,6 +60,17 @@ export const PRIMARY_LOANS: NavLoanItem[] = [
 
 // Secondary Loan Products (Right Column in Mega-Menu)
 export const SECONDARY_LOANS: NavLoanItem[] = [
+  {
+    id: "car-loan",
+    title: "Car Loan (New & Used)",
+    shortTitle: "Car Loan",
+    subText: "Up to 100% On-Road Auto Financing",
+    slug: "/car-loan",
+    icon: "directions_car",
+    tag: "From 8.75%",
+    badgeColor: "text-amber-700 bg-amber-50 border-amber-200",
+    highlights: "₹1L – ₹1 Cr | Up to 8 Yrs",
+  },
   {
     id: "machinery-loan",
     title: "Machinery & Equipment Loan",

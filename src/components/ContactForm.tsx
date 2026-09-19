@@ -127,7 +127,7 @@ export default function ContactForm() {
 
         <button
           onClick={handleReset}
-          className="w-full bg-[#0B2E8D] hover:bg-[#001A62] text-white font-semibold py-3 px-6 rounded-lg transition-colors text-sm shadow-sm flex items-center justify-center gap-2"
+          className="w-full bg-[#0B2E8D] hover:bg-[#0B309A] text-white font-semibold py-3 px-6 rounded-lg transition-colors text-sm shadow-sm flex items-center justify-center gap-2"
         >
           <span className="material-symbols-outlined text-[18px]">edit_note</span>
           Send Another Message
@@ -251,7 +251,7 @@ export default function ContactForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-[#0B2E8D] hover:bg-[#001A62] disabled:bg-slate-400 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 text-sm mt-3"
+          className="w-full bg-[#0B2E8D] hover:bg-[#0B309A] disabled:bg-slate-400 text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md hover:shadow-lg flex items-center justify-center gap-2 text-sm mt-3"
         >
           {loading ? (
             <>
@@ -268,7 +268,7 @@ export default function ContactForm() {
 
         <p className="text-[11px] text-slate-400 text-center pt-1">
           By submitting, you agree to our{" "}
-          <a href="/privacy-policy" className="underline text-[#0B2E8D] hover:text-[#001A62]">
+          <a href="/privacy-policy" className="underline text-[#0B2E8D] hover:text-[#0B309A]">
             Privacy Policy
           </a>
           . We will never share your information with third parties.

@@ -32,7 +32,7 @@ export const AwardsShowcase: React.FC = () => {
       year: "2024",
       desc: "Exclusive customized credit lines engineered for medical professionals & clinics.",
       icon: "local_hospital",
-      badgeColor: "bg-red-100 text-[#BB0119] border-red-200",
+      badgeColor: "bg-red-100 text-[#E30613] border-red-200",
     },
   ];
 

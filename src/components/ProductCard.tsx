@@ -24,7 +24,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
   return (
     <div className="relative bg-white border border-slate-200/90 rounded-2xl p-6 md:p-8 hover:border-[#0B2E8D]/40 interactive-shadow group flex flex-col h-full transition-all overflow-hidden">
       {/* Top Gradient Accent Bar on Hover */}
-      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#001A62] via-[#0B2E8D] to-[#BB0119] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+      <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0B309A] via-[#0B2E8D] to-[#E30613] opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
       <div className="w-14 h-14 rounded-2xl bg-blue-50/80 border border-blue-100 flex items-center justify-center text-[#0B2E8D] mb-6 group-hover:bg-[#0B2E8D] group-hover:text-white group-hover:scale-105 transition-all duration-300 shadow-xs">
         <span className="material-symbols-outlined text-[28px]">{icon}</span>
@@ -56,7 +56,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({
 
       <Link
         href={slug}
-        className="inline-flex items-center gap-2 text-xs font-bold text-[#0B2E8D] group-hover:text-[#BB0119] transition-colors mt-auto pt-2"
+        className="inline-flex items-center gap-2 text-xs font-bold text-[#0B2E8D] group-hover:text-[#E30613] transition-colors mt-auto pt-2"
       >
         <span>Explore Product Details</span>
         <span className="material-symbols-outlined text-[18px] group-hover:translate-x-1.5 transition-transform">

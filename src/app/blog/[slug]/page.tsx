@@ -90,7 +90,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
               {/* Author Strip */}
               <div className="flex items-center gap-3 pt-2 pb-4 border-b border-slate-200">
-                <div className="w-10 h-10 rounded-full bg-[#001A62] text-white flex items-center justify-center font-bold text-sm">
+                <div className="w-10 h-10 rounded-full bg-[#0B309A] text-white flex items-center justify-center font-bold text-sm">
                   {post.author.avatarInitials}
                 </div>
                 <div>
@@ -177,7 +177,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
 
             {/* Related Product Action Card */}
             {post.relatedProductSlug && (
-              <div className="bg-gradient-to-r from-[#001A62] to-[#0B2E8D] text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
+              <div className="bg-gradient-to-r from-[#0B309A] to-[#08226e] text-white rounded-2xl p-6 sm:p-8 flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl">
                 <div className="space-y-1 text-center sm:text-left">
                   <span className="text-xs font-bold uppercase tracking-wider text-amber-300">
                     Apply Directly Online
@@ -191,7 +191,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </div>
                 <Link
                   href={post.relatedProductSlug}
-                  className="bg-[#BB0119] hover:bg-[#e0292e] text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm shadow flex-shrink-0 flex items-center gap-1.5 transition-all"
+                  className="bg-[#E30613] hover:bg-[#FF1A27] text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm shadow flex-shrink-0 flex items-center gap-1.5 transition-all"
                 >
                   <span>Explore Product</span>
                   <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -231,7 +231,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                       </div>
                       <div className="flex items-center justify-between text-[11px] text-slate-400 font-medium pt-2 border-t border-slate-100">
                         <span>{rel.readTime}</span>
-                        <span className="inline-flex items-center gap-1 text-[#001A62] group-hover:text-[#BB0119] font-bold">
+                        <span className="inline-flex items-center gap-1 text-[#0B309A] group-hover:text-[#E30613] font-bold">
                           Read <span className="material-symbols-outlined text-[13px]">arrow_forward</span>
                         </span>
                       </div>
@@ -264,7 +264,7 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
                 </p>
                 <a
                   href={`tel:${BRAND_CONFIG.phone.replace(/[^0-9]/g, "")}`}
-                  className="inline-flex items-center justify-center gap-1.5 w-full bg-[#001A62] hover:bg-[#0B2E8D] text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-colors"
+                  className="inline-flex items-center justify-center gap-1.5 w-full bg-[#0B309A] hover:bg-[#08226e] text-white font-bold py-2.5 px-4 rounded-xl text-xs transition-colors"
                 >
                   <span className="material-symbols-outlined text-[16px]">call</span>
                   <span>{BRAND_CONFIG.phoneDisplay}</span>

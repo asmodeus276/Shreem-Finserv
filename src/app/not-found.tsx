@@ -8,7 +8,7 @@ export default function NotFound() {
       <div className="max-w-2xl mx-auto text-center space-y-6">
         
         {/* Animated Badge */}
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-[#BB0119] text-xs font-bold border border-red-200">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-red-50 text-[#E30613] text-xs font-bold border border-red-200">
           <span className="material-symbols-outlined text-[16px]">error</span>
           404 - Resource Not Located
         </div>
@@ -29,28 +29,28 @@ export default function NotFound() {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Link
               href="/personal-loan/for-doctors"
-              className="flex items-center gap-2.5 p-3 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#001A62] border border-slate-100 transition-all font-semibold text-xs"
+              className="flex items-center gap-2.5 p-3 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#0B309A] border border-slate-100 transition-all font-semibold text-xs"
             >
               <span className="material-symbols-outlined text-[#0B2E8D]">medical_services</span>
               <span>Doctors Loan</span>
             </Link>
             <Link
               href="/business-loan/msme-working-capital"
-              className="flex items-center gap-2.5 p-3 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#001A62] border border-slate-100 transition-all font-semibold text-xs"
+              className="flex items-center gap-2.5 p-3 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#0B309A] border border-slate-100 transition-all font-semibold text-xs"
             >
               <span className="material-symbols-outlined text-emerald-600">storefront</span>
               <span>MSME Working Capital</span>
             </Link>
             <Link
               href="/calculator"
-              className="flex items-center gap-2.5 p-3 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#001A62] border border-slate-100 transition-all font-semibold text-xs"
+              className="flex items-center gap-2.5 p-3 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#0B309A] border border-slate-100 transition-all font-semibold text-xs"
             >
               <span className="material-symbols-outlined text-[#0B2E8D]">calculate</span>
               <span>Smart EMI Calculator</span>
             </Link>
             <Link
               href="/credit-score"
-              className="flex items-center gap-2.5 p-3 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#001A62] border border-slate-100 transition-all font-semibold text-xs"
+              className="flex items-center gap-2.5 p-3 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#0B309A] border border-slate-100 transition-all font-semibold text-xs"
             >
               <span className="material-symbols-outlined text-emerald-600">speed</span>
               <span>Free Credit Score</span>
@@ -62,7 +62,7 @@ export default function NotFound() {
         <div className="flex flex-wrap items-center justify-center gap-3 pt-2">
           <Link
             href="/"
-            className="inline-flex items-center gap-2 bg-[#001A62] hover:bg-[#0B2E8D] text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm shadow-md transition-all"
+            className="inline-flex items-center gap-2 bg-[#0B309A] hover:bg-[#0B2E8D] text-white font-bold px-6 py-3 rounded-xl text-xs sm:text-sm shadow-md transition-all"
           >
             <span className="material-symbols-outlined text-[18px]">home</span>
             <span>Return to Homepage</span>
@@ -71,7 +71,7 @@ export default function NotFound() {
             href={`tel:${BRAND_CONFIG.phone.replace(/[^0-9]/g, "")}`}
             className="inline-flex items-center gap-2 bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 font-bold px-6 py-3 rounded-xl text-xs sm:text-sm shadow-sm transition-all"
           >
-            <span className="material-symbols-outlined text-[18px] text-[#BB0119]">call</span>
+            <span className="material-symbols-outlined text-[18px] text-[#E30613]">call</span>
             <span>Call Support ({BRAND_CONFIG.phoneDisplay})</span>
           </a>
         </div>

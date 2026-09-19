@@ -43,30 +43,30 @@ export default function PrivacyPolicyPage() {
             </p>
 
             <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-              <h3 className="text-base font-bold text-[#001A62] mb-1">1. Information We Collect</h3>
+              <h3 className="text-base font-bold text-[#0B309A] mb-1">1. Information We Collect</h3>
               <p className="text-xs sm:text-sm text-slate-600">
                 When you submit a loan inquiry or application, we collect your name, mobile number, residential city, required loan amount, employment details, and necessary KYC credentials solely for evaluating loan eligibility.
               </p>
             </div>
 
             <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-              <h3 className="text-base font-bold text-[#001A62] mb-1">2. Purpose of Processing</h3>
+              <h3 className="text-base font-bold text-[#0B309A] mb-1">2. Purpose of Processing</h3>
               <p className="text-xs sm:text-sm text-slate-600">
                 Your information is processed exclusively for underwriting verification, loan product matching, credit assessment, and regulatory compliance. We do not sell, rent, or trade your data to third-party telemarketers.
               </p>
             </div>
 
             <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-              <h3 className="text-base font-bold text-[#001A62] mb-1">3. Data Security &amp; Encryption</h3>
+              <h3 className="text-base font-bold text-[#0B309A] mb-1">3. Data Security &amp; Encryption</h3>
               <p className="text-xs sm:text-sm text-slate-600">
                 We implement 256-bit SSL encryption and strict server-side Firestore security rules to prevent unauthorized access.
               </p>
             </div>
 
             <div className="bg-slate-50 p-5 rounded-2xl border border-slate-200">
-              <h3 className="text-base font-bold text-[#001A62] mb-1">4. Contact Grievance Officer</h3>
+              <h3 className="text-base font-bold text-[#0B309A] mb-1">4. Contact Grievance Officer</h3>
               <p className="text-xs sm:text-sm text-slate-600">
-                For privacy inquiries or data consent revocation, write to <a href={`mailto:${BRAND_CONFIG.email}`} className="text-[#001A62] font-bold">{BRAND_CONFIG.email}</a> or visit {BRAND_CONFIG.address}.
+                For privacy inquiries or data consent revocation, write to <a href={`mailto:${BRAND_CONFIG.email}`} className="text-[#0B309A] font-bold">{BRAND_CONFIG.email}</a> or visit {BRAND_CONFIG.address}.
               </p>
             </div>
           </div>

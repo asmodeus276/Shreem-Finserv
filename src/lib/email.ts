@@ -96,16 +96,16 @@ export async function sendLeadNotificationEmail(lead: LeadEmailData): Promise<bo
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f7f9fb; margin: 0; padding: 24px; }
     .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
-    .header { background: linear-gradient(135deg, #001A62, #0B2E8D); color: #ffffff; padding: 28px 24px; text-align: center; }
+    .header { background: linear-gradient(135deg, #0B309A, #0B2E8D); color: #ffffff; padding: 28px 24px; text-align: center; }
     .header h1 { margin: 0; font-size: 22px; font-weight: 800; }
     .header p { margin: 6px 0 0; font-size: 13px; color: #b7c4ff; }
-    .badge { display: inline-block; background: #BB0119; color: #ffffff; font-size: 12px; font-weight: bold; padding: 4px 12px; border-radius: 20px; margin-top: 10px; }
+    .badge { display: inline-block; background: #E30613; color: #ffffff; font-size: 12px; font-weight: bold; padding: 4px 12px; border-radius: 20px; margin-top: 10px; }
     .content { padding: 24px; }
     .grid-table { width: 100%; border-collapse: collapse; margin-top: 12px; }
     .grid-table td { padding: 12px 10px; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
     .grid-table td.label { color: #64748b; font-weight: 600; width: 40%; }
     .grid-table td.value { color: #0f172a; font-weight: bold; width: 60%; }
-    .highlight-amount { font-size: 18px; color: #001A62; font-weight: 900; }
+    .highlight-amount { font-size: 18px; color: #0B309A; font-weight: 900; }
     .footer { background: #f8fafc; padding: 16px 24px; border-top: 1px solid #e2e8f0; font-size: 12px; color: #64748b; text-align: center; }
   </style>
 </head>
@@ -269,7 +269,7 @@ export async function sendCareerNotificationEmail(career: CareerEmailData): Prom
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f7f9fb; margin: 0; padding: 24px; }
     .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
-    .header { background: linear-gradient(135deg, #001A62, #0B2E8D); color: #ffffff; padding: 28px 24px; text-align: center; }
+    .header { background: linear-gradient(135deg, #0B309A, #0B2E8D); color: #ffffff; padding: 28px 24px; text-align: center; }
     .header h1 { margin: 0; font-size: 22px; font-weight: 800; }
     .header p { margin: 6px 0 0; font-size: 13px; color: #b7c4ff; }
     .content { padding: 24px; }
@@ -392,7 +392,7 @@ export async function sendContactNotificationEmail(contact: ContactEmailData): P
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; background-color: #f7f9fb; margin: 0; padding: 24px; }
     .card { max-width: 600px; margin: 0 auto; background: #ffffff; border-radius: 16px; border: 1px solid #e2e8f0; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.06); }
-    .header { background: linear-gradient(135deg, #001A62, #0B2E8D); color: #ffffff; padding: 28px 24px; text-align: center; }
+    .header { background: linear-gradient(135deg, #0B309A, #0B2E8D); color: #ffffff; padding: 28px 24px; text-align: center; }
     .header h1 { margin: 0; font-size: 22px; font-weight: 800; }
     .header p { margin: 6px 0 0; font-size: 13px; color: #b7c4ff; }
     .badge { display: inline-block; background: #10b981; color: #ffffff; font-size: 12px; font-weight: bold; padding: 4px 12px; border-radius: 20px; margin-top: 10px; }

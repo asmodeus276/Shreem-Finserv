@@ -46,14 +46,14 @@ export default function ContactPage() {
             
             {/* Direct Phone Card */}
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-red-100 text-[#BB0119] flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-red-100 text-[#E30613] flex items-center justify-center flex-shrink-0">
                 <span className="material-symbols-outlined text-2xl">call</span>
               </div>
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Direct Helpline</span>
                 <a
                   href={`tel:${BRAND_CONFIG.phone.replace(/\s+/g, "")}`}
-                  className="text-xl font-bold text-slate-900 hover:text-[#001A62] block mt-0.5 transition-colors"
+                  className="text-xl font-bold text-slate-900 hover:text-[#0B309A] block mt-0.5 transition-colors"
                 >
                   {BRAND_CONFIG.phoneDisplay}
                 </a>
@@ -120,14 +120,14 @@ export default function ContactPage() {
 
             {/* Email Card */}
             <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-blue-100 text-[#001A62] flex items-center justify-center flex-shrink-0">
+              <div className="w-12 h-12 rounded-xl bg-blue-100 text-[#0B309A] flex items-center justify-center flex-shrink-0">
                 <span className="material-symbols-outlined text-2xl">mail</span>
               </div>
               <div>
                 <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">Official Email</span>
                 <a
                   href={`mailto:${BRAND_CONFIG.email}`}
-                  className="text-lg font-bold text-slate-900 hover:text-[#001A62] block mt-0.5 transition-colors"
+                  className="text-lg font-bold text-slate-900 hover:text-[#0B309A] block mt-0.5 transition-colors"
                 >
                   {BRAND_CONFIG.email}
                 </a>
@@ -156,14 +156,14 @@ export default function ContactPage() {
             <div className="bg-white p-3 rounded-2xl border border-slate-200 shadow-sm overflow-hidden space-y-2">
               <div className="flex items-center justify-between px-2 pt-1 text-xs font-bold text-slate-700">
                 <span className="flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[#001A62] text-[18px]">map</span>
+                  <span className="material-symbols-outlined text-[#0B309A] text-[18px]">map</span>
                   Headquarters Map Location (Vaishali, Ghaziabad)
                 </span>
                 <a
                   href="https://maps.google.com/?q=Cloud+9+Tower+Vaishali+Ghaziabad"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-[#001A62] hover:underline text-[11px]"
+                  className="text-[#0B309A] hover:underline text-[11px]"
                 >
                   Open in Google Maps ↗
                 </a>

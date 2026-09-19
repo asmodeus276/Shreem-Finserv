@@ -260,7 +260,7 @@ export const Testimonials: React.FC = () => {
               {/* Author Strip */}
               <div className="p-6 pt-4 border-t border-slate-200/80 flex items-center justify-between gap-3">
                 <div className="flex items-center gap-3 min-w-0">
-                  <div className="w-10 h-10 rounded-full bg-[#001A62] text-white flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-2xs">
+                  <div className="w-10 h-10 rounded-full bg-[#0B309A] text-white flex items-center justify-center font-bold text-xs flex-shrink-0 shadow-2xs">
                     {rev.avatarInitials}
                   </div>
                   <div className="min-w-0">
@@ -321,7 +321,7 @@ export const Testimonials: React.FC = () => {
                 <a
                   href="#lead-application-form"
                   onClick={() => setActiveModal(null)}
-                  className="block text-center w-full bg-[#001A62] hover:bg-[#BB0119] text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-md"
+                  className="block text-center w-full bg-[#0B309A] hover:bg-[#E30613] text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-md"
                 >
                   Check If You Qualify for Similar Terms →
                 </a>

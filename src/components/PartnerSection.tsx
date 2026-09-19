@@ -56,10 +56,10 @@ export const PartnerSection: React.FC = () => {
   return (
     <section id="partner-onboarding-section" className="py-20 bg-white border-t border-slate-200">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <div className="bg-gradient-to-br from-slate-900 via-[#001A62] to-[#0B2E8D] text-white rounded-3xl p-8 md:p-14 shadow-2xl overflow-hidden relative">
+        <div className="bg-gradient-to-br from-slate-900 via-[#0B309A] to-[#0B2E8D] text-white rounded-3xl p-8 md:p-14 shadow-2xl overflow-hidden relative">
           
           {/* Subtle Ambient Glow */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#BB0119]/20 rounded-full blur-3xl pointer-events-none"></div>
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#E30613]/20 rounded-full blur-3xl pointer-events-none"></div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center relative z-10">
             
@@ -208,7 +208,7 @@ export const PartnerSection: React.FC = () => {
                       <button
                         type="submit"
                         disabled={loading}
-                        className="w-full bg-[#BB0119] hover:bg-[#E0292E] text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-sm mt-4"
+                        className="w-full bg-[#E30613] hover:bg-[#FF1A27] text-white font-bold py-3.5 px-6 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-sm mt-4"
                       >
                         {loading ? (
                           <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>

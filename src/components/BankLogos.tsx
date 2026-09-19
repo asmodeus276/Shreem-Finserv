@@ -20,13 +20,15 @@ export interface BankInfo {
    ═══════════════════════════════════════════════════════════════════ */
 
 const renderBankLogo = (src: string, alt: string) => (
-  <Image
-    src={src}
-    alt={alt}
-    width={80}
-    height={32}
-    className="w-full h-full object-contain"
-  />
+  <div className="relative w-full h-full flex items-center justify-center p-1">
+    <Image
+      src={src}
+      alt={alt}
+      width={120}
+      height={32}
+      className="max-h-full max-w-full w-auto h-auto object-contain filter-none brightness-100 contrast-100"
+    />
+  </div>
 );
 
 export const BANK_PARTNERS_DATA: BankInfo[] = [
@@ -50,11 +52,50 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     category: "Bank",
     color: "#00A5DF",
     logoUrl: "/logos/banks/sbi.svg",
-    interestRate: "Starting 8.50% p.a.",
+    interestRate: "Starting 7.20% p.a.",
     maxAmount: "Up to ₹20 Crore",
     processingFee: "Zero to 0.35%",
     specialFeature: "Lowest sovereign repo-linked lending rates (EBLR)",
     svgIcon: renderBankLogo("/logos/banks/sbi.svg", "State Bank of India"),
+  },
+  {
+    id: "pnb",
+    name: "Punjab National Bank",
+    shortName: "PNB",
+    category: "Bank",
+    color: "#A20034",
+    logoUrl: "/logos/banks/pnb.svg",
+    interestRate: "Starting 7.20% p.a.",
+    maxAmount: "Up to ₹10 Crore",
+    processingFee: "0.35%",
+    specialFeature: "Subsidized sovereign home loan rates and government credit schemes",
+    svgIcon: renderBankLogo("/logos/banks/pnb.svg", "Punjab National Bank"),
+  },
+  {
+    id: "canara",
+    name: "Canara Bank",
+    shortName: "Canara Bank",
+    category: "Bank",
+    color: "#004C8F",
+    logoUrl: "/logos/banks/canara.svg",
+    interestRate: "Starting 7.20% p.a.",
+    maxAmount: "Up to ₹10 Crore",
+    processingFee: "0.25% - 0.50%",
+    specialFeature: "Preferred sovereign home loan rates with zero advance broker charges",
+    svgIcon: renderBankLogo("/logos/banks/canara.svg", "Canara Bank"),
+  },
+  {
+    id: "indian-bank",
+    name: "Indian Bank",
+    shortName: "Indian Bank",
+    category: "Bank",
+    color: "#003399",
+    logoUrl: "/logos/banks/indian-bank.png",
+    interestRate: "Starting 7.20% p.a.",
+    maxAmount: "Up to ₹10 Crore",
+    processingFee: "0.25% - 0.40%",
+    specialFeature: "Special home loan rebates for women co-applicants and affordable housing",
+    svgIcon: renderBankLogo("/logos/banks/indian-bank.png", "Indian Bank"),
   },
   {
     id: "icici",
@@ -114,12 +155,12 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     shortName: "Tata Capital",
     category: "NBFC",
     color: "#00539B",
-    logoUrl: "/logos/banks/tata-capital.svg",
+    logoUrl: "/logos/banks/tata-capital.png",
     interestRate: "Starting 9.99% p.a.",
     maxAmount: "Up to ₹3 Crore",
     processingFee: "1.00% - 1.75%",
     specialFeature: "Customized EMI moratorium for industrial equipment",
-    svgIcon: renderBankLogo("/logos/banks/tata-capital.svg", "Tata Capital"),
+    svgIcon: renderBankLogo("/logos/banks/tata-capital.png", "Tata Capital"),
   },
   {
     id: "bajaj",
@@ -187,19 +228,6 @@ export const BANK_PARTNERS_DATA: BankInfo[] = [
     svgIcon: renderBankLogo("/logos/banks/bob.png", "Bank of Baroda"),
   },
   {
-    id: "pnb",
-    name: "Punjab National Bank",
-    shortName: "PNB",
-    category: "Bank",
-    color: "#A20034",
-    logoUrl: "/logos/banks/pnb.svg",
-    interestRate: "Starting 8.65% p.a.",
-    maxAmount: "Up to ₹10 Crore",
-    processingFee: "0.35%",
-    specialFeature: "Subsidized government MSME & Mudra loans",
-    svgIcon: renderBankLogo("/logos/banks/pnb.svg", "Punjab National Bank"),
-  },
-  {
     id: "poonawalla",
     name: "Poonawalla Fincorp",
     shortName: "Poonawalla Fincorp",
@@ -223,13 +251,13 @@ export const BankBadge: React.FC<{ bankId: string; className?: string }> = ({
 
   return (
     <div
-      className={`inline-flex items-center gap-2.5 bg-white border border-slate-200/90 rounded-2xl px-4 py-2.5 shadow-sm hover:shadow transition-all ${className}`}
+      className={`inline-flex items-center gap-3 bg-white border border-slate-200/90 rounded-2xl px-4 py-2.5 shadow-sm hover:shadow-md transition-all ${className}`}
     >
-      <div className="w-12 h-8 flex-shrink-0 bg-white rounded-lg p-1 border border-slate-100 flex items-center justify-center shadow-xs">
+      <div className="w-14 h-8 flex-shrink-0 bg-white rounded-lg p-1 border border-slate-200/80 flex items-center justify-center shadow-xs">
         {bank.svgIcon}
       </div>
-      <div className="flex flex-col text-left">
-        <span className="text-xs font-bold text-slate-900 leading-tight">
+      <div className="flex flex-col text-left min-w-0">
+        <span className="text-xs font-bold text-slate-900 leading-tight truncate">
           {bank.name}
         </span>
         <span className="text-[10px] text-slate-400 font-semibold">

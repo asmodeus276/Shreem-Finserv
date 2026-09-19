@@ -53,7 +53,7 @@ export const BankComparisonTable: React.FC<BankComparisonTableProps> = ({
                 onClick={() => setFilter(tab)}
                 className={`px-3.5 py-1.5 sm:px-4 sm:py-2 text-xs font-bold rounded-lg transition-all whitespace-nowrap ${
                   filter === tab
-                    ? "bg-[#001A62] text-white shadow-sm"
+                    ? "bg-[#0B309A] text-white shadow-sm"
                     : "text-slate-600 hover:text-slate-900"
                 }`}
               >
@@ -71,8 +71,8 @@ export const BankComparisonTable: React.FC<BankComparisonTableProps> = ({
               className="bg-slate-50 border border-slate-200 rounded-2xl p-4 shadow-sm space-y-3"
             >
               <div className="flex items-center justify-between gap-3">
-                <div className="flex items-center gap-2.5 min-w-0">
-                  <div className="w-12 h-8 flex-shrink-0 bg-white rounded-lg p-1 border border-slate-100 flex items-center justify-center shadow-xs">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="w-14 h-8 flex-shrink-0 bg-white rounded-lg p-1 border border-slate-200/80 flex items-center justify-center shadow-xs">
                     {bank.svgIcon}
                   </div>
                   <div className="min-w-0">
@@ -102,7 +102,7 @@ export const BankComparisonTable: React.FC<BankComparisonTableProps> = ({
 
               <button
                 onClick={handleApply}
-                className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-bold text-white bg-[#001A62] hover:bg-[#BB0119] py-2.5 px-4 rounded-xl transition-colors shadow-sm"
+                className="w-full inline-flex items-center justify-center gap-1.5 text-xs font-bold text-white bg-[#0B309A] hover:bg-[#E30613] py-2.5 px-4 rounded-xl transition-colors shadow-sm"
               >
                 <span>Apply with {bank.shortName}</span>
                 <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -133,7 +133,7 @@ export const BankComparisonTable: React.FC<BankComparisonTableProps> = ({
                   >
                     <td className="py-4 px-6">
                       <div className="flex items-center gap-3">
-                        <div className="w-12 h-8 flex-shrink-0 bg-white rounded-lg p-1 border border-slate-100 flex items-center justify-center shadow-xs">
+                        <div className="w-14 h-8 flex-shrink-0 bg-white rounded-lg p-1 border border-slate-200/80 flex items-center justify-center shadow-xs">
                           {bank.svgIcon}
                         </div>
                         <div>
@@ -168,7 +168,7 @@ export const BankComparisonTable: React.FC<BankComparisonTableProps> = ({
                     <td className="py-4 px-6 text-right">
                       <button
                         onClick={handleApply}
-                        className="inline-flex items-center gap-1 text-xs font-bold text-white bg-[#001A62] hover:bg-[#BB0119] px-4 py-2 rounded-lg transition-colors shadow-sm"
+                        className="inline-flex items-center gap-1 text-xs font-bold text-white bg-[#0B309A] hover:bg-[#E30613] px-4 py-2 rounded-lg transition-colors shadow-sm"
                       >
                         <span>Apply</span>
                         <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
