@@ -125,77 +125,99 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. Executive & Customer Trust Section ("Thousands Of Customers Trust Our Company") */}
+      {/* 3. Executive Leadership & Founder's Desk Section */}
       <section className="py-12 sm:py-16 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <ScrollReveal variant="fade-up">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
             
-            {/* Left Column: Leadership & Trust Visual Card */}
+            {/* Left Column: Authentic Executive Portrait Card */}
             <div className="lg:col-span-5">
-              <div className="relative w-full h-[360px] sm:h-[420px] md:h-[480px] rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-slate-900 group">
+              <div className="relative w-full h-[460px] sm:h-[520px] md:h-[580px] lg:h-[620px] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-200/90 bg-slate-900 group">
                 <Image
-                  src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1000&q=85"
-                  alt="Thousands of customers trust Shreem Finserv"
+                  src="/images/founder.jpg"
+                  alt="Founder & Managing Leadership — Shreem Finserv"
                   fill
-                  sizes="(max-width: 768px) 100vw, 500px"
-                  className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 540px"
+                  className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                 />
                 
-                {/* Floating Experience Badge Overlay */}
-                <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-white/60 flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 rounded-xl bg-[#0B309A] text-white flex items-center justify-center font-black text-xl shadow-md">
-                      10+
+                {/* Top Floating Badge: Verified Executive Leadership */}
+                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200/90 shadow-md flex items-center gap-2">
+                  <span className="material-symbols-outlined text-[18px] text-[#0B309A]">verified</span>
+                  <span className="text-[11px] font-black text-slate-900 tracking-wide uppercase">Executive Leadership</span>
+                </div>
+
+                {/* Top Right Floating Badge: Shreem HQ */}
+                <div className="absolute top-4 right-4 bg-[#0B309A]/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 shadow-md flex items-center gap-1.5 text-white">
+                  <span className="material-symbols-outlined text-[15px] text-amber-400">location_on</span>
+                  <span className="text-[10px] font-extrabold tracking-wide">Delhi-NCR HQ</span>
+                </div>
+
+                {/* Floating Quote Badge Overlay at Bottom */}
+                <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-white/80 flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0B309A] to-[#0B2E8D] text-white flex items-center justify-center font-black text-xl shadow-md flex-shrink-0">
+                      <span className="material-symbols-outlined text-[24px]">workspace_premium</span>
                     </div>
-                    <div>
-                      <div className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Years Experience</div>
-                      <div className="text-sm font-black text-slate-900">Delivering Financial Trust</div>
+                    <div className="min-w-0">
+                      <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#0B309A]">Leadership Creed</div>
+                      <div className="text-xs sm:text-sm font-black text-slate-900 leading-snug truncate">
+                        &ldquo;Financial Freedom Builds A Better Tomorrow&rdquo;
+                      </div>
                     </div>
                   </div>
-                  <div className="hidden sm:block text-right">
-                    <div className="text-xs font-bold text-emerald-600 flex items-center justify-end gap-1">
+                  <div className="hidden sm:flex flex-col items-end flex-shrink-0">
+                    <span className="text-[11px] font-extrabold text-emerald-600 flex items-center gap-1">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                      50+ Banks
-                    </div>
-                    <div className="text-[10px] text-slate-500">Zero Upfront Fee</div>
+                      100% Ethical
+                    </span>
+                    <span className="text-[10px] text-slate-400 font-semibold">Zero Upfront Fee</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Key Commitments and Action Dialers */}
+            {/* Right Column: Founder's Vision & Commitments */}
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-[#0B309A] text-xs font-bold border border-blue-200">
-                <span className="material-symbols-outlined text-[16px] text-[#E30613]">verified</span>
-                <span>AUTHORIZED CREDIT PARTNER</span>
+                <span className="material-symbols-outlined text-[16px] text-[#E30613]">stars</span>
+                <span>FOUNDER&apos;S DESK &amp; LEADERSHIP VISION</span>
               </div>
 
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
-                Thousands Of Customers <br />
-                <span className="text-[#0B309A]">Trust Our Company</span>
+                Empowering Every Borrower with <br />
+                <span className="text-[#0B309A]">Honest, Swift &amp; Transparent Capital</span>
               </h2>
 
+              {/* Authentic Leadership Quote */}
+              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 via-slate-50 to-white border-l-4 border-[#0B309A] shadow-xs">
+                <p className="text-slate-700 text-sm sm:text-base font-medium italic leading-relaxed">
+                  &ldquo;When we founded Shreem Finserv, our conviction was simple: financial advisory must be rooted in honesty, transparency, and borrower dignity. Every business owner, doctor, and salaried family deserves direct access to the lowest institutional rates without the anxiety of hidden charges or upfront broker fees.&rdquo;
+                </p>
+              </div>
+
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                Our major concern is on offering fast online loan facilities to fulfill emergency &amp; planned capital requirements with 100% transparency, zero upfront charges, and dedicated 1:1 senior relationship managers across all tier-1 and tier-2 Indian cities.
+                As an authorized channel partner to over 50 premier scheduled banks and NBFCs, Shreem Finserv bridges the gap between capital seekers and institutional underwriting desks with zero upfront fees, institutional integrity, and dedicated senior advisory.
               </p>
 
-              {/* Quick Feature Checklist */}
-              <div className="grid grid-cols-2 gap-3 pt-1 text-xs sm:text-sm font-bold text-slate-800">
-                <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-emerald-600 text-[18px]">check_circle</span>
-                  <span>Instant Sanction in 24h</span>
+              {/* Core Executive Commitments Grid */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs sm:text-sm font-bold text-slate-800">
+                <div className="flex items-center gap-2.5 p-2 rounded-xl bg-slate-50 border border-slate-200/80">
+                  <span className="material-symbols-outlined text-emerald-600 text-[20px]">verified_user</span>
+                  <span>100% Zero Upfront Fee Policy</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-emerald-600 text-[18px]">check_circle</span>
-                  <span>Zero Upfront Brokerage</span>
+                <div className="flex items-center gap-2.5 p-2 rounded-xl bg-slate-50 border border-slate-200/80">
+                  <span className="material-symbols-outlined text-emerald-600 text-[20px]">speed</span>
+                  <span>Instant 24-Hour Sanction SLA</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-emerald-600 text-[18px]">check_circle</span>
-                  <span>50+ Bank Partnerships</span>
+                <div className="flex items-center gap-2.5 p-2 rounded-xl bg-slate-50 border border-slate-200/80">
+                  <span className="material-symbols-outlined text-emerald-600 text-[20px]">hub</span>
+                  <span>50+ Bank &amp; NBFC Partnerships</span>
                 </div>
-                <div className="flex items-center gap-2">
-                  <span className="material-symbols-outlined text-emerald-600 text-[18px]">check_circle</span>
-                  <span>100% DPDP Data Privacy</span>
+                <div className="flex items-center gap-2.5 p-2 rounded-xl bg-slate-50 border border-slate-200/80">
+                  <span className="material-symbols-outlined text-emerald-600 text-[20px]">lock</span>
+                  <span>DPDP Act 2026 Data Compliance</span>
                 </div>
               </div>
 
