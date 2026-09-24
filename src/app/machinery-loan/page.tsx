@@ -2,14 +2,15 @@ import { Metadata } from "next";
 import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Machinery & Supply Chain Financing — From 10% p.a. | Shreem Finserv",
+  title: "Machinery & Supply Chain Financing — From 10.00% p.a. | Shreem Finserv",
   description:
-    "Finance industrial machinery, plant equipment, and supply chain working capital up to ₹5 Crore. Starting from 10% p.a., up to 7-year tenure, 90% invoice funding, and fast digital approvals across 50+ lenders.",
+    "Finance industrial machinery, plant equipment, and supply chain working capital up to ₹5 Crore. Starting from 10.00% p.a., up to 7-year tenure, 90% invoice funding, and fast digital approvals across 50+ lenders.",
 };
 
 export default function MachineryLoanPage() {
   return (
     <ProductPageTemplate
+      categoryId="machinery-loan"
       categoryName="Machinery Loan"
       badge="Asset & Equipment Financing"
       headline="Upgrade Industry with"
@@ -17,7 +18,7 @@ export default function MachineryLoanPage() {
       description="Acquire industrial machinery, manufacturing tools, medical diagnostic equipment, and commercial vehicles with up to 90% invoice financing and tenures up to 7 years."
       bannerImage="/images/machinery-loan-inner-banner.jpg"
       maxAmount="₹10L – ₹5Cr"
-      interestRate="From 10% p.a."
+      interestRate="From 10.00% p.a."
       tenure="Up to 7 Years"
       disbursalSpeed="3 to 5 Working Days"
       defaultSliderAmount={3500000}
@@ -43,7 +44,7 @@ export default function MachineryLoanPage() {
         },
         {
           title: "Competitive Interest Rates",
-          desc: "Access competitive interest rates starting from 10% p.a. through India's premier asset lenders.",
+          desc: "Access competitive interest rates starting from 10.00% p.a. through India's premier asset lenders.",
           icon: "percent",
         },
         {
@@ -78,7 +79,7 @@ export default function MachineryLoanPage() {
         },
         {
           q: "What is the interest rate for Machinery Loans?",
-          a: "Interest rates start from 10% p.a. depending on your business vintage, equipment type, and lender selection.",
+          a: "Interest rates start from 10.00% p.a. depending on your business vintage, equipment type, and lender selection.",
         },
         {
           q: "Can I finance both imported and domestic machinery?",

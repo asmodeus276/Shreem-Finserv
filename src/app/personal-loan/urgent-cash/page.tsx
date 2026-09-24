@@ -10,6 +10,7 @@ export const metadata: Metadata = {
 export default function UrgentCashPage() {
   return (
     <ProductPageTemplate
+      categoryId="urgent-cash-advance"
       categoryName="Urgent Cash Advance"
       badge="Express Liquidity Solution"
       headline="Instant 2-Hour Disbursal for"

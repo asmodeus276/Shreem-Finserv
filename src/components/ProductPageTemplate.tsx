@@ -6,7 +6,7 @@ import Image from "next/image";
 import { LeadForm } from "@/components/LeadForm";
 import { PartnerMarquee } from "@/components/PartnerMarquee";
 import { EmiCalculator } from "@/components/EmiCalculator";
-import { BANK_PARTNERS_DATA } from "@/components/BankLogos";
+import { BankInfo, getBankPartnersForCategory } from "@/components/BankLogos";
 
 export interface FeatureItem {
   title: string;
@@ -15,6 +15,7 @@ export interface FeatureItem {
 }
 
 export interface ProductPageProps {
+  categoryId?: string;
   categoryName: string;
   badge: string;
   headline: string;
@@ -36,10 +37,11 @@ export interface ProductPageProps {
   eligibility: string[];
   documents: string[];
   faqs: Array<{ q: string; a: string }>;
-  customBankPartners?: typeof BANK_PARTNERS_DATA;
+  customBankPartners?: BankInfo[];
 }
 
 export const ProductPageTemplate: React.FC<ProductPageProps> = ({
+  categoryId,
   categoryName,
   headline,
   highlightText,
@@ -82,6 +84,11 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
       : categoryName.toLowerCase().includes("property")
       ? "/images/lap-inner-banner.jpg"
       : "/images/personal-loan-inner-banner.jpg");
+
+  const activeBankPartners =
+    customBankPartners && customBankPartners.length > 0
+      ? customBankPartners
+      : getBankPartnersForCategory(categoryId || categoryName, interestRate);
 
   const scrollToSection = (id: string) => {
     setActiveTab(id);
@@ -248,7 +255,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
                   </tr>
                   <tr className="hover:bg-white transition-colors bg-white">
                     <td className="px-5 py-3.5 font-bold text-slate-700">Loan Amount</td>
-                    <td className="px-5 py-3.5 font-extrabold text-slate-900">Up to {maxAmount}</td>
+                    <td className="px-5 py-3.5 font-extrabold text-slate-900">{maxAmount.startsWith("Up to") ? maxAmount : maxAmount.includes("–") || maxAmount.includes("-") ? maxAmount : `Up to ${maxAmount}`}</td>
                   </tr>
                   <tr className="hover:bg-white transition-colors">
                     <td className="px-5 py-3.5 font-bold text-slate-700">Maximum Tenure</td>
@@ -278,7 +285,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
                 </span>
               </div>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5">
-                {(customBankPartners || BANK_PARTNERS_DATA.slice(0, 8)).map((bank) => (
+                {activeBankPartners.map((bank) => (
                   <div
                     key={bank.id}
                     className="bg-white border border-slate-200/90 hover:border-[#0B309A] rounded-xl p-2.5 sm:px-3 sm:py-2.5 shadow-xs hover:shadow-sm transition-all flex flex-col items-center justify-center gap-1.5 text-center group"

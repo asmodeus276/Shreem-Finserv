@@ -31,7 +31,7 @@ export default function CalculatorPage() {
         ctaText="Calculate & Apply"
         ctaLink="#calculator-section"
         quickStats={[
-          { label: "Interest Starting", value: "7.20% p.a." },
+          { label: "Interest Starting", value: "7.25% p.a." },
           { label: "Max Tenure", value: "Up to 30 Yrs" },
           { label: "Bank Network", value: "50+ Lenders" },
           { label: "Calculations", value: "100% Free" },
@@ -55,7 +55,7 @@ export default function CalculatorPage() {
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">
                 <span className="material-symbols-outlined text-[#0B309A] text-2xl mb-1">trending_down</span>
                 <h4 className="font-bold text-sm text-slate-800">Balance Transfer Advantage</h4>
-                <p className="text-xs text-slate-500 mt-0.5">Switch high-cost loans to Shreem partner banks starting from 7.20% p.a.</p>
+                <p className="text-xs text-slate-500 mt-0.5">Switch high-cost loans to Shreem partner banks starting from 7.25% p.a.</p>
               </div>
 
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-200">

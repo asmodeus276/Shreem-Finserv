@@ -4,12 +4,13 @@ import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Business Loan & MSME Working Capital up to ₹5 Crores | Shreem Finserv",
   description:
-    "Secure fast collateral-free Business Loans and MSME Working Capital from ₹2 Lakhs up to ₹5 Crores starting from 14% p.a. Multi-bank sanctions in 48 hours with Shreem Finserv.",
+    "Secure fast collateral-free Business Loans and MSME Working Capital from ₹2 Lakhs up to ₹5 Crores starting from 14.00% p.a. Multi-bank sanctions in 48 hours with Shreem Finserv.",
 };
 
 export default function BusinessLoanPage() {
   return (
     <ProductPageTemplate
+      categoryId="business-loan"
       categoryName="Business Loan"
       badge="FAST MSME & ENTERPRISE CAPITAL"
       headline="Get Hassle-Free"
@@ -17,7 +18,7 @@ export default function BusinessLoanPage() {
       bannerImage="/images/business-loan-inner-banner.jpg"
       description="Scale your enterprise, finance working capital, purchase inventory, or expand operations with collateral-free business loans from ₹2 Lakhs up to ₹5 Crores across 50+ Scheduled Commercial Banks & NBFCs."
       maxAmount="₹5 Crores"
-      interestRate="From 14% p.a."
+      interestRate="From 14.00% p.a."
       tenure="Up to 5 Years"
       disbursalSpeed="Under 48 Hours"
       defaultSliderAmount={2000000}
@@ -58,18 +59,20 @@ export default function BusinessLoanPage() {
         },
       ]}
       eligibility={[
-        "Proprietorships, Partnerships, LLPs, Private Limited & Public Limited companies",
-        "Minimum business vintage of 1 year with active operations",
-        "Minimum annual business turnover of ₹20 Lakhs",
-        "Audited or CA-certified financials and active GST filing",
-        "Clean banking track record with no major defaults",
+        "Eligible Entities: Proprietorships, Partnerships, LLPs, Private Limited & Public Limited companies.",
+        "Business Vintage: Minimum 2 years of active operations.",
+        "Annual Turnover: Minimum annual business turnover of ₹20 Lakhs.",
+        "Financials & Filing: Audited or CA-certified financials and active GST filing.",
+        "Credit Profile: Clean banking track record with no major defaults and 650+ CIBIL score.",
       ]}
       documents={[
-        "Promoter PAN, Aadhaar, and Business PAN Card",
-        "Certificate of Incorporation, Partnership Deed, or GST Registration Certificate",
-        "Latest 12 Months primary Business Bank Account Statement",
-        "Latest 2 Years ITR with Computation, Balance Sheet, and P&L statements",
-        "Latest 12 Months GST returns (GSTR-3B / GSTR-1)",
+        "Promoter KYC: Promoter PAN, Aadhaar, and Business PAN Card.",
+        "Business Registration: Certificate of Incorporation (COI), MOA, AOA, Partnership Deed, or GST Registration Certificate.",
+        "MSME Registration: MSME / Udyam Registration Certificate.",
+        "Bank Statements: Latest 12 Months primary Business Bank Account Statement.",
+        "Income Tax Returns: Latest 2 Years ITR with Computation, Balance Sheet, and P&L statements.",
+        "GST Returns: Latest 12 Months GST returns (GST R-3B / GSTR-1).",
+        "Existing Loan Records: LOD (Letter of Disbursement) & LOS (Letter of Sanction) from existing lenders (if applicable).",
       ]}
       faqs={[
         {

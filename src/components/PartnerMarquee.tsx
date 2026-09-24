@@ -13,14 +13,15 @@ export const PartnerMarquee: React.FC = () => {
         <div>
           <p className="text-xs font-bold uppercase tracking-widest text-slate-400">
             Authorized Co-Lending Network With{" "}
-            <span className="text-[#0B2E8D] font-extrabold">
+            <span className="text-[#0B309A] font-extrabold">
               50+ Scheduled Banks &amp; Premier NBFCs
             </span>
           </p>
         </div>
         <button
+          type="button"
           onClick={() => setShowAllModal(true)}
-          className="text-xs font-bold text-[#0B2E8D] hover:text-[#E30613] transition-colors flex items-center gap-1 cursor-pointer"
+          className="text-xs font-bold text-[#0B309A] hover:text-[#E30613] transition-colors flex items-center gap-1 cursor-pointer"
         >
           <span>View All Partners &amp; Rates</span>
           <span className="material-symbols-outlined text-[16px]">arrow_forward</span>
@@ -32,16 +33,16 @@ export const PartnerMarquee: React.FC = () => {
         <div className="flex w-max gap-5 animate-marquee py-2.5 hover:[animation-play-state:paused]">
           {[...BANK_PARTNERS_DATA, ...BANK_PARTNERS_DATA].map((p, idx) => (
             <div
-              key={idx}
+              key={`${p.id}-${idx}`}
               onClick={() => setSelectedBank(p)}
-              className="inline-flex items-center gap-3 bg-white border border-slate-200/90 hover:border-[#0B2E8D] px-3.5 py-2 rounded-xl transition-all duration-300 shadow-xs hover:shadow-md hover:-translate-y-0.5 group flex-shrink-0 cursor-pointer select-none min-w-[240px]"
+              className="inline-flex items-center gap-3 bg-white border border-slate-200/90 hover:border-[#0B309A] px-3.5 py-2 rounded-xl transition-all duration-300 shadow-xs hover:shadow-md hover:-translate-y-0.5 group flex-shrink-0 cursor-pointer select-none min-w-[240px]"
             >
               <div className="w-14 h-8 flex-shrink-0 bg-white rounded-lg p-1 border border-slate-200/80 flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
                 {p.svgIcon}
               </div>
               <div className="flex flex-col text-left justify-center min-w-0">
                 <div className="flex items-center gap-1.5">
-                  <span className="text-xs font-bold text-slate-900 group-hover:text-[#0B2E8D] transition-colors leading-tight truncate">
+                  <span className="text-xs font-bold text-slate-900 group-hover:text-[#0B309A] transition-colors leading-tight truncate">
                     {p.name}
                   </span>
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 flex-shrink-0"></span>
@@ -70,7 +71,7 @@ export const PartnerMarquee: React.FC = () => {
           >
             <div className="flex items-center justify-between border-b border-slate-100 pb-4">
               <div>
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-[#0B2E8D] text-xs font-bold border border-blue-200 mb-1">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-50 text-[#0B309A] text-xs font-bold border border-blue-200 mb-1">
                   <span className="material-symbols-outlined text-[16px]">account_balance</span>
                   Authorized Lending Network
                 </div>
@@ -79,6 +80,7 @@ export const PartnerMarquee: React.FC = () => {
                 </h3>
               </div>
               <button
+                type="button"
                 onClick={() => {
                   setShowAllModal(false);
                   setSelectedBank(null);
@@ -97,7 +99,7 @@ export const PartnerMarquee: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-base text-slate-900">{selectedBank.name}</h4>
-                    <span className="text-xs text-[#0B2E8D] font-semibold">{selectedBank.category} Channel Partner</span>
+                    <span className="text-xs text-[#0B309A] font-semibold">{selectedBank.category} Channel Partner</span>
                   </div>
                 </div>
 
@@ -116,7 +118,7 @@ export const PartnerMarquee: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="p-3.5 bg-blue-50/70 border border-blue-200 rounded-xl text-xs text-[#0B2E8D] font-medium">
+                <div className="p-3.5 bg-blue-50/70 border border-blue-200 rounded-xl text-xs text-[#0B309A] font-medium">
                   <strong>Special Feature:</strong> {selectedBank.specialFeature}
                 </div>
 
@@ -126,7 +128,7 @@ export const PartnerMarquee: React.FC = () => {
                     setShowAllModal(false);
                     setSelectedBank(null);
                   }}
-                  className="block text-center w-full bg-[#0B2E8D] hover:bg-[#0B309A] text-white font-bold py-3.5 rounded-xl text-xs transition-all shadow-md mt-4"
+                  className="block text-center w-full bg-[#0B309A] hover:bg-[#0B2E8D] text-white font-bold py-3.5 rounded-xl text-xs transition-all shadow-md mt-4"
                 >
                   Apply with {selectedBank.name} via Shreem Priority Channel →
                 </a>
@@ -137,20 +139,20 @@ export const PartnerMarquee: React.FC = () => {
                   <div
                     key={bank.id}
                     onClick={() => setSelectedBank(bank)}
-                    className="p-3.5 rounded-2xl bg-white hover:bg-blue-50/60 border border-slate-200 hover:border-[#0B2E8D]/40 transition-all cursor-pointer flex items-center justify-between group shadow-2xs"
+                    className="p-3.5 rounded-2xl bg-white hover:bg-blue-50/60 border border-slate-200 hover:border-[#0B309A]/40 transition-all cursor-pointer flex items-center justify-between group shadow-2xs"
                   >
                     <div className="flex items-center gap-3 min-w-0">
                       <div className="w-14 h-9 bg-white rounded-lg p-1 border border-slate-200 flex items-center justify-center flex-shrink-0 shadow-2xs">
                         {bank.svgIcon}
                       </div>
                       <div className="min-w-0">
-                        <h5 className="text-xs font-bold text-slate-900 group-hover:text-[#0B2E8D] truncate">
+                        <h5 className="text-xs font-bold text-slate-900 group-hover:text-[#0B309A] truncate">
                           {bank.name}
                         </h5>
                         <p className="text-[10px] text-emerald-700 font-semibold">{bank.interestRate}</p>
                       </div>
                     </div>
-                    <span className="material-symbols-outlined text-[18px] text-slate-400 group-hover:text-[#0B2E8D]">
+                    <span className="material-symbols-outlined text-[18px] text-slate-400 group-hover:text-[#0B309A]">
                       chevron_right
                     </span>
                   </div>

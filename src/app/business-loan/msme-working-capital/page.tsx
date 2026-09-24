@@ -2,22 +2,23 @@ import { Metadata } from "next";
 import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Business Loan & MSME Working Capital — From 14% p.a. | Shreem Finserv",
+  title: "Business Loan & MSME Working Capital — From 14.00% p.a. | Shreem Finserv",
   description:
-    "Apply for collateral-free Business Loans from ₹1 Lakh to ₹2 Crore. Starting from 14% p.a., flexible tenure up to 5 years, minimal documentation, and 48-hour disbursal across 50+ lenders.",
+    "Apply for collateral-free Business Loans from ₹1 Lakh to ₹2 Crore. Starting from 14.00% p.a., flexible tenure up to 5 years, minimal documentation, and 48-hour disbursal across 50+ lenders.",
 };
 
 export default function BusinessLoanPage() {
   return (
     <ProductPageTemplate
+      categoryId="working-capital"
       categoryName="Business Loan"
       badge="Unsecured MSME & Enterprise Credit"
       headline="Fuel Your Enterprise Growth With"
       highlightText="Collateral-Free Business Loans (₹1L – ₹2Cr)"
       description="Flexible unsecured credit lines designed for manufacturers, traders, and service enterprises to manage operational cash flow, inventory, and supplier invoices without pledging physical collateral."
       bannerImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1400&q=75"
-      maxAmount="₹1L – upto ₹2Cr"
-      interestRate="From 14% p.a."
+      maxAmount="₹1L – ₹2Cr"
+      interestRate="From 14.00% p.a."
       tenure="Up to 5 Years"
       disbursalSpeed="Within 48 Hours"
       defaultSliderAmount={5000000}
@@ -43,7 +44,7 @@ export default function BusinessLoanPage() {
         },
         {
           title: "GST Surrogate Underwriting",
-          desc: "Fast-track sanction based on 12-month GSTR-3B filings and banking credits without complex auditing.",
+          desc: "Fast-track sanction based on 12-month GST R-3B filings and banking credits without complex auditing.",
           icon: "receipt_long",
         },
         {
@@ -52,7 +53,7 @@ export default function BusinessLoanPage() {
           icon: "bolt",
         },
         {
-          title: "Competitive Rates from 14% p.a.",
+          title: "Competitive Rates from 14.00% p.a.",
           desc: "Compare offers across 50+ leading private, public banks and NBFCs for lowest interest rates.",
           icon: "percent",
         },
@@ -70,7 +71,7 @@ export default function BusinessLoanPage() {
         "Business Registration Proof: GST Registration Certificate, Udyam / MSME Certificate, Certificate of Incorporation.",
         "Financial Statements: Last 2–3 Years Audited Balance Sheet & P&L Statement with CA seal and Computation of Income.",
         "Banking Statements: Last 12 Months Current Account Bank Statements in PDF format.",
-        "GST Returns: Last 12 Months GSTR-3B and GSTR-1 filings.",
+        "GST Returns: Last 12 Months GST R-3B and GSTR-1 filings.",
       ]}
       faqs={[
         {
@@ -83,7 +84,7 @@ export default function BusinessLoanPage() {
         },
         {
           q: "What is the interest rate for a Business Loan?",
-          a: "Interest rates start from 14% p.a. depending on your business vintage, annual turnover, and CIBIL score across our 50+ banking partners.",
+          a: "Interest rates start from 14.00% p.a. depending on your business vintage, annual turnover, and CIBIL score across our 50+ banking partners.",
         },
         {
           q: "How fast will the funds be disbursed?",

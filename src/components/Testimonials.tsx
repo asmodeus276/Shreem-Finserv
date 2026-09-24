@@ -29,7 +29,7 @@ const REVIEWS: Review[] = [
     turnaround: "18 Hours SLA",
     interestSaved: "Saved 2.2% p.a.",
     content:
-      "Setting up my private surgical daycare center required quick, unsecured capital. Shreem Finserv managed the sanction in under 24 hours with preferential 9.99% interest from HDFC. Remarkable speed and professionalism!",
+      "Setting up my private surgical daycare center required quick, unsecured capital. Shreem Finserv managed the sanction in under 24 hours with preferential 9.90% interest from HDFC. Remarkable speed and professionalism!",
     rating: 5,
     avatarInitials: "AM",
     gradient: "from-blue-600 to-indigo-800",
@@ -75,9 +75,9 @@ const REVIEWS: Review[] = [
     loanType: "Women Entrepreneur MSME Line",
     amount: "₹65 Lakhs Disbursed",
     turnaround: "CGTMSE Collateral-Free",
-    interestSaved: "0.5% Special Rebate",
+    interestSaved: "0.50% Special Rebate",
     content:
-      "As a female founder scaling exports, Shreem Finserv unlocked a collateral-free CGTMSE line with a 0.5% interest concession. Their dedicated female relationship manager handled everything seamlessly.",
+      "As a female founder scaling exports, Shreem Finserv unlocked a collateral-free CGTMSE line with a 0.50% interest concession. Their dedicated female relationship manager handled everything seamlessly.",
     rating: 5,
     avatarInitials: "PS",
     gradient: "from-purple-600 to-pink-800",

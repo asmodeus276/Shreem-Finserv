@@ -1,20 +1,31 @@
 "use client";
 
 import React, { useState } from "react";
-import { BANK_PARTNERS_DATA } from "@/components/BankLogos";
+import { BankInfo, getBankPartnersForCategory } from "@/components/BankLogos";
 
 interface BankComparisonTableProps {
+  categoryId?: string;
   categoryTitle?: string;
+  startingRate?: string;
+  customBanks?: BankInfo[];
   className?: string;
 }
 
 export const BankComparisonTable: React.FC<BankComparisonTableProps> = ({
+  categoryId,
   categoryTitle = "Personal & Business Lending",
+  startingRate,
+  customBanks,
   className = "",
 }) => {
   const [filter, setFilter] = useState<"All" | "Bank" | "NBFC">("All");
 
-  const filteredBanks = BANK_PARTNERS_DATA.filter((b) => {
+  const bankSource =
+    customBanks && customBanks.length > 0
+      ? customBanks
+      : getBankPartnersForCategory(categoryId || categoryTitle, startingRate);
+
+  const filteredBanks = bankSource.filter((b) => {
     if (filter === "All") return true;
     return b.category === filter;
   });

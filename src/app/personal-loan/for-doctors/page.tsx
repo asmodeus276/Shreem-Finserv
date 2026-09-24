@@ -2,22 +2,23 @@ import { Metadata } from "next";
 import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Professional Loans for Doctors, CAs & Consultants — From 9.9% p.a. | Shreem Finserv",
+  title: "Professional Loans for Doctors, CAs & Consultants — From 9.90% p.a. | Shreem Finserv",
   description:
-    "Collateral-free Professional Loans and Personal Loans from ₹50,000 to ₹1 Crore. Preferential rates from 9.9% p.a., flexible tenure up to 7 years, minimal documentation, and 24-hour disbursal across 50+ lenders.",
+    "Collateral-free Professional Loans and Personal Loans from ₹50,000 to ₹1 Crore. Preferential rates from 9.90% p.a., flexible tenure up to 7 years, minimal documentation, and 24-hour disbursal across 50+ lenders.",
 };
 
 export default function ProfessionalLoanPage() {
   return (
     <ProductPageTemplate
+      categoryId="professional-loan"
       categoryName="Professional Loan"
       badge="Specialized Credit for Doctors & CAs"
       headline="Professional Loan"
       highlightText="up to ₹75 Lakh"
-      description="Collateral-free credit solutions crafted for doctors, chartered accountants, architects, and salaried executives with 24-hour express disbursals and lowest interest rates from 9.9% p.a."
+      description="Collateral-free credit solutions crafted for doctors, chartered accountants, architects, and salaried executives with 24-hour express disbursals and lowest interest rates from 9.90% p.a."
       bannerImage="/images/professional-loan-inner-banner.jpg"
       maxAmount="₹50K – ₹1Cr"
-      interestRate="From 9.9% p.a."
+      interestRate="From 9.90% p.a."
       tenure="Up to 7 Years"
       disbursalSpeed="Within 24 Hours"
       defaultSliderAmount={2500000}
@@ -42,7 +43,7 @@ export default function ProfessionalLoanPage() {
           icon: "tune",
         },
         {
-          title: "Preferential Rates from 9.9% p.a.",
+          title: "Preferential Rates from 9.90% p.a.",
           desc: "Special discounted interest rate slabs for certified medical practitioners, CAs, and top corporate employees.",
           icon: "percent",
         },
@@ -83,7 +84,7 @@ export default function ProfessionalLoanPage() {
         },
         {
           q: "What is the interest rate for Doctors and CAs?",
-          a: "Interest rates start from 9.9% p.a. with special rate concessions for certified medical specialists and chartered accountants.",
+          a: "Interest rates start from 9.90% p.a. with special rate concessions for certified medical specialists and chartered accountants.",
         },
         {
           q: "How fast will the loan be disbursed?",

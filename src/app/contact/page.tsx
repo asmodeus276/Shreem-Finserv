@@ -160,7 +160,7 @@ export default function ContactPage() {
                   Headquarters Map Location (Vaishali, Ghaziabad)
                 </span>
                 <a
-                  href="https://maps.google.com/?q=Cloud+9+Tower+Vaishali+Ghaziabad"
+                  href={BRAND_CONFIG.googleMapsLink}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-[#0B309A] hover:underline text-[11px]"
@@ -171,7 +171,7 @@ export default function ContactPage() {
               <div className="w-full h-60 rounded-xl overflow-hidden bg-slate-100">
                 <iframe
                   title="Shreem Finserv Office Location Map"
-                  src="https://maps.google.com/maps?q=Cloud%209%20Tower,%20Vaishali,%20Ghaziabad,%20Uttar%20Pradesh%20201010&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  src={BRAND_CONFIG.googleMapsEmbedUrl}
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}

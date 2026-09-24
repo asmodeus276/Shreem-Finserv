@@ -23,9 +23,9 @@ const LOAN_STRIP_ITEMS = [
   { label: "Loan Against Property", href: "/loan-against-property" },
   { label: "Personal Loan", href: "/personal-loan" },
   { label: "Working Capital", href: "/business-loan/msme-working-capital" },
-  { label: "Machinery Loan", href: "/machinery-loan" },
   { label: "Car Loan", href: "/car-loan" },
   { label: "Education Loan", href: "/personal-loan" },
+  { label: "Machinery Loan", href: "/machinery-loan" },
 ];
 
 export const Navbar: React.FC = () => {

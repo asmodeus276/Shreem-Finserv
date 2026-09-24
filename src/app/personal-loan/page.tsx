@@ -4,20 +4,21 @@ import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Personal Loan Online - Fast Approval up to ₹50 Lakhs | Shreem Finserv",
   description:
-    "Apply for instant unsecured Personal Loans from ₹50,000 up to ₹50 Lakhs starting at 9.75% p.a. Minimal paperwork, zero collateral, and same-day bank disbursal with Shreem Finserv.",
+    "Apply for instant unsecured Personal Loans from ₹50,000 up to ₹50 Lakhs starting at 10.50% p.a. Minimal paperwork, zero collateral, and same-day bank disbursal with Shreem Finserv.",
 };
 
 export default function PersonalLoanPage() {
   return (
     <ProductPageTemplate
+      categoryId="personal-loan"
       categoryName="Personal Loan"
       badge="INSTANT UNSECURED FINANCING"
       headline="Enabling Dreams with"
       highlightText="Personal Loan"
       bannerImage="/images/personal-loan-inner-banner.jpg"
-      description="Access collateral-free personal financing from ₹50,000 to ₹50 Lakhs with instant digital verification, low interest rates starting from 9.75% p.a., and flexible repayment tenures up to 84 months across 50+ banking partners."
+      description="Access collateral-free personal financing from ₹50,000 to ₹50 Lakhs with instant digital verification, low interest rates starting from 10.50% p.a., and flexible repayment tenures up to 84 months across 50+ banking partners."
       maxAmount="₹50 Lakhs"
-      interestRate="9.75% p.a."
+      interestRate="From 10.50% p.a."
       tenure="Up to 7 Years"
       disbursalSpeed="Under 24 Hours"
       defaultSliderAmount={500000}
@@ -58,18 +59,18 @@ export default function PersonalLoanPage() {
         },
       ]}
       eligibility={[
-        "Age between 21 and 65 years at loan maturity",
-        "Salaried employees, self-employed professionals, or business owners",
-        "Minimum monthly net income of ₹18,000 (Salaried) or continuous business vintage (Self-employed)",
-        "Minimum credit bureau score (CIBIL) of 675+ for fast-track approvals",
-        "Indian citizen with valid identity and address proof",
+        "Age Range: 21 to 65 years at loan maturity.",
+        "Eligible Profiles: Salaried Individuals, Self-Employed Individuals, and Certified Professionals.",
+        "Minimum Income: Monthly net income of ₹18,000+ (Salaried) or stable business cash flow (Self-Employed).",
+        "Credit Profile: Minimum CIBIL score of 675+ for fast-track approvals.",
+        "Nationality: Indian Resident with valid identity and address proof.",
       ]}
       documents={[
-        "PAN Card & Aadhaar Card (Identity & Address Proof)",
-        "Latest 3 Months Salary Slips or Form 16 (for Salaried)",
-        "Latest 6 Months Bank Statement (Salary credit or primary banking account)",
-        "Current residence proof (Electricity bill, Rent Agreement, or Utility bill)",
-        "Passport size photograph & Employee ID Card",
+        "KYC Proof: PAN Card & Aadhaar Card (Identity & Address Proof).",
+        "Income Proof (Salaried): Latest 3 Months Salary Slips or Form 16.",
+        "Banking Records: Latest 6 Months Bank Statement (Salary credit or operative account).",
+        "Current Residence Proof: Electricity Bill, Rent Agreement, or Utility Bill.",
+        "Photographs & ID: Passport Size Photograph & Employee ID Card.",
       ]}
       faqs={[
         {
@@ -78,7 +79,7 @@ export default function PersonalLoanPage() {
         },
         {
           q: "What is the minimum credit score required for personal loans?",
-          a: "A CIBIL score of 675+ easily qualifies for standard terms, while a score of 750+ secures the lowest interest rates starting from 9.75% p.a. with fee waivers.",
+          a: "A CIBIL score of 675+ easily qualifies for standard terms, while a score of 750+ secures the lowest interest rates starting from 10.50% p.a. with fee waivers.",
         },
         {
           q: "Are there any hidden fees or upfront advance payments?",

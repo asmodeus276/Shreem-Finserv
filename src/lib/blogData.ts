@@ -22,7 +22,7 @@ export const BLOG_POSTS: BlogPost[] = [
   {
     slug: "personal-loan-for-doctors-complete-guide-2026",
     title: "Personal Loan for Doctors in India: Eligibility, Interest Rates & Sanction Guide (2026)",
-    excerpt: "Learn how practicing doctors, consultants, and clinic owners can unlock collateral-free personal loans up to ₹50 Lakhs with special rate concessions starting at 9.99% p.a.",
+    excerpt: "Learn how practicing doctors, consultants, and clinic owners can unlock collateral-free personal loans up to ₹50 Lakhs with special rate concessions starting from 9.90% p.a.",
     category: "Doctor Loans",
     image: "https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1200&q=80",
     date: "February 20, 2026",
@@ -37,7 +37,7 @@ export const BLOG_POSTS: BlogPost[] = [
     relatedProductName: "Personal Loan for Doctors",
     keyTakeaways: [
       "Doctors with MBBS, MD, MS, BDS, or MDS degrees qualify for pre-approved unsecured credit up to ₹50 Lakhs.",
-      "Interest rates start from 9.99% p.a., with zero collateral and minimal income documentation required.",
+      "Interest rates start from 9.90% p.a., with zero collateral and minimal income documentation required.",
       "Disbursals take as little as 4 to 24 hours when applying through authorized bank DSA channels like Shreem Finserv.",
       "Loan funds can be utilized freely for clinic expansion, medical equipment, conference travel, or personal liquidity.",
     ],
@@ -95,14 +95,14 @@ export const BLOG_POSTS: BlogPost[] = [
     relatedProductSlug: "/loan-against-property",
     relatedProductName: "Loan Against Property",
     keyTakeaways: [
-      "LAP interest rates start at 8.75% p.a., nearly 3-5% lower than unsecured personal loans.",
+      "LAP interest rates start from 9.00% p.a., nearly 3-5% lower than unsecured personal loans.",
       "Repayment tenure for LAP extends up to 15-20 years, drastically lowering monthly EMI burdens.",
       "Personal loans are ideal for urgent liquidity under ₹25 Lakhs needed in 24 hours.",
       "LAP is the superior choice for amounts above ₹30 Lakhs, debt consolidation, and long-term capital investments.",
     ],
     content: [
       "When you need substantial capital for business expansion, child education abroad, or high-value debt consolidation, you primarily face two choices: an Unsecured Personal Loan or a Secured Loan Against Property (LAP). Understanding the mathematical cost difference can save you lakhs of rupees in interest over time.",
-      "Comparison Matrix: Interest Rates & Costs\n• Personal Loan: Rates range between 10.50% and 18.00% p.a., with tenures strictly capped at 5 years. Maximum sanction rarely exceeds ₹40-50 Lakhs.\n• Loan Against Property: Rates start from 8.75% to 11.50% p.a., with extended tenures up to 15-20 years. Sanction limits reach up to ₹15 Crore (up to 75% of property market value).",
+      "Comparison Matrix: Interest Rates & Costs\n• Personal Loan: Rates range between 10.50% and 18.00% p.a., with tenures strictly capped at 5 years. Maximum sanction rarely exceeds ₹40-50 Lakhs.\n• Loan Against Property: Rates start from 9.00% to 11.50% p.a., with extended tenures up to 15-20 years. Sanction limits reach up to ₹15 Crore (up to 75% of property market value).",
       "Which Properties Can Be Pledged for LAP?\n1. Freehold Residential Properties (Flats, Independent Houses, Villas)\n2. Commercial Properties (Office spaces, retail shops, showrooms)\n3. Industrial Plots and Warehouses (with approved municipal layout plans)\n4. Mixed-use commercial-cum-residential buildings",
       "Verdict: When to Choose LAP over a Personal Loan:\nIf your fund requirement exceeds ₹25-30 Lakhs and you have 3 to 7 days before disbursal, LAP is significantly more cost-effective. The lower interest rate and extended tenure translate into 40-60% lower monthly cash outflow.",
     ],
@@ -162,7 +162,7 @@ export const BLOG_POSTS: BlogPost[] = [
     content: [
       "Women entrepreneurship is the bedrock of India's economic growth trajectory. To stimulate female participation in manufacturing, trading, healthcare, and digital services, the Ministry of Finance along with the Reserve Bank of India have mandated specialized lending schemes with preferential rate cuts and relaxed collateral demands.",
       "Top Women Enterprise Schemes Explained:\n1. Stand-Up India Scheme: Loans between ₹10 Lakhs and ₹1 Crore for setting up greenfield manufacturing, service, or trading enterprises.\n2. MUDRA Yojana for Women (Mahila Udyami): Shishu (up to ₹50k), Kishore (₹50k to ₹5L), and Tarun (₹5L to ₹10L) categories with subsidized processing charges.\n3. Stree Shakti & Dena Shakti Package: Special credit concessions of 0.50% p.a. for enterprises with majority female ownership (>51%).",
-      "Key Documentation Required for Women Business Loans:\n• Proof of 51%+ female ownership in company structure (Partnership deed, RoC MOA/AOA, or GST registration)\n• Udhyam Registration Certificate\n• 12 months business banking statements\n• Project viability report or 2 years filed ITR statements",
+      "Key Documentation Required for Women Business Loans:\n• Proof of 51%+ female ownership in company structure (Partnership deed, RoC MOA/AOA, or GST registration)\n• Udyam Registration Certificate\n• 12 months business banking statements\n• Project viability report or 2 years filed ITR statements",
     ],
   },
   {

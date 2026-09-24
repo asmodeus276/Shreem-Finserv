@@ -2,22 +2,23 @@ import { Metadata } from "next";
 import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Loan Against Property (LAP) — From 9% p.a. | Shreem Finserv",
+  title: "Loan Against Property (LAP) — From 9.00% p.a. | Shreem Finserv",
   description:
-    "Apply for Loan Against Property (LAP) from ₹25 Lakhs to ₹10 Crore. Lowest mortgage rates starting from 9% p.a., flexible 15-year tenure, up to 75% LTV, and swift legal clearance across 50+ lenders.",
+    "Apply for Loan Against Property (LAP) from ₹25 Lakhs to ₹10 Crore. Lowest mortgage rates starting from 9.00% p.a., flexible 15-year tenure, up to 75% LTV, and swift legal clearance across 50+ lenders.",
 };
 
 export default function LapPage() {
   return (
     <ProductPageTemplate
-      categoryName="Loan Against Property"
+      categoryId="loan-against-property"
+      categoryName="Loan Against Property (LAP)"
       badge="Secured Real Estate Equity Line"
       headline="Unlock Value with"
-      highlightText="Loan Against Property"
-      description="Unlock up to 75% of your property's certified market valuation with low mortgage interest rates starting from 9% p.a., extended 15-20 year repayment, and complete retention of ownership."
+      highlightText="Loan Against Property (LAP)"
+      description="Unlock up to 75% of your property's certified market valuation with low mortgage interest rates starting from 9.00% p.a., extended 15-20 year repayment, and complete retention of ownership."
       bannerImage="/images/lap-inner-banner.jpg"
       maxAmount="₹25L – ₹10Cr"
-      interestRate="From 9% p.a."
+      interestRate="From 9.00% p.a."
       tenure="Up to 15-20 Years"
       disbursalSpeed="5 to 7 Working Days"
       defaultSliderAmount={7500000}
@@ -32,7 +33,7 @@ export default function LapPage() {
           icon: "pie_chart",
         },
         {
-          title: "Low Interest Rates from 9% p.a.",
+          title: "Low Interest Rates from 9.00% p.a.",
           desc: "Significantly cheaper interest rates compared to unsecured business or personal loans.",
           icon: "savings",
         },
@@ -83,7 +84,7 @@ export default function LapPage() {
         },
         {
           q: "What is the interest rate for Loan Against Property?",
-          a: "Interest rates start from 9% p.a. depending on property type, borrower income profile, and credit score across our 50+ banking partners.",
+          a: "Interest rates start from 9.00% p.a. depending on property type, borrower income profile, and credit score across our 50+ banking partners.",
         },
         {
           q: "Can I transfer my existing high-interest LAP to Shreem Finserv's banking partners?",

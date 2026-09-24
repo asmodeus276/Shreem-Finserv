@@ -116,10 +116,10 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-5xl mx-auto text-slate-700 text-sm sm:text-base md:text-lg leading-relaxed space-y-4">
             <p className="text-slate-800 font-medium leading-relaxed">
-              <strong className="text-[#0B309A] font-black text-lg sm:text-xl">{BRAND_CONFIG.name}</strong> is leading loan market place. Our head office is located in Delhi-NCR ({BRAND_CONFIG.address}). We are available in multiple locations across India. We serve multiple loan services like <strong className="text-slate-900">Professional Loan</strong>, <strong className="text-slate-900">Business Loan</strong>, <strong className="text-slate-900">Home Loan</strong>, <strong className="text-slate-900">Loan Against Property</strong>, <strong className="text-slate-900">Personal Loan</strong>, <strong className="text-slate-900">Working Capital</strong>, <strong className="text-slate-900">Machinery Loan</strong>, <strong className="text-slate-900">Car Loan (New &amp; Used Cars)</strong> &amp; <strong className="text-slate-900">Women Entrepreneur Loan</strong>.
+              <strong className="text-[#0B309A] font-black text-lg sm:text-xl">{BRAND_CONFIG.name}</strong> is a premier lending advisory marketplace. Our headquarters is located in Delhi-NCR ({BRAND_CONFIG.address}), with branch networks serving clients nationwide. We provide a comprehensive suite of lending solutions including <strong className="text-slate-900">Professional Loan</strong>, <strong className="text-slate-900">Business Loan</strong>, <strong className="text-slate-900">Home Loan</strong>, <strong className="text-slate-900">Loan Against Property (LAP)</strong>, <strong className="text-slate-900">Personal Loan</strong>, <strong className="text-slate-900">Working Capital &amp; Overdraft</strong>, <strong className="text-slate-900">Machinery Loan</strong>, <strong className="text-slate-900">Car Loan (New &amp; Used Cars)</strong>, <strong className="text-slate-900">Education Loan</strong>, and <strong className="text-slate-900">Loans for Women Entrepreneurs</strong>.
             </p>
             <p className="text-slate-600">
-              We are associated and tie-ups with India&apos;s leading &amp; Major Banks and NBFCs, which benefits &amp; helps loan seekers to get their expected services and fulfill their loan requirements on time with optimal interest rates, minimal paperwork, and 100% transparency.
+              We maintain direct strategic partnerships with India&apos;s leading scheduled commercial banks and premier NBFCs, enabling borrowers to secure customized financing with optimal interest rates, minimal paperwork, zero upfront broker fees, and 100% transparency.
             </p>
           </div>
         </div>
@@ -155,24 +155,24 @@ export default function AboutPage() {
                 </div>
 
                 {/* Floating Quote Badge Overlay at Bottom */}
-                <div className="absolute bottom-5 left-5 right-5 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-xl border border-white/80 flex items-center justify-between gap-3">
+                <div className="absolute bottom-4 sm:bottom-5 left-4 sm:left-5 right-4 sm:right-5 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 shadow-xl border border-white/80 flex items-center justify-between gap-3">
                   <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#0B309A] to-[#0B2E8D] text-white flex items-center justify-center font-black text-xl shadow-md flex-shrink-0">
-                      <span className="material-symbols-outlined text-[24px]">workspace_premium</span>
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#0B309A] to-[#0B2E8D] text-white flex items-center justify-center font-black text-xl shadow-md flex-shrink-0">
+                      <span className="material-symbols-outlined text-[20px] sm:text-[24px]">workspace_premium</span>
                     </div>
                     <div className="min-w-0">
-                      <div className="text-[10px] font-extrabold uppercase tracking-widest text-[#0B309A]">Leadership Creed</div>
-                      <div className="text-xs sm:text-sm font-black text-slate-900 leading-snug truncate">
-                        &ldquo;Financial Freedom Builds A Better Tomorrow&rdquo;
+                      <div className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-[#0B309A]">Leadership Creed</div>
+                      <div className="text-xs sm:text-sm font-black text-slate-900 leading-snug">
+                        &ldquo;Financial Freedom For All&rdquo;
                       </div>
                     </div>
                   </div>
-                  <div className="hidden sm:flex flex-col items-end flex-shrink-0">
-                    <span className="text-[11px] font-extrabold text-emerald-600 flex items-center gap-1">
+                  <div className="flex flex-col items-end flex-shrink-0">
+                    <span className="text-[10px] sm:text-[11px] font-extrabold text-emerald-600 flex items-center gap-1">
                       <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
                       100% Ethical
                     </span>
-                    <span className="text-[10px] text-slate-400 font-semibold">Zero Upfront Fee</span>
+                    <span className="text-[9px] sm:text-[10px] text-slate-400 font-semibold">Zero Upfront Fee</span>
                   </div>
                 </div>
               </div>
@@ -189,6 +189,49 @@ export default function AboutPage() {
                 Empowering Every Borrower with <br />
                 <span className="text-[#0B309A]">Honest, Swift &amp; Transparent Capital</span>
               </h2>
+
+              {/* Ex-Banking Experience Highlight Section */}
+              <div className="space-y-3">
+                <h3 className="text-sm font-black uppercase tracking-wider text-slate-700 flex items-center gap-2">
+                  <span className="material-symbols-outlined text-[18px] text-amber-500">military_tech</span>
+                  Senior Banking Pedigree
+                </h3>
+                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
+                  Our founding leadership brings <strong className="text-slate-900">15+ years of senior-level banking experience</strong> across India&apos;s most respected private sector institutions, ensuring institutional-grade credit structuring and underwriting discipline at every stage.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
+                  {/* HDFC Bank Badge */}
+                  <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/80 shadow-xs hover:shadow-md transition-shadow">
+                    <div className="w-8 h-8 rounded-lg bg-[#004C8F] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <span className="material-symbols-outlined text-[16px]">account_balance</span>
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[10px] font-black uppercase tracking-wider text-[#004C8F]">HDFC Bank</div>
+                      <div className="text-[11px] font-bold text-slate-700 leading-tight">Senior Credit Ops</div>
+                    </div>
+                  </div>
+                  {/* Axis Bank Badge */}
+                  <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-gradient-to-r from-pink-50 to-rose-50 border border-pink-200/80 shadow-xs hover:shadow-md transition-shadow">
+                    <div className="w-8 h-8 rounded-lg bg-[#97144D] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <span className="material-symbols-outlined text-[16px]">account_balance</span>
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[10px] font-black uppercase tracking-wider text-[#97144D]">Axis Bank</div>
+                      <div className="text-[11px] font-bold text-slate-700 leading-tight">Wealth &amp; Advisory</div>
+                    </div>
+                  </div>
+                  {/* Yes Bank Badge */}
+                  <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-gradient-to-r from-sky-50 to-cyan-50 border border-sky-200/80 shadow-xs hover:shadow-md transition-shadow">
+                    <div className="w-8 h-8 rounded-lg bg-[#003DA5] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
+                      <span className="material-symbols-outlined text-[16px]">account_balance</span>
+                    </div>
+                    <div className="min-w-0">
+                      <div className="text-[10px] font-black uppercase tracking-wider text-[#003DA5]">Yes Bank</div>
+                      <div className="text-[11px] font-bold text-slate-700 leading-tight">Corporate &amp; MSME</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
 
               {/* Authentic Leadership Quote */}
               <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 via-slate-50 to-white border-l-4 border-[#0B309A] shadow-xs">

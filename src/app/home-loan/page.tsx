@@ -1,47 +1,35 @@
 import { Metadata } from "next";
 import { ProductPageTemplate } from "@/components/ProductPageTemplate";
-import { BANK_PARTNERS_DATA } from "@/components/BankLogos";
 
 export const metadata: Metadata = {
-  title: "Home Loans — Starting from 7.20% p.a. | Shreem Finserv",
+  title: "Home Loans — Starting from 7.25% p.a. | Shreem Finserv",
   description:
-    "Apply for affordable Home Loans from ₹10 Lakhs to ₹5 Crore. Lowest market rates starting from 7.20% p.a., flexible 30-year tenure, up to 90% financing, and zero hidden charges across Canara Bank, Indian Bank, PNB, SBI, HDFC, and 50+ lenders.",
+    "Apply for affordable Home Loans from ₹10 Lakhs to ₹5 Crore. Lowest market rates starting from 7.25% p.a., flexible 30-year tenure, up to 90% financing, and zero hidden charges across Canara Bank, Indian Bank, PNB, SBI, HDFC, and 50+ lenders.",
 };
-
-const HOME_LOAN_PARTNERS = [
-  BANK_PARTNERS_DATA.find((b) => b.id === "canara")!,
-  BANK_PARTNERS_DATA.find((b) => b.id === "indian-bank")!,
-  BANK_PARTNERS_DATA.find((b) => b.id === "pnb")!,
-  BANK_PARTNERS_DATA.find((b) => b.id === "sbi")!,
-  BANK_PARTNERS_DATA.find((b) => b.id === "bob")!,
-  BANK_PARTNERS_DATA.find((b) => b.id === "hdfc")!,
-  BANK_PARTNERS_DATA.find((b) => b.id === "icici")!,
-  BANK_PARTNERS_DATA.find((b) => b.id === "axis")!,
-].filter(Boolean);
 
 export default function HomeLoanPage() {
   return (
     <ProductPageTemplate
+      categoryId="home-loan"
       categoryName="Home Loan"
       badge="Lowest Interest Rates in India"
       headline="Your Dream Home with"
       highlightText="Home Loan"
-      description="Affordable home purchase, plot construction, and balance transfer loans at the lowest market rates starting from 7.20% p.a., extended tenures up to 30 years, and maximum tax benefits."
+      description="Affordable home purchase, plot construction, and balance transfer loans at the lowest market rates starting from 7.25% p.a., extended tenures up to 30 years, and maximum tax benefits."
       bannerImage="/images/home-loan-inner-banner.jpg"
       maxAmount="₹10L – ₹5Cr"
-      interestRate="From 7.20% p.a."
+      interestRate="From 7.25% p.a."
       tenure="Up to 30 Years"
       disbursalSpeed="3 to 5 Working Days"
       defaultSliderAmount={5000000}
       minSliderAmount={1000000}
       maxSliderAmount={50000000}
-      defaultEmiRate={7.2}
+      defaultEmiRate={7.25}
       defaultEmiTenureYears={20}
-      customBankPartners={HOME_LOAN_PARTNERS}
       features={[
         {
           title: "Lowest Market Interest Rates",
-          desc: "Access competitive interest rates starting from 7.20% p.a. through India's premier banks including Canara Bank, Indian Bank, and PNB.",
+          desc: "Access competitive interest rates starting from 7.25% p.a. through India's premier banks including Canara Bank, Indian Bank, and PNB.",
           icon: "percent",
         },
         {
@@ -72,7 +60,7 @@ export default function HomeLoanPage() {
       ]}
       eligibility={[
         "Age Range: 21 to 65 years at loan maturity.",
-        "Employment Status: Salaried Individuals (Govt, MNC, Corporate) or Self-Employed Applicants with stable income.",
+        "Employment Status: Salaried Individuals (Govt, MNC, Corporate) or Self-Employed Professionals (Doctors, CAs, Traders) with stable income.",
         "Income Stability: Minimum monthly income of ₹25,000/month (Salaried) or ₹3.5 Lakhs annual ITR (Self-Employed).",
         "Credit Profile: Minimum 700+ CIBIL score for lowest rate slabs.",
         "Property Criteria: Residential property meeting bank technical, structural, and legal clearance guidelines.",
@@ -82,6 +70,7 @@ export default function HomeLoanPage() {
         "KYC Proof: PAN Card, Aadhaar Card, Passport, Voter ID, or Utility Bill.",
         "Income Documents (Salaried): Last 3 Months Salary Slips, 6 Months Bank Statement, Form 16 / 2 Years ITR.",
         "Income Documents (Self-Employed): Last 2–3 Years ITR with Computation of Income, Audited Balance Sheet & P&L, 12 Months Current Bank Statements, GST Certificate.",
+        "Business & Entity Documents: GST R-3B Returns, MOA (Memorandum of Association), COI (Certificate of Incorporation), Partnership Deed, LOD (Letter of Disbursement), LOS (Letter of Sanction).",
         "Property Documents: Agreement to Sell / Builder Allotment Letter, Mother Deed chain for 13–30 years, Approved Building Sanction Plan, Latest Paid Property Tax Receipts.",
       ]}
       faqs={[
@@ -91,7 +80,11 @@ export default function HomeLoanPage() {
         },
         {
           q: "What is the interest rate for a Home Loan?",
-          a: "Interest rates start from 7.20% p.a. through leading lenders like Canara Bank, Indian Bank, and PNB based on your credit score and profile.",
+          a: "Interest rates start from 7.25% p.a. through leading lenders like Canara Bank, Indian Bank, and PNB based on your credit score and profile.",
+        },
+        {
+          q: "What are the required documents for Self-Employed Home Loan applicants?",
+          a: "Self-employed applicants need ITR with Computation, Balance Sheet & P&L, GST R-3B Returns, MOA, COI, Partnership Deed, LOD, and LOS along with standard KYC and property documents.",
         },
         {
           q: "What tax benefits can I claim on my Home Loan?",

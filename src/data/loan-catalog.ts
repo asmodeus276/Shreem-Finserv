@@ -46,9 +46,9 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     url: "https://cateye.in/services/business-loan",
     keySpecifications: {
       loanAmount: "₹1 Lakh up to ₹2 Crore (Unsecured) / Higher with Collateral",
-      interestRate: "Starting from 14% p.a.",
+      interestRate: "From 14.00% p.a.",
       tenure: "12 to 60 Months (Up to 5 Years)",
-      eligibilitySummary: "Min. 1-2 years business vintage, profitable operations",
+      eligibilitySummary: "Min. 2 years business vintage, profitable operations",
       collateral: "Zero collateral required for unsecured business loans",
       processingTime: "24 to 48 Hours Quick Approval"
     },
@@ -71,7 +71,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
       },
       {
         title: "Competitive Interest Rates",
-        description: "Benefit from customized interest rates starting at 14% p.a. based on your credit profile."
+        description: "Benefit from customized interest rates starting from 14.00% p.a. based on your credit profile."
       },
       {
         title: "Minimal Paperwork",
@@ -80,7 +80,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     ],
     eligibilityCriteria: [
       "Age: Business owner/applicant must be between 21 and 65 years.",
-      "Business Vintage: Minimum 1 to 2 years of active business operations.",
+      "Business Vintage: Minimum 2 years of active operations.",
       "Annual Turnover: Minimum annual business turnover as required by partnering lenders (typically ₹20L+).",
       "Credit Score: Minimum CIBIL score of 650+ preferred for fast-track approvals.",
       "Business Structure: Proprietorship, Partnership, LLP, Private Limited, or Public Limited entity.",
@@ -89,10 +89,10 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     documentsRequired: [
       "KYC: PAN Card & Aadhaar Card of Applicant/Promoters/Partners/Directors.",
       "Proof of Address: Passport, Voter ID, Utility Bill, or Rental Agreement.",
-      "Business Registration: GST Registration Certificate, Udyam / MSME Certificate, Shop & Establishment Act license, Certificate of Incorporation, MOA & AOA / Partnership Deed.",
-      "Financial Documents: Last 2-3 years Income Tax Returns (ITR) with CA Computation of Income, Balance Sheet, and Profit & Loss statement.",
+      "Business Registration: Certificate of Incorporation (COI), MOA (Memorandum of Association), AOA (Articles of Association), Partnership Deed, or GST Registration Certificate, Udyam / MSME Certificate, Shop & Establishment Act license.",
+      "Financial Documents: Last 2-3 years Income Tax Returns (ITR) with CA Computation of Income, Audited Balance Sheet, and Profit & Loss statement.",
       "Banking Records: Last 12 months updated bank statements for all active business accounts.",
-      "Existing Facility Details: Sanction letters of existing running loans/overdraft limits (if any)."
+      "Existing Facility & Approval Documents: LOD (Letter of Disbursement), LOS (Letter of Sanction), and sanction letters of existing running loans/overdraft limits."
     ],
     applicationProcess: [
       { step: "01", title: "Submit Requirement", desc: "Fill out the online application with basic personal and business details." },
@@ -104,7 +104,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     faqs: [
       {
         question: "What is a Business Loan?",
-        answer: "A Business Loan is an unsecured or secured credit facility offered to companies, MSMEs, and self-employed individuals to support business growth, inventory purchases, working capital, and operational requirements."
+        answer: "A Business Loan is an unsecured or secured credit facility offered to companies, MSMEs, and Self-Employed Individuals to support business growth, inventory purchases, working capital, and operational requirements."
       },
       {
         question: "Can I get a business loan without collateral?",
@@ -129,9 +129,9 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     url: "https://cateye.in/services/personal-loan",
     keySpecifications: {
       loanAmount: "₹50,000 up to ₹1 Crore",
-      interestRate: "Starting from 9.9% p.a.",
+      interestRate: "From 10.50% p.a.",
       tenure: "12 to 72 Months (Up to 6 Years)",
-      eligibilitySummary: "Salaried (Min ₹20k/mo) & Self-Employed Professionals",
+      eligibilitySummary: "Salaried Individuals (Min ₹20k/mo) & Self-Employed Individuals",
       collateral: "100% Unsecured / Zero Collateral",
       processingTime: "Instant In-Principle Sanction, Disbursal in 2-24 Hours"
     },
@@ -150,7 +150,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
       },
       {
         title: "Competitive Interest Rates",
-        description: "Attractive interest rates starting from 9.9% p.a. from top banks & NBFCs."
+        description: "Attractive interest rates starting from 10.50% p.a. from top banks & NBFCs."
       },
       {
         title: "Zero End-Use Restriction",
@@ -162,8 +162,8 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
       }
     ],
     eligibilityCriteria: [
-      "Age: 21 to 60 years (salaried) / up to 65 years (self-employed).",
-      "Employment: Salaried employees (MNC, Corporate, Public/Private sector, Govt) & Self-employed individuals.",
+      "Age: 21 to 60 years (Salaried Individuals) / up to 65 years (Self-Employed Individuals).",
+      "Employment Type: Salaried Individuals (MNC, Corporate, Public/Private Sector, Govt) & Self-Employed Individuals.",
       "Monthly Income: Minimum net salary of ₹20,000 - ₹25,000 per month (varies by city).",
       "Work Experience: Minimum 1 year total experience with at least 6 months at current employer.",
       "Credit Score: Minimum CIBIL score of 650+ (750+ gets premium rates).",
@@ -207,9 +207,9 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     url: "https://cateye.in/services/loan-against-property",
     keySpecifications: {
       loanAmount: "₹25 Lakh up to ₹10 Crore+ (Up to 70-75% of Property Market Value)",
-      interestRate: "Starting from 9.0% p.a.",
+      interestRate: "From 9.00% p.a.",
       tenure: "Up to 15 to 20 Years",
-      eligibilitySummary: "Salaried, Self-Employed, MSMEs, Property Owners",
+      eligibilitySummary: "Salaried Individuals, Self-Employed Individuals, MSMEs, Property Owners",
       collateral: "Residential, Commercial, Industrial, or Plot Property",
       processingTime: "3 to 7 Working Days (Including Legal & Technical Valuation)"
     },
@@ -220,7 +220,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
       },
       {
         title: "Lower Interest Rates",
-        description: "Significantly cheaper interest rates starting at 9.0% p.a. compared to unsecured loans."
+        description: "Significantly cheaper interest rates starting from 9.00% p.a. compared to unsecured loans."
       },
       {
         title: "Longer Repayment Tenure",
@@ -241,7 +241,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     ],
     eligibilityCriteria: [
       "Age: 21 to 65 years at loan maturity.",
-      "Borrower Type: Salaried employees, self-employed businessmen, professionals, partnership firms, and private limited companies.",
+      "Borrower Type: Salaried Individuals, Self-Employed Business Owners, Professionals, Partnership Firms, and Private Limited Companies.",
       "Income: Stable and verifiable income stream sufficient to service the proposed EMI.",
       "Property Ownership: Freehold, clear title property with no legal dispute.",
       "Credit Score: Minimum CIBIL score of 650+.",
@@ -249,7 +249,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     ],
     documentsRequired: [
       "KYC Documents: PAN, Aadhaar, Passport / Voter ID of all co-owners and applicants.",
-      "Income Proof: Salaried (last 3 months salary slips, Form 16, 6 months bank statement); Self-employed (last 3 years ITR with computation, audited balance sheets, 12 months bank statements).",
+      "Income Proof: Salaried Individuals (last 3 months salary slips, Form 16, 6 months bank statement); Self-Employed Individuals (last 3 years ITR with computation, audited balance sheets, 12 months bank statements).",
       "Property Documents: Original title deed / sale deed, complete chain of previous title deeds (last 30 years), approved building plan and layout, latest property tax paid receipt, encumbrance certificate (EC), NOC from builder or housing society.",
       "Valuation & Legal Reports: Initiated and coordinated by lender's approved technical valuer and legal advocate."
     ],
@@ -284,16 +284,16 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     url: "https://cateye.in/services/home-loan",
     keySpecifications: {
       loanAmount: "₹10 Lakh up to ₹5 Crore+ (Up to 80-90% of Property Cost)",
-      interestRate: "Starting from 8.5% p.a.",
+      interestRate: "From 7.25% p.a.",
       tenure: "Up to 30 Years",
-      eligibilitySummary: "Salaried and Self-Employed Indian Residents & NRIs",
+      eligibilitySummary: "Salaried Individuals and Self-Employed Individuals (Indian Residents & NRIs)",
       collateral: "The Residential Property being purchased/constructed",
       processingTime: "3 to 5 Working Days"
     },
     featuresAndBenefits: [
       {
         title: "Lowest Interest Rates",
-        description: "Benefit from industry-low interest rates starting from 8.5% p.a."
+        description: "Benefit from industry-low interest rates starting from 7.25% p.a."
       },
       {
         title: "Extended Repayment Tenure",
@@ -318,7 +318,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     ],
     eligibilityCriteria: [
       "Age: 21 to 65 years at loan maturity.",
-      "Employment Type: Salaried professionals (IT, MNC, PSU, Govt, Corporate) & Self-employed (Doctors, CA, Traders, Business Owners).",
+      "Employment Type: Salaried Individuals (IT, MNC, PSU, Govt, Corporate) & Self-Employed Individuals (Doctors, CAs, Traders).",
       "Income: Minimum regular monthly income of ₹25,000+.",
       "Credit Profile: CIBIL score of 700+ is preferred for lowest interest rate slabs.",
       "Co-applicant: Adding a co-applicant (spouse, parents, children) boosts loan eligibility."
@@ -326,7 +326,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     documentsRequired: [
       "KYC Proof: PAN Card, Aadhaar Card, Passport / Driving License.",
       "Income Proof (Salaried): 3 months payslips, 6 months bank statement, Form 16 (last 2 years).",
-      "Income Proof (Self-Employed): 3 years ITR with Computation, Balance Sheet, P&L, 12 months bank statements.",
+      "Income & Entity Proof (Self-Employed): 3 years ITR with Computation, Audited Balance Sheet & P&L, 12 months bank statements, GST R-3B returns, MOA (Memorandum of Association), COI (Certificate of Incorporation), Partnership Deed, LOD (Letter of Disbursement), and LOS (Letter of Sanction).",
       "Property Documents: Agreement to Sale / Allotment Letter, Builder NOC, Approved Floor Plan, Title Search Report, Property Chain Documents."
     ],
     applicationProcess: [
@@ -359,17 +359,17 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     description: "A Vehicle Loan helps individuals and businesses finance the purchase of new or used vehicles without making a large upfront payment. Whether you are buying a two-wheeler, a family car, an electric vehicle (EV), or commercial fleet vehicles for business logistics, vehicle loans offer flexible tenures and quick approvals.",
     url: "https://cateye.in/services/vehicle-loan",
     keySpecifications: {
-      loanAmount: "₹50,000 up to ₹1 Crore (Up to 100% On-Road Financing)",
-      interestRate: "Starting from 9.9% p.a.",
+      loanAmount: "₹50,000 up to ₹1 Crore (Up to 80% On-Road Financing for New Cars)",
+      interestRate: "From 7.50% p.a. (New) | 11.50% p.a. (Used)",
       tenure: "12 to 84 Months (Up to 7 Years)",
-      eligibilitySummary: "Salaried, Self-Employed, Fleet Operators & Corporates",
+      eligibilitySummary: "Salaried Individuals, Self-Employed Individuals, Fleet Operators & Corporates",
       collateral: "Hypothecation of the Purchased Vehicle",
       processingTime: "Same Day / Within 24-48 Hours"
     },
     featuresAndBenefits: [
       {
-        title: "Up to 100% On-Road Financing",
-        description: "Finance entire vehicle cost including ex-showroom price, insurance, and road tax."
+        title: "Up to 80% On-Road Financing (New Cars)",
+        description: "Finance up to 80% of on-road price for new cars, covering ex-showroom price, insurance, and road tax."
       },
       {
         title: "New & Pre-Owned Vehicle Loans",
@@ -394,7 +394,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     ],
     eligibilityCriteria: [
       "Age: 21 to 65 years.",
-      "Borrower Profile: Salaried individuals, business owners, self-employed professionals, transport operators, and corporate entities.",
+      "Borrower Profile: Salaried Individuals, Business Owners, Self-Employed Professionals, Fleet Operators, and Corporate Entities.",
       "Income: Stable income source showing capacity to service the EMI.",
       "Credit Score: Minimum CIBIL score of 650+.",
       "Residency: Indian citizen with valid local address proof."
@@ -413,8 +413,8 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     ],
     faqs: [
       {
-        question: "Can I get 100% financing on my car?",
-        answer: "Yes, many banking partners offer up to 100% on-road financing for new vehicles based on your credit score and income profile."
+        question: "What is the funding percentage for new and used cars?",
+        answer: "New cars receive up to 80% on-road financing, while used cars can receive up to 200% of evaluated market value based on your credit score and income profile."
       },
       {
         question: "Are used vehicles eligible for financing?",
@@ -431,7 +431,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     url: "https://cateye.in/services/supply-chain-finance",
     keySpecifications: {
       loanAmount: "₹10 Lakh up to ₹5 Crore+ (Up to ₹1 Cr for quick facility)",
-      interestRate: "Competitive Market Rates starting from 10% p.a.",
+      interestRate: "Competitive Market Rates from 10.00% p.a.",
       tenure: "Up to 12 Months (Revolving Credit / Invoice Discounting Cycle)",
       eligibilitySummary: "Suppliers, Dealers, Distributors, Anchor Corporate Vendors",
       collateral: "Invoices / Receivables / Purchase Orders",
@@ -509,7 +509,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
       loanAmount: "Comprehensive Coverage as per Need",
       interestRate: "Flexible & Affordable Premium Plans",
       tenure: "Annual Renewable / Multi-Year Cover",
-      eligibilitySummary: "Individuals, Families, Self-Employed, Corporates & MSMEs",
+      eligibilitySummary: "Individuals, Families, Self-Employed Individuals, Corporates & MSMEs",
       collateral: "N/A - Pure Risk Coverage",
       processingTime: "Instant Digital Issuance / Hassle-Free Claim Support"
     },

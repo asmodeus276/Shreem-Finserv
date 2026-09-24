@@ -3,6 +3,17 @@ import Link from "next/link";
 import { BRAND_CONFIG } from "@/config/brand";
 import { Logo } from "@/components/Logo";
 
+const FOOTER_LENDING_SOLUTIONS = [
+  { title: "Professional Loan", slug: "/professional-loan" },
+  { title: "Business Loan", slug: "/business-loan" },
+  { title: "Home Loan", slug: "/home-loan" },
+  { title: "Loan Against Property", slug: "/loan-against-property" },
+  { title: "Personal Loan", slug: "/personal-loan" },
+  { title: "Car Loan", slug: "/car-loan" },
+  { title: "Education Loan", slug: "/personal-loan" },
+  { title: "Machinery & Equipment Loan", slug: "/machinery-loan" },
+];
+
 export const Footer: React.FC = () => {
   return (
     <footer className="bg-[#0B309A] text-white pt-16 pb-12 border-t border-blue-800">
@@ -93,8 +104,8 @@ export const Footer: React.FC = () => {
               Lending Solutions
             </h3>
             <ul className="space-y-2.5 text-xs sm:text-sm text-blue-100/80 font-medium">
-              {BRAND_CONFIG.products.map((p) => (
-                <li key={p.id}>
+              {FOOTER_LENDING_SOLUTIONS.map((p) => (
+                <li key={p.slug + p.title}>
                   <Link
                     href={p.slug}
                     className="hover:text-white transition-colors flex items-center gap-1.5 group"
