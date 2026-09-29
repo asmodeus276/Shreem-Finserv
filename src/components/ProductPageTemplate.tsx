@@ -7,6 +7,7 @@ import { LeadForm } from "@/components/LeadForm";
 import { PartnerMarquee } from "@/components/PartnerMarquee";
 import { EmiCalculator } from "@/components/EmiCalculator";
 import { BankInfo, getBankPartnersForCategory } from "@/components/BankLogos";
+import { JsonLd } from "@/components/JsonLd";
 
 export interface FeatureItem {
   title: string;
@@ -100,6 +101,22 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
 
   return (
     <div className="pt-24 sm:pt-28 md:pt-32 bg-white">
+      {/* Dynamic SEO JSON-LD Structured Data: FinancialProduct + FAQPage + Breadcrumbs */}
+      <JsonLd
+        type="FinancialProduct"
+        productDetails={{
+          name: `${categoryName} — Shreem Finserv`,
+          description: description,
+          interestRate: interestRate,
+          maxAmount: maxAmount,
+          url: `https://shreemfinserv.com/${categoryId || "personal-loan"}`,
+        }}
+        faqItems={faqs}
+        breadcrumbItems={[
+          { name: "Home", url: "https://shreemfinserv.com" },
+          { name: categoryName, url: `https://shreemfinserv.com/${categoryId || "personal-loan"}` },
+        ]}
+      />
       
       {/* 1. Full-Bleed Panoramic Hero Banner Matching Capital Need Reference Screenshots */}
       <section className="relative w-full overflow-hidden bg-slate-50 border-b border-slate-200">

@@ -1,4 +1,5 @@
 import React from "react";
+import type { Metadata } from "next";
 import { BRAND_CONFIG } from "@/config/brand";
 import { Hero } from "@/components/Hero";
 import { PartnerMarquee } from "@/components/PartnerMarquee";
@@ -10,6 +11,32 @@ import {
   AnimatedProcessTimeline,
 } from "@/components/HomeSections";
 import { ScrollReveal } from "@/components/ScrollReveal";
+
+export const metadata: Metadata = {
+  title: "Shreem Finserv - Loan Marketplace | Instant Loan Disbursal Across India",
+  description:
+    "Shreem Finserv is India's premier loan marketplace. Compare & access Doctor Loans, MSME Business Loans, Home Loans, LAP, Machinery & Personal Loans across 50+ Banks with zero upfront fees.",
+  alternates: {
+    canonical: "https://shreemfinserv.com",
+  },
+  openGraph: {
+    title: "Shreem Finserv - Loan Marketplace | Instant Loan Disbursal Across India",
+    description:
+      "One Roof. Multiple Financial Solutions. One Trusted Partner. Compare and secure loans across 50+ scheduled banks with zero upfront fees.",
+    url: "https://shreemfinserv.com",
+    siteName: "Shreem Finserv",
+    images: [
+      {
+        url: "https://shreemfinserv.com/images/founder.jpg",
+        width: 1000,
+        height: 1116,
+        alt: "Shreem Finserv — Your Financial Growth Partner",
+      },
+    ],
+    locale: "en_IN",
+    type: "website",
+  },
+};
 
 export default function HomePage() {
   return (
