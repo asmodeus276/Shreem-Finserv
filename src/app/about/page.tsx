@@ -9,9 +9,9 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { TestimonialsSlider } from "@/components/TestimonialsSlider";
 
 export const metadata: Metadata = {
-  title: "About Us - Let's Grow Business With Us | Shreem Finserv",
+  title: "About Us - Founder & Vision | Shreem Finserv",
   description:
-    "Shreem Finserv is India's leading loan marketplace providing tailored financial solutions for salaried individuals, doctors, self-employed professionals, and MSME enterprises across India.",
+    "Learn about Shreem Finserv, founded by Shikha Gahlout. Bringing software & financial expertise together to provide a one-stop lending platform across Pan India with transparency, speed, and zero upfront fees.",
 };
 
 const CORE_PILLARS = [
@@ -41,14 +41,41 @@ const CORE_PILLARS = [
   },
 ];
 
+const COMMITMENT_POINTS = [
+  {
+    icon: "verified",
+    title: "Absolute Transparency",
+    desc: "Every client deserves clear terms, zero upfront charges, and complete disclosure with no hidden surprises.",
+    tag: "Ethical Advisory",
+  },
+  {
+    icon: "person_celebrate",
+    title: "Personalised Attention",
+    desc: "We understand that every requirement is unique, crafting tailored loan structures suited precisely to your cash flow.",
+    tag: "1-on-1 Guidance",
+  },
+  {
+    icon: "account_balance",
+    title: "Professional Guidance",
+    desc: "Institutional underwriting insights backed by senior banking expertise to secure the lowest feasible interest rates.",
+    tag: "Expert Underwriting",
+  },
+  {
+    icon: "travel_explore",
+    title: "Pan-India Seamless Service",
+    desc: "Delivering a frictionless digital experience for individuals, professionals, and MSMEs across all 28 states & UTs.",
+    tag: "Pan-India Reach",
+  },
+];
+
 export default function AboutPage() {
   return (
     <div className="pt-24 sm:pt-28 md:pt-32 pb-20 bg-white">
       
-      {/* 1. Hero Section: Exact Reference Match to capitalneed.com/about-us.php */}
+      {/* 1. Hero Section */}
       <section className="relative bg-gradient-to-b from-[#f4f8fc] via-[#fbfdff] to-white py-8 sm:py-12 md:py-16 overflow-hidden border-b border-slate-100">
         
-        {/* Subtle curved background contour lines matching reference */}
+        {/* Curved background contour lines */}
         <div className="absolute inset-0 pointer-events-none opacity-40">
           <svg className="w-full h-full" viewBox="0 0 1440 450" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M-50 180 C250 80, 550 320, 950 140 C1150 50, 1350 220, 1500 120" stroke="#0B309A" strokeWidth="1.2" strokeOpacity="0.12" fill="none"/>
@@ -60,41 +87,41 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-center">
             
-            {/* Left Column: Organic Smooth-Curved Oval Image Frame (Handshake over documents) */}
+            {/* Left Column: Crisp High-Resolution Business Image Frame */}
             <div className="md:col-span-6 lg:col-span-5 flex justify-center md:justify-start">
-              <div className="relative w-[280px] h-[280px] sm:w-[340px] sm:h-[340px] md:w-[400px] md:h-[380px] lg:w-[440px] lg:h-[400px]">
-                {/* Organic curved frame with soft blue shadow */}
-                <div className="w-full h-full rounded-[45%_55%_65%_35%/55%_45%_55%_45%] overflow-hidden shadow-2xl border-4 border-white bg-slate-900 relative group transition-transform duration-500 hover:scale-[1.02]">
-                  <Image
-                    src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1000&q=85"
-                    alt="Let's grow business with Shreem Finserv"
-                    fill
-                    priority
-                    sizes="(max-width: 768px) 100vw, 440px"
-                    className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
-                  />
-                  {/* Subtle tint overlay */}
-                  <div className="absolute inset-0 bg-[#0B309A]/10 group-hover:bg-transparent transition-colors duration-300" />
-                </div>
+              <div className="relative w-full max-w-[400px] lg:max-w-[440px] aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group">
+                <Image
+                  src="https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=1200&q=95"
+                  alt="Let's grow business with Shreem Finserv"
+                  fill
+                  priority
+                  quality={95}
+                  sizes="(max-width: 768px) 100vw, 440px"
+                  className="object-cover object-center group-hover:scale-105 transition-transform duration-700 ease-out"
+                />
               </div>
             </div>
 
             {/* Right Column: Giant Bold Headline */}
             <div className="md:col-span-6 lg:col-span-7 space-y-3 sm:space-y-4 text-center md:text-left">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0B309A] text-xs font-bold border border-blue-200">
+                <span className="material-symbols-outlined text-[16px] text-[#E30613]">stars</span>
+                <span>ABOUT SHREEM FINSERV</span>
+              </div>
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-[#0B309A] tracking-tight leading-[1.08]">
                 Let&apos;s grow <br />
                 <span className="text-[#0B2E8D]">business</span> <br />
                 with us
               </h1>
               <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-xl font-medium leading-relaxed">
-                Partner with India&apos;s leading loan marketplace to unlock premier credit lines, rapid disbursals, and transparent zero-upfront financing.
+                One Roof. Multiple Financial Solutions. One Trusted Partner. Unlocking premier credit lines, rapid disbursals, and transparent zero-upfront financing across India.
               </p>
             </div>
 
           </div>
         </div>
 
-        {/* Breadcrumb Navigation Bar: Exact Match to Reference */}
+        {/* Breadcrumb Navigation Bar */}
         <div className="w-full bg-[#1e293b] text-slate-200 py-3 mt-8 sm:mt-12 border-t border-slate-700/60 shadow-inner">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 text-xs sm:text-sm font-semibold flex items-center gap-2">
             <Link href="/" className="text-blue-300 hover:text-white transition-colors">
@@ -111,7 +138,7 @@ export default function AboutPage() {
 
       </section>
 
-      {/* 2. Introductory Trust Content Text (Matching Reference Body Intro) */}
+      {/* 2. Introductory Trust Content Text */}
       <section className="py-10 sm:py-14 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <div className="max-w-5xl mx-auto text-slate-700 text-sm sm:text-base md:text-lg leading-relaxed space-y-4">
@@ -125,147 +152,120 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 3. Executive Leadership & Founder's Desk Section */}
-      <section className="py-12 sm:py-16 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+      {/* 3. Executive Leadership: Shikha Gahlout Spotlight */}
+      <section className="py-14 sm:py-20 md:py-24 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <ScrollReveal variant="fade-up">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-center">
             
-            {/* Left Column: Authentic Executive Portrait Card */}
-            <div className="lg:col-span-5">
-              <div className="relative w-full h-[460px] sm:h-[520px] md:h-[580px] lg:h-[620px] rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-200/90 bg-slate-900 group">
-                <Image
-                  src="/images/founder.jpg"
-                  alt="Founder & Managing Leadership — Shreem Finserv"
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 100vw, 540px"
-                  className="object-cover object-top group-hover:scale-[1.02] transition-transform duration-700 ease-out"
-                />
-                
-                {/* Top Floating Badge: Verified Executive Leadership */}
-                <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200/90 shadow-md flex items-center gap-2">
-                  <span className="material-symbols-outlined text-[18px] text-[#0B309A]">verified</span>
-                  <span className="text-[11px] font-black text-slate-900 tracking-wide uppercase">Executive Leadership</span>
+            {/* Left Column: Crystal Clear Authentic Executive Portrait Card */}
+            <div className="lg:col-span-5 flex flex-col items-center lg:items-start">
+              <div className="relative w-full max-w-[480px]">
+                {/* Crisp high-resolution frame with subtle border and shadow */}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white bg-white group ring-1 ring-slate-200/80">
+                  <div className="relative aspect-[1000/1116] w-full bg-slate-50">
+                    <Image
+                      src="/images/founder.jpg"
+                      alt="Shikha Gahlout — Founder & Director, Shreem Finserv"
+                      fill
+                      priority
+                      quality={100}
+                      unoptimized={false}
+                      sizes="(max-width: 1024px) 100vw, 480px"
+                      className="object-cover object-center group-hover:scale-[1.01] transition-transform duration-500 ease-out"
+                    />
+                  </div>
                 </div>
 
-                {/* Top Right Floating Badge: Shreem HQ */}
-                <div className="absolute top-4 right-4 bg-[#0B309A]/90 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/20 shadow-md flex items-center gap-1.5 text-white">
-                  <span className="material-symbols-outlined text-[15px] text-amber-400">location_on</span>
-                  <span className="text-[10px] font-extrabold tracking-wide">Delhi-NCR HQ</span>
-                </div>
-
-                {/* Floating Quote Badge Overlay at Bottom */}
-                <div className="absolute bottom-4 sm:bottom-5 left-4 sm:left-5 right-4 sm:right-5 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 shadow-xl border border-white/80 flex items-center justify-between gap-3">
-                  <div className="flex items-center gap-3 min-w-0">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-[#0B309A] to-[#0B2E8D] text-white flex items-center justify-center font-black text-xl shadow-md flex-shrink-0">
-                      <span className="material-symbols-outlined text-[20px] sm:text-[24px]">workspace_premium</span>
+                {/* Clean Supporting Metadata Card (Non-obstructive, placed below the image) */}
+                <div className="mt-4 w-full flex items-center justify-between gap-3 p-3.5 rounded-2xl bg-slate-50 border border-slate-200/90 shadow-xs">
+                  <div className="flex items-center gap-2.5">
+                    <div className="w-9 h-9 rounded-xl bg-[#0B309A] text-white flex items-center justify-center font-bold shadow-xs flex-shrink-0">
+                      <span className="material-symbols-outlined text-[20px]">verified</span>
                     </div>
                     <div className="min-w-0">
-                      <div className="text-[9px] sm:text-[10px] font-extrabold uppercase tracking-widest text-[#0B309A]">Leadership Creed</div>
-                      <div className="text-xs sm:text-sm font-black text-slate-900 leading-snug">
-                        &ldquo;Financial Freedom For All&rdquo;
-                      </div>
+                      <div className="text-xs sm:text-sm font-black text-slate-900 leading-tight">Shikha Gahlout</div>
+                      <div className="text-[11px] font-bold text-[#0B309A]">Founder &amp; Director, Shreem Finserv</div>
                     </div>
                   </div>
-                  <div className="flex flex-col items-end flex-shrink-0">
-                    <span className="text-[10px] sm:text-[11px] font-extrabold text-emerald-600 flex items-center gap-1">
-                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                      100% Ethical
-                    </span>
-                    <span className="text-[9px] sm:text-[10px] text-slate-400 font-semibold">Zero Upfront Fee</span>
+                  <div className="flex items-center gap-1.5 text-[11px] font-extrabold text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg border border-emerald-200/70 flex-shrink-0">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>100% Ethical</span>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Founder's Vision & Commitments */}
+            {/* Right Column: Detailed Founder Narrative */}
             <div className="lg:col-span-7 space-y-6">
-              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-[#0B309A] text-xs font-bold border border-blue-200">
-                <span className="material-symbols-outlined text-[16px] text-[#E30613]">stars</span>
-                <span>FOUNDER&apos;S DESK &amp; LEADERSHIP VISION</span>
-              </div>
-
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
-                Empowering Every Borrower with <br />
-                <span className="text-[#0B309A]">Honest, Swift &amp; Transparent Capital</span>
-              </h2>
-
-              {/* Ex-Banking Experience Highlight Section */}
-              <div className="space-y-3">
-                <h3 className="text-sm font-black uppercase tracking-wider text-slate-700 flex items-center gap-2">
-                  <span className="material-symbols-outlined text-[18px] text-amber-500">military_tech</span>
-                  Senior Banking Pedigree
-                </h3>
-                <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
-                  Our founding leadership brings <strong className="text-slate-900">15+ years of senior-level banking experience</strong> across India&apos;s most respected private sector institutions, ensuring institutional-grade credit structuring and underwriting discipline at every stage.
-                </p>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 pt-1">
-                  {/* HDFC Bank Badge */}
-                  <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200/80 shadow-xs hover:shadow-md transition-shadow">
-                    <div className="w-8 h-8 rounded-lg bg-[#004C8F] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
-                      <span className="material-symbols-outlined text-[16px]">account_balance</span>
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-[10px] font-black uppercase tracking-wider text-[#004C8F]">HDFC Bank</div>
-                      <div className="text-[11px] font-bold text-slate-700 leading-tight">Senior Credit Ops</div>
-                    </div>
-                  </div>
-                  {/* Axis Bank Badge */}
-                  <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-gradient-to-r from-pink-50 to-rose-50 border border-pink-200/80 shadow-xs hover:shadow-md transition-shadow">
-                    <div className="w-8 h-8 rounded-lg bg-[#97144D] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
-                      <span className="material-symbols-outlined text-[16px]">account_balance</span>
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-[10px] font-black uppercase tracking-wider text-[#97144D]">Axis Bank</div>
-                      <div className="text-[11px] font-bold text-slate-700 leading-tight">Wealth &amp; Advisory</div>
-                    </div>
-                  </div>
-                  {/* Yes Bank Badge */}
-                  <div className="flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-gradient-to-r from-sky-50 to-cyan-50 border border-sky-200/80 shadow-xs hover:shadow-md transition-shadow">
-                    <div className="w-8 h-8 rounded-lg bg-[#003DA5] text-white flex items-center justify-center flex-shrink-0 shadow-sm">
-                      <span className="material-symbols-outlined text-[16px]">account_balance</span>
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-[10px] font-black uppercase tracking-wider text-[#003DA5]">Yes Bank</div>
-                      <div className="text-[11px] font-bold text-slate-700 leading-tight">Corporate &amp; MSME</div>
-                    </div>
-                  </div>
+              
+              <div className="space-y-2">
+                <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-[#0B309A] text-xs font-bold border border-blue-200">
+                  <span className="material-symbols-outlined text-[16px] text-[#E30613]">person</span>
+                  <span>FOUNDER PROFILE</span>
                 </div>
-              </div>
-
-              {/* Authentic Leadership Quote */}
-              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-blue-50/80 via-slate-50 to-white border-l-4 border-[#0B309A] shadow-xs">
-                <p className="text-slate-700 text-sm sm:text-base font-medium italic leading-relaxed">
-                  &ldquo;When we founded Shreem Finserv, our conviction was simple: financial advisory must be rooted in honesty, transparency, and borrower dignity. Every business owner, doctor, and salaried family deserves direct access to the lowest institutional rates without the anxiety of hidden charges or upfront broker fees.&rdquo;
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight leading-[1.15]">
+                  Shikha Gahlout
+                </h2>
+                <p className="text-base sm:text-lg font-bold text-[#0B309A]">
+                  Founder &amp; Director, Shreem Finserv
                 </p>
               </div>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-                As an authorized channel partner to over 50 premier scheduled banks and NBFCs, Shreem Finserv bridges the gap between capital seekers and institutional underwriting desks with zero upfront fees, institutional integrity, and dedicated senior advisory.
-              </p>
+              {/* Bio & Background */}
+              <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
+                <p className="font-medium text-slate-800">
+                  With a strong professional background spanning <strong className="text-slate-900 font-bold">Software and Finance</strong>, Shikha Gahlout brings a unique combination of technology-driven thinking, financial expertise, and customer-centric approach to the financial services industry.
+                </p>
+                <p>
+                  Over the years, she has gained valuable experience working with several reputed banks and financial institutions, where she developed a deep understanding of lending, financial products, customer requirements, and the evolving needs of businesses and individuals.
+                </p>
+              </div>
 
-              {/* Core Executive Commitments Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1 text-xs sm:text-sm font-bold text-slate-800">
-                <div className="flex items-center gap-2.5 p-2 rounded-xl bg-slate-50 border border-slate-200/80">
-                  <span className="material-symbols-outlined text-emerald-600 text-[20px]">verified_user</span>
-                  <span>100% Zero Upfront Fee Policy</span>
+              {/* Dual Superpower Badges: Software & Finance */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-2">
+                
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-blue-50/80 to-indigo-50/50 border border-blue-200/80 shadow-xs flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-[#0B309A] text-white flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
+                    <span className="material-symbols-outlined text-[20px]">terminal</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-black uppercase tracking-wider text-[#0B309A]">Technology &amp; Software</h3>
+                    <p className="text-xs text-slate-600 mt-1 leading-snug">
+                      Data-driven algorithmic loan matching, digital KYC automation, and secure 256-bit DPDP data processing.
+                    </p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2.5 p-2 rounded-xl bg-slate-50 border border-slate-200/80">
-                  <span className="material-symbols-outlined text-emerald-600 text-[20px]">speed</span>
-                  <span>Instant 24-Hour Sanction SLA</span>
+
+                <div className="p-4 rounded-2xl bg-gradient-to-br from-emerald-50/80 to-teal-50/50 border border-emerald-200/80 shadow-xs flex items-start gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center flex-shrink-0 shadow-sm mt-0.5">
+                    <span className="material-symbols-outlined text-[20px]">account_balance</span>
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-black uppercase tracking-wider text-emerald-800">Banking &amp; Lending</h3>
+                    <p className="text-xs text-slate-600 mt-1 leading-snug">
+                      Deep institutional underwriting experience with reputed banks and NBFCs across MSME, retail, and mortgage.
+                    </p>
+                  </div>
                 </div>
-                <div className="flex items-center gap-2.5 p-2 rounded-xl bg-slate-50 border border-slate-200/80">
-                  <span className="material-symbols-outlined text-emerald-600 text-[20px]">hub</span>
-                  <span>50+ Bank &amp; NBFC Partnerships</span>
+
+              </div>
+
+              {/* Founder's Signature Creed Card */}
+              <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-blue-50/90 via-slate-50 to-white border-l-4 border-[#0B309A] shadow-sm space-y-2">
+                <div className="flex items-center gap-2 text-[#0B309A] text-xs font-black uppercase tracking-wider">
+                  <span className="material-symbols-outlined text-[18px]">format_quote</span>
+                  <span>Leadership Motto</span>
                 </div>
-                <div className="flex items-center gap-2.5 p-2 rounded-xl bg-slate-50 border border-slate-200/80">
-                  <span className="material-symbols-outlined text-emerald-600 text-[20px]">lock</span>
-                  <span>DPDP Act 2026 Data Compliance</span>
+                <p className="text-base sm:text-lg font-black text-slate-900 italic leading-snug">
+                  &ldquo;One Roof. Multiple Financial Solutions. One Trusted Partner.&rdquo;
+                </p>
+                <div className="text-xs text-slate-600 font-semibold pt-1">
+                  — <strong className="text-slate-900">Shikha Gahlout</strong>, Founder &amp; Director, Shreem Finserv
                 </div>
               </div>
 
-              {/* Direct Action Buttons: Phone Dialer, WhatsApp, Apply Now */}
-              <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-4 border-t border-slate-200">
+              {/* Direct Action Buttons */}
+              <div className="flex flex-wrap items-center gap-3 sm:gap-4 pt-2">
                 <a
                   href={`tel:${BRAND_CONFIG.phone.replace(/\s+/g, "")}`}
                   className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-[#0B309A] hover:bg-[#0B2E8D] text-white font-bold text-xs sm:text-sm shadow-md transition-all hover:scale-105 active:scale-95"
@@ -299,7 +299,148 @@ export default function AboutPage() {
         </ScrollReveal>
       </section>
 
-      {/* 4. Performance Metrics Bar */}
+      {/* 4. The Vision Behind Shreem Finserv Section */}
+      <section className="py-16 sm:py-20 bg-gradient-to-b from-slate-50 via-white to-slate-50 border-y border-slate-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <ScrollReveal variant="fade-up">
+            
+            <div className="max-w-4xl mx-auto text-center space-y-4 mb-12">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-[#0B309A] text-xs font-bold border border-blue-200">
+                <span className="material-symbols-outlined text-[16px] text-amber-500">visibility</span>
+                <span>STRATEGIC DIRECTION</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+                The Vision Behind Shreem Finserv
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                Founded with a simple yet powerful vision — to make financial solutions easier, more accessible, and more customer-focused.
+              </p>
+            </div>
+
+            {/* Vision Feature Cards */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              
+              <div className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#0B309A]/40 transition-all duration-300 flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-indigo-800 text-white flex items-center justify-center shadow-md">
+                    <span className="material-symbols-outlined text-[24px]">hub</span>
+                  </div>
+                  <h3 className="text-lg font-black text-slate-900">One-Stop Platform</h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    The idea behind Shreem Finserv is to create a one-stop financial platform where clients can access a wide range of financial products and solutions under one roof, without having to navigate multiple channels or institutions.
+                  </p>
+                </div>
+                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center gap-1.5 text-[#0B309A] text-xs font-bold">
+                  <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                  <span>Unified Access Across 50+ Lenders</span>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#0B309A]/40 transition-all duration-300 flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-800 text-white flex items-center justify-center shadow-md">
+                    <span className="material-symbols-outlined text-[24px]">psychology_alt</span>
+                  </div>
+                  <h3 className="text-lg font-black text-slate-900">Right Solution, Right Time</h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Our aim is not just to arrange finance, but to understand each client&apos;s unique financial requirement and provide the right solution, with the right guidance, at the right time.
+                  </p>
+                </div>
+                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center gap-1.5 text-emerald-700 text-xs font-bold">
+                  <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                  <span>Tailored Underwriting &amp; Structuring</span>
+                </div>
+              </div>
+
+              <div className="bg-white rounded-2xl p-6 sm:p-7 border border-slate-200 shadow-sm hover:shadow-xl hover:border-[#0B309A]/40 transition-all duration-300 flex flex-col justify-between">
+                <div className="space-y-3">
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-[#E30613] to-rose-800 text-white flex items-center justify-center shadow-md">
+                    <span className="material-symbols-outlined text-[24px]">sentiment_satisfied</span>
+                  </div>
+                  <h3 className="text-lg font-black text-slate-900">Customer-Centric Focus</h3>
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
+                    Eliminating tedious bureaucratic friction, hidden commissions, and endless bank visits by putting client benefit, speed, and peace of mind at the forefront.
+                  </p>
+                </div>
+                <div className="pt-4 mt-4 border-t border-slate-100 flex items-center gap-1.5 text-[#E30613] text-xs font-bold">
+                  <span className="material-symbols-outlined text-[16px]">check_circle</span>
+                  <span>100% Zero Upfront Fee Guarantee</span>
+                </div>
+              </div>
+
+            </div>
+
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* 5. Our Commitment Section */}
+      <section className="py-16 sm:py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
+          <ScrollReveal variant="fade-up">
+            
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-blue-50 text-[#0B309A] text-xs font-bold border border-blue-200 mb-3">
+                <span className="material-symbols-outlined text-[16px] text-emerald-600">handshake</span>
+                <span>CLIENT PROMISE</span>
+              </div>
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
+                Our Commitment
+              </h2>
+              <p className="text-slate-600 text-sm sm:text-base mt-2 max-w-2xl mx-auto leading-relaxed">
+                At Shreem Finserv, we believe that every client deserves transparency, personalised attention, professional guidance, and world-class service.
+              </p>
+            </div>
+
+            {/* Commitment 4-Column Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+              {COMMITMENT_POINTS.map((item, idx) => (
+                <div
+                  key={idx}
+                  className="bg-slate-50/90 rounded-2xl p-6 border border-slate-200/90 hover:bg-white hover:border-[#0B309A]/40 hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+                >
+                  <div className="space-y-3">
+                    <div className="flex items-center justify-between">
+                      <div className="w-11 h-11 rounded-xl bg-blue-100 text-[#0B309A] flex items-center justify-center font-bold shadow-xs">
+                        <span className="material-symbols-outlined text-[22px]">{item.icon}</span>
+                      </div>
+                      <span className="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded-md bg-white border border-slate-200 text-slate-700">
+                        {item.tag}
+                      </span>
+                    </div>
+                    <h3 className="text-base font-bold text-slate-900">{item.title}</h3>
+                    <p className="text-xs text-slate-600 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Long-Term Partnership Vision Statement Banner */}
+            <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-br from-[#0B309A] via-[#0B2E8D] to-[#0A2472] text-white shadow-xl border border-white/10 relative overflow-hidden">
+              <div className="absolute right-0 top-0 w-96 h-96 bg-white/5 rounded-full blur-3xl pointer-events-none" />
+              
+              <div className="relative z-10 max-w-3xl space-y-3">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/15 text-blue-200 text-xs font-bold border border-white/20">
+                  <span className="material-symbols-outlined text-[15px] text-amber-300">verified</span>
+                  <span>Long-Term Client Partnerships</span>
+                </div>
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-black text-white leading-tight">
+                  A Seamless Financial Experience Across Pan India
+                </h3>
+                <p className="text-blue-100 text-xs sm:text-sm md:text-base leading-relaxed">
+                  With a strong focus on relationship building and long-term client partnerships, our goal is to deliver a seamless financial experience across Pan India, supported by professional expertise, technology, and a service-first approach.
+                </p>
+                <p className="text-blue-200 text-xs sm:text-sm font-medium leading-relaxed pt-1">
+                  Our vision is to build Shreem Finserv as a trusted financial partner for individuals, professionals, entrepreneurs, and businesses — helping them access the right financial opportunities with confidence.
+                </p>
+              </div>
+            </div>
+
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* 6. Performance Metrics Bar */}
       <section className="bg-slate-50 border-y border-slate-200 py-10 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div className="p-3">
@@ -329,7 +470,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 5. Core Operational Pillars */}
+      {/* 7. Core Operational Pillars */}
       <section className="py-16 bg-white border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
           <ScrollReveal variant="fade-up">
@@ -362,20 +503,20 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* 6. Institutional Partner Network Marquee */}
+      {/* 8. Institutional Partner Network Marquee */}
       <PartnerMarquee />
 
-      {/* 7. Awards & Industry Recognition Showcase */}
+      {/* 9. Awards & Industry Recognition Showcase */}
       <ScrollReveal variant="fade-up">
         <AwardsShowcase />
       </ScrollReveal>
 
-      {/* 7.5. Customer Feedback & Testimonials Section (Exact Homepage Component) */}
+      {/* 10. Customer Feedback & Testimonials Section */}
       <ScrollReveal variant="fade-up">
         <TestimonialsSlider />
       </ScrollReveal>
 
-      {/* 8. Ready To Apply CTA */}
+      {/* 11. Ready To Apply CTA */}
       <section className="py-16 max-w-7xl mx-auto px-4 sm:px-6 md:px-8">
         <ScrollReveal variant="zoom-in">
           <div className="bg-gradient-to-r from-[#0B309A] via-[#0B2E8D] to-[#0B309A] text-white rounded-3xl p-8 md:p-12 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8 border border-white/10">
@@ -384,7 +525,7 @@ export default function AboutPage() {
                 Have a Loan Requirement in Mind?
               </h3>
               <p className="text-blue-100 text-sm max-w-lg">
-                Speak directly with our senior underwriting advisors for immediate eligibility evaluation.
+                Speak directly with Shikha Gahlout &amp; our senior underwriting team for immediate eligibility evaluation.
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-3">

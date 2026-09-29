@@ -11,6 +11,12 @@ export const BRAND_CONFIG = {
   state: "Uttar Pradesh",
   pincode: "201010",
   workingHours: "Mon - Sat: 9:30 AM - 6:30 PM",
+  founder: {
+    name: "Shikha Gahlout",
+    title: "Founder & Director, Shreem Finserv",
+    quote: "One Roof. Multiple Financial Solutions. One Trusted Partner.",
+    bio: "With a strong professional background spanning Software and Finance, Shikha Gahlout brings a unique combination of technology-driven thinking, financial expertise, and customer-centric approach to the financial services industry.",
+  },
   googleMapsEmbedUrl: "https://maps.google.com/maps?q=Cloud%209%2C%20H3%20Tower%2C%20Vaishali%2C%20Ghaziabad%2C%20Uttar%20Pradesh%20201010&t=&z=15&ie=UTF8&iwloc=&output=embed",
   googleMapsLink: "https://maps.google.com/?q=Cloud+9+H3+Tower+Vaishali+Ghaziabad",
   compliance: {
