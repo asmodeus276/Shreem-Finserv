@@ -10,7 +10,7 @@ const FOOTER_LENDING_SOLUTIONS = [
   { title: "Loan Against Property", slug: "/loan-against-property" },
   { title: "Personal Loan", slug: "/personal-loan" },
   { title: "Car Loan", slug: "/car-loan" },
-  { title: "Education Loan", slug: "/personal-loan" },
+  { title: "Education Loan", slug: "/education-loan" },
   { title: "Machinery & Equipment Loan", slug: "/machinery-loan" },
 ];
 

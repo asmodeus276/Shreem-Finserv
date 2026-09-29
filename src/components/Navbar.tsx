@@ -24,7 +24,7 @@ const LOAN_STRIP_ITEMS = [
   { label: "Personal Loan", href: "/personal-loan" },
   { label: "Working Capital", href: "/business-loan/msme-working-capital" },
   { label: "Car Loan", href: "/car-loan" },
-  { label: "Education Loan", href: "/personal-loan" },
+  { label: "Education Loan", href: "/education-loan" },
   { label: "Machinery Loan", href: "/machinery-loan" },
 ];
 

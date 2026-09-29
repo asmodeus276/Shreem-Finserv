@@ -11,7 +11,7 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
 
-    const fullName = (body.fullName || "").trim();
+    const fullName = (body.fullName || body.name || "").trim();
     const email = (body.email || "").trim();
     const phone = (body.phone || "").replace(/\D/g, "");
     const subject = (body.subject || "General Inquiry").trim();
