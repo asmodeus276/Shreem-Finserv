@@ -25,7 +25,7 @@ export default function CaLoanPage() {
       headline="Professional Loan For Chartered Accountants"
       highlightText="up to ₹75 Lakhs | From 13.00% p.a."
       description="Tailor-made collateral-free financing designed specifically for practicing Chartered Accountants (CAs) and audit firms. Establish new branch offices, invest in IT & tax audit software, hire qualified staff, and manage practice cash flows with fast 24-hour sanction and flexible tenure up to 5 years."
-      bannerImage="/images/professional-loan-inner-banner.jpg"
+      bannerImage="/images/ca-hero-banner.jpg"
       maxAmount="₹1L – ₹75L"
       interestRate="From 13.00% p.a."
       tenure="Up to 5 Years (60 Months)"

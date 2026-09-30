@@ -71,7 +71,7 @@ const HERO_SLIDES: SlideData[] = [
     keyBenefits: ["Zero Collateral Required", "From 13.00% p.a.", "Up to ₹75 Lakhs Limit"],
     ctaText: "APPLY FOR CA LOAN",
     ctaLink: "/professional-loan/ca-loan",
-    bgImage: "/images/doctor-hero-banner.jpg",
+    bgImage: "/images/ca-hero-banner.jpg",
     imageAlt: "Professional Loans and CA Loan for Chartered Accountants",
   },
   {
