@@ -8,9 +8,10 @@ export interface NavLoanItem {
   tag?: string;
   badgeColor?: string;
   highlights?: string;
+  subItems?: { title: string; slug: string; subText?: string }[];
 }
 
-// Primary Priority Focus Loans (Left Column in Mega-Menu)
+// Primary Priority Focus Loans
 export const PRIMARY_LOANS: NavLoanItem[] = [
   {
     id: "professional-loan",
@@ -21,7 +22,19 @@ export const PRIMARY_LOANS: NavLoanItem[] = [
     icon: "medical_services",
     tag: "From 9.90%",
     badgeColor: "text-[#0B309A] bg-blue-50 border-blue-200",
-    highlights: "₹50K – ₹1 Cr | 24 Hr SLA",
+    highlights: "₹1L – ₹75L | 24-48 Hr Disbursal",
+    subItems: [
+      {
+        title: "Doctor Loan",
+        slug: "/professional-loan/doctor-loan",
+        subText: "Up to ₹75L @ 11.99% for clinic & equipment",
+      },
+      {
+        title: "CA Loan",
+        slug: "/professional-loan/ca-loan",
+        subText: "Up to ₹75L @ 13.00% for office & audit expansion",
+      },
+    ],
   },
   {
     id: "business-loan",
@@ -58,8 +71,30 @@ export const PRIMARY_LOANS: NavLoanItem[] = [
   },
 ];
 
-// Secondary Loan Products (Right Column in Mega-Menu)
+// Secondary Loan Products
 export const SECONDARY_LOANS: NavLoanItem[] = [
+  {
+    id: "personal-loan",
+    title: "Personal Loan",
+    shortTitle: "Personal",
+    subText: "Instant Multi-Purpose Credit for Any Need",
+    slug: "/personal-loan",
+    icon: "payments",
+    tag: "From 10.50%",
+    badgeColor: "text-purple-700 bg-purple-50 border-purple-200",
+    highlights: "₹50K – ₹40L | Same Day",
+  },
+  {
+    id: "working-capital",
+    title: "Working Capital Loan",
+    shortTitle: "Working Capital",
+    subText: "Revolving Credit Lines & Overdraft",
+    slug: "/working-capital",
+    icon: "account_balance_wallet",
+    tag: "Revolving",
+    badgeColor: "text-cyan-700 bg-cyan-50 border-cyan-200",
+    highlights: "₹5L – ₹2 Cr | Fast Processing",
+  },
   {
     id: "car-loan",
     title: "Car Loan (New & Used)",
@@ -93,42 +128,9 @@ export const SECONDARY_LOANS: NavLoanItem[] = [
     badgeColor: "text-indigo-700 bg-indigo-50 border-indigo-200",
     highlights: "Up to ₹5 Cr | 90% Funded",
   },
-  {
-    id: "urgent-cash-advance",
-    title: "Urgent Cash Advance",
-    shortTitle: "Urgent Cash",
-    subText: "2-Hour Emergency Personal Liquidity",
-    slug: "/personal-loan/urgent-cash",
-    icon: "bolt",
-    tag: "2-Hr Fast",
-    badgeColor: "text-red-700 bg-red-50 border-red-200",
-    highlights: "₹50K – ₹25L | Instant e-KYC",
-  },
-  {
-    id: "loans-for-women",
-    title: "Loans for Women Entrepreneurs",
-    shortTitle: "Women Founders",
-    subText: "Subsidized Credit Lines for Founders",
-    slug: "/business-loan/for-women",
-    icon: "diversity_3",
-    tag: "0.50% Subsidy",
-    badgeColor: "text-purple-700 bg-purple-50 border-purple-200",
-    highlights: "₹1L – ₹75L | Subsidized",
-  },
-  {
-    id: "working-capital",
-    title: "Working Capital & Overdraft",
-    shortTitle: "Working Capital",
-    subText: "Revolving Credit Lines for Cash Flow",
-    slug: "/business-loan/msme-working-capital",
-    icon: "account_balance_wallet",
-    tag: "Revolving",
-    badgeColor: "text-cyan-700 bg-cyan-50 border-cyan-200",
-    highlights: "Pay for Utilized Days",
-  },
 ];
 
-// Combined Loan List in exact 1-8 sequence
+// Combined Loan List
 export const ALL_NAV_LOANS: NavLoanItem[] = [
   ...PRIMARY_LOANS,
   ...SECONDARY_LOANS,

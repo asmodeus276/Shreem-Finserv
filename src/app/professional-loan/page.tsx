@@ -26,6 +26,26 @@ export default function ProfessionalLoanRoutePage() {
       maxSliderAmount={10000000}
       defaultEmiRate={9.9}
       defaultEmiTenureYears={5}
+      subProducts={[
+        {
+          title: "Doctor Loan (For Medical Practitioners)",
+          desc: "Collateral-free credit up to ₹75 Lakhs for doctors running clinics, hospitals, dental clinics & nursing homes. Special interest rates from 11.99% p.a.",
+          href: "/professional-loan/doctor-loan",
+          badge: "Main Product",
+          icon: "medical_services",
+          rate: "From 11.99% p.a.",
+          maxAmount: "Up to ₹75 Lakhs",
+        },
+        {
+          title: "CA Loan (For Chartered Accountants)",
+          desc: "Dedicated financing up to ₹75 Lakhs for practicing CAs to expand audit practice, set up offices, hire staff & invest in IT tools. Rates from 13.00% p.a.",
+          href: "/professional-loan/ca-loan",
+          badge: "Main Product",
+          icon: "account_balance",
+          rate: "From 13.00% p.a.",
+          maxAmount: "Up to ₹75 Lakhs",
+        },
+      ]}
       features={[
         {
           title: "Zero Collateral Required",

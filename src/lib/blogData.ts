@@ -33,8 +33,8 @@ export const BLOG_POSTS: BlogPost[] = [
       avatarInitials: "RK",
     },
     tags: ["Doctor Loan", "Medical Finance", "Collateral Free", "Low Interest"],
-    relatedProductSlug: "/personal-loan/for-doctors",
-    relatedProductName: "Personal Loan for Doctors",
+    relatedProductSlug: "/professional-loan/doctor-loan",
+    relatedProductName: "Doctor Loan (Professional Loan)",
     keyTakeaways: [
       "Doctors with MBBS, MD, MS, BDS, or MDS degrees qualify for pre-approved unsecured credit up to ₹50 Lakhs.",
       "Interest rates start from 9.90% p.a., with zero collateral and minimal income documentation required.",
@@ -63,8 +63,8 @@ export const BLOG_POSTS: BlogPost[] = [
       avatarInitials: "AV",
     },
     tags: ["MSME Loan", "Working Capital", "Business Expansion", "GST Credit"],
-    relatedProductSlug: "/business-loan/msme-working-capital",
-    relatedProductName: "MSME Working Capital Loan",
+    relatedProductSlug: "/working-capital",
+    relatedProductName: "Working Capital Loan",
     keyTakeaways: [
       "MSMEs can access credit limits from ₹10 Lakhs to ₹2 Crore based on GST returns and 12-month banking data.",
       "Overdraft (OD) and Cash Credit (CC) limits ensure interest is only paid on the amount actually utilized.",
@@ -151,8 +151,8 @@ export const BLOG_POSTS: BlogPost[] = [
       avatarInitials: "PS",
     },
     tags: ["Women Entrepreneur", "Stand Up India", "MUDRA", "Subsidized Loan"],
-    relatedProductSlug: "/business-loan/for-women",
-    relatedProductName: "Business Loan for Women",
+    relatedProductSlug: "/business-loan",
+    relatedProductName: "Business Loan",
     keyTakeaways: [
       "Women-owned enterprises receive a standard 0.50% interest rate rebate across scheduled commercial banks.",
       "Stand-Up India provides collateral-free bank sanctions between ₹10 Lakhs and ₹1 Crore for greenfield projects.",

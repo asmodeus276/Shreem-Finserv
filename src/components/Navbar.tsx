@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BRAND_CONFIG } from "@/config/brand";
@@ -15,31 +15,126 @@ const TOP_NAV_LINKS = [
   { label: "Contact Us", href: "/contact" },
 ];
 
-// Primary Loan Navigation Items for the Full-Width Royal Blue Strip
-const LOAN_STRIP_ITEMS = [
-  { label: "Professional Loan", href: "/professional-loan" },
-  { label: "Business Loan", href: "/business-loan" },
-  { label: "Home Loan", href: "/home-loan" },
-  { label: "Loan Against Property", href: "/loan-against-property" },
-  { label: "Personal Loan", href: "/personal-loan" },
-  { label: "Working Capital", href: "/business-loan/msme-working-capital" },
-  { label: "Car Loan", href: "/car-loan" },
-  { label: "Education Loan", href: "/education-loan" },
-  { label: "Machinery Loan", href: "/machinery-loan" },
+export interface SubMenuLink {
+  label: string;
+  href: string;
+  desc?: string;
+  badge?: string;
+  icon?: string;
+}
+
+export interface LoanItemConfig {
+  id: string;
+  label: string;
+  href: string;
+  subLinks?: SubMenuLink[];
+}
+
+export const LOAN_NAV_ITEMS: LoanItemConfig[] = [
+  {
+    id: "professional-loan",
+    label: "Professional Loan",
+    href: "/professional-loan",
+    subLinks: [
+      {
+        label: "Doctor Loan (Medical Practitioners)",
+        href: "/professional-loan/doctor-loan",
+        desc: "Up to ₹75 Lakhs collateral-free for clinic expansion & medical equipment @ 11.99% p.a.",
+        badge: "Specialized",
+        icon: "stethoscope",
+      },
+      {
+        label: "CA Loan (Chartered Accountants)",
+        href: "/professional-loan/ca-loan",
+        desc: "Up to ₹75 Lakhs collateral-free for office expansion & working capital @ 13.00% p.a.",
+        badge: "Specialized",
+        icon: "calculate",
+      },
+      {
+        label: "Professional Loan Overview",
+        href: "/professional-loan",
+        desc: "Explore all professional financing solutions, eligibility & features.",
+        icon: "account_balance",
+      },
+    ],
+  },
+  {
+    id: "business-loan",
+    label: "Business Loan",
+    href: "/business-loan",
+  },
+  {
+    id: "home-loan",
+    label: "Home Loan",
+    href: "/home-loan",
+  },
+  {
+    id: "loan-against-property",
+    label: "Loan Against Property",
+    href: "/loan-against-property",
+  },
+  {
+    id: "personal-loan",
+    label: "Personal Loan",
+    href: "/personal-loan",
+  },
+  {
+    id: "working-capital",
+    label: "Working Capital",
+    href: "/working-capital",
+  },
+  {
+    id: "car-loan",
+    label: "Car Loan",
+    href: "/car-loan",
+  },
+  {
+    id: "education-loan",
+    label: "Education Loan",
+    href: "/education-loan",
+  },
+  {
+    id: "machinery-loan",
+    label: "Machinery Loan",
+    href: "/machinery-loan",
+  },
 ];
 
 export const Navbar: React.FC = () => {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileLoansAccordionOpen, setMobileLoansAccordionOpen] = useState(true);
+  const [mobileProfLoanOpen, setMobileProfLoanOpen] = useState(true);
 
-  // Close mobile menu on route change
+  // Professional Loan Dropdown hover state
+  const [profDropdownOpen, setProfDropdownOpen] = useState(false);
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Close mobile menu and dropdown on route change
   useEffect(() => {
     const timer = setTimeout(() => {
       setMobileMenuOpen(false);
+      setProfDropdownOpen(false);
     }, 0);
     return () => clearTimeout(timer);
   }, [pathname]);
+
+  const handleProfMouseEnter = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+    setProfDropdownOpen(true);
+  };
+
+  const handleProfMouseLeave = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+    }
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setProfDropdownOpen(false);
+    }, 200);
+  };
 
   const scrollToApply = (e: React.MouseEvent) => {
     const formEl = document.getElementById("lead-form") || document.getElementById("lead-application-form");
@@ -47,11 +142,12 @@ export const Navbar: React.FC = () => {
       e.preventDefault();
       formEl.scrollIntoView({ behavior: "smooth" });
       setMobileMenuOpen(false);
+      setProfDropdownOpen(false);
     }
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 w-full z-50 shadow-md">
+    <header className="fixed top-0 left-0 right-0 w-full z-50 shadow-md bg-white">
       {/* Tier 1: Top Header Bar (White Background) */}
       <div className="w-full bg-white border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 h-18 md:h-20 flex justify-between items-center">
@@ -122,36 +218,142 @@ export const Navbar: React.FC = () => {
         </div>
       </div>
 
-      {/* Tier 2: Sub-Header Bar (Full-Width Royal Blue Strip #0B309A matching Logo) */}
-      <div className="w-full bg-[#0B309A] text-white border-t border-blue-900/40 shadow-inner">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between py-2 sm:py-2.5">
+      {/* Tier 2: Sub-Header Bar (Full-Width Royal Blue Strip #0B309A) */}
+      <div className="relative w-full bg-[#0B309A] text-white border-t border-blue-900/40 shadow-inner z-40">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between py-1.5 sm:py-2">
           
           {/* Horizontal Loan Links Row */}
-          <nav className="flex-1 min-w-0 flex items-center gap-2 sm:gap-3 md:gap-4 lg:gap-5 text-xs sm:text-[13px] font-medium whitespace-nowrap overflow-x-auto no-scrollbar scroll-smooth -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0">
-            {LOAN_STRIP_ITEMS.map((loan, idx) => {
+          <nav className="flex-1 min-w-0 flex items-center gap-1 sm:gap-2 md:gap-3 text-xs sm:text-[13px] font-medium whitespace-nowrap overflow-x-auto lg:overflow-visible no-scrollbar scroll-smooth -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0">
+            {LOAN_NAV_ITEMS.map((item, idx) => {
               const isCurrentActive =
-                pathname === loan.href ||
-                (loan.href !== "/" && pathname?.startsWith(loan.href));
+                pathname === item.href ||
+                (item.href !== "/" && pathname?.startsWith(item.href));
 
+              // Professional Loan with Dropdown
+              if (item.subLinks) {
+                return (
+                  <div
+                    key={item.id}
+                    className="relative flex-shrink-0"
+                    onMouseEnter={handleProfMouseEnter}
+                    onMouseLeave={handleProfMouseLeave}
+                  >
+                    <button
+                      type="button"
+                      onClick={() => setProfDropdownOpen(!profDropdownOpen)}
+                      className={`flex-shrink-0 px-2.5 py-1.5 rounded-md transition-all duration-150 flex items-center gap-1 whitespace-nowrap cursor-pointer ${
+                        isCurrentActive
+                          ? "text-white font-bold bg-white/15 underline underline-offset-4 decoration-2"
+                          : profDropdownOpen
+                          ? "text-white font-bold bg-white/20"
+                          : "text-blue-100 hover:text-white hover:bg-white/10"
+                      }`}
+                    >
+                      <span>{item.label}</span>
+                      <span
+                        className={`material-symbols-outlined text-[15px] transition-transform duration-200 ${
+                          profDropdownOpen ? "rotate-180 text-amber-300" : "text-blue-200"
+                        }`}
+                      >
+                        expand_more
+                      </span>
+                    </button>
+
+                    {/* Dedicated Dropdown for Professional Loan only */}
+                    {profDropdownOpen && (
+                      <div
+                        className="absolute left-0 top-full pt-1.5 z-50 w-80 sm:w-96 shadow-2xl animate-in fade-in slide-in-from-top-1 duration-150"
+                        onMouseEnter={handleProfMouseEnter}
+                        onMouseLeave={handleProfMouseLeave}
+                      >
+                        <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 text-slate-800 space-y-1.5">
+                          <div className="px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 flex items-center justify-between border-b border-slate-100 pb-2">
+                            <span>Specialized Professional Loans</span>
+                            <span className="text-emerald-600 font-bold">Fast Approval</span>
+                          </div>
+
+                          {item.subLinks.map((sub, sIdx) => {
+                            const isSubActive = pathname === sub.href;
+                            return (
+                              <Link
+                                key={sIdx}
+                                href={sub.href}
+                                onClick={() => setProfDropdownOpen(false)}
+                                className={`flex items-start gap-3 p-2.5 rounded-xl transition-all group ${
+                                  isSubActive
+                                    ? "bg-blue-50/80 text-[#0B309A]"
+                                    : "hover:bg-slate-50 text-slate-800 hover:text-[#0B309A]"
+                                }`}
+                              >
+                                <div className="p-2 rounded-lg bg-blue-50 text-[#0B309A] group-hover:bg-[#0B309A] group-hover:text-white transition-colors flex-shrink-0 mt-0.5">
+                                  <span className="material-symbols-outlined text-[18px]">
+                                    {sub.icon || "medical_services"}
+                                  </span>
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                  <div className="flex items-center gap-1.5">
+                                    <span className="text-xs font-bold text-slate-900 group-hover:text-[#0B309A]">
+                                      {sub.label}
+                                    </span>
+                                    {sub.badge && (
+                                      <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-red-100 text-[#E30613]">
+                                        {sub.badge}
+                                      </span>
+                                    )}
+                                  </div>
+                                  {sub.desc && (
+                                    <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed mt-0.5">
+                                      {sub.desc}
+                                    </p>
+                                  )}
+                                </div>
+                              </Link>
+                            );
+                          })}
+
+                          <div className="pt-2 border-t border-slate-100 flex items-center justify-between px-2">
+                            <Link
+                              href="/professional-loan#rates-section"
+                              onClick={() => setProfDropdownOpen(false)}
+                              className="text-[11px] font-semibold text-slate-500 hover:text-[#0B309A]"
+                            >
+                              Check Rates &rarr;
+                            </Link>
+                            <Link
+                              href="/apply"
+                              onClick={() => setProfDropdownOpen(false)}
+                              className="px-3 py-1 bg-[#0B309A] hover:bg-[#082475] text-white text-[11px] font-bold rounded-lg shadow-xs"
+                            >
+                              Apply Now
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              }
+
+              // Direct Link for all other loan products (Business Loan, Home Loan, LAP, Personal Loan, Working Capital, etc.)
               return (
                 <Link
-                  key={idx}
-                  href={loan.href}
-                  className={`flex-shrink-0 px-2 sm:px-2.5 py-1 rounded transition-all duration-150 flex items-center gap-1 whitespace-nowrap ${
-                    idx === LOAN_STRIP_ITEMS.length - 1 ? "mr-4 md:mr-0" : ""
+                  key={item.id}
+                  href={item.href}
+                  className={`flex-shrink-0 px-2.5 py-1.5 rounded-md transition-all duration-150 flex items-center gap-1 whitespace-nowrap ${
+                    idx === LOAN_NAV_ITEMS.length - 1 ? "mr-4 md:mr-0" : ""
                   } ${
                     isCurrentActive
-                      ? "text-white font-bold underline underline-offset-4 decoration-2"
-                      : "text-blue-100 hover:text-white"
+                      ? "text-white font-bold bg-white/15 underline underline-offset-4 decoration-2"
+                      : "text-blue-100 hover:text-white hover:bg-white/10"
                   }`}
                 >
-                  <span>{loan.label}</span>
+                  <span>{item.label}</span>
                 </Link>
               );
             })}
           </nav>
 
-          {/* Right Red Pill Hotline Button matching brand (+91 87450 03840) - Fixed Single Line */}
+          {/* Right Red Pill Hotline Button matching brand (+91 87450 03840) */}
           <div className="hidden xl:flex items-center pl-4 flex-shrink-0">
             <a
               href={`tel:${BRAND_CONFIG.phone.replace(/\s+/g, "")}`}
@@ -188,7 +390,7 @@ export const Navbar: React.FC = () => {
               >
                 <div className="flex items-center gap-2">
                   <span className="material-symbols-outlined text-[18px] text-[#0B309A]">account_balance</span>
-                  <span>Loan Products ({LOAN_STRIP_ITEMS.length})</span>
+                  <span>Loan Products ({LOAN_NAV_ITEMS.length})</span>
                 </div>
                 <span
                   className={`material-symbols-outlined text-[18px] transition-transform duration-200 ${
@@ -201,21 +403,73 @@ export const Navbar: React.FC = () => {
 
               {mobileLoansAccordionOpen && (
                 <div className="p-2 space-y-1 bg-white">
-                  {LOAN_STRIP_ITEMS.map((loan, idx) => (
-                    <Link
-                      key={idx}
-                      href={loan.href}
-                      onClick={() => setMobileMenuOpen(false)}
-                      className={`flex items-center justify-between px-3 py-2 rounded-lg text-xs font-semibold ${
-                        pathname === loan.href
-                          ? "bg-blue-50 text-[#0B309A] font-bold"
-                          : "text-slate-700 hover:bg-slate-50"
-                      }`}
-                    >
-                      <span>{loan.label}</span>
-                      <span className="material-symbols-outlined text-[16px] text-slate-400">chevron_right</span>
-                    </Link>
-                  ))}
+                  {LOAN_NAV_ITEMS.map((item) => {
+                    // Professional loan with subpage links
+                    if (item.subLinks) {
+                      return (
+                        <div key={item.id} className="border border-blue-100 rounded-lg overflow-hidden bg-blue-50/20">
+                          <button
+                            type="button"
+                            onClick={() => setMobileProfLoanOpen(!mobileProfLoanOpen)}
+                            className="w-full flex items-center justify-between px-3 py-2 text-xs font-bold text-[#0B309A] hover:bg-blue-50 transition-colors"
+                          >
+                            <span className="flex items-center gap-1.5">
+                              <span className="material-symbols-outlined text-[16px]">medical_services</span>
+                              <span>{item.label}</span>
+                            </span>
+                            <span
+                              className={`material-symbols-outlined text-[16px] transition-transform duration-200 ${
+                                mobileProfLoanOpen ? "rotate-180" : ""
+                              }`}
+                            >
+                              expand_more
+                            </span>
+                          </button>
+
+                          {mobileProfLoanOpen && (
+                            <div className="pl-4 pr-2 py-1.5 space-y-1 bg-white border-t border-blue-100 text-xs">
+                              {item.subLinks.map((sub, sIdx) => (
+                                <Link
+                                  key={sIdx}
+                                  href={sub.href}
+                                  onClick={() => setMobileMenuOpen(false)}
+                                  className={`flex items-center justify-between py-1.5 px-2 rounded-md ${
+                                    pathname === sub.href
+                                      ? "bg-blue-50 font-bold text-[#0B309A]"
+                                      : "text-slate-700 hover:text-[#0B309A] hover:bg-slate-50"
+                                  }`}
+                                >
+                                  <span>{sub.label}</span>
+                                  {sub.badge && (
+                                    <span className="text-[9px] font-bold px-1.5 py-0.5 rounded bg-red-100 text-[#E30613]">
+                                      {sub.badge}
+                                    </span>
+                                  )}
+                                </Link>
+                              ))}
+                            </div>
+                          )}
+                        </div>
+                      );
+                    }
+
+                    // Direct link for other loan products
+                    const isItemActive = pathname === item.href;
+                    return (
+                      <Link
+                        key={item.id}
+                        href={item.href}
+                        onClick={() => setMobileMenuOpen(false)}
+                        className={`block px-3 py-2 rounded-lg text-xs font-semibold transition-colors ${
+                          isItemActive
+                            ? "bg-blue-50 text-[#0B309A] font-bold"
+                            : "text-slate-700 hover:bg-slate-50 hover:text-[#0B309A]"
+                        }`}
+                      >
+                        {item.label}
+                      </Link>
+                    );
+                  })}
                 </div>
               )}
             </div>

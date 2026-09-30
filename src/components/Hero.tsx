@@ -119,7 +119,7 @@ const QUICK_LOAN_CARDS = [
   {
     title: "Working Capital",
     icon: "account_balance_wallet",
-    link: "/business-loan/msme-working-capital",
+    link: "/working-capital",
   },
   {
     title: "Car Loan",
@@ -129,7 +129,7 @@ const QUICK_LOAN_CARDS = [
   {
     title: "Education Loan",
     icon: "school",
-    link: "/personal-loan",
+    link: "/education-loan",
   },
   {
     title: "Machinery Loan",

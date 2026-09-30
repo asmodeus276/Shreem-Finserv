@@ -15,6 +15,16 @@ export interface FeatureItem {
   icon: string;
 }
 
+export interface SubProductItem {
+  title: string;
+  desc: string;
+  href: string;
+  badge?: string;
+  icon?: string;
+  rate?: string;
+  maxAmount?: string;
+}
+
 export interface ProductPageProps {
   categoryId?: string;
   categoryName: string;
@@ -35,6 +45,7 @@ export interface ProductPageProps {
   defaultEmiTenureYears?: number;
   features?: FeatureItem[];
   benefits?: Array<{ title: string; desc: string; icon: string }>;
+  subProducts?: SubProductItem[];
   eligibility: string[];
   documents: string[];
   faqs: Array<{ q: string; a: string }>;
@@ -59,6 +70,7 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
   defaultEmiRate = 10.5,
   defaultEmiTenureYears = 5,
   features = [],
+  subProducts = [],
   eligibility = [],
   documents = [],
   faqs = [],
@@ -259,6 +271,54 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
               </p>
             </div>
 
+            {/* Quick Access to Specialized Programs (Doctor Loan & CA Loan) */}
+            {subProducts && subProducts.length > 0 && (
+              <div className="p-4 sm:p-5 rounded-2xl bg-gradient-to-br from-blue-50/80 via-white to-indigo-50/50 border-2 border-blue-200 shadow-sm space-y-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2 text-xs font-black uppercase tracking-wider text-[#0B309A]">
+                    <span className="material-symbols-outlined text-[18px]">verified</span>
+                    <span>Specialized {categoryName} Categories</span>
+                  </div>
+                  <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-100 text-[#0B309A]">
+                    Instant Disbursal
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-1">
+                  {subProducts.map((sp, idx) => (
+                    <Link
+                      key={idx}
+                      href={sp.href}
+                      className="flex flex-col justify-between p-3.5 rounded-xl bg-white border border-blue-100 hover:border-[#0B309A] hover:shadow-md transition-all group"
+                    >
+                      <div>
+                        <div className="flex items-center justify-between mb-1.5">
+                          <div className="flex items-center gap-2">
+                            <span className="material-symbols-outlined text-[20px] text-[#0B309A]">
+                              {sp.icon || "medical_services"}
+                            </span>
+                            <span className="text-xs font-bold text-slate-900 group-hover:text-[#0B309A]">
+                              {sp.title}
+                            </span>
+                          </div>
+                        </div>
+                        <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed">
+                          {sp.desc}
+                        </p>
+                      </div>
+                      <div className="mt-3 pt-2 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                        <span className="font-extrabold text-[#0B309A]">{sp.rate || "Fast-Track"}</span>
+                        <span className="font-bold text-[#E30613] group-hover:translate-x-1 transition-transform flex items-center gap-0.5">
+                          <span>Apply &amp; Explore</span>
+                          <span className="material-symbols-outlined text-[14px]">arrow_forward</span>
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Interest Rates & Charges Table (Matching capitalneed.com table format) */}
             <div id="rates-section" className="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-2xs">
               <div className="bg-[#0B309A] text-white px-5 py-3 font-bold text-sm">
@@ -346,6 +406,94 @@ export const ProductPageTemplate: React.FC<ProductPageProps> = ({
 
         </div>
       </section>
+
+      {/* Specialized Sub-Products Cards (e.g. Doctor Loan & CA Loan under Professional Loan) */}
+      {subProducts && subProducts.length > 0 && (
+        <section className="py-10 md:py-14 bg-gradient-to-b from-blue-50/40 via-white to-slate-50 border-t border-slate-200">
+          <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="text-center max-w-2xl mx-auto mb-8">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100/70 text-[#0B309A] text-xs font-bold border border-blue-200 mb-2">
+                <span className="material-symbols-outlined text-[16px]">stars</span>
+                Specialized Loan Programs
+              </div>
+              <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
+                Explore Dedicated {categoryName} Solutions
+              </h2>
+              <p className="text-slate-600 text-xs sm:text-sm mt-1">
+                Custom-underwritten credit facilities tailored for your specific profession and practice requirements.
+              </p>
+            </div>
+
+            <div className={`grid grid-cols-1 ${subProducts.length === 2 ? 'md:grid-cols-2 max-w-4xl mx-auto' : 'sm:grid-cols-2 lg:grid-cols-3'} gap-6`}>
+              {subProducts.map((sp, idx) => (
+                <div
+                  key={idx}
+                  className="bg-white border-2 border-slate-200/90 hover:border-[#0B309A] rounded-2xl p-6 sm:p-7 transition-all duration-200 hover:shadow-xl flex flex-col justify-between group relative overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50/50 rounded-bl-full pointer-events-none -z-0 group-hover:scale-110 transition-transform" />
+                  
+                  <div className="relative z-10">
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-blue-50 text-[#0B309A] group-hover:bg-[#0B309A] group-hover:text-white flex items-center justify-center transition-colors shadow-xs">
+                        <span className="material-symbols-outlined text-2xl">{sp.icon || "medical_services"}</span>
+                      </div>
+                      {sp.badge && (
+                        <span className="text-[11px] font-extrabold px-3 py-1 rounded-full bg-red-50 text-[#E30613] border border-red-200 uppercase tracking-wider">
+                          {sp.badge}
+                        </span>
+                      )}
+                    </div>
+
+                    <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 mb-2 group-hover:text-[#0B309A] transition-colors">
+                      {sp.title}
+                    </h3>
+                    
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
+                      {sp.desc}
+                    </p>
+
+                    {(sp.rate || sp.maxAmount) && (
+                      <div className="grid grid-cols-2 gap-2 py-3 px-3.5 bg-slate-50 rounded-xl border border-slate-100 mb-4 text-xs">
+                        {sp.rate && (
+                          <div>
+                            <span className="text-slate-400 text-[10px] block font-semibold uppercase">Interest Rate</span>
+                            <span className="font-extrabold text-[#0B309A]">{sp.rate}</span>
+                          </div>
+                        )}
+                        {sp.maxAmount && (
+                          <div>
+                            <span className="text-slate-400 text-[10px] block font-semibold uppercase">Loan Limit</span>
+                            <span className="font-extrabold text-slate-900">{sp.maxAmount}</span>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+
+                  <div className="relative z-10 pt-2 border-t border-slate-100 flex items-center justify-between">
+                    <Link
+                      href={sp.href}
+                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-extrabold text-[#0B309A] group-hover:text-[#E30613] transition-colors"
+                    >
+                      <span>View Loan Details</span>
+                      <span className="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">
+                        arrow_forward
+                      </span>
+                    </Link>
+
+                    <Link
+                      href={sp.href}
+                      className="px-3.5 py-1.5 rounded-full bg-[#0B309A] group-hover:bg-[#E30613] text-white font-bold text-xs shadow-xs transition-colors"
+                    >
+                      Apply
+                    </Link>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* 4. Co-Lending Bank Partners Marquee */}
       <PartnerMarquee />

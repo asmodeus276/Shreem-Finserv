@@ -20,6 +20,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
+      url: `${baseUrl}/professional-loan/doctor-loan`,
+      lastModified: currentDate,
+      changeFrequency: "weekly" as const,
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/professional-loan/ca-loan`,
+      lastModified: currentDate,
+      changeFrequency: "weekly" as const,
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/business-loan`,
       lastModified: currentDate,
       changeFrequency: "weekly" as const,
@@ -44,6 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.95,
     },
     {
+      url: `${baseUrl}/working-capital`,
+      lastModified: currentDate,
+      changeFrequency: "weekly" as const,
+      priority: 0.95,
+    },
+    {
       url: `${baseUrl}/car-loan`,
       lastModified: currentDate,
       changeFrequency: "weekly" as const,
@@ -60,30 +78,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: currentDate,
       changeFrequency: "weekly" as const,
       priority: 0.90,
-    },
-    {
-      url: `${baseUrl}/personal-loan/for-doctors`,
-      lastModified: currentDate,
-      changeFrequency: "weekly" as const,
-      priority: 0.90,
-    },
-    {
-      url: `${baseUrl}/business-loan/msme-working-capital`,
-      lastModified: currentDate,
-      changeFrequency: "weekly" as const,
-      priority: 0.90,
-    },
-    {
-      url: `${baseUrl}/personal-loan/urgent-cash`,
-      lastModified: currentDate,
-      changeFrequency: "weekly" as const,
-      priority: 0.85,
-    },
-    {
-      url: `${baseUrl}/business-loan/for-women`,
-      lastModified: currentDate,
-      changeFrequency: "weekly" as const,
-      priority: 0.85,
     },
     {
       url: `${baseUrl}/apply`,

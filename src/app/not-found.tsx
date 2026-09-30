@@ -28,18 +28,18 @@ export default function NotFound() {
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <Link
-              href="/personal-loan/for-doctors"
+              href="/professional-loan/doctor-loan"
               className="flex items-center gap-2.5 p-3 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#0B309A] border border-slate-100 transition-all font-semibold text-xs"
             >
               <span className="material-symbols-outlined text-[#0B2E8D]">medical_services</span>
-              <span>Doctors Loan</span>
+              <span>Doctor Loan</span>
             </Link>
             <Link
-              href="/business-loan/msme-working-capital"
+              href="/working-capital"
               className="flex items-center gap-2.5 p-3 rounded-xl hover:bg-blue-50 text-slate-700 hover:text-[#0B309A] border border-slate-100 transition-all font-semibold text-xs"
             >
               <span className="material-symbols-outlined text-emerald-600">storefront</span>
-              <span>MSME Working Capital</span>
+              <span>Working Capital</span>
             </Link>
             <Link
               href="/calculator"
