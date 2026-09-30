@@ -2,20 +2,30 @@ import { Metadata } from "next";
 import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Loan Against Property (LAP) — From 9.00% p.a. | Shreem Finserv",
+  title: "Property Loan & Loan Against Property (LAP) — From 9.00% p.a. | Shreem Finserv",
   description:
-    "Apply for Loan Against Property (LAP) from ₹25 Lakhs to ₹10 Crore. Lowest mortgage rates starting from 9.00% p.a., flexible 15-year tenure, up to 75% LTV, and swift legal clearance across 50+ lenders.",
+    "Apply for Property Loan and Loan Against Property (LAP) from ₹25 Lakhs to ₹10 Crore. Lowest mortgage rates starting from 9.00% p.a., flexible 15-year tenure, up to 75% LTV across 50+ lenders.",
+  keywords: [
+    "property loan",
+    "loan against property",
+    "lap",
+    "property loan lap",
+    "mortgage property loan",
+    "commercial property loan",
+    "residential property loan",
+    "shreem finserv property loan",
+  ],
 };
 
 export default function LapPage() {
   return (
     <ProductPageTemplate
       categoryId="loan-against-property"
-      categoryName="Loan Against Property (LAP)"
-      badge="Secured Real Estate Equity Line"
-      headline="Unlock Value with"
+      categoryName="Property Loan (LAP)"
+      badge="Secured Real Estate Equity Line & Mortgage"
+      headline="Property Loan &"
       highlightText="Loan Against Property (LAP)"
-      description="Unlock up to 75% of your property's certified market valuation with low mortgage interest rates starting from 9.00% p.a., extended 15-20 year repayment, and complete retention of ownership."
+      description="Unlock up to 75% of your property's certified market valuation with low mortgage Property Loan interest rates starting from 9.00% p.a., extended 15-20 year repayment, and complete retention of ownership."
       bannerImage="/images/lap-inner-banner.jpg"
       maxAmount="₹25L – ₹10Cr"
       interestRate="From 9.00% p.a."

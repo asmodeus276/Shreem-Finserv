@@ -2,21 +2,31 @@ import { Metadata } from "next";
 import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Business Loan & MSME Working Capital up to ₹5 Crores | Shreem Finserv",
+  title: "Business Loan (BL) & MSME Working Capital up to ₹5 Crores | Shreem Finserv",
   description:
-    "Secure fast collateral-free Business Loans and MSME Working Capital from ₹2 Lakhs up to ₹5 Crores starting from 14.00% p.a. Multi-bank sanctions in 48 hours with Shreem Finserv.",
+    "Secure fast collateral-free Business Loans (BL) and MSME Working Capital from ₹2 Lakhs up to ₹5 Crores starting from 14.00% p.a. Multi-bank sanctions in 48 hours with Shreem Finserv.",
+  keywords: [
+    "business loan",
+    "bl",
+    "business loan bl",
+    "unsecured business loan",
+    "msme business loan",
+    "business loan od",
+    "commercial business loan",
+    "shreem finserv business loan",
+  ],
 };
 
 export default function BusinessLoanPage() {
   return (
     <ProductPageTemplate
       categoryId="business-loan"
-      categoryName="Business Loan"
-      badge="FAST MSME & ENTERPRISE CAPITAL"
-      headline="Get Hassle-Free"
-      highlightText="Business Loan"
+      categoryName="Business Loan (BL)"
+      badge="UNSECURED BUSINESS LOAN (BL) & MSME CAPITAL"
+      headline="Hassle-Free"
+      highlightText="Business Loan (BL)"
       bannerImage="/images/business-loan-inner-banner.jpg"
-      description="Scale your enterprise, finance working capital, purchase inventory, or expand operations with collateral-free business loans from ₹2 Lakhs up to ₹5 Crores across 50+ Scheduled Commercial Banks & NBFCs."
+      description="Scale your enterprise, finance working capital, purchase inventory, or expand operations with collateral-free Business Loans (BL) from ₹2 Lakhs up to ₹5 Crores across 50+ Scheduled Commercial Banks & NBFCs."
       maxAmount="₹5 Crores"
       interestRate="From 14.00% p.a."
       tenure="Up to 5 Years"

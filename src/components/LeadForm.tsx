@@ -270,16 +270,16 @@ export const LeadForm: React.FC<LeadFormProps> = ({
             onChange={(e) => setLoanCategory(e.target.value)}
             className="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2.5 text-sm text-slate-900 focus:bg-white focus:outline-none focus:border-[#0B2E8D] focus:ring-1 focus:ring-[#0B2E8D] transition-colors"
           >
-            <option value="Professional Loan">Professional Loan (Doctors, CAs & Professionals)</option>
-            <option value="Business Loan">Business Loan / MSME</option>
+            <option value="Doctor Loan / Doctor OD">Doctor Loan / Doctor Loan OD</option>
+            <option value="Business Loan (BL)">Business Loan (BL) / MSME</option>
+            <option value="Property Loan (LAP)">Property Loan (Loan Against Property / LAP)</option>
+            <option value="Professional Loan">Professional Loan (CA Loan &amp; Practitioners)</option>
+            <option value="Working Capital">Working Capital / Overdraft (OD)</option>
             <option value="Home Loan">Home Loan</option>
-            <option value="Loan Against Property">Loan Against Property (LAP)</option>
             <option value="Personal Loan">Personal Loan</option>
-            <option value="Car Loan">Car Loan (New &amp; Used Cars)</option>
-            <option value="Working Capital">Working Capital / Overdraft</option>
-            <option value="Machinery & Equipment">Machinery &amp; Equipment Loan</option>
-            <option value="Urgent Cash Advance">Urgent Cash Advance</option>
-            <option value="Loans for Women Entrepreneurs">Loans for Women Entrepreneurs</option>
+            <option value="Machinery Loan">Machinery &amp; Equipment Loan</option>
+            <option value="Car Loan">Car Loan (New &amp; Used)</option>
+            <option value="Education Loan">Education Loan</option>
           </select>
         </div>
 

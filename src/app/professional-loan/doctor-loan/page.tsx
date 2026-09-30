@@ -2,11 +2,13 @@ import { Metadata } from "next";
 import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 
 export const metadata: Metadata = {
-  title: "Doctor Loan — Professional Loan for Doctors up to ₹75 Lakhs | Shreem Finserv",
+  title: "Doctor Loan & Doctor Loan OD (Overdraft) up to ₹75 Lakhs | Shreem Finserv",
   description:
-    "Collateral-free Doctor Loans from ₹1 Lakh to ₹75 Lakhs for medical practitioners, surgeons, dentists & clinic owners. Lowest rates from 11.99% p.a., 24-hour disbursal, flexible tenure up to 5 years across 50+ banks.",
+    "Collateral-free Doctor Loans and Doctor Loan Overdraft (OD) facilities from ₹1 Lakh to ₹75 Lakhs for medical practitioners, surgeons, dentists & clinic owners. Lowest rates from 11.99% p.a., 24-hour disbursal across 50+ banks.",
   keywords: [
-    "doctor loan",
+    "Doctor loan",
+    "doctor loan od",
+    "doctor loan overdraft",
     "professional loan for doctors",
     "medical equipment loan",
     "clinic expansion loan",
@@ -20,11 +22,11 @@ export default function DoctorLoanPage() {
   return (
     <ProductPageTemplate
       categoryId="professional-loan"
-      categoryName="Doctor Loan"
-      badge="Specialized Credit for Medical Practitioners"
-      headline="Professional Loan For Doctors"
+      categoryName="Doctor Loan & Doctor OD"
+      badge="Term Loan & Overdraft (OD) for Medical Practitioners"
+      headline="Doctor Loan & Overdraft (OD)"
       highlightText="up to ₹75 Lakhs | From 11.99% p.a."
-      description="Tailor-made collateral-free credit solutions designed specifically for self-employed doctors, clinic owners, surgeons, and healthcare practitioners. Upgrade your healthcare equipment, expand clinic infrastructure, or manage practice cash flows with instant online approval and flexible tenure up to 5 years."
+      description="Tailor-made collateral-free Doctor Loans and Doctor Loan OD (Overdraft Facility) designed specifically for self-employed doctors, clinic owners, surgeons, and healthcare practitioners. Access revolving credit or term loans to upgrade medical equipment, expand clinic premises, or manage daily hospital cash flow with instant online approval."
       bannerImage="/images/professional-loan-inner-banner.jpg"
       maxAmount="₹1L – ₹75L"
       interestRate="From 11.99% p.a."
