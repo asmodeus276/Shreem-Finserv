@@ -86,7 +86,7 @@ export const WhatsAppButton: React.FC = () => {
     <div className="fixed bottom-20 md:bottom-6 right-4 md:right-6 z-40 flex flex-col items-end">
       {/* Interactive Chat Popup Card */}
       {chatOpen && (
-        <div className="mb-3 w-[320px] sm:w-[360px] bg-white rounded-3xl shadow-2xl border border-slate-200/90 overflow-hidden animate-fade-in-up transition-all duration-300">
+        <div className="mb-3 w-[calc(100vw-2rem)] max-w-[340px] sm:w-[360px] sm:max-w-[360px] bg-white rounded-3xl shadow-2xl border border-slate-200/90 overflow-hidden animate-fade-in-up transition-all duration-300">
           {/* Header */}
           <div className="bg-gradient-to-r from-[#0B309A] via-[#0B2E8D] to-[#0B309A] p-4 text-white flex items-center justify-between relative overflow-hidden">
             <div className="flex items-center gap-3 relative z-10">

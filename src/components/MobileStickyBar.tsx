@@ -42,7 +42,7 @@ export const MobileStickyBar: React.FC = () => {
         <Link
           href="/apply"
           onClick={(e) => {
-            const form = document.getElementById("lead-application-form");
+            const form = document.getElementById("lead-form") || document.getElementById("lead-application-form");
             if (form) {
               e.preventDefault();
               form.scrollIntoView({ behavior: "smooth" });
