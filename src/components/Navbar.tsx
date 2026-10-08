@@ -273,7 +273,7 @@ export const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between py-1.5 sm:py-2">
           
           {/* Horizontal Loan Links Row */}
-          <nav className="flex-1 min-w-0 flex items-center gap-1 sm:gap-2 md:gap-3 text-xs sm:text-[13px] font-medium whitespace-nowrap overflow-x-auto lg:overflow-visible no-scrollbar scroll-smooth -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0">
+          <nav className="flex-1 min-w-0 flex items-center gap-1 sm:gap-1.5 xl:gap-2 2xl:gap-2.5 text-xs sm:text-[12.5px] 2xl:text-[13px] font-medium whitespace-nowrap overflow-x-auto no-scrollbar scroll-smooth -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 pr-2">
             {LOAN_NAV_ITEMS.map((item, idx) => {
               const isCurrentActive =
                 pathname === item.href ||
