@@ -106,9 +106,11 @@ export const Navbar: React.FC = () => {
   const [mobileLoansAccordionOpen, setMobileLoansAccordionOpen] = useState(true);
   const [mobileProfLoanOpen, setMobileProfLoanOpen] = useState(true);
 
-  // Professional Loan Dropdown hover state
+  // Professional Loan Dropdown state
   const [profDropdownOpen, setProfDropdownOpen] = useState(false);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const desktopDropdownRef = useRef<HTMLDivElement | null>(null);
+  const mobileDropdownRef = useRef<HTMLDivElement | null>(null);
 
   // Close mobile menu and dropdown on route change
   useEffect(() => {
@@ -118,6 +120,39 @@ export const Navbar: React.FC = () => {
     }, 0);
     return () => clearTimeout(timer);
   }, [pathname]);
+
+  // Click outside and Escape key handler
+  useEffect(() => {
+    const handleOutsideClick = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as Node;
+      if (
+        profDropdownOpen &&
+        desktopDropdownRef.current &&
+        !desktopDropdownRef.current.contains(target) &&
+        mobileDropdownRef.current &&
+        !mobileDropdownRef.current.contains(target)
+      ) {
+        setProfDropdownOpen(false);
+      }
+    };
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setProfDropdownOpen(false);
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+    document.addEventListener("touchstart", handleOutsideClick);
+    window.addEventListener("keydown", handleKeyDown);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+      document.removeEventListener("touchstart", handleOutsideClick);
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [profDropdownOpen]);
 
   const handleProfMouseEnter = () => {
     if (dropdownTimeoutRef.current) {
@@ -134,6 +169,21 @@ export const Navbar: React.FC = () => {
     dropdownTimeoutRef.current = setTimeout(() => {
       setProfDropdownOpen(false);
     }, 200);
+  };
+
+  const toggleProfDropdown = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    if (!profDropdownOpen) {
+      setMobileMenuOpen(false);
+    }
+    setProfDropdownOpen((prev) => !prev);
+  };
+
+  const toggleMobileMenu = () => {
+    if (!mobileMenuOpen) {
+      setProfDropdownOpen(false);
+    }
+    setMobileMenuOpen((prev) => !prev);
   };
 
   const scrollToApply = (e: React.MouseEvent) => {
@@ -206,7 +256,7 @@ export const Navbar: React.FC = () => {
             </Link>
 
             <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              onClick={toggleMobileMenu}
               className="p-2 text-slate-700 hover:text-[#0B309A] focus:outline-none rounded-lg hover:bg-slate-100"
               aria-label="Toggle navigation menu"
             >
@@ -234,13 +284,14 @@ export const Navbar: React.FC = () => {
                 return (
                   <div
                     key={item.id}
+                    ref={desktopDropdownRef}
                     className="relative flex-shrink-0"
                     onMouseEnter={handleProfMouseEnter}
                     onMouseLeave={handleProfMouseLeave}
                   >
                     <button
                       type="button"
-                      onClick={() => setProfDropdownOpen(!profDropdownOpen)}
+                      onClick={toggleProfDropdown}
                       className={`flex-shrink-0 px-2.5 py-1.5 rounded-md transition-all duration-150 flex items-center gap-1 whitespace-nowrap cursor-pointer ${
                         isCurrentActive
                           ? "text-white font-bold bg-white/15 underline underline-offset-4 decoration-2"
@@ -248,6 +299,8 @@ export const Navbar: React.FC = () => {
                           ? "text-white font-bold bg-white/20"
                           : "text-blue-100 hover:text-white hover:bg-white/10"
                       }`}
+                      aria-expanded={profDropdownOpen}
+                      aria-haspopup="true"
                     >
                       <span>{item.label}</span>
                       <span
@@ -259,10 +312,10 @@ export const Navbar: React.FC = () => {
                       </span>
                     </button>
 
-                    {/* Dedicated Dropdown for Professional Loan only */}
+                    {/* Dedicated Desktop-Only Dropdown (anchored to button, visible on lg+ screens) */}
                     {profDropdownOpen && (
                       <div
-                        className="absolute left-0 top-full pt-1.5 z-50 w-80 sm:w-96 shadow-2xl animate-in fade-in slide-in-from-top-1 duration-150"
+                        className="hidden lg:block absolute left-0 top-full pt-1.5 z-50 w-80 sm:w-96 shadow-2xl animate-in fade-in slide-in-from-top-1 duration-150"
                         onMouseEnter={handleProfMouseEnter}
                         onMouseLeave={handleProfMouseLeave}
                       >
@@ -366,6 +419,94 @@ export const Navbar: React.FC = () => {
 
         </div>
       </div>
+
+      {/* Mobile Professional Loan Dropdown (Placed outside overflow-x-auto container so it is NEVER clipped on mobile) */}
+      {profDropdownOpen && (
+        <div
+          ref={mobileDropdownRef}
+          className="lg:hidden fixed inset-x-0 top-[110px] sm:top-[116px] px-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
+        >
+          {/* Backdrop overlay */}
+          <div
+            className="fixed inset-0 bg-slate-900/50 backdrop-blur-[2px] -z-10"
+            onClick={() => setProfDropdownOpen(false)}
+            aria-hidden="true"
+          />
+
+          <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 p-3.5 text-slate-800 space-y-2 max-w-md mx-auto max-h-[calc(100vh-130px)] overflow-y-auto">
+            <div className="px-2 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 flex items-center justify-between border-b border-slate-100 pb-2">
+              <span className="flex items-center gap-1.5 text-slate-700">
+                <span className="material-symbols-outlined text-[16px] text-[#0B309A]">medical_services</span>
+                <span>Specialized Professional Loans</span>
+              </span>
+              <button
+                type="button"
+                onClick={() => setProfDropdownOpen(false)}
+                className="p-1 text-slate-400 hover:text-slate-700 rounded-full hover:bg-slate-100"
+                aria-label="Close menu"
+              >
+                <span className="material-symbols-outlined text-[18px]">close</span>
+              </button>
+            </div>
+
+            {LOAN_NAV_ITEMS.find((item) => item.id === "professional-loan")?.subLinks?.map((sub, sIdx) => {
+              const isSubActive = pathname === sub.href;
+              return (
+                <Link
+                  key={sIdx}
+                  href={sub.href}
+                  onClick={() => setProfDropdownOpen(false)}
+                  className={`flex items-start gap-3 p-2.5 rounded-xl transition-all ${
+                    isSubActive
+                      ? "bg-blue-50 text-[#0B309A] font-medium"
+                      : "active:bg-slate-100 hover:bg-slate-50 text-slate-800"
+                  }`}
+                >
+                  <div className="p-2 rounded-lg bg-blue-50 text-[#0B309A] flex-shrink-0 mt-0.5">
+                    <span className="material-symbols-outlined text-[18px]">
+                      {sub.icon || "medical_services"}
+                    </span>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5 flex-wrap">
+                      <span className="text-xs font-bold text-slate-900">
+                        {sub.label}
+                      </span>
+                      {sub.badge && (
+                        <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-red-100 text-[#E30613]">
+                          {sub.badge}
+                        </span>
+                      )}
+                    </div>
+                    {sub.desc && (
+                      <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed mt-0.5">
+                        {sub.desc}
+                      </p>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
+
+            <div className="pt-2 border-t border-slate-100 flex items-center justify-between px-1">
+              <Link
+                href="/professional-loan#rates-section"
+                onClick={() => setProfDropdownOpen(false)}
+                className="text-xs font-semibold text-slate-600 hover:text-[#0B309A] py-1"
+              >
+                Check Rates &rarr;
+              </Link>
+              <Link
+                href="/apply"
+                onClick={() => setProfDropdownOpen(false)}
+                className="px-4 py-1.5 bg-[#E30613] hover:bg-[#FF1A27] text-white text-xs font-bold rounded-lg shadow-xs"
+              >
+                Apply Now
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Mobile Drawer Navigation */}
       {mobileMenuOpen && (
