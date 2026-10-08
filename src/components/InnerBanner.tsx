@@ -64,7 +64,7 @@ export const InnerBanner: React.FC<InnerBannerProps> = ({
           <div className="max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl space-y-1 sm:space-y-2 md:space-y-3">
             
             {/* Main Title (Brand Royal Blue #0B309A) */}
-            <h1 className="text-base sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#0B309A] tracking-tight leading-[1.12]">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-extrabold text-[#0B309A] tracking-tight leading-[1.15]">
               {title}{" "}
               {highlightText && (
                 <span className="block font-semibold text-[#0B309A] mt-0.5">{highlightText}</span>
@@ -72,7 +72,7 @@ export const InnerBanner: React.FC<InnerBannerProps> = ({
             </h1>
 
             {/* Subtitle matching screenshots */}
-            <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-slate-700 font-semibold tracking-normal max-w-md">
+            <p className="text-xs sm:text-sm md:text-base text-slate-700 font-semibold tracking-normal max-w-md">
               {subtitle}
             </p>
 

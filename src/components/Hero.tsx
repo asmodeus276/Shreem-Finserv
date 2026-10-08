@@ -384,7 +384,7 @@ export function Hero() {
             <button
               onClick={scrollCardsLeft}
               aria-label="Scroll left"
-              className="absolute -left-2 sm:-left-4 z-20 w-8 h-8 rounded-full bg-white text-[#0B309A] hover:bg-slate-100 flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all"
+              className="hidden sm:flex absolute -left-2 sm:-left-4 z-20 w-8 h-8 rounded-full bg-white text-[#0B309A] hover:bg-slate-100 items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all"
             >
               <span className="material-symbols-outlined text-[20px]">chevron_left</span>
             </button>
@@ -416,7 +416,7 @@ export function Hero() {
             <button
               onClick={scrollCardsRight}
               aria-label="Scroll right"
-              className="absolute -right-2 sm:-right-4 z-20 w-8 h-8 rounded-full bg-white text-[#0B309A] hover:bg-slate-100 flex items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all"
+              className="hidden sm:flex absolute -right-2 sm:-right-4 z-20 w-8 h-8 rounded-full bg-white text-[#0B309A] hover:bg-slate-100 items-center justify-center shadow-md hover:scale-110 active:scale-95 transition-all"
             >
               <span className="material-symbols-outlined text-[20px]">chevron_right</span>
             </button>

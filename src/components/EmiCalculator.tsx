@@ -106,7 +106,7 @@ export const EmiCalculator: React.FC<EmiCalculatorProps> = ({
         <p className="text-slate-500 text-xs sm:text-sm mt-1">{subtitle}</p>
 
         {/* Tab Switcher */}
-        <div className="inline-flex bg-slate-100 p-1.5 rounded-2xl border border-slate-200 mt-5">
+        <div className="inline-flex flex-wrap justify-center bg-slate-100 p-1.5 rounded-2xl border border-slate-200 mt-5 max-w-full gap-1 sm:gap-0">
           <button
             onClick={() => setCalcMode("standard")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all ${
