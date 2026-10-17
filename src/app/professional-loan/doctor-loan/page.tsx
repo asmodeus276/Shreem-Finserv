@@ -4,7 +4,7 @@ import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Doctor Loan & Doctor Loan OD (Overdraft) up to ₹75 Lakhs | Shreem Finserv",
   description:
-    "Collateral-free Doctor Loans and Doctor Loan Overdraft (OD) facilities from ₹1 Lakh to ₹75 Lakhs for medical practitioners, surgeons, dentists & clinic owners. Lowest rates from 11.99% p.a., 24-hour disbursal across 50+ banks.",
+    "Collateral-free Doctor Loans and Doctor Loan Overdraft (OD) facilities from ₹1 Lakh to ₹75 Lakhs for medical practitioners, surgeons, dentists & clinic owners. Lowest rates from 9.99% p.a., 24-hour disbursal across 50+ banks.",
   keywords: [
     "Doctor loan",
     "doctor loan od",
@@ -25,17 +25,17 @@ export default function DoctorLoanPage() {
       categoryName="Doctor Loan & Doctor OD"
       badge="Term Loan & Overdraft (OD) for Medical Practitioners"
       headline="Doctor Loan & Overdraft (OD)"
-      highlightText="up to ₹75 Lakhs | From 11.99% p.a."
+      highlightText="up to ₹75 Lakhs | From 9.99% p.a."
       description="Tailor-made collateral-free Doctor Loans and Doctor Loan OD (Overdraft Facility) designed specifically for self-employed doctors, clinic owners, surgeons, and healthcare practitioners. Access revolving credit or term loans to upgrade medical equipment, expand clinic premises, or manage daily hospital cash flow with instant online approval."
       bannerImage="/images/professional-loan-inner-banner.jpg"
       maxAmount="₹1L – ₹75L"
-      interestRate="From 11.99% p.a."
+      interestRate="From 9.99% p.a."
       tenure="Up to 5 Years (60 Months)"
       disbursalSpeed="Within 24 to 48 Hours"
       defaultSliderAmount={2500000}
       minSliderAmount={100000}
       maxSliderAmount={7500000}
-      defaultEmiRate={11.99}
+      defaultEmiRate={9.99}
       defaultEmiTenureYears={3}
       features={[
         {
@@ -75,7 +75,7 @@ export default function DoctorLoanPage() {
         "Eligible Medical Profiles: Self-employed Doctors (MBBS, MD, MS, BDS, MDS, DM, MCh, BHMS, BAMS) running their own clinics, nursing homes, dental centers, or hospitals.",
         "Professional Experience: Minimum 1 year of post-qualification continuous medical practice or clinical vintage.",
         "Minimum Annual Income: Minimum annual professional income receipts of at least ₹3 Lakhs.",
-        "Credit Profile: Minimum 650+ CIBIL score with healthy repayment track record.",
+        "Credit Profile: Minimum 700+ CIBIL score with healthy repayment track record.",
       ]}
       documents={[
         "Proof of Identity: PAN Card, Aadhaar Card, Passport, Voter ID, or Driving License.",
@@ -95,7 +95,7 @@ export default function DoctorLoanPage() {
         },
         {
           q: "What are the interest rates and loan amounts available for Doctors?",
-          a: "Doctor Loans range from ₹1 Lakh up to ₹75 Lakhs with preferential interest rates starting from 11.99% p.a. onwards, determined by your medical specialization and practice vintage.",
+          a: "Doctor Loans range from ₹1 Lakh up to ₹75 Lakhs with preferential interest rates starting from 9.99% p.a. onwards, determined by your medical specialization and practice vintage.",
         },
         {
           q: "In how many days will the loan amount be disbursed to my bank account?",

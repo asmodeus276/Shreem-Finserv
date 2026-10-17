@@ -73,7 +73,7 @@ export default function CaLoanPage() {
         "Eligible Profile: Practicing Chartered Accountants holding a valid ICAI Certificate of Practice (COP), or partners in registered CA firms.",
         "Professional Experience: Minimum 1 year of post-qualification continuous professional practice.",
         "Minimum Annual Income: Minimum annual professional gross receipts / income of at least ₹3 Lakhs.",
-        "Credit Profile: Minimum 650+ CIBIL score with a clean repayment track record.",
+        "Credit Profile: Minimum 700+ CIBIL score with a clean repayment track record.",
       ]}
       documents={[
         "Proof of Identity: PAN Card, Aadhaar Card, Passport, Voter ID, or Driving License.",

@@ -30,7 +30,7 @@ export default function CreditScorePage() {
       a: "Key strategies include: 1) Paying 100% of EMIs and credit card bills before the due date, 2) Keeping your credit card balance utilization below 30% of your sanctioned limit, 3) Avoiding multiple loan applications within a short time frame, and 4) Keeping older credit card accounts open to maintain vintage.",
     },
     {
-      q: "Can I get a loan if my credit score is below 650?",
+      q: "Can I get a loan if my credit score is below 700?",
       a: "Yes! Shreem Finserv partners with over 50+ banks and NBFCs, including specialized lending institutions that offer Loan Against Property (LAP), machinery loans, car loans, or co-applicant backed credit for borrowers on a credit-builder track.",
     },
   ];

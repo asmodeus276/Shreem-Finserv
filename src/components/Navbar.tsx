@@ -39,7 +39,7 @@ export const LOAN_NAV_ITEMS: LoanItemConfig[] = [
       {
         label: "Doctor Loan (Medical Practitioners)",
         href: "/professional-loan/doctor-loan",
-        desc: "Up to ₹75 Lakhs collateral-free for clinic expansion & medical equipment @ 11.99% p.a.",
+        desc: "Up to ₹75 Lakhs collateral-free for clinic expansion & medical equipment @ 9.99% p.a.",
         badge: "Specialized",
         icon: "stethoscope",
       },

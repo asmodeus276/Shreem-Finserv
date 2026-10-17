@@ -63,7 +63,7 @@ export default function EducationLoanPage() {
         "Eligible Courses: Graduation, Post-Graduation, Engineering, Medical, MBA, STEM, and certified vocational programs.",
         "Co-Applicant Requirement: Parent, spouse, legal guardian, or sibling with verifiable income as co-borrower.",
         "Academic Track Record: Minimum 50%+ aggregate in qualifying examinations.",
-        "Credit Profile: Minimum 650+ CIBIL score for co-applicant.",
+        "Credit Profile: Minimum 700+ CIBIL score for co-applicant.",
       ]}
       documents={[
         "Student KYC: PAN Card, Aadhaar Card, Passport (mandatory for overseas studies).",

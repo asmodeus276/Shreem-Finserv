@@ -48,7 +48,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
       loanAmount: "₹1 Lakh up to ₹2 Crore (Unsecured) / Higher with Collateral",
       interestRate: "From 14.00% p.a.",
       tenure: "12 to 60 Months (Up to 5 Years)",
-      eligibilitySummary: "Min. 2 years business vintage, profitable operations",
+      eligibilitySummary: "Min. 2.5 years business vintage, profitable operations",
       collateral: "Zero collateral required for unsecured business loans",
       processingTime: "24 to 48 Hours Quick Approval"
     },
@@ -80,9 +80,9 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     ],
     eligibilityCriteria: [
       "Age: Business owner/applicant must be between 21 and 65 years.",
-      "Business Vintage: Minimum 2 years of active operations.",
-      "Annual Turnover: Minimum annual business turnover as required by partnering lenders (typically ₹20L+).",
-      "Credit Score: Minimum CIBIL score of 650+ preferred for fast-track approvals.",
+      "Business Vintage: Minimum 2.5 years of active operations.",
+      "Annual Turnover: Minimum annual business turnover of ₹50 Lakhs.",
+      "Credit Score: Minimum CIBIL score of 700+ preferred for fast-track approvals.",
       "Business Structure: Proprietorship, Partnership, LLP, Private Limited, or Public Limited entity.",
       "Banking Track Record: Minimum 6-12 months of clean bank statements with healthy transaction flow."
     ],
@@ -112,7 +112,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
       },
       {
         question: "What is the minimum credit score required for a business loan?",
-        answer: "A CIBIL score of 650 or higher is generally required, though higher scores (750+) ensure lower interest rates and faster sanctions."
+        answer: "A CIBIL score of 700+ is generally required, though higher scores (750+) ensure lower interest rates and faster sanctions."
       },
       {
         question: "How long does the loan approval and disbursal take?",
@@ -166,7 +166,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
       "Employment Type: Salaried Individuals (MNC, Corporate, Public/Private Sector, Govt) & Self-Employed Individuals.",
       "Monthly Income: Minimum net salary of ₹20,000 - ₹25,000 per month (varies by city).",
       "Work Experience: Minimum 1 year total experience with at least 6 months at current employer.",
-      "Credit Score: Minimum CIBIL score of 650+ (750+ gets premium rates).",
+      "Credit Score: Minimum CIBIL score of 700+ (750+ gets premium rates).",
       "Residency: Indian citizen."
     ],
     documentsRequired: [
@@ -211,7 +211,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
       tenure: "Up to 15 to 20 Years",
       eligibilitySummary: "Salaried Individuals, Self-Employed Individuals, MSMEs, Property Owners",
       collateral: "Residential, Commercial, Industrial, or Plot Property",
-      processingTime: "3 to 7 Working Days (Including Legal & Technical Valuation)"
+      processingTime: "15 Working Days (Including Legal & Technical Valuation)"
     },
     featuresAndBenefits: [
       {
@@ -244,7 +244,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
       "Borrower Type: Salaried Individuals, Self-Employed Business Owners, Professionals, Partnership Firms, and Private Limited Companies.",
       "Income: Stable and verifiable income stream sufficient to service the proposed EMI.",
       "Property Ownership: Freehold, clear title property with no legal dispute.",
-      "Credit Score: Minimum CIBIL score of 650+.",
+      "Credit Score: Minimum CIBIL score of 700+.",
       "LTV Ratio: Loan to Value ratio typically between 50% to 75% of the property's market value."
     ],
     documentsRequired: [
@@ -285,10 +285,10 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     keySpecifications: {
       loanAmount: "₹10 Lakh up to ₹5 Crore+ (Up to 80-90% of Property Cost)",
       interestRate: "From 7.25% p.a.",
-      tenure: "Up to 30 Years",
+      tenure: "Up to 20 Years",
       eligibilitySummary: "Salaried Individuals and Self-Employed Individuals (Indian Residents & NRIs)",
       collateral: "The Residential Property being purchased/constructed",
-      processingTime: "3 to 5 Working Days"
+      processingTime: "15 Working Days"
     },
     featuresAndBenefits: [
       {
@@ -297,7 +297,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
       },
       {
         title: "Extended Repayment Tenure",
-        description: "Repay comfortably with tenures up to 30 years."
+        description: "Repay comfortably with tenures up to 20 years."
       },
       {
         title: "High Loan Eligibility (LTV)",
@@ -339,7 +339,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
     faqs: [
       {
         question: "What is the maximum tenure for a home loan?",
-        answer: "Most banks and housing finance companies (HFCs) offer tenures up to 30 years, subject to your retirement age."
+        answer: "Most banks and housing finance companies (HFCs) offer tenures up to 20 years, subject to your retirement age."
       },
       {
         question: "What tax benefits can I claim on a home loan?",
@@ -396,7 +396,7 @@ export const CATEYE_LOAN_PRODUCTS: LoanProduct[] = [
       "Age: 21 to 65 years.",
       "Borrower Profile: Salaried Individuals, Business Owners, Self-Employed Professionals, Fleet Operators, and Corporate Entities.",
       "Income: Stable income source showing capacity to service the EMI.",
-      "Credit Score: Minimum CIBIL score of 650+.",
+      "Credit Score: Minimum CIBIL score of 700+.",
       "Residency: Indian citizen with valid local address proof."
     ],
     documentsRequired: [

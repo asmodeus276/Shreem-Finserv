@@ -70,10 +70,10 @@ export default function BusinessLoanPage() {
       ]}
       eligibility={[
         "Eligible Entities: Proprietorships, Partnerships, LLPs, Private Limited & Public Limited companies.",
-        "Business Vintage: Minimum 2 years of active operations.",
-        "Annual Turnover: Minimum annual business turnover of ₹20 Lakhs.",
+        "Business Vintage: Minimum 2.5 years of active operations.",
+        "Annual Turnover: Minimum annual business turnover of ₹50 Lakhs.",
         "Financials & Filing: Audited or CA-certified financials and active GST filing.",
-        "Credit Profile: Clean banking track record with no major defaults and 650+ CIBIL score.",
+        "Credit Profile: Clean banking track record with no major defaults and 700+ CIBIL score.",
       ]}
       documents={[
         "Promoter KYC: Promoter PAN, Aadhaar, and Business PAN Card.",

@@ -62,7 +62,7 @@ export default function PersonalLoanPage() {
         "Age Range: 21 to 65 years at loan maturity.",
         "Eligible Profiles: Salaried Individuals, Self-Employed Individuals, and Certified Professionals.",
         "Minimum Income: Monthly net income of ₹18,000+ (Salaried) or stable business cash flow (Self-Employed).",
-        "Credit Profile: Minimum CIBIL score of 675+ for fast-track approvals.",
+        "Credit Profile: Minimum CIBIL score of 700+ for fast-track approvals.",
         "Nationality: Indian Resident with valid identity and address proof.",
       ]}
       documents={[
@@ -79,7 +79,7 @@ export default function PersonalLoanPage() {
         },
         {
           q: "What is the minimum credit score required for personal loans?",
-          a: "A CIBIL score of 675+ easily qualifies for standard terms, while a score of 750+ secures the lowest interest rates starting from 10.50% p.a. with fee waivers.",
+          a: "A CIBIL score of 700+ easily qualifies for standard terms, while a score of 750+ secures the lowest interest rates starting from 10.50% p.a. with fee waivers.",
         },
         {
           q: "Are there any hidden fees or upfront advance payments?",

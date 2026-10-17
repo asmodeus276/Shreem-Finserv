@@ -81,7 +81,7 @@ export const JsonLd: React.FC<JsonLdProps> = ({
           "Friday",
           "Saturday",
         ],
-        opens: "09:30",
+        opens: "10:00",
         closes: "18:30",
       },
     ],

@@ -27,7 +27,7 @@ export const PRIMARY_LOANS: NavLoanItem[] = [
       {
         title: "Doctor Loan",
         slug: "/professional-loan/doctor-loan",
-        subText: "Up to ₹75L @ 11.99% for clinic & equipment",
+        subText: "Up to ₹75L @ 9.99% for clinic & equipment",
       },
       {
         title: "CA Loan",
@@ -56,7 +56,7 @@ export const PRIMARY_LOANS: NavLoanItem[] = [
     icon: "home",
     tag: "From 7.25%",
     badgeColor: "text-blue-700 bg-blue-50 border-blue-200",
-    highlights: "₹10L – ₹5 Cr | Up to 30 Yrs",
+    highlights: "₹10L – ₹5 Cr | Up to 20 Yrs",
   },
   {
     id: "loan-against-property",

@@ -29,11 +29,11 @@ export default function ProfessionalLoanRoutePage() {
       subProducts={[
         {
           title: "Doctor Loan (For Medical Practitioners)",
-          desc: "Collateral-free credit up to ₹75 Lakhs for doctors running clinics, hospitals, dental clinics & nursing homes. Special interest rates from 11.99% p.a.",
+          desc: "Collateral-free credit up to ₹75 Lakhs for doctors running clinics, hospitals, dental clinics & nursing homes. Special interest rates from 9.99% p.a.",
           href: "/professional-loan/doctor-loan",
           badge: "Main Product",
           icon: "medical_services",
-          rate: "From 11.99% p.a.",
+          rate: "From 9.99% p.a.",
           maxAmount: "Up to ₹75 Lakhs",
         },
         {

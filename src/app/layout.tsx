@@ -54,8 +54,17 @@ export const metadata: Metadata = {
   authors: [{ name: BRAND_CONFIG.name }],
   manifest: "/manifest.json",
   icons: {
-    icon: "/logo-mark.png",
-    apple: "/logo-mark.png",
+    icon: [
+      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icons/icon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/icons/icon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/logo-mark.png", sizes: "512x512", type: "image/png" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
   },
   openGraph: {
     title: `${BRAND_CONFIG.name} - ${BRAND_CONFIG.tagline}`,

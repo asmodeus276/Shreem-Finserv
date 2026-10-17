@@ -4,7 +4,7 @@ import { ProductPageTemplate } from "@/components/ProductPageTemplate";
 export const metadata: Metadata = {
   title: "Home Loans — Starting from 7.25% p.a. | Shreem Finserv",
   description:
-    "Apply for affordable Home Loans from ₹10 Lakhs to ₹5 Crore. Lowest market rates starting from 7.25% p.a., flexible 30-year tenure, up to 90% financing, and zero hidden charges across Canara Bank, Indian Bank, PNB, SBI, HDFC, and 50+ lenders.",
+    "Apply for affordable Home Loans from ₹10 Lakhs to ₹5 Crore. Lowest market rates starting from 7.25% p.a., flexible 20-year tenure, up to 90% financing, and zero hidden charges across Canara Bank, Indian Bank, PNB, SBI, HDFC, and 50+ lenders.",
 };
 
 export default function HomeLoanPage() {
@@ -15,12 +15,12 @@ export default function HomeLoanPage() {
       badge="Lowest Interest Rates in India"
       headline="Your Dream Home with"
       highlightText="Home Loan"
-      description="Affordable home purchase, plot construction, and balance transfer loans at the lowest market rates starting from 7.25% p.a., extended tenures up to 30 years, and maximum tax benefits."
+      description="Affordable home purchase, plot construction, and balance transfer loans at the lowest market rates starting from 7.25% p.a., extended tenures up to 20 years, and maximum tax benefits."
       bannerImage="/images/home-loan-inner-banner.jpg"
       maxAmount="₹10L – ₹5Cr"
       interestRate="From 7.25% p.a."
-      tenure="Up to 30 Years"
-      disbursalSpeed="3 to 5 Working Days"
+      tenure="Up to 20 Years"
+      disbursalSpeed="15 Working Days"
       defaultSliderAmount={5000000}
       minSliderAmount={1000000}
       maxSliderAmount={50000000}
@@ -34,7 +34,7 @@ export default function HomeLoanPage() {
         },
         {
           title: "Flexible Long Repayment Tenure",
-          desc: "Repayment tenures up to 30 years (360 months) ensuring budget-friendly monthly EMIs for your household.",
+          desc: "Repayment tenures up to 20 years (240 months) ensuring budget-friendly monthly EMIs for your household.",
           icon: "schedule",
         },
         {
@@ -92,7 +92,7 @@ export default function HomeLoanPage() {
         },
         {
           q: "How long does home loan sanction and disbursal take?",
-          a: "In-principle sanction is issued within 24 hours. Property legal verification and technical inspection take 3 to 5 business days before final disbursal.",
+          a: "In-principle sanction is issued within 24 hours. Property legal verification and technical inspection take up to 15 working days before final disbursal.",
         },
       ]}
     />

@@ -30,7 +30,7 @@ export default function LapPage() {
       maxAmount="₹25L – ₹10Cr"
       interestRate="From 9.00% p.a."
       tenure="Up to 15-20 Years"
-      disbursalSpeed="5 to 7 Working Days"
+      disbursalSpeed="15 Working Days"
       defaultSliderAmount={7500000}
       minSliderAmount={2500000}
       maxSliderAmount={100000000}

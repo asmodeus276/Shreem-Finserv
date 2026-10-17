@@ -34,7 +34,7 @@ export default function ContactPage() {
           { label: "Phone Support", value: BRAND_CONFIG.phoneDisplay },
           { label: "Response Time", value: "< 30 Minutes" },
           { label: "Headquarters", value: "Vaishali (GZB)" },
-          { label: "Working Hours", value: "Mon - Sat" },
+          { label: "Working Hours", value: "Mon - Sat (10:00 AM - 6:30 PM)" },
         ]}
       />
 
