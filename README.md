@@ -137,7 +137,7 @@ npm run build    # Production build (31/31 pre-rendered routes, 0 errors)
 
 - **Brand Colors**: Navy Blue `#0B2E8D` (Trust) + Crimson `#BB0119` (Urgency)
 - **Typography**: Plus Jakarta Sans (Display) + Inter (Body)
-- **Address**: Office No. 537, Cloud 9 Tower, Vaishali, Ghaziabad (UP) 201010
+- **Address**: Office No. 537, 5th Floor, Cloud 9, S-2 Tower, Vaishali (GZB), UP 201010
 - **Hotline / WhatsApp**: +91 8745003840
 - **Email**: Finservshreem@gmail.com
 - **Instagram**: [instagram.com/shreemfinserv](https://www.instagram.com/shreemfinserv)

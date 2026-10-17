@@ -307,7 +307,7 @@ export default function CareersPage() {
             </div>
             <h3 className="font-bold text-slate-900 text-base">Prime NCR Headquarters</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              Work from our modern, air-conditioned office at Cloud 9, H3 Tower, Vaishali, Ghaziabad with high operational autonomy and positive culture.
+              Work from our modern, air-conditioned office at Cloud 9, S-2 Tower, Vaishali, Ghaziabad with high operational autonomy and positive culture.
             </p>
           </div>
         </div>
