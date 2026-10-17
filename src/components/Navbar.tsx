@@ -124,14 +124,11 @@ export const Navbar: React.FC = () => {
   // Click outside and Escape key handler
   useEffect(() => {
     const handleOutsideClick = (e: MouseEvent | TouchEvent) => {
+      if (!profDropdownOpen) return;
       const target = e.target as Node;
-      if (
-        profDropdownOpen &&
-        desktopDropdownRef.current &&
-        !desktopDropdownRef.current.contains(target) &&
-        mobileDropdownRef.current &&
-        !mobileDropdownRef.current.contains(target)
-      ) {
+      const insideDesktop = desktopDropdownRef.current?.contains(target);
+      const insideMobile = mobileDropdownRef.current?.contains(target);
+      if (!insideDesktop && !insideMobile) {
         setProfDropdownOpen(false);
       }
     };
@@ -155,6 +152,10 @@ export const Navbar: React.FC = () => {
   }, [profDropdownOpen]);
 
   const handleProfMouseEnter = () => {
+    // Only trigger hover on devices that support hover (desktop with mouse pointer)
+    if (typeof window !== "undefined" && !window.matchMedia("(hover: hover)").matches) {
+      return;
+    }
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
       dropdownTimeoutRef.current = null;
@@ -163,16 +164,23 @@ export const Navbar: React.FC = () => {
   };
 
   const handleProfMouseLeave = () => {
+    if (typeof window !== "undefined" && !window.matchMedia("(hover: hover)").matches) {
+      return;
+    }
     if (dropdownTimeoutRef.current) {
       clearTimeout(dropdownTimeoutRef.current);
     }
     dropdownTimeoutRef.current = setTimeout(() => {
       setProfDropdownOpen(false);
-    }, 200);
+    }, 250);
   };
 
   const toggleProfDropdown = (e: React.MouseEvent) => {
     e.stopPropagation();
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
     if (!profDropdownOpen) {
       setMobileMenuOpen(false);
     }
@@ -273,7 +281,7 @@ export const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between py-1.5 sm:py-2">
           
           {/* Horizontal Loan Links Row */}
-          <nav className="flex-1 min-w-0 flex items-center gap-1 sm:gap-1.5 xl:gap-2 2xl:gap-2.5 text-xs sm:text-[12.5px] 2xl:text-[13px] font-medium whitespace-nowrap overflow-x-auto no-scrollbar scroll-smooth -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 pr-2">
+          <nav className="flex-1 min-w-0 flex items-center gap-1 sm:gap-1.5 xl:gap-2 2xl:gap-2.5 text-xs sm:text-[12.5px] 2xl:text-[13px] font-medium whitespace-nowrap overflow-x-auto lg:overflow-visible no-scrollbar scroll-smooth -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 pr-2">
             {LOAN_NAV_ITEMS.map((item, idx) => {
               const isCurrentActive =
                 pathname === item.href ||
@@ -315,7 +323,7 @@ export const Navbar: React.FC = () => {
                     {/* Dedicated Desktop-Only Dropdown (anchored to button, visible on lg+ screens) */}
                     {profDropdownOpen && (
                       <div
-                        className="hidden lg:block absolute left-0 top-full pt-1.5 z-50 w-80 sm:w-96 shadow-2xl animate-in fade-in slide-in-from-top-1 duration-150"
+                        className="hidden lg:block absolute left-0 top-full pt-1.5 z-50 w-80 sm:w-96 shadow-2xl animate-in fade-in slide-in-from-top-1 duration-150 before:absolute before:inset-x-0 before:-top-3 before:h-3"
                         onMouseEnter={handleProfMouseEnter}
                         onMouseLeave={handleProfMouseLeave}
                       >
@@ -422,23 +430,24 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Professional Loan Dropdown (Placed outside overflow-x-auto container so it is NEVER clipped on mobile) */}
       {profDropdownOpen && (
-        <div
-          ref={mobileDropdownRef}
-          className="lg:hidden fixed inset-x-0 top-[110px] sm:top-[116px] px-3 z-50 animate-in fade-in slide-in-from-top-2 duration-150"
-        >
+        <div className="lg:hidden">
           {/* Backdrop overlay */}
           <div
-            className="fixed inset-0 bg-slate-900/50 backdrop-blur-[2px] -z-10"
+            className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-[55] animate-in fade-in duration-150"
             onClick={() => setProfDropdownOpen(false)}
             aria-hidden="true"
           />
 
-          <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 p-3.5 text-slate-800 space-y-2 max-w-md mx-auto max-h-[calc(100vh-130px)] overflow-y-auto">
-            <div className="px-2 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 flex items-center justify-between border-b border-slate-100 pb-2">
-              <span className="flex items-center gap-1.5 text-slate-700">
-                <span className="material-symbols-outlined text-[16px] text-[#0B309A]">medical_services</span>
-                <span>Specialized Professional Loans</span>
-              </span>
+          <div
+            ref={mobileDropdownRef}
+            className="fixed inset-x-3 sm:inset-x-6 top-[108px] sm:top-[114px] z-[60] animate-in fade-in slide-in-from-top-2 duration-150"
+          >
+            <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 p-3.5 text-slate-800 space-y-2 max-w-md mx-auto max-h-[calc(100vh-130px)] overflow-y-auto">
+              <div className="px-2 py-1 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 flex items-center justify-between border-b border-slate-100 pb-2">
+                <span className="flex items-center gap-1.5 text-slate-700">
+                  <span className="material-symbols-outlined text-[16px] text-[#0B309A]">medical_services</span>
+                  <span>Specialized Professional Loans</span>
+                </span>
               <button
                 type="button"
                 onClick={() => setProfDropdownOpen(false)}
@@ -506,6 +515,7 @@ export const Navbar: React.FC = () => {
             </div>
           </div>
         </div>
+      </div>
       )}
 
       {/* Mobile Drawer Navigation */}
