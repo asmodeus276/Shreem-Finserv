@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { BRAND_CONFIG } from "@/config/brand";
@@ -109,17 +109,91 @@ export const Navbar: React.FC = () => {
   // Professional Loan Dropdown state
   const [profDropdownOpen, setProfDropdownOpen] = useState(false);
   const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const profTriggerRef = useRef<HTMLButtonElement | null>(null);
   const desktopDropdownRef = useRef<HTMLDivElement | null>(null);
   const mobileDropdownRef = useRef<HTMLDivElement | null>(null);
+  const [profDropdownPos, setProfDropdownPos] = useState({ top: 0, left: 0 });
 
-  // Close mobile menu and dropdown on route change
+  // Loan Category Slider state & refs
+  const loanSliderRef = useRef<HTMLDivElement | null>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  // Position calculator for desktop dropdown
+  const updateProfDropdownPos = useCallback(() => {
+    if (profTriggerRef.current) {
+      const rect = profTriggerRef.current.getBoundingClientRect();
+      const dropdownWidth = 360;
+      let left = rect.left;
+      if (typeof window !== "undefined") {
+        if (left + dropdownWidth > window.innerWidth - 16) {
+          left = window.innerWidth - dropdownWidth - 16;
+        }
+        if (left < 16) left = 16;
+      }
+      setProfDropdownPos({
+        top: rect.bottom + 4,
+        left,
+      });
+    }
+  }, []);
+
+  // Check horizontal scrollability of the loan category slider
+  const checkScrollability = useCallback(() => {
+    const el = loanSliderRef.current;
+    if (!el) return;
+    const { scrollLeft, scrollWidth, clientWidth } = el;
+    setCanScrollLeft(scrollLeft > 4);
+    setCanScrollRight(scrollLeft < scrollWidth - clientWidth - 4);
+  }, []);
+
+  // Listen for scroll & resize events on the loan slider
+  useEffect(() => {
+    checkScrollability();
+    const el = loanSliderRef.current;
+    if (!el) return;
+    el.addEventListener("scroll", checkScrollability, { passive: true });
+    window.addEventListener("resize", checkScrollability);
+    return () => {
+      el.removeEventListener("scroll", checkScrollability);
+      window.removeEventListener("resize", checkScrollability);
+    };
+  }, [checkScrollability]);
+
+  // Auto-scroll active item into view on route change
   useEffect(() => {
     const timer = setTimeout(() => {
       setMobileMenuOpen(false);
       setProfDropdownOpen(false);
-    }, 0);
+
+      const el = loanSliderRef.current;
+      if (el) {
+        const activeLink = el.querySelector<HTMLElement>('[data-active="true"]');
+        if (activeLink) {
+          activeLink.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
+        }
+      }
+      checkScrollability();
+    }, 50);
     return () => clearTimeout(timer);
-  }, [pathname]);
+  }, [pathname, checkScrollability]);
+
+  // Keep desktop dropdown anchored when scrolling
+  useEffect(() => {
+    if (!profDropdownOpen) return;
+    const handleReposition = () => {
+      updateProfDropdownPos();
+    };
+    window.addEventListener("scroll", handleReposition, { passive: true });
+    window.addEventListener("resize", handleReposition);
+    const sliderEl = loanSliderRef.current;
+    sliderEl?.addEventListener("scroll", handleReposition, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleReposition);
+      window.removeEventListener("resize", handleReposition);
+      sliderEl?.removeEventListener("scroll", handleReposition);
+    };
+  }, [profDropdownOpen, updateProfDropdownPos]);
 
   // Click outside and Escape key handler
   useEffect(() => {
@@ -128,7 +202,8 @@ export const Navbar: React.FC = () => {
       const target = e.target as Node;
       const insideDesktop = desktopDropdownRef.current?.contains(target);
       const insideMobile = mobileDropdownRef.current?.contains(target);
-      if (!insideDesktop && !insideMobile) {
+      const insideTrigger = profTriggerRef.current?.contains(target);
+      if (!insideDesktop && !insideMobile && !insideTrigger) {
         setProfDropdownOpen(false);
       }
     };
@@ -152,7 +227,6 @@ export const Navbar: React.FC = () => {
   }, [profDropdownOpen]);
 
   const handleProfMouseEnter = () => {
-    // Only trigger hover on devices that support hover (desktop with mouse pointer)
     if (typeof window !== "undefined" && !window.matchMedia("(hover: hover)").matches) {
       return;
     }
@@ -160,6 +234,7 @@ export const Navbar: React.FC = () => {
       clearTimeout(dropdownTimeoutRef.current);
       dropdownTimeoutRef.current = null;
     }
+    updateProfDropdownPos();
     setProfDropdownOpen(true);
   };
 
@@ -183,6 +258,7 @@ export const Navbar: React.FC = () => {
     }
     if (!profDropdownOpen) {
       setMobileMenuOpen(false);
+      updateProfDropdownPos();
     }
     setProfDropdownOpen((prev) => !prev);
   };
@@ -201,6 +277,26 @@ export const Navbar: React.FC = () => {
       formEl.scrollIntoView({ behavior: "smooth" });
       setMobileMenuOpen(false);
       setProfDropdownOpen(false);
+    }
+  };
+
+  // Slider buttons
+  const slideLeft = () => {
+    loanSliderRef.current?.scrollBy({ left: -260, behavior: "smooth" });
+  };
+
+  const slideRight = () => {
+    loanSliderRef.current?.scrollBy({ left: 260, behavior: "smooth" });
+  };
+
+  // Allow horizontal scroll using vertical mouse wheel
+  const handleSliderWheel = (e: React.WheelEvent<HTMLDivElement>) => {
+    const el = loanSliderRef.current;
+    if (!el) return;
+    if (el.scrollWidth > el.clientWidth) {
+      if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+        el.scrollLeft += e.deltaY;
+      }
     }
   };
 
@@ -278,144 +374,116 @@ export const Navbar: React.FC = () => {
 
       {/* Tier 2: Sub-Header Bar (Full-Width Royal Blue Strip #0B309A) */}
       <div className="relative w-full bg-[#0B309A] text-white border-t border-blue-900/40 shadow-inner z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-8 flex items-center justify-between py-1.5 sm:py-2">
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 md:px-6 flex items-center justify-between py-1.5 sm:py-2">
           
-          {/* Horizontal Loan Links Row */}
-          <nav className="flex-1 min-w-0 flex items-center gap-1 sm:gap-1.5 xl:gap-2 2xl:gap-2.5 text-xs sm:text-[12.5px] 2xl:text-[13px] font-medium whitespace-nowrap overflow-x-auto lg:overflow-visible no-scrollbar scroll-smooth -mx-4 px-4 sm:-mx-6 sm:px-6 md:mx-0 md:px-0 pr-2">
-            {LOAN_NAV_ITEMS.map((item, idx) => {
-              const isCurrentActive =
-                pathname === item.href ||
-                (item.href !== "/" && pathname?.startsWith(item.href));
+          {/* Loan Slider Wrapper with Left/Right Arrow Controls */}
+          <div className="relative flex-1 min-w-0 flex items-center">
+            
+            {/* Left Slider Arrow Button */}
+            {canScrollLeft && (
+              <button
+                type="button"
+                onClick={slideLeft}
+                aria-label="Slide loans left"
+                className="absolute left-0 z-30 w-7 h-7 rounded-full bg-[#08226B] hover:bg-[#051648] text-white flex items-center justify-center shadow-lg border border-white/20 transition-all hover:scale-110 active:scale-95 cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-[18px]">chevron_left</span>
+              </button>
+            )}
 
-              // Professional Loan with Dropdown
-              if (item.subLinks) {
-                return (
-                  <div
-                    key={item.id}
-                    ref={desktopDropdownRef}
-                    className="relative flex-shrink-0"
-                    onMouseEnter={handleProfMouseEnter}
-                    onMouseLeave={handleProfMouseLeave}
-                  >
-                    <button
-                      type="button"
-                      onClick={toggleProfDropdown}
-                      className={`flex-shrink-0 px-2.5 py-1.5 rounded-md transition-all duration-150 flex items-center gap-1 whitespace-nowrap cursor-pointer ${
-                        isCurrentActive
-                          ? "text-white font-bold bg-white/15 underline underline-offset-4 decoration-2"
-                          : profDropdownOpen
-                          ? "text-white font-bold bg-white/20"
-                          : "text-blue-100 hover:text-white hover:bg-white/10"
-                      }`}
-                      aria-expanded={profDropdownOpen}
-                      aria-haspopup="true"
+            {/* Left Fade Gradient Mask */}
+            {canScrollLeft && (
+              <div className="absolute left-0 top-0 bottom-0 w-8 bg-gradient-to-r from-[#0B309A] to-transparent pointer-events-none z-20" />
+            )}
+
+            {/* Horizontal Loan Links Row (Loan Slider) */}
+            <nav
+              ref={loanSliderRef}
+              onWheel={handleSliderWheel}
+              className="flex-1 min-w-0 flex items-center gap-1 sm:gap-1.5 xl:gap-2 text-xs sm:text-[12.5px] font-medium whitespace-nowrap overflow-x-auto no-scrollbar scroll-smooth px-1 sm:px-2"
+            >
+              {LOAN_NAV_ITEMS.map((item, idx) => {
+                const isCurrentActive =
+                  pathname === item.href ||
+                  (item.href !== "/" && pathname?.startsWith(item.href));
+
+                // Professional Loan with Dropdown
+                if (item.subLinks) {
+                  return (
+                    <div
+                      key={item.id}
+                      className="relative flex-shrink-0"
+                      data-active={isCurrentActive ? "true" : undefined}
+                      onMouseEnter={handleProfMouseEnter}
+                      onMouseLeave={handleProfMouseLeave}
                     >
-                      <span>{item.label}</span>
-                      <span
-                        className={`material-symbols-outlined text-[15px] transition-transform duration-200 ${
-                          profDropdownOpen ? "rotate-180 text-amber-300" : "text-blue-200"
+                      <button
+                        ref={profTriggerRef}
+                        type="button"
+                        onClick={toggleProfDropdown}
+                        className={`flex-shrink-0 px-2.5 py-1.5 rounded-md transition-all duration-150 flex items-center gap-1 whitespace-nowrap cursor-pointer ${
+                          isCurrentActive
+                            ? "text-white font-bold bg-white/15 underline underline-offset-4 decoration-2"
+                            : profDropdownOpen
+                            ? "text-white font-bold bg-white/20"
+                            : "text-blue-100 hover:text-white hover:bg-white/10"
                         }`}
+                        aria-expanded={profDropdownOpen}
+                        aria-haspopup="true"
                       >
-                        expand_more
-                      </span>
-                    </button>
+                        <span>{item.label}</span>
+                        <span
+                          className={`material-symbols-outlined text-[15px] transition-transform duration-200 ${
+                            profDropdownOpen ? "rotate-180 text-amber-300" : "text-blue-200"
+                          }`}
+                        >
+                          expand_more
+                        </span>
+                      </button>
+                    </div>
+                  );
+                }
 
-                    {/* Dedicated Desktop-Only Dropdown (anchored to button, visible on lg+ screens) */}
-                    {profDropdownOpen && (
-                      <div
-                        className="hidden lg:block absolute left-0 top-full pt-1.5 z-50 w-80 sm:w-96 shadow-2xl animate-in fade-in slide-in-from-top-1 duration-150 before:absolute before:inset-x-0 before:-top-3 before:h-3"
-                        onMouseEnter={handleProfMouseEnter}
-                        onMouseLeave={handleProfMouseLeave}
-                      >
-                        <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 text-slate-800 space-y-1.5">
-                          <div className="px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 flex items-center justify-between border-b border-slate-100 pb-2">
-                            <span>Specialized Professional Loans</span>
-                            <span className="text-emerald-600 font-bold">Fast Approval</span>
-                          </div>
-
-                          {item.subLinks.map((sub, sIdx) => {
-                            const isSubActive = pathname === sub.href;
-                            return (
-                              <Link
-                                key={sIdx}
-                                href={sub.href}
-                                onClick={() => setProfDropdownOpen(false)}
-                                className={`flex items-start gap-3 p-2.5 rounded-xl transition-all group ${
-                                  isSubActive
-                                    ? "bg-blue-50/80 text-[#0B309A]"
-                                    : "hover:bg-slate-50 text-slate-800 hover:text-[#0B309A]"
-                                }`}
-                              >
-                                <div className="p-2 rounded-lg bg-blue-50 text-[#0B309A] group-hover:bg-[#0B309A] group-hover:text-white transition-colors flex-shrink-0 mt-0.5">
-                                  <span className="material-symbols-outlined text-[18px]">
-                                    {sub.icon || "medical_services"}
-                                  </span>
-                                </div>
-                                <div className="flex-1 min-w-0">
-                                  <div className="flex items-center gap-1.5">
-                                    <span className="text-xs font-bold text-slate-900 group-hover:text-[#0B309A]">
-                                      {sub.label}
-                                    </span>
-                                    {sub.badge && (
-                                      <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-red-100 text-[#E30613]">
-                                        {sub.badge}
-                                      </span>
-                                    )}
-                                  </div>
-                                  {sub.desc && (
-                                    <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed mt-0.5">
-                                      {sub.desc}
-                                    </p>
-                                  )}
-                                </div>
-                              </Link>
-                            );
-                          })}
-
-                          <div className="pt-2 border-t border-slate-100 flex items-center justify-between px-2">
-                            <Link
-                              href="/professional-loan#rates-section"
-                              onClick={() => setProfDropdownOpen(false)}
-                              className="text-[11px] font-semibold text-slate-500 hover:text-[#0B309A]"
-                            >
-                              Check Rates &rarr;
-                            </Link>
-                            <Link
-                              href="/apply"
-                              onClick={() => setProfDropdownOpen(false)}
-                              className="px-3 py-1 bg-[#0B309A] hover:bg-[#082475] text-white text-[11px] font-bold rounded-lg shadow-xs"
-                            >
-                              Apply Now
-                            </Link>
-                          </div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
+                // Direct Link for all other loan products
+                return (
+                  <Link
+                    key={item.id}
+                    href={item.href}
+                    data-active={isCurrentActive ? "true" : undefined}
+                    className={`flex-shrink-0 px-2.5 py-1.5 rounded-md transition-all duration-150 flex items-center gap-1 whitespace-nowrap ${
+                      idx === LOAN_NAV_ITEMS.length - 1 ? "mr-4 xl:mr-1" : ""
+                    } ${
+                      isCurrentActive
+                        ? "text-white font-bold bg-white/15 underline underline-offset-4 decoration-2"
+                        : "text-blue-100 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    <span>{item.label}</span>
+                  </Link>
                 );
-              }
+              })}
+            </nav>
 
-              // Direct Link for all other loan products (Business Loan, Home Loan, LAP, Personal Loan, Working Capital, etc.)
-              return (
-                <Link
-                  key={item.id}
-                  href={item.href}
-                  className={`flex-shrink-0 px-2.5 py-1.5 rounded-md transition-all duration-150 flex items-center gap-1 whitespace-nowrap ${
-                    idx === LOAN_NAV_ITEMS.length - 1 ? "mr-4 md:mr-0" : ""
-                  } ${
-                    isCurrentActive
-                      ? "text-white font-bold bg-white/15 underline underline-offset-4 decoration-2"
-                      : "text-blue-100 hover:text-white hover:bg-white/10"
-                  }`}
-                >
-                  <span>{item.label}</span>
-                </Link>
-              );
-            })}
-          </nav>
+            {/* Right Fade Gradient Mask */}
+            {canScrollRight && (
+              <div className="absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-[#0B309A] to-transparent pointer-events-none z-20" />
+            )}
+
+            {/* Right Slider Arrow Button */}
+            {canScrollRight && (
+              <button
+                type="button"
+                onClick={slideRight}
+                aria-label="Slide loans right"
+                className="absolute right-0 z-30 w-7 h-7 rounded-full bg-[#08226B] hover:bg-[#051648] text-white flex items-center justify-center shadow-lg border border-white/20 transition-all hover:scale-110 active:scale-95 cursor-pointer"
+              >
+                <span className="material-symbols-outlined text-[18px]">chevron_right</span>
+              </button>
+            )}
+          </div>
 
           {/* Right Red Pill Hotline Button matching brand (+91 87450 03840) */}
-          <div className="hidden xl:flex items-center pl-4 flex-shrink-0">
+          <div className="hidden xl:flex items-center pl-3 flex-shrink-0">
             <a
               href={`tel:${BRAND_CONFIG.phone.replace(/\s+/g, "")}`}
               className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-[#E30613] hover:bg-[#FF1A27] text-white text-xs font-bold tracking-wide shadow-sm transition-transform hover:scale-105 whitespace-nowrap flex-shrink-0"
@@ -427,6 +495,80 @@ export const Navbar: React.FC = () => {
 
         </div>
       </div>
+
+      {/* Desktop Professional Loan Dropdown (Fixed positioned to prevent overflow clipping by loan slider) */}
+      {profDropdownOpen && (
+        <div
+          ref={desktopDropdownRef}
+          style={{ top: `${profDropdownPos.top}px`, left: `${profDropdownPos.left}px` }}
+          className="hidden lg:block fixed z-[60] w-80 sm:w-96 shadow-2xl animate-in fade-in slide-in-from-top-1 duration-150 before:absolute before:inset-x-0 before:-top-3 before:h-3"
+          onMouseEnter={handleProfMouseEnter}
+          onMouseLeave={handleProfMouseLeave}
+        >
+          <div className="bg-white rounded-2xl shadow-2xl border border-slate-200 p-3 text-slate-800 space-y-1.5">
+            <div className="px-3 py-1.5 text-[11px] font-extrabold uppercase tracking-wider text-slate-400 flex items-center justify-between border-b border-slate-100 pb-2">
+              <span>Specialized Professional Loans</span>
+              <span className="text-emerald-600 font-bold">Fast Approval</span>
+            </div>
+
+            {LOAN_NAV_ITEMS.find((item) => item.id === "professional-loan")?.subLinks?.map((sub, sIdx) => {
+              const isSubActive = pathname === sub.href;
+              return (
+                <Link
+                  key={sIdx}
+                  href={sub.href}
+                  onClick={() => setProfDropdownOpen(false)}
+                  className={`flex items-start gap-3 p-2.5 rounded-xl transition-all group ${
+                    isSubActive
+                      ? "bg-blue-50/80 text-[#0B309A]"
+                      : "hover:bg-slate-50 text-slate-800 hover:text-[#0B309A]"
+                  }`}
+                >
+                  <div className="p-2 rounded-lg bg-blue-50 text-[#0B309A] group-hover:bg-[#0B309A] group-hover:text-white transition-colors flex-shrink-0 mt-0.5">
+                    <span className="material-symbols-outlined text-[18px]">
+                      {sub.icon || "medical_services"}
+                    </span>
+                  </div>
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-center gap-1.5">
+                      <span className="text-xs font-bold text-slate-900 group-hover:text-[#0B309A]">
+                        {sub.label}
+                      </span>
+                      {sub.badge && (
+                        <span className="text-[9px] font-black px-1.5 py-0.5 rounded-full bg-red-100 text-[#E30613]">
+                          {sub.badge}
+                        </span>
+                      )}
+                    </div>
+                    {sub.desc && (
+                      <p className="text-[11px] text-slate-500 line-clamp-2 leading-relaxed mt-0.5">
+                        {sub.desc}
+                      </p>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
+
+            <div className="pt-2 border-t border-slate-100 flex items-center justify-between px-2">
+              <Link
+                href="/professional-loan#rates-section"
+                onClick={() => setProfDropdownOpen(false)}
+                className="text-[11px] font-semibold text-slate-500 hover:text-[#0B309A]"
+              >
+                Check Rates &rarr;
+              </Link>
+              <Link
+                href="/apply"
+                onClick={() => setProfDropdownOpen(false)}
+                className="px-3 py-1 bg-[#0B309A] hover:bg-[#082475] text-white text-[11px] font-bold rounded-lg shadow-xs"
+              >
+                Apply Now
+              </Link>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Mobile Professional Loan Dropdown (Placed outside overflow-x-auto container so it is NEVER clipped on mobile) */}
       {profDropdownOpen && (
