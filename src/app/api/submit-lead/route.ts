@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { saveLeadToFirestore, FirestoreLeadRecord } from "@/lib/firestore-rest";
 import { sendLeadNotificationEmail } from "@/lib/email";
+import { inspectSubmission } from "@/lib/anti-bot";
 
 function maskName(name: string): string {
   if (!name) return "A********";
@@ -38,6 +39,34 @@ export async function POST(req: NextRequest) {
     const consent = body.consent !== undefined ? Boolean(body.consent) : true;
     const marketingConsent = Boolean(body.marketingConsent);
     const sourcePage = (body.sourcePage || "/apply").trim();
+
+    // ── Anti-Bot & Spam Verification ──
+    const antiBotCheck = inspectSubmission(req, body, {
+      name: fullName,
+      phone: cleanMobile,
+      email,
+    });
+
+    if (!antiBotCheck.allowed) {
+      if (antiBotCheck.silentDrop) {
+        // Silently discard spam without saving or emailing, return 200 so bots don't adapt
+        return NextResponse.json(
+          {
+            success: true,
+            applicationId: body.refId || generateTrackingId(),
+            firestoreSaved: false,
+            emailSent: false,
+            message: "Application submitted successfully. Our credit team will contact you within 30 minutes.",
+            timestamp: new Date().toISOString(),
+          },
+          { status: 200 }
+        );
+      }
+      return NextResponse.json(
+        { success: false, error: antiBotCheck.error || "Invalid request." },
+        { status: antiBotCheck.statusCode || 400 }
+      );
+    }
 
     // 1. Mandatory DPDP Compliance Check
     if (!consent) {

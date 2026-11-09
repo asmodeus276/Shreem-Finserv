@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { savePartnerToFirestore } from "@/lib/firestore-rest";
 import { sendLeadNotificationEmail } from "@/lib/email";
+import { inspectSubmission } from "@/lib/anti-bot";
 
 function generatePartnerId(): string {
   const random6Digits = Math.floor(100000 + Math.random() * 900000);
@@ -15,6 +16,32 @@ export async function POST(req: NextRequest) {
     const cleanMobile = (body.mobile || "").replace(/\D/g, "");
     const city = (body.city || "").trim();
     const profession = (body.profession || "Direct Selling Agent (DSA)").trim();
+
+    // ── Anti-Bot & Spam Verification ──
+    const antiBotCheck = inspectSubmission(req, body, {
+      name,
+      phone: cleanMobile,
+    });
+
+    if (!antiBotCheck.allowed) {
+      if (antiBotCheck.silentDrop) {
+        // Silently discard spam without saving or emailing, return 200 so bots don't adapt
+        return NextResponse.json(
+          {
+            success: true,
+            partnerId: generatePartnerId(),
+            firestoreSaved: false,
+            emailSent: false,
+            message: "Partner registration received. Our channel manager will contact you within 2 hours.",
+          },
+          { status: 200 }
+        );
+      }
+      return NextResponse.json(
+        { success: false, error: antiBotCheck.error || "Invalid request." },
+        { status: antiBotCheck.statusCode || 400 }
+      );
+    }
 
     if (!name || cleanMobile.length !== 10) {
       return NextResponse.json(

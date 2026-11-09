@@ -18,6 +18,7 @@ export default function ContactForm() {
   const [phone, setPhone] = useState("");
   const [subject, setSubject] = useState(SUBJECT_OPTIONS[0]);
   const [message, setMessage] = useState("");
+  const [honeypot, setHoneypot] = useState("");
 
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -41,8 +42,8 @@ export default function ContactForm() {
     }
 
     const cleanPhone = phone.replace(/\D/g, "");
-    if (cleanPhone.length !== 10) {
-      setErrorMessage("Please enter a valid 10-digit mobile number.");
+    if (!/^[6-9]\d{9}$/.test(cleanPhone)) {
+      setErrorMessage("Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.");
       return;
     }
 
@@ -63,6 +64,7 @@ export default function ContactForm() {
           phone: cleanPhone,
           subject,
           message: message.trim(),
+          website_url_hp: honeypot,
         }),
       });
 
@@ -160,6 +162,18 @@ export default function ContactForm() {
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Anti-bot Honeypot Trap (Hidden from real users) */}
+        <div className="hidden" aria-hidden="true" style={{ display: "none" }}>
+          <input
+            type="text"
+            name="website_url_hp"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
+
         {/* Full Name */}
         <div>
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">

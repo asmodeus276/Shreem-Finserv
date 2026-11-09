@@ -29,6 +29,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
   const [fullName, setFullName] = useState("");
   const [mobile, setMobile] = useState("");
   const [city, setCity] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [loanCategory, setLoanCategory] = useState(defaultCategory || "Professional Loan");
   const [prevDefaultCategory, setPrevDefaultCategory] = useState(defaultCategory);
   if (defaultCategory !== prevDefaultCategory) {
@@ -65,8 +66,8 @@ export const LeadForm: React.FC<LeadFormProps> = ({
       return;
     }
     const cleanMobile = mobile.replace(/\D/g, "");
-    if (cleanMobile.length !== 10) {
-      setErrorMessage("Please enter a valid 10-digit mobile number.");
+    if (!/^[6-9]\d{9}$/.test(cleanMobile)) {
+      setErrorMessage("Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.");
       return;
     }
     if (!city.trim()) {
@@ -97,6 +98,7 @@ export const LeadForm: React.FC<LeadFormProps> = ({
         consent,
         marketingConsent,
         sourcePage,
+        website_url_hp: honeypot,
       });
 
       if (res.success) {
@@ -209,6 +211,18 @@ export const LeadForm: React.FC<LeadFormProps> = ({
       )}
 
       <form onSubmit={handleSubmit} className="space-y-4">
+        {/* Anti-bot Honeypot Trap (Hidden from real users, bots will fill it) */}
+        <div className="hidden" aria-hidden="true" style={{ display: "none" }}>
+          <input
+            type="text"
+            name="website_url_hp"
+            value={honeypot}
+            onChange={(e) => setHoneypot(e.target.value)}
+            tabIndex={-1}
+            autoComplete="off"
+          />
+        </div>
+
         {/* Full Name */}
         <div>
           <label className="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">

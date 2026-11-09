@@ -8,6 +8,7 @@ export const PartnerSection: React.FC = () => {
   const [mobile, setMobile] = useState("");
   const [city, setCity] = useState("");
   const [experience, setExperience] = useState("Direct Selling Agent (DSA)");
+  const [honeypot, setHoneypot] = useState("");
   const [loading, setLoading] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -22,8 +23,8 @@ export const PartnerSection: React.FC = () => {
     }
 
     const cleanMobile = mobile.replace(/\D/g, "");
-    if (cleanMobile.length !== 10) {
-      setErrorMessage("Please enter a valid 10-digit mobile number.");
+    if (!/^[6-9]\d{9}$/.test(cleanMobile)) {
+      setErrorMessage("Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.");
       return;
     }
 
@@ -37,6 +38,7 @@ export const PartnerSection: React.FC = () => {
           mobile: cleanMobile,
           city: city.trim() || "India",
           profession: experience,
+          website_url_hp: honeypot,
         }),
       });
       const data = await res.json();
@@ -142,6 +144,18 @@ export const PartnerSection: React.FC = () => {
                     )}
 
                     <form onSubmit={handleSubmit} className="space-y-4">
+                      {/* Anti-bot Honeypot Trap (Hidden from real users) */}
+                      <div className="hidden" aria-hidden="true" style={{ display: "none" }}>
+                        <input
+                          type="text"
+                          name="website_url_hp"
+                          value={honeypot}
+                          onChange={(e) => setHoneypot(e.target.value)}
+                          tabIndex={-1}
+                          autoComplete="off"
+                        />
+                      </div>
+
                       <div>
                         <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1">
                           Full Name / Company Name

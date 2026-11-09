@@ -178,6 +178,7 @@ export default function CareersPage() {
   const [selectedJob, setSelectedJob] = useState<JobOpening | null>(null);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState<string | null>(null);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -186,6 +187,7 @@ export default function CareersPage() {
     experience: "",
     linkedin: "",
     notes: "",
+    website_url_hp: "",
   });
 
   const filteredOpenings = useMemo(() => {
@@ -213,18 +215,33 @@ export default function CareersPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setErrorMsg(null);
+
+    const cleanPhone = formData.phone.replace(/\D/g, "");
+    if (!/^[6-9]\d{9}$/.test(cleanPhone)) {
+      setErrorMsg("Please enter a valid 10-digit Indian mobile number starting with 6, 7, 8, or 9.");
+      return;
+    }
+
     setLoading(true);
     try {
       const res = await fetch("/api/apply-job", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          phone: cleanPhone,
+        }),
       });
-      if (res.ok) {
+      const data = await res.json();
+      if (res.ok && data.success) {
         setSubmitted(true);
+      } else {
+        setErrorMsg(data.error || "Unable to submit application. Please try again.");
       }
     } catch (err) {
       console.error("[Career Apply Error]:", err);
+      setErrorMsg("Connection error. Please check your network and try again.");
     } finally {
       setLoading(false);
     }
@@ -497,6 +514,7 @@ export default function CareersPage() {
                     experience: "",
                     linkedin: "",
                     notes: "",
+                    website_url_hp: "",
                   });
                 }}
                 className="mt-2 text-xs font-bold text-[#0B309A] hover:underline"
@@ -506,6 +524,25 @@ export default function CareersPage() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-4">
+              {errorMsg && (
+                <div className="p-3 bg-red-50 border border-red-200 rounded-xl text-xs font-semibold text-red-700 flex items-center gap-2">
+                  <span className="material-symbols-outlined text-[18px]">error</span>
+                  <span>{errorMsg}</span>
+                </div>
+              )}
+
+              {/* Anti-bot Honeypot Trap (Hidden from real users) */}
+              <div className="hidden" aria-hidden="true" style={{ display: "none" }}>
+                <input
+                  type="text"
+                  name="website_url_hp"
+                  value={formData.website_url_hp}
+                  onChange={(e) => setFormData({ ...formData, website_url_hp: e.target.value })}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+              </div>
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label className="text-xs font-bold text-slate-700 block mb-1">

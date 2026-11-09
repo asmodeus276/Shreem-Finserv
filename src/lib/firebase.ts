@@ -62,6 +62,7 @@ export interface SubmitLeadParams {
   email?: string;
   employmentType?: string;
   monthlyIncome?: number;
+  website_url_hp?: string;
 }
 
 export interface SubmitLeadResult {

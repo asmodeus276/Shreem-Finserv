@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { saveContactToFirestore } from "@/lib/firestore-rest";
 import { sendContactNotificationEmail } from "@/lib/email";
+import { inspectSubmission } from "@/lib/anti-bot";
 
 function generateTicketId(): string {
   const random6Digits = Math.floor(100000 + Math.random() * 900000);
@@ -16,6 +17,34 @@ export async function POST(req: NextRequest) {
     const phone = (body.phone || "").replace(/\D/g, "");
     const subject = (body.subject || "General Inquiry").trim();
     const message = (body.message || "").trim();
+
+    // ── Anti-Bot & Spam Verification ──
+    const antiBotCheck = inspectSubmission(req, body, {
+      name: fullName,
+      phone,
+      email,
+    });
+
+    if (!antiBotCheck.allowed) {
+      if (antiBotCheck.silentDrop) {
+        // Silently discard spam without saving or emailing, return 200 so bots don't adapt
+        return NextResponse.json(
+          {
+            success: true,
+            ticketId: generateTicketId(),
+            firestoreSaved: false,
+            emailSent: false,
+            message: "Your message has been received. We will get back to you within 24 hours.",
+            timestamp: new Date().toISOString(),
+          },
+          { status: 200 }
+        );
+      }
+      return NextResponse.json(
+        { success: false, error: antiBotCheck.error || "Invalid request." },
+        { status: antiBotCheck.statusCode || 400 }
+      );
+    }
 
     // Validation
     if (!fullName || fullName.length < 2) {

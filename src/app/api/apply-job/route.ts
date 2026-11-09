@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { saveCareerToFirestore } from "@/lib/firestore-rest";
 import { sendCareerNotificationEmail } from "@/lib/email";
+import { inspectSubmission } from "@/lib/anti-bot";
 
 function generateJobAppId(): string {
   const random6Digits = Math.floor(100000 + Math.random() * 900000);
@@ -18,6 +19,33 @@ export async function POST(req: NextRequest) {
     const experience = (body.experience || "").trim();
     const linkedin = (body.linkedin || "").trim();
     const notes = (body.notes || "").trim();
+
+    // ── Anti-Bot & Spam Verification ──
+    const antiBotCheck = inspectSubmission(req, body, {
+      name,
+      phone,
+      email,
+    });
+
+    if (!antiBotCheck.allowed) {
+      if (antiBotCheck.silentDrop) {
+        // Silently discard spam without saving or emailing, return 200 so bots don't adapt
+        return NextResponse.json(
+          {
+            success: true,
+            applicationId: generateJobAppId(),
+            firestoreSaved: false,
+            emailSent: false,
+            message: "Candidate profile submitted successfully. Our HR team will reach out shortly.",
+          },
+          { status: 200 }
+        );
+      }
+      return NextResponse.json(
+        { success: false, error: antiBotCheck.error || "Invalid request." },
+        { status: antiBotCheck.statusCode || 400 }
+      );
+    }
 
     if (!name || !email || phone.length !== 10) {
       return NextResponse.json(
